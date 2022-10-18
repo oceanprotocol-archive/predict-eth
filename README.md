@@ -1,6 +1,6 @@
 # Predict ETH challenges
 
-Data science challenges to predict the future price of ETH, with prizes.
+Data science challenges to predict the future price of ETH, with prizes. Uses [ocean.py](https://github.com/oceanprotocol/ocean.py) library.
 
 ### Current / future challenges
 - [Challenge 2](predict-eth2.md) - Late 2022, exact dates TBA. <=1h predictions.
