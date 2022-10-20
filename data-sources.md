@@ -14,7 +14,7 @@ Scheduled for predict-eth2.md (via predict-eth#3](https://github.com/oceanprotoc
 - btc/usdt on TheGraph (graphql)
 - btc/usdt on uniswap (on-chain)
 
-### Candidate Sources
+### Candidate Sources: General
 
 Consider putting these into READMEs of future challenges. Currently this is a "dumping ground" to put all ideas, and that's ok!
 
@@ -22,3 +22,9 @@ Consider putting these into READMEs of future challenges. Currently this is a "d
 - 1000 DeFi-oriented data feeds from TheGraph. (Write a script to publish these)
 - 1000 DeFi-oriented data feeds from Chainlink. (Write a script to publish these)
 - [Messari subgraphs](https://github.com/messari/subgraphs) 
+
+### Candidate Sources: Low-latency
+
+- Mempool data sources: BloxRoute, more?
+- (add to me)
+
