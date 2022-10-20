@@ -89,8 +89,13 @@ print_datetime_info("CEX data info", allcex_uts)
 ### 3.1  Build a simple AI model
 
 Here's where you build whatever AI/ML model you want, leveraging the data from the previous step.
+```python
+uts = [datetime.datetime.utcfromtimestamp(x) for x in allcex_uts]
+data = pd.DataFrame({"ds": uts, "y": allcex_vals})
+model = Prophet()
+model.fit(data)
+```
 
-This demo flow skips building a model because the next step will simply generate random predictions.
 
 ### 3.2  Run the AI model to make future ETH price predictions
 
@@ -98,11 +103,16 @@ Predictions must be one prediction every hour on the hour, for a 12h period: Oct
 
 In the same Python console:
 ```python
+start_dt = datetime.datetime(2022, 10, 3, 1, 00)
+target_uts = ph.target_12h_unixtimes(start_dt)
+tmp = [datetime.datetime.utcfromtimestamp(x) for x in target_uts]
+future_inputs = pd.DataFrame({"ds": tmp})
+
 #get predicted ETH values
-import random
-avg = 1300
-rng = 25.0
-pred_vals = [avg + rng * (random.random() - 0.5) for i in range(12)]
+forecast = model.predict(future_inputs)
+result = forecast.set_index('ds')['yhat'][-12:]
+result.to_csv('output.csv')
+pred_vals = result.to_numpy()
 ```
 
 ### 3.3 Calculate NMSE
@@ -113,13 +123,10 @@ In the same Python console:
 
 ```python
 #get actual ETH values (for testing)
-start_dt = datetime.datetime(2022, 10, 3, 1, 00) #Example time. Oct 14, 2022 at 1:00am
-target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
-#allcex_uts, allcex_vals = .. # we already have these from section 2.2
 cex_vals = filter_to_target_uts(target_uts, allcex_uts, allcex_vals)
 
-#calc nmse, plot
+# calc nmse, plot
 nmse = calc_nmse(cex_vals, pred_vals)
 print(f"NMSE = {nmse}")
 plot_prices(cex_vals, pred_vals)
