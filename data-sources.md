@@ -18,4 +18,4 @@ Scheduled for predict-eth2.md (via predict-eth#3](https://github.com/oceanprotoc
 
 Consider putting these into READMEs of future challenges. Currently this is a "dumping ground" to put all ideas, and that's ok!
 
-- FIXME
+- Messari subgraphs https://github.com/messari/subgraphs
