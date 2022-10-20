@@ -1,6 +1,6 @@
 ## Modeling
 
-Feature vectors & AI/ML modeling algorithms that may improve accuracy.
+This page lists feature vectors & AI/ML modeling algorithms that may improve accuracy.
 
 ### Already in
 - random
