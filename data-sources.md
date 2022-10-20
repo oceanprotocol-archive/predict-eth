@@ -5,7 +5,10 @@ Existing and potential future data sources to consider putting into READMEs of f
 ### Already in
 - eth/usdt on CEXA (http api)
 
-### [Scheduled](https://github.com/oceanprotocol/predict-eth/issues/3) for predict-eth2.md
+### Scheduled to go in
+
+[Scheduled](https://github.com/oceanprotocol/predict-eth/issues/3) for predict-eth2.md:
+
 - eth/usdt on TheGraph (graphql)
 - eth/usdt on uniswap (on-chain)
 - btc/usdt on CEXA (http api)
@@ -15,3 +18,5 @@ Existing and potential future data sources to consider putting into READMEs of f
 ### Candidate Sources
 
 Consider putting these into READMEs of future challenges
+
+- FIXME
