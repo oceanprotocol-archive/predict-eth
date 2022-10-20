@@ -18,4 +18,7 @@ Scheduled for predict-eth2.md (via predict-eth#3](https://github.com/oceanprotoc
 
 Consider putting these into READMEs of future challenges. Currently this is a "dumping ground" to put all ideas, and that's ok!
 
+- 1000 DeFi-oriented http price feeds. Potential sources: ccxt, CovalentHQ, Kaiko data, ..
+- 1000 DeFi-oriented data feeds from TheGraph. (Write a script to publish these)
+- 1000 DeFi-oriented data feeds from Chainlink. (Write a script to publish these)
 - Messari subgraphs https://github.com/messari/subgraphs
