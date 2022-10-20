@@ -94,7 +94,7 @@ This demo flow skips building a model because the next step will simply generate
 
 ### 3.2  Run the AI model to make future ETH price predictions
 
-Predictions must be one prediction every hour on the hour, for a 24h period: Oct 3 at 1:00am UTC, at 2:00am, at 3:00am, ..., 11.00pm, 12.00am. Therefore there are 24 predictions total.
+Predictions must be one prediction every hour on the hour, for a 12h period: Oct 3 at 1am, 2am, 3am, 4am, 5am, 6am, 7am, 8am, 9am, 10am, 11am, 12pm (UTC). Therefore there are 12 predictions total.
 
 In the same Python console:
 ```python
@@ -102,7 +102,7 @@ In the same Python console:
 import random
 avg = 1300
 rng = 25.0
-pred_vals = [avg + rng * (random.random() - 0.5) for i in range(24)]
+pred_vals = [avg + rng * (random.random() - 0.5) for i in range(12)]
 ```
 
 ### 3.3 Calculate NMSE
@@ -114,7 +114,7 @@ In the same Python console:
 ```python
 #get actual ETH values (for testing)
 start_dt = datetime.datetime(2022, 10, 3, 1, 00) #Example time. Oct 14, 2022 at 1:00am
-target_uts = target_24h_unixtimes(start_dt)
+target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
 #allcex_uts, allcex_vals = .. # we already have these from section 2.2
 cex_vals = filter_to_target_uts(target_uts, allcex_uts, allcex_vals)
@@ -207,7 +207,7 @@ allcex_uts, allcex_vals = load_from_ohlc_data(file_name)
 print_datetime_info("CEX data info", allcex_uts)
 
 start_dt = datetime.datetime(2022, 10, 17, 1, 00) #Oct 17, 2022 at 1:00am
-target_uts = target_24h_unixtimes(start_dt)
+target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
 
 cex_vals = filter_to_target_uts(target_uts, allcex_uts, allcex_vals)
@@ -278,8 +278,8 @@ def print_datetime_info(descr:str, uts: list):
     print(f"  {len(dts)} datapoints")
     print(f"  time interval between datapoints: {(dts[1]-dts[0])}")
 
-def target_24h_unixtimes(start_dt: datetime.datetime) -> list:
-    target_dts = [start_dt + datetime.timedelta(hours=h) for h in range(24)]
+def target_12h_unixtimes(start_dt: datetime.datetime) -> list:
+    target_dts = [start_dt + datetime.timedelta(hours=h) for h in range(12)]
     target_uts = to_unixtimes(target_dts)
     return target_uts
 
@@ -328,7 +328,7 @@ def calc_nmse(y, yhat) -> float:
 def plot_prices(cex_vals, pred_vals):
     matplotlib.rcParams.update({'font.size': 22})
     
-    x = [h for h in range(0,24)]
+    x = [h for h in range(0,12)]
     assert len(x) == len(cex_vals) == len(pred_vals)
     
     fig, ax = plt.subplots()
