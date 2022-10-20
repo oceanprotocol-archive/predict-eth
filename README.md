@@ -9,6 +9,9 @@ Data science challenges to predict the future price of ETH, with prizes. Uses [o
 - [Challenge 1](predict-eth1.md) - Oct 3 - 17, 2022. <=24h predictions.
 
 
-### Data Sources
+### Future Accuracy Improvements
 
-[Data sources](data-sources.md) - Current and potential future data sources to go into READMEs of challenges
+We want to lower the friction for users getting good results. The following may go into future READMEs.
+
+- [More data sources](data-sources.md)
+- [Modeling approaches](modeling.md)
