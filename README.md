@@ -11,4 +11,4 @@ Data science challenges to predict the future price of ETH, with prizes. Uses [o
 
 ### Data Sources
 
-[Cand-sources](cand-sources.md) - Data sources to consider putting into READMEs of future challenges
+[Data sources](data-sources.md) - Current and potential future data sources to go into READMEs of challenges
