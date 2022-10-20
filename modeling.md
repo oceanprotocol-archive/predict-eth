@@ -7,7 +7,7 @@ Feature vectors & AI/ML modeling algorithms that may improve accuracy.
 
 ### Scheduled to go in
 
-- for predict-eth2.md: _something_ simple that is AI/ML based (via predict-eth#3](https://github.com/oceanprotocol/predict-eth/issues/3)
+- for predict-eth2.md: _something_ simple that is AI/ML based. Scheduled in [predict-eth#3](https://github.com/oceanprotocol/predict-eth/issues/3)
 
 ### Possible Future Features
 
