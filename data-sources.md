@@ -17,6 +17,6 @@ Existing and potential future data sources to consider putting into READMEs of f
 
 ### Candidate Sources
 
-Consider putting these into READMEs of future challenges
+Consider putting these into READMEs of future challenges. Currently this is a "dumping ground" to put all ideas, and that's ok!
 
 - FIXME
