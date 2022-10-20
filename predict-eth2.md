@@ -39,8 +39,8 @@ pip3 install wheel
 # Install Ocean library
 pip3 install ocean-lib
 
-# Install pybundlr library
-pip3 install pybundlr
+# Install other libraries
+pip3 install matplotlib pybundlr
 ```
 
 ### 1.2 Create Polygon Account (One-Time)
