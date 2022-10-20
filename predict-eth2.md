@@ -111,7 +111,6 @@ future_inputs = pd.DataFrame({"ds": tmp})
 #get predicted ETH values
 forecast = model.predict(future_inputs)
 result = forecast.set_index('ds')['yhat'][-12:]
-result.to_csv('output.csv')
 pred_vals = result.to_numpy()
 ```
 
