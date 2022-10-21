@@ -162,6 +162,7 @@ In the same Python console:
 ```python
 name = "ETH predictions " + str(time.time()) #time for unique name
 (data_nft, datatoken, asset) = ocean.assets.create_url_asset(name, url, alice_wallet, wait_for_aqua=False)
+data_nft.set_metadata_state(metadata_state=5, from_wallet=alice_wallet)
 print(f"New asset created, with did={asset.did}, and datatoken.address={datatoken.address}")
 ```
 
