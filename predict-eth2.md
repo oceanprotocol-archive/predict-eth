@@ -90,6 +90,8 @@ print_datetime_info("CEX data info", allcex_uts)
 
 Here's where you build whatever AI/ML model you want, leveraging the data from the previous step.
 ```python
+import pandas as pd
+from prophet import Prophet
 uts = [datetime.datetime.utcfromtimestamp(x) for x in allcex_uts]
 data = pd.DataFrame({"ds": uts, "y": allcex_vals})
 model = Prophet()
@@ -104,9 +106,9 @@ Predictions must be one prediction every hour on the hour, for a 12h period: Oct
 In the same Python console:
 ```python
 start_dt = datetime.datetime(2022, 10, 3, 1, 00)
-target_uts = ph.target_12h_unixtimes(start_dt)
-tmp = [datetime.datetime.utcfromtimestamp(x) for x in target_uts]
-future_inputs = pd.DataFrame({"ds": tmp})
+target_uts = target_12h_unixtimes(start_dt)
+target_dts = to_datetimes(target_uts)
+future_inputs = pd.DataFrame({"ds": target_dts})
 
 #get predicted ETH values
 forecast = model.predict(future_inputs)
