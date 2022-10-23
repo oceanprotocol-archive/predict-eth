@@ -90,10 +90,8 @@ print_datetime_info("CEX data info", allcex_uts)
 
 Here's where you build whatever AI/ML model you want, leveraging the data from the previous step.
 ```python
-import pandas as pd
-from prophet import Prophet
-uts = [datetime.datetime.utcfromtimestamp(x) for x in allcex_uts]
-data = pd.DataFrame({"ds": uts, "y": allcex_vals})
+dts = to_datetimes(allcex_uts)
+data = pd.DataFrame({"ds": dts, "y": allcex_vals})
 model = Prophet()
 model.fit(data)
 ```
@@ -112,8 +110,7 @@ future_inputs = pd.DataFrame({"ds": target_dts})
 
 #get predicted ETH values
 forecast = model.predict(future_inputs)
-result = forecast.set_index('ds')['yhat'][-12:]
-pred_vals = result.to_numpy()
+pred_vals = forecast.set_index('ds')['yhat'][-12:].to_numpy()
 ```
 
 ### 3.3 Calculate NMSE
@@ -235,6 +232,8 @@ In the Python console, copy and paste everything below:
 
 ```python
 #imports
+import pandas as pd
+from prophet import Prophet
 import datetime
 import numpy as np
 from pathlib import Path
