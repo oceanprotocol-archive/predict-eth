@@ -22,6 +22,10 @@ Consider putting these into READMEs of future challenges. Currently this is a "d
 - 1000 DeFi-oriented data feeds from TheGraph. (Write a script to publish these)
 - 1000 DeFi-oriented data feeds from Chainlink. (Write a script to publish these)
 - [Messari subgraphs](https://github.com/messari/subgraphs) 
+- Web3 Data SQL Companies-Transpose, Flipside Crypto, Dune Analytics- Transpose most open to integration, SQL for datasets->train model 
+- Ocean Missions-OceanDAO grantee-Data sets around Nike NFT collection-https://www.oceanmissions.com/data-packs/
+- Rome Blockchain Labs- Multi-chain DeFi data from GraphQL endpoint, activley want to list their data on Ocean Market
+- 
 
 ### Candidate Sources: Low-latency
 
