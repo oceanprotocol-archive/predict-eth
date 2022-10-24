@@ -232,7 +232,6 @@ import datetime
 import numpy as np
 from pathlib import Path
 import os
-import requests
 import time
 
 import matplotlib
