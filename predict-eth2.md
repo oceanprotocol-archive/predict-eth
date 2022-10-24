@@ -14,7 +14,7 @@ During the competition, we expect to continually evolve this README to make usag
 Here are the steps:
 
 1. Basic Setup
-2. Get data locally. E.g. Binance ETH price feed
+2. Get data locally.
 3. Make predictions
 4. Publish & share predictions
 
@@ -36,11 +36,8 @@ source venv/bin/activate
 # Avoid errors for the step that follows
 pip3 install wheel
 
-# Install Ocean library
-pip3 install ocean-lib
-
-# Install other libraries
-pip3 install matplotlib pybundlr
+# Install libraries
+pip3 install ocean-lib matplotlib pybundlr ccxt
 ```
 
 ### 1.2 Create Polygon Account (One-Time)
@@ -70,39 +67,29 @@ alice_wallet = create_alice_wallet(ocean) #you're Alice
 
 ## 2. Get data locally
 
-### 2.1 Get ETH price data
+Here, use whatever data you wish.
 
-Here, we grab Binance ETH/USDT price feed, which is published through Ocean as a free asset. You can see it on Ocean Market [here](https://market.oceanprotocol.com/asset/did:op:0dac5eb4965fb2b485181671adbf3a23b0133abf71d2775eda8043e8efc92d19).
+It can be static data or streams, free or priced, raw data or feature vectors or otherwise.
 
-In the same Python console:
-
-```python
-# Download file
-ETH_USDT_did = "did:op:0dac5eb4965fb2b485181671adbf3a23b0133abf71d2775eda8043e8efc92d19"
-file_name = ocean.assets.download_file(ETH_USDT_did, alice_wallet)
-allcex_uts, allcex_vals = load_from_ohlc_data(file_name)
-print_datetime_info("CEX data info", allcex_uts)
-```
+The [main README](../README.md) links to some options. 
 
 ## 3.  Make predictions
 
 ### 3.1  Build a simple AI model
 
-Here's where you build whatever AI/ML model you want, leveraging the data from the previous step.
+Here, build whatever AI/ML model you want, leveraging the data from the previous step.
 
 This demo flow skips building a model because the next step will simply generate random predictions.
 
 ### 3.2  Run the AI model to make future ETH price predictions
 
-Predictions must be one prediction every hour on the hour, for a 12h period: Oct 3 at 1am, 2am, 3am, 4am, 5am, 6am, 7am, 8am, 9am, 10am, 11am, 12pm (UTC). Therefore there are 12 predictions total.
+Predictions must be one prediction every hour on the hour, for a 12h period: (TBD DATE) at 1am, 2am, 3am, 4am, 5am, 6am, 7am, 8am, 9am, 10am, 11am, 12pm (UTC). Therefore there are 12 predictions total. The output is a list with 12 items.
 
-In the same Python console:
+Here's an example with random numbers. In the same Python console:
 ```python
 #get predicted ETH values
-import random
-avg = 1300
-rng = 25.0
-pred_vals = [avg + rng * (random.random() - 0.5) for i in range(12)]
+mean, stddev = 1300, 25.0
+pred_vals = list(np.random.normal(loc=mean, scale=stddev, size=(12,)))
 ```
 
 ### 3.3 Calculate NMSE
@@ -112,14 +99,22 @@ We use normalized mean-squared error (NMSE) as the accuracy measure.
 In the same Python console:
 
 ```python
-#get actual ETH values (for testing)
-start_dt = datetime.datetime(2022, 10, 3, 1, 00) #Example time. Oct 14, 2022 at 1:00am
+# get the time range we want to test for
+start_dt = datetime.datetime.now() - datetime.timedelta(hours=24) #must be >= 12h ago
+start_dt = round_to_nearest_hour(start_dt) # so that times line up
 target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
-#allcex_uts, allcex_vals = .. # we already have these from section 2.2
+
+# get the actual ETH values at that time
+import ccxt
+allcex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h')
+allcex_uts = [xi[0]/1000 for xi in allcex_x]
+allcex_vals = [xi[4] for xi in allcex_x]
+print_datetime_info("allcex times", allcex_uts)
+
 cex_vals = filter_to_target_uts(target_uts, allcex_uts, allcex_vals)
 
-#calc nmse, plot
+# now, we have predicted and actual values. Let's find error, and plot!
 nmse = calc_nmse(cex_vals, pred_vals)
 print(f"NMSE = {nmse}")
 plot_prices(cex_vals, pred_vals)
@@ -232,7 +227,6 @@ import datetime
 import numpy as np
 from pathlib import Path
 import os
-import requests
 import time
 
 import matplotlib
@@ -278,11 +272,20 @@ def to_datetimes(uts: list) -> list:
     return [to_datetime(ut) for ut in uts]
 
 
+def round_to_nearest_hour(dt: datetime.datetime) -> datetime.datetime:
+    return (dt.replace(second=0, microsecond=0, minute=0, hour=dt.hour)
+            + datetime.timedelta(hours=dt.minute//30))
+
+
+def pretty_time(dt: datetime.datetime) -> str:
+    return dt.strftime('%Y/%m/%d, %H:%M:%S')
+
+
 def print_datetime_info(descr:str, uts: list):
     dts = to_datetimes(uts)
     print(descr + ":")
-    print(f"  first datetime: {dts[0].strftime('%Y/%m/%d, %H:%M:%S')}")
-    print(f"  last datetime: {dts[-1].strftime('%Y/%m/%d, %H:%M:%S')}")
+    print(f"  starts on: {pretty_time(dts[0])}")
+    print(f"    ends on: {pretty_time(dts[-1])}")
     print(f"  {len(dts)} datapoints")
     print(f"  time interval between datapoints: {(dts[1]-dts[0])}")
 
@@ -310,7 +313,9 @@ def filter_to_target_uts(target_uts:list, unfiltered_uts:list, unfiltered_vals:l
     for i, target_ut in enumerate(target_uts):
         time_diffs = np.abs(np.asarray(unfiltered_uts) - target_ut)
         tol_s = 1 #should always align within e.g. 1 second
-        assert min(time_diffs) <= tol_s, min(time_diffs) 
+        target_ut_s = pretty_time(to_datetime(target_ut))
+        assert min(time_diffs) <= tol_s, \
+            f"Unfiltered times is missing target time: {target_ut_s}"
         j = np.argmin(time_diffs)
         filtered_vals[i] = unfiltered_vals[j]
     return filtered_vals
