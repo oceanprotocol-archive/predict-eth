@@ -12,8 +12,6 @@ It is used for the first [ETH Prediction Challenge](https://blog.oceanprotocol.c
 - Submission deadline: Oct 16, 2022 at 23:59 UTC
 - Prediction at times: Oct 17, 2022 at 1:00 UTC, 2:00 UTC, ..., 23:00, 24:00. (24 predictions total). 
 
-During the competition, we expect to continually evolve this README to make usage smooth.
-
 Here are the steps:
 
 1. Basic Setup
