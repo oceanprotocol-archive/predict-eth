@@ -77,14 +77,16 @@ test_data = data.iloc[-12:,:]
 model = Prophet()
 model.fit(train_data)
 
+#Predict ETH values over the range of the test set
 forecast = model.predict(pd.DataFrame({"ds":test_data.ds}))
 pred_vals = forecast.set_index('ds')['yhat'][-12:].to_numpy()
 
-
+# Calculate Normalized Mean Squared Error between predictions and true (test) values
 nmse = calc_nmse(test_data.y, pred_vals)
 print(f"NMSE = {nmse}")
-plot_prices(test_data.y, pred_vals)
 
+# Plot predicted and real values for ETH price
+plot_prices(test_data.y, pred_vals)
 
 ```
 
