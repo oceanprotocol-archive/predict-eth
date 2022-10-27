@@ -9,6 +9,9 @@ This quickstart describes a flow to predict future ETH price via a local AI mode
 
 It is used for the first [ETH Prediction Challenge](https://blog.oceanprotocol.com/ocean-protocol-announces-the-launch-of-the-eth-prediction-challenge-7b1f04cc820e), announced Oct 3, 2022.
 
+- Submission deadline: Oct 16, 2022 at 23:59 UTC
+- Prediction at times: Oct 17, 2022 at 1:00 UTC, 2:00 UTC, ..., 23:00, 24:00. (24 predictions total). 
+
 During the competition, we expect to continually evolve this README to make usage smooth.
 
 Here are the steps:
