@@ -70,7 +70,7 @@ train_data = data.iloc[0:-12,:]
 test_data = data.iloc[-12:,:]
 
 # fit a linear model (Facebook's Prophet model: https://facebook.github.io/prophet/)
-# as the data is subdialy, the model will fit dayly seasonality
+# as the data is subdaily, the model will fit dayly seasonality
 model = Prophet()
 model.fit(train_data)
 
