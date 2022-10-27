@@ -9,8 +9,10 @@ This quickstart describes a flow to predict future ETH price via a local AI mode
 
 It is used for the second ETH Prediction Challenge. (Not announced yet.)
 
+- Kickoff: Nov 14, 2022
 - Submission deadline: Dec 11, 2022 at 23:59 UTC
 - Prediction at times: Dec 12, 2022 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
+- Winners announced: within one week
 
 Here are the steps:
 
