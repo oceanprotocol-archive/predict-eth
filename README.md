@@ -15,12 +15,12 @@ Examples that do one or more of: grab data, compute features, build models, make
 - [Get ETH data via ccxt + Binance](examples/get-data-ccxt-binance.md)
 - (Add to me)
 
-### Future Accuracy Improvements
+### Data & Modeling Ideas
 
-We want to lower the friction for users getting good results. The following may go into future READMEs.
+Here are ideas to get even more accurate results.
 
-- [More data sources](data-sources.md)
-- [Modeling approaches](modeling.md)
+- [More data sources](ideas/data-sources.md)
+- [Modeling approaches](ideas/modeling.md)
 
 ### Appendix: Past challenges
 - [Challenge 1](challenges/main1.md) - Oct 2022
