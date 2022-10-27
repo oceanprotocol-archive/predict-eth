@@ -4,7 +4,7 @@ Data science challenges to predict the future price of ETH, with prizes. Uses [o
 
 ### Current / future challenges
 - [Challenge: web3 ATL hackathon](predict-eth-h1.md) - early Nov 2022
-- [Challenge 2](predict-eth2.md) - Late 2022, exact dates TBA
+- [Challenge 2](predict-eth2.md) - Nov/Dec 2022
 
 ### Example Approaches
 
@@ -23,4 +23,4 @@ We want to lower the friction for users getting good results. The following may 
 - [Modeling approaches](modeling.md)
 
 ### Appendix: Past challenges
-- [Challenge 1](predict-eth1.md) - Oct 3 - 17, 2022. <=24h predictions.
+- [Challenge 1](predict-eth1.md) - Oct 2022. <=24h predictions.
