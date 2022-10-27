@@ -69,7 +69,7 @@ alice_wallet = create_alice_wallet(ocean) #you're Alice
 
 Here, use whatever data you wish.
 
-It can be static data or streams, free or priced, raw data or feature vectors or otherwise.
+It can be static data or streams, free or priced, raw data or feature vectors or otherwise. It can be published via Ocean, or not.
 
 The [main README](../README.md) links to some options. 
 
