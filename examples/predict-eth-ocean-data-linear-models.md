@@ -12,7 +12,6 @@ This quickstart describes a flow to predict future ETH price via a local AI mode
 Prerequisites:
 - Linux/MacOS
 - Python 3.8.5+
-- [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction): `npm install -g @bundlr-network/client` 
 
 Now, let's install Python libraries. Open a terminal and:
 ```console
@@ -26,8 +25,6 @@ pip3 install wheel
 # Install Ocean library
 pip3 install ocean-lib
 
-# Install other libraries
-pip3 install matplotlib pybundlr
 ```
 
 ### Set envvars, for your wallet address
