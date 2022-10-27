@@ -3,8 +3,8 @@
 Data science challenges to predict the future price of ETH, with prizes. Uses [ocean.py](https://github.com/oceanprotocol/ocean.py) library.
 
 ### Current / future challenges
-- [Challenge: web3 ATL hackathon](predict-eth-h1.md) - early Nov 2022
-- [Challenge 2](predict-eth2.md) - Nov/Dec 2022
+- [Challenge: web3 ATL hackathon](challenges/hack1.md) - early Nov 2022
+- [Challenge 2](challenges/main2.md) - Nov/Dec 2022
 
 ### Example Approaches
 
@@ -23,4 +23,4 @@ We want to lower the friction for users getting good results. The following may 
 - [Modeling approaches](modeling.md)
 
 ### Appendix: Past challenges
-- [Challenge 1](predict-eth1.md) - Oct 2022. <=24h predictions.
+- [Challenge 1](challenges/main1.md) - Oct 2022
