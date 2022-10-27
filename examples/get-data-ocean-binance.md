@@ -22,7 +22,7 @@ with open(file_name, "r") as file:
     data_str = file.read().rstrip().replace('"', '')
     cex_x = eval(data_str) #list of lists
 
-# cex_x is a list of 500 items, one for every hour, on the hour. 
+# cex_x is a list of 1000 items, one for every hour, on the hour. 
 #
 # Each item has a list of 5 entries: 
 # (0) timestamp (1) open price (2) high price (3) low price (4) close price
