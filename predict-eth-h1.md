@@ -163,7 +163,7 @@ data_nft.set_metadata_state(metadata_state=5, from_wallet=alice_wallet)
 print(f"New asset created, with did={asset.did}, and datatoken.address={datatoken.address}")
 ```
 
-Write down the `did` and `datatoken.address`. You'll be needing to share them in the Questbook entry.
+Write down the `did` and `datatoken.address`. You'll be needing to share them with the hackathon hosts.
 
 ### 4.4 Share predictions to judges
 
@@ -173,7 +173,6 @@ to_address="0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E" #official judges address
 datatoken.mint(to_address, ocean.to_wei(10), alice_wallet)
 ```
 
-Finally, ensure you've filled in your Questbook entry.
 
 Now, you're complete! Thanks for being part of this competition.
 
