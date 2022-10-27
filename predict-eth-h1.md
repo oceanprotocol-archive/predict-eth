@@ -9,6 +9,7 @@ This quickstart describes a flow to predict future ETH price via a local AI mode
 
 It is used for the [Web3 ATL hackathon](https://hack.web3atl.io/) that runs Nov 4-6, 2022.
 
+- Kickoff: Nov 4, 2022
 - Submission deadline: Nov 6, 2022 at 12:00 Eastern.
 - Prediction at times: Nov 6, 2022 at 13:00, 14:00, ..., 23:00, 24:00 midnight. (12 predictions total).
 
