@@ -5,7 +5,7 @@ SPDX-License-Identifier: Apache-2.0
 
 # Quickstart: Predict Future ETH Price
 
-This quickstart describes a flow to predict future ETH price via a local AI model.
+This quickstart describes a flow to predict future ETH price via a local AI model using data published in Ocean.
 
 ## Setup
 
@@ -42,7 +42,7 @@ Do the steps in "Appendix: Load helper functions".
 
 ### Script
 
-In the Python:
+In Python:
 
 ```python
 # Cerate an instance of Ocean
@@ -69,8 +69,8 @@ data = pd.DataFrame({"ds": dts, "y": allcex_vals})
 train_data = data.iloc[0:-12,:]
 test_data = data.iloc[-12:,:]
 
-# fit a linear model (Facebook's Prophet model: https://facebook.github.io/prophet/)
-# as the data is subdaily, the model will fit dayly seasonality
+# fit a linear model (Open sourced Facebook's Prophet model: https://facebook.github.io/prophet/)
+# As the data is subdaily, the model will fit daily seasonality
 model = Prophet()
 model.fit(train_data)
 
@@ -89,9 +89,7 @@ plot_prices(test_data.y, pred_vals)
 
 ## Appendix: Load helper functions
 
-If the Python console isn't already open: `python`
-
-In the Python console, copy and paste everything below:
+In the Python console, copy and paste the code below:
 
 ```python
 #imports
