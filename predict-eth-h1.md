@@ -3,11 +3,11 @@ Copyright 2022 Ocean Protocol Foundation
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# Quickstart: Predict Future ETH Price
+# Quickstart: Predict Future ETH Price ofr Web3 ATL Hackathon
 
 This quickstart describes a flow to predict future ETH price via a local AI model.
 
-It is used for the first [ETH Prediction Challenge](https://blog.oceanprotocol.com/ocean-protocol-announces-the-launch-of-the-eth-prediction-challenge-7b1f04cc820e), announced Oct 3, 2022.
+It is used for the [Web3 ATL hackathon](https://hack.web3atl.io/) that runs Nov 4-6, 2022.
 
 During the competition, we expect to continually evolve this README to make usage smooth.
 
