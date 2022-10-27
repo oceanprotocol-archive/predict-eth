@@ -7,9 +7,10 @@ SPDX-License-Identifier: Apache-2.0
 
 This quickstart describes a flow to predict future ETH price via a local AI model.
 
-It is used for the first [ETH Prediction Challenge](https://blog.oceanprotocol.com/ocean-protocol-announces-the-launch-of-the-eth-prediction-challenge-7b1f04cc820e), announced Oct 3, 2022.
+It is used for the second ETH Prediction Challenge. (Not announced yet.)
 
-During the competition, we expect to continually evolve this README to make usage smooth.
+- Submission deadline: Dec 11, 2022 at 23:59 UTC
+- Prediction at times: Dec 12, 2022 at 1:00 UTC, 2:00 UTC, ..., 12:00 (12 predictions total).
 
 Here are the steps:
 
@@ -202,7 +203,7 @@ file_name = ocean.assets.download_file(ETH_USDT_did, alice_wallet)
 allcex_uts, allcex_vals = load_from_ohlc_data(file_name)
 print_datetime_info("CEX data info", allcex_uts)
 
-start_dt = datetime.datetime(2022, 10, 17, 1, 00) #Oct 17, 2022 at 1:00am
+start_dt = datetime.datetime(2022, 12, 12, 1, 00) #Dec 12, 2022 at 1:00am UTC
 target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
 
