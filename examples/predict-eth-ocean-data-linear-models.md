@@ -9,35 +9,8 @@ This quickstart describes a flow to predict future ETH price via a local AI mode
 
 ## Setup
 
-Prerequisites:
-- Linux/MacOS
-- Python 3.8.5+
-
-Now, let's install Python libraries. Open a terminal and:
-```console
-# Initialize virtual environment and activate it.
-python3 -m venv venv
-source venv/bin/activate
-
-# Avoid errors for the step that follows
-pip3 install wheel
-
-# Install Ocean library
-pip3 install ocean-lib
-
-```
-
-### Set envvars, for your wallet address
-
-In the terminal:
-```console
-export REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
-```
-
-### Helper functions
-
-For convenience Ocean functionality has been wrapped around helper functions. 
-Do the steps in "Appendix: Load helper functions".
+From [challenge 1](../challenges/main1.md), do:
+- [x] Setup
 
 
 ### Script
@@ -63,6 +36,7 @@ print_datetime_info("CEX data info", allcex_uts)
 dts = to_datetimes(allcex_uts)
 
 # create a Data Frame with two columns [date,eth-prices] with dates given in intervals of 1-hour
+import pandas as pd
 data = pd.DataFrame({"ds": dts, "y": allcex_vals})
 
 # use the last 12 hours of testing set, all the previous data is used as training
@@ -71,6 +45,7 @@ test_data = data.iloc[-12:,:]
 
 # fit a linear model (Open sourced Facebook's Prophet model: https://facebook.github.io/prophet/)
 # As the data is subdaily, the model will fit daily seasonality
+from prophet import Prophet
 model = Prophet()
 model.fit(train_data)
 
