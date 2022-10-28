@@ -18,11 +18,6 @@ From [challenge 1](../challenges/main1.md), do:
 In Python:
 
 ```python
-# Cerate an instance of Ocean
-ocean = create_ocean_instance()
-
-# create a wallet
-user_wallet = create_alice_wallet(ocean)
 
 # Download file from Ocean market (free)
 ETH_USDT_did = "did:op:0dac5eb4965fb2b485181671adbf3a23b0133abf71d2775eda8043e8efc92d19"
