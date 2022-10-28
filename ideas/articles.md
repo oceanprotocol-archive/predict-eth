@@ -1,4 +1,4 @@
-## Articles on Crypto predictions (and Stock Market)
+## Articles on Predicting Crypto (and Stock Market)
 
 Articles:
 - Mykhailo Kushnir, [Measuring the influence of on-chain metrics on Ethereum price](https://levelup.gitconnected.com/measuring-the-influence-of-on-chain-metrics-on-ethereum-price-81b7633be832?gi=c2c7c1627338), Mar 2022
