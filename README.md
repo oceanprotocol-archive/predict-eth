@@ -21,7 +21,7 @@ Here are ideas to get even more accurate results.
 
 - [More data sources](ideas/data-sources.md)
 - [Modeling approaches](ideas/modeling.md)
-- [Articles on predicing ETH, etc](ideas/articles.md)
+- [Articles](ideas/articles.md) on predicting ETH, etc
 
 ### Appendix: Past challenges
 - [Challenge 1](challenges/main1.md) - Oct 2022
