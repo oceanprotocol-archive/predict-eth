@@ -1,4 +1,8 @@
-## Articles on Crypto predictions
+## Articles on Crypto predictions (and Stock Market)
 
-https://www.kaggle.com/competitions/g-research-crypto-forecasting
-https://www.kaggle.com/competitions/jpx-tokyo-stock-exchange-prediction/data
+Articles:
+- (add to me)
+
+Kaggle competitions:
+- ["G-Research Crypto Forecasting"](https://www.kaggle.com/competitions/g-research-crypto-forecasting)
+- ["JPX Tokyo Stock Exchange Prediction"](https://www.kaggle.com/competitions/jpx-tokyo-stock-exchange-prediction/data)
