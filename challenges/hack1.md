@@ -10,8 +10,8 @@ This quickstart describes a flow to predict future ETH price via a local AI mode
 It is used for the [Web3 ATL hackathon](https://hack.web3atl.io/) that runs Nov 4-6, 2022.
 
 - Kickoff: Nov 4, 2022
-- Submission deadline: Nov 6, 2022 at 12:00 Eastern.
-- Prediction at times: Nov 6, 2022 at 13:00, 14:00, ..., 23:00, 24:00 midnight. (12 predictions total)
+- Submission deadline: Nov 6, 2022 at 11:59pm Eastern Time.
+- Prediction at times: Nov 7, 2022 at 01:00am, 02:00am, ..., 11:00, 12:00 midday. (12 predictions total)
 - Winners announced: within one week
 
 Here are the steps:
@@ -86,7 +86,7 @@ This demo flow skips building a model because the next step will simply generate
 
 ### 3.2  Run the AI model to make future ETH price predictions
 
-Predictions must be one prediction every hour on the hour, for a 12h period: (TBD DATE) at 1am, 2am, 3am, 4am, 5am, 6am, 7am, 8am, 9am, 10am, 11am, 12pm (UTC). Therefore there are 12 predictions total. The output is a list with 12 items.
+Predictions must be one prediction every hour on the hour, for a 12h period: 7 November at 1am, 2am, 3am, 4am, 5am, 6am, 7am, 8am, 9am, 10am, 11am, 12pm (EST). Therefore there are 12 predictions in total. The output is a list with 12 items.
 
 Here's an example with random numbers. In the same Python console:
 ```python
