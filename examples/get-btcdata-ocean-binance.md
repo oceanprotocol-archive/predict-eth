@@ -26,7 +26,7 @@ import pandas as pd
 # (0) timestamp (1) open price (2) high price (3) low price (4) close price
 
 # Create initial DataFrame
-df = pd.read_json("USDT.json")
+df = pd.read_json(file_name)
 
 # Add names to columns
 df = df.rename(columns={0: 'TimeStamp', 1: 'Open', 2: 'Highest', 3: 'Lowest', 4: 'Close', 5: 'Volume'})
