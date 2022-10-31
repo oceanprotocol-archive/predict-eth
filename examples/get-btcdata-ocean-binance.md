@@ -25,7 +25,9 @@ If for any reason you cannot get the Data, here is an alternative method:
 https://market.oceanprotocol.com/asset/did:op:b4584760f5133b27d91c337b9c10b56448b84a1bae39b8c1037d0de33023b4dc
 2. Add this line to your code:
 file_name = 'USDT.json'
+```
 
+```
 ### 2. Prepare a DataFrame with the data ready for your analysis
 
 import pandas as pd
@@ -45,7 +47,9 @@ df['TimeStamp'] = pd.to_datetime(df['TimeStamp'], unit="ms")
 
 # Rename column Timestamp to Datetime
 df = df.rename(columns={'TimeStamp': 'Datetime'})
+```
 
+```
 ### 3. Get the data for the hour of the day that makes sense for your analysis
 
 # If you only want the data at 19h every day
