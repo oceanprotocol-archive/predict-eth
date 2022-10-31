@@ -27,9 +27,8 @@ https://market.oceanprotocol.com/asset/did:op:b4584760f5133b27d91c337b9c10b56448
 file_name = 'USDT.json'
 ```
 
-```
 ### 2. Prepare a DataFrame with the data ready for your analysis
-
+```
 import pandas as pd
 
 # cex_x is a list of 1000 items, one for every hour, on the hour.
@@ -49,9 +48,8 @@ df['TimeStamp'] = pd.to_datetime(df['TimeStamp'], unit="ms")
 df = df.rename(columns={'TimeStamp': 'Datetime'})
 ```
 
-```
 ### 3. Get the data for the hour of the day that makes sense for your analysis
-
+```
 # If you only want the data at 19h every day
 data_at_19h = df[df['Datetime'].dt.hour == 19]
 
