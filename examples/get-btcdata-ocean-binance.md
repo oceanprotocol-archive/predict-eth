@@ -19,6 +19,15 @@ BTC_USDT_did = "did:op:b4584760f5133b27d91c337b9c10b56448b84a1bae39b8c1037d0de33
 
 file_name = ocean.assets.download_file(BTC_USDT_did, alice_wallet)
 
+NOTE:
+If for any reason you cannot get the Data, here is an alternative method:
+1. Get the data from here (download the file):
+https://market.oceanprotocol.com/asset/did:op:b4584760f5133b27d91c337b9c10b56448b84a1bae39b8c1037d0de33023b4dc
+2. Add this line to your code:
+file_name = 'USDT.json'
+
+### 2. Prepare a DataFrame with the data ready for your analysis
+
 import pandas as pd
 
 # cex_x is a list of 1000 items, one for every hour, on the hour.
@@ -37,7 +46,7 @@ df['TimeStamp'] = pd.to_datetime(df['TimeStamp'], unit="ms")
 # Rename column Timestamp to Datetime
 df = df.rename(columns={'TimeStamp': 'Datetime'})
 
-# Now get the data for the hour of the day that makes sense for your analysis
+### 3. Get the data for the hour of the day that makes sense for your analysis
 
 # If you only want the data at 19h every day
 data_at_19h = df[df['Datetime'].dt.hour == 19]
