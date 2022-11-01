@@ -25,6 +25,6 @@ import pandas as pd
 data = pd.read_json(file_name)
 data = pd.json_normalize(data.data.tokenHourDatas)
 
-# The DataFrame data contains 5 columns. This information can be sued as predictors
+# The DataFrame data contains 8 columns. This information can be sued as predictors
 # in a machine learning model (i.e an autoregressive model)
 ```
