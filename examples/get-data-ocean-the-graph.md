@@ -21,6 +21,7 @@ file_name = ocean.assets.download_file(ETH_USDT_did, alice_wallet)
 # (0) periodStartUnix (1) priceUSD (2) open (3) high (4) low (5) close (6) volume (7) VolumeUSD
 
 # create dataframe with the required variables
+import pandas as pd
 data = pd.read_json(file_name)
 data = pd.json_normalize(data.data.tokenHourDatas)
 
