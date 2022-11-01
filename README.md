@@ -13,7 +13,7 @@ Examples that do one or more of: grab data, compute features, build models, make
 - [Get ETH data via Ocean + Binance](examples/get-data-ocean-binance.md)
 - [Get ETH data via ccxt + Binance](examples/get-data-ccxt-binance.md)
 - [Predict ETH price 1-12 hours ahead using Ocean data and linear models](examples/predict-eth-ocean-data-linear-models.md)
-- (Add to me)
+- [Predict ETH price 1-12 hours ahead using uniswap data from The Graph through Ocean](examples/predict-eth-graphQL-data-linear-models.md)
 
 ### Future Accuracy Improvements
 
