@@ -53,9 +53,7 @@ uched) 0.0.0.0
 
 Congratulations! The configuration file is now available at ft_userdata/user_data/config.json
 
-Navigate to the config.json file and underneath `"dry_run": true,` add `"dry_run_wallet": 10000,`
-
-* This dry\_run\_wallet value tells your bot to begin trading with $10,000 USD and the `"stake_amount": "unlimited"` tells the bot to reinvest any gains + the $10,000 principal. If this stake amount was hard-coded to $10,000 USD, for example, then the bot would only trade a base amount of up to $10,000 and no more.
+Navigate to your config.json file in your favorite text/code editor and delete the comments in the file because comments are not allowed in JSON.
 
 * * *
 
