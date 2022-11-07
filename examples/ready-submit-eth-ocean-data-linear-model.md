@@ -72,12 +72,15 @@ For Windows:
 example\Scripts\activate
 ```
 
-Step 3: Install the Pandas and ccxt libraries using pip:
+Step 3: Install the Pandas, ccxt and scikit-learn libraries using pip:
 ```
 pip install pandas
 ```
 ```
 pip install ccxt
+```
+```
+pip install scikit-learn
 ```
 
 Step 4: Create a python file (you can use any name for the file, for example 'predict_eth'):
@@ -92,6 +95,8 @@ import numpy as np
 import ccxt
 import datetime
 import time
+from sklearn import linear_model
+from sklearn.metrics import mean_squared_error, r2_score
 ```
 
 ---
