@@ -339,7 +339,7 @@ r2 = r2_score(y_test, predictions) # result is 0.68
 rmse = mean_squared_error(y_test, predictions, squared=False) # result is 103
 ```
 
-Wow! 68% and an rmse of 103, that is good right? Well, what about if instead of using all the data we use only one hour of the day?
+ok! 68% and an rmse of 103, those are acceptable initial results but, wait a second, what about if instead of using all the data we deploy or model for only one hour of the day, say 10am?
 
 ```python
 
