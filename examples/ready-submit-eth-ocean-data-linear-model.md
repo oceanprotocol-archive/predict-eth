@@ -95,7 +95,8 @@ import numpy as np
 import ccxt
 import datetime
 import time
-from sklearn import linear_model
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 ```
 
@@ -287,31 +288,53 @@ Good job!
 
 ---
 
-## 3. Data Preparation
+## 3. Data Exploration
 
-Before running the model we check that there are no NaN or empty values in the DataFrame
+Before running the model we check that there are no NaN or empty values and that all cells have the correct type
 
 ```python
-all_cells_have_value = np.where(pd.isnull(base)) # Returns an empty array because there are no NaN or empty values
+base.info()
 ```
 
-We also check that all cells have the correct type
+We can also explore the relationship between variables with a correlation table
 
 ```python
-correct_types = base.dtypes # All columns have the correct type
+base.corr()
 ```
 
 ## 4. Data Selection
 
-We select the time to one or more specific hours
+Examples in case we want to select a specific time in the day
 
 ```python
 data_at_19h = base[base['Date'].dt.hour == 13] # All 13h in the afternoon
 data_every_12h = base[(base['Date'].dt.hour == 10) | (base['Date'].dt.hour == 12)] # All 10am and 12pm
 ```
 
-
-
 ## 5. Model
 
-Be
+Let's try first with a model that includes all data
+
+```python
+# Instantiate a model object
+model = LinearRegression()
+
+# Add predictor variables
+X = data[['AAPL_Open', 'AAPL_High', 'AAPL_Low', 'AAPL_Close', 'AAPL_Vol', 'GOOG_Open', 'GOOG_High', 'GOOG_Low', 'GOOG_Close', 'GOOG_Vol', 'TSLA_Open', 'TSLA_High', 'TSLA_Low', 'TSLA_Close', 'TSLA_Vol', 'AMZN_Open', 'AMZN_High', 'AMZN_Low', 'AMZN_Close', 'AMZN_Vol']]
+
+# Add the target
+y = data['ETH_Price']
+
+# Create the training and testing datasets
+X_train, X_test, y_train, y_test = train_test_split(X, y, shuffle=True, train_size=0.3)
+
+# Create the fitted model
+model.fit(X_train, y_train)
+
+# Predict the next values
+predictions = model.predict(X_test)
+
+# Evaluate the model
+r2 = r2_score(y_test, predictions) # result is 0.68
+rmse = mean_squared_error(y_test, predictions, squared=False) # result is 103
+```
