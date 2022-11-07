@@ -292,18 +292,18 @@ Good job!
 Before running the model we check that there are no NaN or empty values in the DataFrame
 
 ```python
-all_cells_have_value = np.where(pd.isnull(base))
+all_cells_have_value = np.where(pd.isnull(base)) # Returns an empty array because there are no NaN or empty values
 ```
 
 We also check that all cells have the correct type
 
 ```python
-correct_types = base.dtypes
+correct_types = base.dtypes # All columns have the correct type
 ```
 
 ## 4. Data Selection
 
-We select the time to 
+We select the time to one or more specific hours
 
 ```python
 data_at_19h = base[base['Date'].dt.hour == 13] # All 13h in the afternoon
