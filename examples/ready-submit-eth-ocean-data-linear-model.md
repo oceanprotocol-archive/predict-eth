@@ -272,3 +272,31 @@ base = pd.merge(base, df_tech_tesla, how='inner', on='Date') # add 'df_tech_tesl
 base = pd.merge(base, df_tech_amazon, how='inner', on='Date') # add 'df_tech_amazon' to base
 ```
 
+In Data Science gathering the data is always a very labor intensive process.
+
+In this section we have achieved a lot:
+- Explained in detail how to get a true ETH price from ccxt
+- Gathered and processed four technology stock predictors for ETH
+- Created the base DataFrame, that contains all the raw data for our analysis
+
+Good job! 
+
+---
+
+
+## 3. Data Preparation
+
+todo
+
+---
+
+
+## 4. Descriptives
+
+todo
+
+---
+
+## 5. Model
+
+todo
