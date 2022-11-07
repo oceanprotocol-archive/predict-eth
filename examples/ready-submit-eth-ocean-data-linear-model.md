@@ -3,18 +3,19 @@
 *This is an example of how a full submission looks like -- you can actually use it to participate!*
 
 **The Mission of Ocean Protocol is democratize data.**
+
 **This competition is part of our effort to help people understand the value of data and how to use it to their advantage.**
 
 In this example we will focus on predicting the Ether (ETH) price at a selected hour of the day.
 
 Remember:
--  You do not have to win, just make a good submission.
+-  You do not have to win, just make a full submission (like this one)
 -  This competition is ongoing, you can always improve your submission in the next edition.
--  Also, have you ever considered that you might have a career in Data Science? You can even include this experience in your CV. It's a start...
+-  Also, have you ever considered that you might have a career in Data Science? Start by adding this experience to your CV. It's a start...
 
 ---
 
-Here is a full detailed explanation of what to do and how a full submission looks like.
+Here is a detailed explanation of what to do and how a complete submission looks like.
 
 A few remarks:
 - The code presented here is repetitive and does not benefit from neither Python's nor Pandas methods.
@@ -27,7 +28,7 @@ Requirements:
 
 Our recommendations:
 - Think deeply about which variables you can use to predict the price correctly -- **this is where your magic comes in!**
-- If it is your first time in a competition like this, please concentrate on submitting a full and correct entry. You will have more opportunities to level up your approach in every forthcoming edition.
+- If it is your first time in this competition; please concentrate on submitting a full and correct entry. You will have more opportunities to improve on your approach in subsequent editions.
 
 Ready?, let's start! :rocket: :rocket: :rocket:
 
@@ -37,7 +38,7 @@ Ready?, let's start! :rocket: :rocket: :rocket:
 
 In this example we plan to predict the daily Binance ETH price.
 
-In essence, what we are being ask to do is present a model.
+In essence, what we are being asked to do is present a model.
 
 In Data Science a model is just an equation that renders a value when some variables are submitted.
 
@@ -45,7 +46,7 @@ A model often looks like this:
 
 **ETH_Price = Predictor Variable 1 + Predictor Variable 2 + ... + Predictor Variable n + Error**
 
-So this is what is being asked. The ETH is the sum of a group of features (in Data Science the Predictor Variables are called features).
+So this is what is being asked: ETH_Price is the sum of a group of features (in Data Science the Predictor Variables are called features).
 
 But... there is a catch. The error. The error affects the features and hence the prediction.
 
@@ -97,13 +98,13 @@ import time
 
 ## 3. Data Gathering:
 
-To be clear, we need the ETH Price data and the Predictor variables data.
+We need the ETH Price data and the Predictor variables data.
 
 The ETH Price will help us know how accurate is our model when we compare its result to the true price.
 
 The Predictor variables data include all sorts of data that you think have an influence in the ETH Price.
 
-Of course, please remember that a big part of the competition is about you using your magic to find better predictor variables.
+Of course, please remember that a big part of the competition is about you using your magic to find better predictor variables than the ones presented here.
 
 Remember: A good analysis starts with good data.
 
@@ -114,8 +115,6 @@ We will create a DataFrame for every piece of data we gather.
 Each DataFrame will have a column named "Date".
 
 We will make sure that every "Date" column has the type 'datetime', so we can compare them when we merge all the DataFrames.
-
-Finally we will merge all DataFrames into one to have all our data in one place.
 
 
 ### 3.1 Getting the ETH_Price Data
@@ -130,9 +129,9 @@ The data is available on Ocean market for free:
 TODO-------------------------ETH_USDT_did = "did:op:0dac5eb4965fb2b485181671adbf3a23b0133abf71d2775eda8043e8efc92d19"
 TODO-------------------------file_name = ocean.assets.download_file(ETH_USDT_did, alice_wallet)
 
-For each stock we have 5 variables: open, close, high, low and the volume -- all for every hour.
+For each stock we have 5 variables: open, close, high, low and volume -- all for every hour and for the last three months.
 
-To build a DataFrame for each stock we will import the csv, rename the columns and type the date to datetime (so we can compare dates later).
+To build a DataFrame for each stock we will import the csv, rename the columns, and type the date to datetime (so we can compare dates later).
 
 ```python
 # Apple Stock
@@ -163,7 +162,7 @@ df_tech_amazon['Date'] = pd.to_datetime(df_tech_amazon['Date'], format="%m/%d/%Y
 
 We use the [ccxt](https://github.com/ccxt/ccxt) package.
 
-This library comes with a limitation, for every request you cannot get more than 500 rows.
+This library comes with a limitation, there is a limit of 500 rows per request.
 
 We will need to repeat the query a few times to get to the last three months of data.
 
@@ -240,7 +239,7 @@ Finally we concatenate the DataFrames:
 # Concatenate the DataFrames
 ETH_Price = pd.concat([df_first_500, df_second_500, df_third_500, df_fourth_500, df_fifth_500])
 
-# Remove columns that are not the Price
+# Remove all columns but Date and Price
 ETH_Price.drop(['Open', 'Highest', 'Lowest', 'Volume'], axis=1, inplace=True)
 
 # Rename the column 'Close' to 'ETH_Price'
@@ -253,9 +252,9 @@ ETH_Price.reset_index(drop=True, inplace=True)
 
 ### 3.3 Putting it all together in a 'base' DataFrame
 
-Good job! We now have the ETH_Price and four major technology stocks prices per hour and all for the last three months.
+Good job! We now have the ETH_Price and four major technology stocks prices. All per hour and for the last three months.
 
-In addition, all DataFrames have a column named 'Date' that has a type of datetime. So we can compare them all.
+In addition, all DataFrames have a column named 'Date' that is of the datetime type. So we can compare them all.
 
 Let's build the "base" DataFrame. Which is an initial DataFrame that contains all the raw data.
 
@@ -272,12 +271,12 @@ base = pd.merge(base, df_tech_tesla, how='inner', on='Date') # add 'df_tech_tesl
 base = pd.merge(base, df_tech_amazon, how='inner', on='Date') # add 'df_tech_amazon' to base
 ```
 
-In Data Science gathering the data is always a very labor intensive process.
+Ready to start the analysis! As you can see in Data Science gathering the data is quite a labor intensive process.
 
 In this section we have achieved a lot:
 - Explained in detail how to get a true ETH price from ccxt
 - Gathered and processed four technology stock predictors for ETH
-- Created the base DataFrame, that contains all the raw data for our analysis
+- Created the base DataFrame, which contains all the raw data for our analysis
 
 Good job! 
 
