@@ -339,7 +339,7 @@ r2 = r2_score(y_test, predictions) # result is 0.68
 rmse = mean_squared_error(y_test, predictions, squared=False) # result is 103
 ```
 
-Wow! 68% and an rmse of 103, that is good right? Well, what about if intead of using all the data we use only one hour of the day?
+Wow! 68% and an rmse of 103, that is good right? Well, what about if instead of using all the data we use only one hour of the day?
 
 ```python
 
@@ -353,6 +353,10 @@ r2 = r2_score(y_test, predictions) # result is -6.52
 rmse = mean_squared_error(y_test, predictions, squared=False) # result is 544
 ```
 
-What you see here is the Ocean's Prediction challenge, the shorter the time frame, the harder it is to predict accurately the price.
+These results indicate that our promising model is worse than an horizontal line for the 10am prediction.
 
-Can you improve this?
+Why? What happened?
+
+What you see here is the Ocean's Prediction challenge. The shorter the time frame, the harder it is to accurately predict the price.
+
+Can you help us improve this?
