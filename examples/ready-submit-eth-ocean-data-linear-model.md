@@ -338,3 +338,21 @@ predictions = model.predict(X_test)
 r2 = r2_score(y_test, predictions) # result is 0.68
 rmse = mean_squared_error(y_test, predictions, squared=False) # result is 103
 ```
+
+Wow! 68% and an rmse of 103, that is good right? Well, what about if intead of using all the data we use only one hour of the day?
+
+```python
+
+# Add this line on top of the previous model
+base = base[base['Date'].dt.hour == 10]
+
+# repeat the previous model here
+
+# Re-evaluate the model
+r2 = r2_score(y_test, predictions) # result is -6.52
+rmse = mean_squared_error(y_test, predictions, squared=False) # result is 544
+```
+
+What you see here is the Ocean's Prediction challenge, the shorter the time frame, the harder it is to predict accurately the price.
+
+Can you improve this?
