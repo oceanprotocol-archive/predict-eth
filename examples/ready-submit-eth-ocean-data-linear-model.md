@@ -80,7 +80,7 @@ pip install pandas
 pip install ccxt
 ```
 ```
-pip install scikit-learn
+pip install -U scikit-learn
 ```
 
 Step 4: Create a python file (you can use any name for the file, for example 'predict_eth'):
@@ -287,20 +287,31 @@ Good job!
 
 ---
 
-
 ## 3. Data Preparation
 
-todo
+Before running the model we check that there are no NaN or empty values in the DataFrame
 
----
+```python
+all_cells_have_value = np.where(pd.isnull(base))
+```
+
+We also check that all cells have the correct type
+
+```python
+correct_types = base.dtypes
+```
+
+## 4. Data Selection
+
+We select the time to 
+
+```python
+data_at_19h = base[base['Date'].dt.hour == 13] # All 13h in the afternoon
+data_every_12h = base[(base['Date'].dt.hour == 10) | (base['Date'].dt.hour == 12)] # All 10am and 12pm
+```
 
 
-## 4. Descriptives
-
-todo
-
----
 
 ## 5. Model
 
-todo
+Be
