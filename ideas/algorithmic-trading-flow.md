@@ -101,6 +101,8 @@ This trading strategy uses three technical indicators to buy and sell cryptocurr
 - [Bollinger Bands](https://www.investopedia.com/terms/b/bollingerbands.asp)
 - [Exponential Moving Average (EMA)](https://www.investopedia.com/terms/e/ema.asp)
 
+## BUY Code
+
 Let's review the BUY signal code:
 
 ```
@@ -117,7 +119,7 @@ def populate_entry_trend(self, dataframe: DataFrame, metadata: dict) -> DataFram
         return dataframe
 ```
 
-1.  Buy a cryptocurrency pair when the RSI is **above** at least 29:
+1.  Buy a cryptocurrency pair when the RSI is **above** 29:
 
 RSI is a momentum indicator that indicates a bullish sign as the RSI value increases. When the RSI is lower than 29, then the strategy deems the cryptocurrency pair too risky to buy. Thus, the buy condition requires the RSI to be above 29.
 
@@ -131,19 +133,21 @@ OR
 
 3.  The exponential moving average 5 crosses **above** the exponential moving average 21 value:
 
-This EMA movement is called a "Golden Cross". The exponential moving average is a type of Moving Average that is exponentially weighted to react more quickly to recent price changes. The EMA5 reacts even more quickly to recent price changes than the EMA21, so this indicates a rapid bullish signal.
+This EMA movement is called a "Golden Cross". The exponential moving average is a type of Moving Average that is exponentially weighted to react more quickly to recent price changes. The EMA5 reacts even more quickly to recent price changes than the EMA21, so this indicates a bullish signal.
 
 AND
 
 4.  The EMA5 of the previous candle was **less than or equal to** the EMA21 of the current candle:
 
-This indicates that the momentum of the cryptocurrency pair is moving upward in a bullish direction.
+Coupled with condition #3, this indicates that the momentum of the cryptocurrency pair is moving upward in a bullish direction.
 
 NOTE: the code `.shift(1)` denotes the previous candle
 
-When either conditions 1 & 2 OR conditions 3 & 4 are satisfied, then the bot *buys* the crypto currency pair.
+**When either conditions 1 & 2 OR conditions 3 & 4 are satisfied, then the bot *buys* the crypto currency pair.**
 
-The SELL signal code is converse to the buy signal code, except to note that when the RSI is greater than 71 then the cryptocurrency pair is overbought and it's time to sell.
+## SELL Code
+
+The SELL signal code is converse to the buy signal code:
 
 ```
 def populate_exit_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
@@ -174,7 +178,7 @@ OR
 
 3.  The exponential moving average 5 crosses **below** the exponential moving average 21 value:
 
-This EMA movement is called a "Death Cross". Recall that the EMA5 reacts even more quickly to recent price changes than the EMA21, so this indicates a rapid bearish signal.
+This EMA movement is called a "Death Cross". Recall that the EMA5 reacts even more quickly to recent price changes than the EMA21, so this indicates a bearish signal.
 
 AND
 
@@ -182,9 +186,11 @@ AND
 
 This indicates that the momentum of the cryptocurrency pair is moving downward in a bearish direction.
 
+**When either conditions 1 & 2 OR conditions 3 & 4 are satisfied, then the bot *sells* the crypto currency pair.**
+
 # 5\. Live Trade with Caution
 
-All the above steps are a great start with creating your algo trading bot.
+All the above steps are a _great start_ with creating your algo trading bot.
 
 However, it is not recommended to trade with real money until you have at least backtested your strategy. It is also recommended to hyperopt your strategy's parameters with machine learning. The Freqtrade project luckily gives you these abilities!
 
