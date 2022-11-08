@@ -1,8 +1,8 @@
 # Ready to Submit Example of Predicting ETH Price at a Given Hour
 
-*This is an example of how a full submission looks like -- you can actually use it to participate!*
+*This is an example of how a full submission looks like -- you can actually use this one to participate!*
 
-**The Mission of Ocean Protocol is democratize data.**
+**The Mission of Ocean Protocol is to democratize data.**
 
 **This competition is part of our effort to help people understand the value of data and how to use it to their advantage.**
 
@@ -299,7 +299,7 @@ base.info()
 We can also explore the relationship between variables with a correlation table
 
 ```python
-base.corr()
+base.corr(method='pearson', numeric_only=True)
 ```
 
 ## 4. Data Selection
@@ -320,10 +320,10 @@ Let's try first with a model that includes all data
 model = LinearRegression()
 
 # Add predictor variables
-X = data[['AAPL_Open', 'AAPL_High', 'AAPL_Low', 'AAPL_Close', 'AAPL_Vol', 'GOOG_Open', 'GOOG_High', 'GOOG_Low', 'GOOG_Close', 'GOOG_Vol', 'TSLA_Open', 'TSLA_High', 'TSLA_Low', 'TSLA_Close', 'TSLA_Vol', 'AMZN_Open', 'AMZN_High', 'AMZN_Low', 'AMZN_Close', 'AMZN_Vol']]
+X = base[['AAPL_Open', 'AAPL_High', 'AAPL_Low', 'AAPL_Close', 'AAPL_Vol', 'GOOG_Open', 'GOOG_High', 'GOOG_Low', 'GOOG_Close', 'GOOG_Vol', 'TSLA_Open', 'TSLA_High', 'TSLA_Low', 'TSLA_Close', 'TSLA_Vol', 'AMZN_Open', 'AMZN_High', 'AMZN_Low', 'AMZN_Close', 'AMZN_Vol']]
 
 # Add the target
-y = data['ETH_Price']
+y = base['ETH_Price']
 
 # Create the training and testing datasets
 X_train, X_test, y_train, y_test = train_test_split(X, y, shuffle=True, train_size=0.3)
@@ -335,11 +335,13 @@ model.fit(X_train, y_train)
 predictions = model.predict(X_test)
 
 # Evaluate the model
-r2 = r2_score(y_test, predictions) # result is 0.68
-rmse = mean_squared_error(y_test, predictions, squared=False) # result is 103
+r2 = r2_score(y_test, predictions) # result is 0.71
+rmse = mean_squared_error(y_test, predictions, squared=False) # result is 104
 ```
 
-ok! 68% and an rmse of 103, those are acceptable initial results but, wait a second, what about if instead of using all the data we deploy or model for only one hour of the day, say 10am?
+ok! 71% and an rmse of 104, are acceptable initial results.
+
+However, wait a second, wait a second, what about if instead of using all the data we deploy or model for only one hour of the day, say 10am?
 
 ```python
 
@@ -353,10 +355,12 @@ r2 = r2_score(y_test, predictions) # result is -6.52
 rmse = mean_squared_error(y_test, predictions, squared=False) # result is 544
 ```
 
-These results indicate that our promising model is worse than an horizontal line for the 10am prediction.
+These results show that for, the 10am prediction, our promising model is worse than an horizontal line.
 
 Why? What happened?
 
-What you see here is the Ocean's Prediction challenge. The shorter the time frame, the harder it is to accurately predict the price.
+**This is Ocean's Prediction challenge: The shorter the time frame, the harder it is to accurately predict the price.**
+
+We are sure that when examining this example you came up with several opportunities to improve this (number of datapoints, normalization, etc.)
 
 Can you help us improve this?
