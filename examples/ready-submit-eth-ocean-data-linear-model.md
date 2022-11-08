@@ -334,12 +334,20 @@ model.fit(X_train, y_train)
 # Predict the next values
 predictions = model.predict(X_test)
 
-# Evaluate the model
-r2 = r2_score(y_test, predictions) # result is 0.71
-rmse = mean_squared_error(y_test, predictions, squared=False) # result is 104
+# To evaluate the model we use r2 and nmse
+# Helper function to compute nmse
+def calc_nmse(y, yhat) -> float:
+    assert len(y) == len(yhat)
+    mse_xy = np.sum(np.square(np.asarray(y) - np.asarray(yhat)))
+    mse_x = np.sum(np.square(np.asarray(y)))
+    nmse = mse_xy / mse_x
+    return nmse
+
+r2 = r2_score(y_test, predictions) # result is 0.68
+nmse = calc_nmse(y_test, predictions) # result is 0.0048
 ```
 
-ok! 71% and an rmse of 104, are acceptable initial results.
+ok! 68% and an nmse of 0.0048, these are acceptable initial results.
 
 However, wait a second, wait a second, what about if instead of using all the data we deploy or model for only one hour of the day, say 10am?
 
@@ -351,16 +359,14 @@ base = base[base['Date'].dt.hour == 10]
 # repeat the previous model here
 
 # Re-evaluate the model
-r2 = r2_score(y_test, predictions) # result is -6.52
-rmse = mean_squared_error(y_test, predictions, squared=False) # result is 544
+r2 = r2_score(y_test, predictions) # result is -6.98
+nmse = calc_nmse(y_test, predictions) # result is 0.1311
 ```
 
 These results show that for, the 10am prediction, our promising model is worse than an horizontal line.
 
-Why? What happened?
+While examining this example, you probably noticed that this example can benefit from some improvements (number of datapoints, normalization, etc.)
 
-**This is Ocean's Prediction challenge: The shorter the time frame, the harder it is to accurately predict the price.**
-
-We are sure that when examining this example you came up with several opportunities to improve this (number of datapoints, normalization, etc.)
+That is what Ocean's ETH Predict challenge is about.
 
 Can you help us improve this?
