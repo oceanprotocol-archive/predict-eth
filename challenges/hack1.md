@@ -7,9 +7,9 @@ SPDX-License-Identifier: Apache-2.0
 
 This quickstart describes a flow to predict future ETH price via a local AI model.
 
-It is used for the [Web3 ATL hackathon](https://hack.web3atl.io/) that runs Nov 4-6, 2022.
+It is used for the [Web3 ATL hackathon](https://hack.web3atl.io/) that runs Oct 26 - Nov 6, 2022.
 
-- Kickoff: Nov 4, 2022
+- Kickoff: Oct 26, 2022
 - Submission deadline: Nov 6, 2022 at 11:59pm Eastern Time.
 - Prediction at times: Nov 7, 2022 at 01:00am, 02:00am, ..., 11:00, 12:00 midday. (12 predictions total)
 - Winners announced: within one week
