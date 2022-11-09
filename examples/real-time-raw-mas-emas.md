@@ -185,7 +185,7 @@ Replace the "Add predictor variables" section for this one:
 
 ```python
 # Add predictor variables
-df_EMA_data_ETH=df_data_ETH.ewm(span=21, adjust=False).mean(numeric_only=True)
+df_EMA_data_ETH=df_data_ETH.ewm(span=21, adjust=False).mean(numeric_only=True) # new DataFrame with 21 EMA calculations
 X = df_EMA_data_ETH[['Open', 'High', 'Low', 'Close', 'Volume']]
 ```
 
