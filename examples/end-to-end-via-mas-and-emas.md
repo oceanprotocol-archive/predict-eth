@@ -1,10 +1,12 @@
-# Real time 1 hour ETH prediction using raw data, moving average and exponential moving average
 
-Moving Average (MA) and Exponential Moving Average (EMA) are two of the most frequently used investor indicators.
+# End-to-end example: Raw data, MA and EMA
 
-Investors often use the 21 datapoint interval.
 
-This example presents the predictive power of 'Open', 'High', 'Low', 'Close' and 'Volume' for 1 hour intervals of ETH price.
+## Introduction
+
+This example predicts ETH price via raw data from CCXT, Moving Average (MA) and Exponential Moving Average (EMA). MA and EMA are are frequently-used investor indicators.
+
+The raw data is: 'Open', 'High', 'Low', 'Close' and 'Volume' values, at 1 hour intervals. Predictions are at 1-hour intervals into the future.
 
 Relevant information:
 - This script is executed in real UTC time.
@@ -23,41 +25,24 @@ Results:
 |  r²           |     99.67%    |     98.81%    |     99.93%    |
 |  nmse         |  2.37 * 10⁻5  |  8.05 * 10⁻5  |  5.21 * 10⁻6  |
 
----
 
-## 1. Create en environment and install the libraries
+## 1. Setup
 
-Step 1: Creating an environment named "example":
-```
-python -m venv example
-```
+From [Challenge 2](../challenges/main2.md), do:
+- [x] Setup
 
-Step 2: Activate the environment in Linux or Windows:
-```
-source ./example/bin/activate
-```
-For Windows:
-```
-example\Scripts\activate
-```
-
-Step 3: Install the Pandas, ccxt and scikit-learn libraries using pip:
-```
-pip install pandas
-```
-```
-pip install ccxt
-```
-```
+In the console:
+```console
+pip install pandas ccxt 
 pip install -U scikit-learn
 ```
 
-Step 4: Create a python file (you can use any name for the file, for example 'predict1h_eth'):
-```
-touch predict1h_eth.py
+In the same console, run Python console:
+```console
+python
 ```
 
-Step 5: Open the file and import these libraries:
+First, let's do some imports. In the Python console:
 ```python
 from datetime import datetime, timezone
 import time
@@ -69,12 +54,21 @@ from sklearn.svm import SVR
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
+
+# add nmse helper function
+def calc_nmse(y, yhat) -> float:
+    assert len(y) == len(yhat)
+    mse_xy = np.sum(np.square(np.asarray(y) - np.asarray(yhat)))
+    mse_x = np.sum(np.square(np.asarray(y)))
+    nmse = mse_xy / mse_x
+    return nmse
+
 ```
 
----
 
+## 2. Scenario: make predictions with raw data
 
-## Setup
+In the same Python console:
 
 ```python
 # Create a UTC datetime object with today's date and current running hour
@@ -111,19 +105,6 @@ df_data_ETH.info()
 # Dependent Variable (DV) - to be used in all scenarios
 y = df_data_ETH['Close']
 
-# nmse helper function
-def calc_nmse(y, yhat) -> float:
-    assert len(y) == len(yhat)
-    mse_xy = np.sum(np.square(np.asarray(y) - np.asarray(yhat)))
-    mse_x = np.sum(np.square(np.asarray(y)))
-    nmse = mse_xy / mse_x
-    return nmse
-```
-
-
-## Raw Data
-
-```python
 # Add predictor variables
 X = df_data_ETH[['Open', 'High', 'Low', 'Volume']]
 
@@ -147,11 +128,11 @@ X_train, X_test, y_train, y_test = train_test_split(X_selected, y, shuffle=True,
 model.fit(X_train, y_train)
 
 # Predict the next values
-predictions = model.predict(X_test)
+yhat_test = model.predict(X_test)
 
 # Evaluate the model
-r2 = r2_score(y_test, predictions)
-nmse = calc_nmse(y_test, predictions)
+r2 = r2_score(y_test, yhat_test)
+nmse = calc_nmse(y_test, yhat_test)
 
 # Print results
 print(f'r2 is {r2}')
@@ -159,9 +140,13 @@ print(f'nmse is {nmse}')
 ```
 
 
-## MA-21
+## 3. Scenario: make predictions with MA-21
+
+MA-21 is Moving Average with 21-datapoint interval. (Investors often use the 21 datapoint interval.)
 
 We use the code of the raw data scenario.
+
+Sections 1 & 2 operated in the Python console. To make things easier for this step: please create your own .py script, and copy & paste Python code from sections 1 & 2 into it. Then do the following changes, to make it work in MA-21 scenario.
 
 Replace the "Add predictor variables" section for this one:
 
@@ -182,9 +167,11 @@ X_selected = df_MA_data_ETH[cols_selected] # Add this line
 ```
 
 
-## EMA-21
+## 4. Scenario: make predictions with EMA-21
 
-We use the code of the raw data scenario.
+EMA-21 is Exponential Moving Average with 21-datapoint interval.
+
+Just like the previous section: create a .py script and copy & paste the code from sections 1 & 2 into it. Then do the following changes, to make it work in EMA-21 scenario.
 
 Replace the "Add predictor variables" section for this one:
 
