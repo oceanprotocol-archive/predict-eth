@@ -17,7 +17,7 @@ It is used for the second ETH Prediction Challenge. (Not announced yet.)
 Here are the steps:
 
 1. Basic Setup
-2. Get data locally.
+2. Get data locally
 3. Make predictions
 4. Publish & share predictions
 
