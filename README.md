@@ -22,7 +22,7 @@ Get ETH price data - various approaches:
 
 
 Get BTC price data:
-- [Get BTC data via Ocean + Binance](examples/get-btcdata-ocean-binance.md)
+- [Via Ocean + Binance](examples/get-btcdata-ocean-binance.md)
 
 ### Data & Modeling Ideas
 

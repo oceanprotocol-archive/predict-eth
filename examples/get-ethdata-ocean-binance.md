@@ -6,7 +6,7 @@ You can see it on Ocean Market [here](https://market.oceanprotocol.com/asset/did
 
 ### 0. Setup
 
-From [predict-eth2.md](../predict-eth2.md), do:
+From [Challenge 2](../challenges/main2.md), do:
 - [x] Setup
 
 ### 1. Get Data

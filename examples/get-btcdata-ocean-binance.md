@@ -6,7 +6,7 @@ You can see it on Ocean Market [here](https://market.oceanprotocol.com/asset/did
 
 ### 0. Setup
 
-From [predict-eth2.md](../predict-eth/blob/main/challenges/main2.md), do:
+From [Challenge 2](../challenges/main2.md), do:
 
 - [x] Setup
 
@@ -18,13 +18,6 @@ In Python console:
 BTC_USDT_did = "did:op:b4584760f5133b27d91c337b9c10b56448b84a1bae39b8c1037d0de33023b4dc"
 
 file_name = ocean.assets.download_file(BTC_USDT_did, alice_wallet)
-
-NOTE:
-If for any reason you cannot get the Data, here is an alternative method:
-1. Get the data from here (download the file):
-https://market.oceanprotocol.com/asset/did:op:b4584760f5133b27d91c337b9c10b56448b84a1bae39b8c1037d0de33023b4dc
-2. Add this line to your code:
-file_name = 'USDT.json'
 ```
 
 ### 2. Prepare a DataFrame with the data ready for your analysis
