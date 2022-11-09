@@ -19,8 +19,8 @@ Then the challenge is: how accurately can _you_ predict the price of ETH?
 These are example full submissions to the challenge. You can use any of these as a starting point, for your own work.
 
 Predict ETH price 1-12 ahead with various approaches:
-- [Super simple](examples/end-to-end-via-raw-ocean-data-and-linear-models.md) - uses ETH data from Ocean, and linear models
-- [Extra explanations](examples/end-to-end-via-raw-ccxt-data-and-linear-models.md) - to make onboarding easy as possible. Uses ETH data from ccxt, stock data from Ocean, and linear models
+- [Gentle introduction](examples/end-to-end-gentle.md) - to make onboarding easy as possible. Uses ETH data from ccxt, stock data from Ocean, and linear models
+- [Simple](examples/end-to-end-via-raw-ocean-data-and-linear-models.md) - uses ETH data from Ocean, and linear models
 - [Medium level: MA & EMA](examples/end-to-end-via-mas-and-emas.md) - Uses raw data, moving average (MA), and exponential moving average (EMA) data
 
 ### Example Data Sources

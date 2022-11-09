@@ -1,4 +1,4 @@
-# End-to-end example, with extra explanations
+# End-to-end example: Gentle introduction
 
 This is an example full submission to the challenge. You can use it as starting point, for your own work.
 
