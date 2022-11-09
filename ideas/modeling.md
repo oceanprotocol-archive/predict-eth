@@ -28,7 +28,7 @@ Static models
 Dynamic models (directly for time series):
 
 - Predict ETH challenge 1 winning algorithm
-- Recurrent network
+- [Model comparison for direct prediction 1-12 hours](../examples/model_example_direct_prediction.md)
 
 Other tricks:
 - (add to me)
