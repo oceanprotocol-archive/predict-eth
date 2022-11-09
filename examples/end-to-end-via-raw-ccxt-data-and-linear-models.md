@@ -1,21 +1,10 @@
-# Ready to Submit Example of Predicting ETH Price at a Given Hour
+# End-to-end example, with extra explanations
 
-*This is an example of how a full submission looks like -- you can actually use this one to participate!*
-
-**The Mission of Ocean Protocol is to democratize data.**
-
-**This competition is part of our effort to help people understand the value of data and how to use it to their advantage.**
-
-In this example we will focus on predicting the Ether (ETH) price at a selected hour of the day.
+This is an example full submission to the challenge. You can use it as starting point, for your own work.
 
 Remember:
 -  You do not have to win, just make a full submission (like this one)
--  This competition is ongoing, you can always improve your submission in the next edition.
--  Also, have you ever considered that you might have a career in Data Science? Start by adding this experience to your CV. It's a start...
-
----
-
-Here is a detailed explanation of what to do and how a complete submission looks like.
+-  This competition has several rounds, you can always improve your submission in the next edition.
 
 A few remarks:
 - The code presented here is repetitive and does not benefit from neither Python's nor Pandas methods.
@@ -56,40 +45,31 @@ Can we do it? Let's give it a try by first gathering the data for our model.
 
 ---
 
-## 2. Create en environment and install the libraries:
+## 2. Setup
 
-Step 1: Creating an environment named "example":
-```
+In the console:
+```console
+
+# Create an envirionment named "example" 
 python -m venv example
-```
 
-Step 2: Activate the environment in Linux or Windows:
-```
+# Activate the environment in Linux (1st line below) or Windows (2nd line):
 source ./example/bin/activate
-```
-For Windows:
-```
 example\Scripts\activate
-```
 
-Step 3: Install the Pandas, ccxt and scikit-learn libraries using pip:
-```
-pip install pandas
-```
-```
-pip install ccxt
-```
-```
+# Install libraries using pip
+pip install pandas ccxt
 pip install -U scikit-learn
 ```
 
-Step 4: Create a python file (you can use any name for the file, for example 'predict_eth'):
-```
+Now, create a python file. You can use any filename. In the console:
+```console
 touch predict_eth.py
 ```
 
-Step 5: Open the file and import these libraries:
+Open the file. Add the following content to the file:
 ```python
+#import libraries
 import pandas as pd
 import numpy as np
 import ccxt
@@ -103,6 +83,8 @@ from sklearn.metrics import mean_squared_error, r2_score
 ---
 
 ## 3. Data Gathering:
+
+### 3.1 Introduction
 
 We need the ETH Price data and the Predictor variables data.
 
@@ -123,9 +105,8 @@ Each DataFrame will have a column named "Date".
 We will make sure that every "Date" column has the type 'datetime', so we can compare them when we merge all the DataFrames.
 
 
-### 3.1 Getting the ETH_Price Data
+### 3.1 Getting data from Ocean - hourly stock prices
 
-#### Where the data we are using comes from:
 There are many sites with great data and, of course, you are welcome to use any of them.
 
 In this example we are using hourly stock price data of Tesla, Amazon, Google and Apple for the last three months.
@@ -164,9 +145,9 @@ df_tech_amazon['Date'] = pd.to_datetime(df_tech_amazon['Date'], format="%m/%d/%Y
 ```
 
 
-### 3.2 Getting the ETH_Price Data
+### 3.3 Getting ETH price data
 
-We use the [ccxt](https://github.com/ccxt/ccxt) package.
+For this data, we use the [ccxt](https://github.com/ccxt/ccxt) package.
 
 This library comes with a limitation, there is a limit of 500 rows per request.
 
@@ -256,7 +237,7 @@ ETH_Price = ETH_Price.sort_values(by="Date", ascending=False)
 ETH_Price.reset_index(drop=True, inplace=True)
 ```
 
-### 3.3 Putting it all together in a 'base' DataFrame
+### 3.4 Put it all together in a 'base' DataFrame
 
 Good job! We now have the ETH_Price and four major technology stocks prices. All per hour and for the last three months.
 
