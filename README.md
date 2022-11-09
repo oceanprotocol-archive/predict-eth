@@ -3,11 +3,14 @@
 Data science challenges to predict the future price of ETH, with prizes. Uses [ocean.py](https://github.com/oceanprotocol/ocean.py) library.
 
 ### Current / future challenges
+
 - [Challenge 2](challenges/main2.md) - predictions due Dec 11, 2022
 
 ### Example End-to-End Flows
 
-- [Predict ETH price 1-12 hours ahead via Ocean data and linear models](examples/predict-eth-ocean-data-linear-models.md)
+Predict ETH price 1-12 ahead with various approaches:
+- [Via raw data from Ocean and linear models](examples/predict-eth-ocean-data-linear-models.md)
+- [Via raw data, moving average (MA), and exponential moving average (EMA)](examples/real-time-raw-mas-emas.md)
 
 ### Example Data Sources
 
