@@ -3,17 +3,21 @@ Copyright 2022 Ocean Protocol Foundation
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# Quickstart: Predict Future ETH Price
+# End-to-end example: Raw Ocean data and linear models
 
-This quickstart describes a flow to predict future ETH price via a local AI model using data published in Ocean.
+## Introduction
+
+This example predicts ETH price via raw data published in Ocean, and linear models.
+
+The raw data is: 'Open', 'High', 'Low', 'Close' and 'Volume' values, at 1 hour intervals. Predictions are at 1-hour intervals into the future.
 
 ## Setup
 
-From [challenge 1](../challenges/main1.md), do:
+
+From [Challenge 2](../challenges/main2.md), do:
 - [x] Setup
 
-
-### Script
+## Main Work
 
 In Python:
 
