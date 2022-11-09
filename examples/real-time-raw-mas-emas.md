@@ -5,7 +5,7 @@ Moving Average (MA) and Exponential Moving Average (EMA) are two of the most com
 This example presents the predictive power of 'Open', 'High', 'Low', 'Close' and 'Volume' for 1 hour intervals of ETH price.
 
 Relevant information:
-- The script is automatic and is executed in real UTC time.
+- This script is executed in real UTC time.
 - It uses 500 datapoints (the ccxt limit per query)
 - Data includes weekends and full 24h days.
 - The same analysis is conducted in three scenarios: real unaltered data, MA and EMA data.
@@ -179,4 +179,20 @@ X_selected = df_MA_data_ETH[cols_selected] # Add this line
 
 ## 21 datapoints EMA
 
-W
+We use the code of the raw data scenario.
+
+Replace the "Add predictor variables" section for this one:
+
+```python
+# Add predictor variables
+df_EMA_data_ETH=df_data_ETH.ewm(span=21, adjust=False).mean(numeric_only=True)
+X = df_EMA_data_ETH[['Open', 'High', 'Low', 'Close', 'Volume']]
+```
+
+In "Add selected predictor variables" replace only this line:
+
+```python
+# Add predictor variables
+X_selected = df_data_ETH[cols_selected] # Remove this line
+X_selected = df_EMA_data_ETH[cols_selected] # Add this line
+```
