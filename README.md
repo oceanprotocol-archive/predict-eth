@@ -7,8 +7,7 @@ Data science challenges to predict the future price of ETH, with prizes. Uses [o
 
 ### Example End-to-End Flows
 
-End-to-end flows:
-- [Predict ETH price 1-12 hours ahead using Ocean data and linear models](examples/predict-eth-ocean-data-linear-models.md)
+- [Predict ETH price 1-12 hours ahead via Ocean data and linear models](examples/predict-eth-ocean-data-linear-models.md)
 
 ### Example Data Sources
 
