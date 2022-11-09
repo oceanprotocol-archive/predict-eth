@@ -69,7 +69,7 @@ from sklearn.metrics import r2_score
 ---
 
 
-## 2. Setup
+## Setup
 
 ```python
 # Create a UTC datetime object with today's date and current running hour
@@ -116,7 +116,7 @@ def calc_nmse(y, yhat) -> float:
 ```
 
 
-## 3. Scenario: Raw Data
+## Raw Data
 
 ```python
 # Add predictor variables
@@ -152,3 +152,31 @@ nmse = calc_nmse(y_test, predictions)
 print(f'r2 is {r2}')
 print(f'nmse is {nmse}')
 ```
+
+
+## 21 datapoints MA
+
+We use the code of the raw data scenario.
+
+Replace the "Add predictor variables" section for this one:
+
+```python
+# Add predictor variables
+df_MA_data_ETH=df_data_ETH.rolling(21).mean(numeric_only=True) # new DataFrame with 21 MA calculations
+df_MA_data_ETH=df_MA_data_ETH.dropna() # remove NaN rows
+y = y.iloc[20:] # remove first 20 rows
+X = df_MA_data_ETH[['Open', 'High', 'Low', 'Close', 'Volume']]
+```
+
+In "Add selected predictor variables" replace only this line:
+
+```python
+# Add predictor variables
+X_selected = df_data_ETH[cols_selected] # Remove this line
+X_selected = df_MA_data_ETH[cols_selected] # Add this line
+```
+
+
+## 21 datapoints EMA
+
+W
