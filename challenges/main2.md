@@ -80,7 +80,7 @@ The [main README](../README.md) links to some options.
 
 ### 3.1  Build a simple AI model
 
-Here, build whatever AI/ML model you want, leveraging the data from the previous step.
+Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options. 
 
 This demo flow skips building a model because the next step will simply generate random predictions.
 

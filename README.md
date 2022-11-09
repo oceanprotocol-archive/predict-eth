@@ -3,19 +3,26 @@
 Data science challenges to predict the future price of ETH, with prizes. Uses [ocean.py](https://github.com/oceanprotocol/ocean.py) library.
 
 ### Current / future challenges
-- [Challenge: web3 ATL hackathon](challenges/hack1.md) - early Nov 2022
-- [Challenge 2](challenges/main2.md) - Nov/Dec 2022
 
-### Example Approaches
+- [Challenge 2](challenges/main2.md) - predictions due Dec 11, 2022
 
-Examples that do one or more of: grab data, compute features, build models, make predictions.
+### Example End-to-End Flows
 
-- [Get ETH data via Binance direct](examples/get-data-binance-direct.md)
-- [Get ETH data via Ocean + Binance](examples/get-data-ocean-binance.md)
-- [Get ETH data via ccxt + Binance](examples/get-data-ccxt-binance.md)
-- [Predict ETH price 1-12 hours ahead using Ocean data and linear models](examples/predict-eth-ocean-data-linear-models.md)
+Predict ETH price 1-12 ahead with various approaches:
+- [Via raw data from Ocean and linear models](examples/predict-eth-ocean-data-linear-models.md)
+- [Via raw data, moving average (MA), and exponential moving average (EMA)](examples/real-time-raw-mas-emas.md)
+
+### Example Data Sources
+
+Get ETH price data - various approaches:
+- [Via Binance direct](examples/get-data-binance-direct.md) - most direct, but specific to Binance
+- [Via ccxt + Binance](examples/get-data-ccxt-binance.md) - unified API across 40 exchanges
+- [Via Ocean + Binance](examples/get-data-ocean-binance.md) - unified API across 500+ data & compute services
+- [Via Ocean + TheGraph](examples/get-data-ocean-the-graph.md) - like previous, but uses a GraphQL-shaped query
+
+
+Get BTC price data:
 - [Get BTC data via Ocean + Binance](examples/get-btcdata-ocean-binance.md)
-- (Add to me)
 
 ### Data & Modeling Ideas
 
@@ -26,4 +33,6 @@ Here are ideas to get even more accurate results.
 - [Articles](ideas/articles.md) on predicting ETH, etc
 
 ### Appendix: Past challenges
-- [Challenge 1](challenges/main1.md) - Oct 2022
+
+- [Challenge 1](challenges/main1.md) - predictions due Oct 16, 2022
+- [Challenge: web3 ATL hackathon](challenges/hack1.md) - predictions due Nov 6, 2022
