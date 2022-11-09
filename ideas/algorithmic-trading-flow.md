@@ -56,8 +56,6 @@ uched) 0.0.0.0
 
 Congratulations! The configuration file is now available at ft\_userdata/user\_data/config.json
 
-Navigate to your config.json file in your favorite text/code editor and delete the comments in the file because comments are not allowed in JSON.
-
 * * *
 
 # 2\. Implement A Trading Strategy
