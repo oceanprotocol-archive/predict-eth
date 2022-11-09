@@ -1,19 +1,19 @@
 # Real time 1 hour ETH prediction using raw data, moving average and exponential moving average
 
-Moving Average (MA) and Exponential Moving Average (EMA) are two of the most common investor indicators, especially when set in a 21 interval
+Moving Average (MA) and Exponential Moving Average (EMA) are two of the most common investor indicators. Especially in 21 datapoints interval.
 
-This example explores the predictive power of 'Open', 'High', 'Low', 'Close' and 'Volume' for 1 hour intervals of ETH price.
+This example presents the predictive power of 'Open', 'High', 'Low', 'Close' and 'Volume' for 1 hour intervals of ETH price.
 
 Relevant information:
 - The script is automatic and is executed in real UTC time.
-- It takes 500 datapoints (the ccxt limit per query)
+- It uses 500 datapoints (the ccxt limit per query)
 - Data includes weekends and full 24h days.
-- The same analysis is conducted for real unaltered data, MA and EMA data
-- The analysis consists on conducting feature elimination using Scikit-Learn's RFE
+- The same analysis is conducted in three scenarios: real unaltered data, MA and EMA data.
+- Each scenario has two phases. Eliminate features using RFE and present a linear regression with the relevant features. 
 
 Limitations:
-- RFE quantifies feature importance by the coefficients
-- Classical statistical problems inherent to regressive variables are unaccounted for
+- We use the coefficients to determine feature importance in RFE.
+- This is an example, thereby the analysis of statistical problems inherent to regressive variables is omitted.
 
 Results:
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -116,7 +116,7 @@ def calc_nmse(y, yhat) -> float:
 ```
 
 
-## 3. Raw Data
+## 3. Scenario: Raw Data
 
 ```python
 # Add predictor variables
@@ -147,4 +147,8 @@ predictions = model.predict(X_test)
 # Evaluate the model
 r2 = r2_score(y_test, predictions)
 nmse = calc_nmse(y_test, predictions)
+
+# Print results
+print(f'r2 is {r2}')
+print(f'nmse is {nmse}')
 ```
