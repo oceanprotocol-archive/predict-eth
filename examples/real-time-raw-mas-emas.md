@@ -1,6 +1,8 @@
 # Real time 1 hour ETH prediction using raw data, moving average and exponential moving average
 
-Moving Average (MA) and Exponential Moving Average (EMA) are two of the most common investor indicators. Especially in 21 datapoints interval.
+Moving Average (MA) and Exponential Moving Average (EMA) are two of the most frequently used investor indicators.
+
+Investors often use the 21 datapoint interval.
 
 This example presents the predictive power of 'Open', 'High', 'Low', 'Close' and 'Volume' for 1 hour intervals of ETH price.
 
@@ -13,10 +15,13 @@ Relevant information:
 
 Limitations:
 - We use the coefficients to determine feature importance in RFE.
-- This is an example, thereby the analysis of statistical problems inherent to regressive variables is omitted.
+- This is an example. Thereby the analysis of spurious statistical relathionships between regressive variables is omitted (hence the results).
 
 Results:
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+|               |   Raw Data    |      MA       |      EMA      |
+| ------------- | ------------- | ------------- | ------------- |
+|  r²           |     99.67%    |     98.81%    |     99.93%    |
+|  nmse         |  2.37 * 10⁻5  |  8.05 * 10⁻5  |  5.21 * 10⁻6  |
 
 ---
 
@@ -123,7 +128,7 @@ def calc_nmse(y, yhat) -> float:
 X = df_data_ETH[['Open', 'High', 'Low', 'Volume']]
 
 # RFE
-estimator = SVR(kernel="linear")
+estimator = SVR(kernel='linear')
 selector = RFE(estimator, step=1)
 selector = selector.fit(X, y)
 selected= selector.support_.tolist()
@@ -154,7 +159,7 @@ print(f'nmse is {nmse}')
 ```
 
 
-## 21 datapoints MA
+## MA-21
 
 We use the code of the raw data scenario.
 
@@ -177,7 +182,7 @@ X_selected = df_MA_data_ETH[cols_selected] # Add this line
 ```
 
 
-## 21 datapoints EMA
+## EMA-21
 
 We use the code of the raw data scenario.
 
