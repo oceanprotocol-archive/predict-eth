@@ -11,7 +11,7 @@ Data science challenges to predict the future price of ETH, with prizes. Uses [o
 
 ### Example Data Sources
 
-Get ETH price data with varied approaches
+Get ETH price data with various approaches:
 - [Via Binance direct](examples/get-data-binance-direct.md) - most direct, but specific to Binance
 - [Via ccxt + Binance](examples/get-data-ccxt-binance.md) - unified API across 40 exchanges
 - [Via Ocean + Binance](examples/get-data-ocean-binance.md) - unified API across 500+ data & compute services
