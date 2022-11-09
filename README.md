@@ -14,11 +14,15 @@ Predict ETH price 1-12 ahead with various approaches:
 
 ### Example Data Sources
 
-Get ETH price data with various approaches:
-- [Via Binance direct](examples/get-data-binance-direct.md) - most direct, but specific to Binance
-- [Via ccxt + Binance](examples/get-data-ccxt-binance.md) - unified API across 40 exchanges
-- [Via Ocean + Binance](examples/get-data-ocean-binance.md) - unified API across 500+ data & compute services
-- [Via Ocean + TheGraph](examples/get-data-ocean-the-graph.md) - like previous, but uses a GraphQL-shaped query
+Get ETH price data - various approaches:
+- [Via Binance direct](examples/get-ethdata-binance-direct.md) - most direct, but specific to Binance
+- [Via ccxt + Binance](examples/get-ethdata-ccxt-binance.md) - unified API across 40 exchanges
+- [Via Ocean + Binance](examples/get-ethdata-ocean-binance.md) - unified API across 500+ data & compute services
+- [Via Ocean + TheGraph](examples/get-ethdata-ocean-thegraph.md) - like previous, but uses a GraphQL-shaped query
+
+
+Get BTC price data:
+- [Via Ocean + Binance](examples/get-btcdata-ocean-binance.md)
 
 ### Data & Modeling Ideas
 
