@@ -227,6 +227,7 @@ In the Python console, copy and paste everything below:
 ```python
 #imports
 import datetime
+from datetime import timezone
 import numpy as np
 from pathlib import Path
 import os
