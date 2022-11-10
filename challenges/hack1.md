@@ -226,6 +226,7 @@ In the Python console, copy and paste everything below:
 ```python
 #imports
 import datetime
+from datetime import timezone
 import numpy as np
 from pathlib import Path
 import os
@@ -260,7 +261,6 @@ def create_alice_wallet(ocean: Ocean) -> Wallet:
 #helper functions: time
 def to_unixtime(dt: datetime.datetime):
     #must account for timezone, otherwise it's off
-    from datetime import timezone
     ut = dt.replace(tzinfo=timezone.utc).timestamp()
     dt2 = datetime.datetime.utcfromtimestamp(ut) #to_datetime() approach
     assert dt2 == dt, f"dt: {dt}, dt2: {dt2}"
