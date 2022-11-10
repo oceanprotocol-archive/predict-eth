@@ -265,7 +265,12 @@ def create_alice_wallet(ocean: Ocean) -> Wallet:
 
 #helper functions: time
 def to_unixtime(dt: datetime.datetime):
-    return time.mktime(dt.timetuple())
+    #must account for timezone, otherwise it's off
+    from datetime import timezone
+    ut = dt.replace(tzinfo=timezone.utc).timestamp()
+    dt2 = datetime.datetime.utcfromtimestamp(ut) #to_datetime() approach
+    assert dt2 == dt, f"dt: {dt}, dt2: {dt2}"
+    return ut
 
 
 def to_unixtimes(dts: list) -> list:
@@ -273,7 +278,10 @@ def to_unixtimes(dts: list) -> list:
 
 
 def to_datetime(ut) -> datetime.datetime:
-    return datetime.datetime.utcfromtimestamp(ut)
+    dt = datetime.datetime.utcfromtimestamp(ut)
+    ut2 = dt.replace(tzinfo=timezone.utc).timestamp() #to_unixtime() approach
+    assert ut2 == ut, f"ut: {ut}, ut2: {ut2}"
+    return dt
 
 
 def to_datetimes(uts: list) -> list:
