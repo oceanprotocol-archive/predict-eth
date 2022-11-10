@@ -31,6 +31,7 @@ Here are ideas to get even more accurate results.
 - [More data sources](ideas/data-sources.md)
 - [Modeling approaches](ideas/modeling.md)
 - [Articles](ideas/articles.md) on predicting ETH, etc
+- [Model comparison for direct prediction 1-12 hours](../examples/model_example_direct_prediction.md)
 
 ### Appendix: Past challenges
 

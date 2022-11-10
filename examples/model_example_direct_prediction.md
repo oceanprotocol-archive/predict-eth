@@ -70,8 +70,8 @@ def nmse(y,yhat):
 # regression using a base estimator and RegressionChain
 def fit_and_predict_reg(base_model,x_train,y_train,x_test,y_test):
   chain = RegressorChain(base_estimator=base_model).fit(x_train, y_train)  
-  predicted = chain.predict(x_test)
-  return nmse(y_test,predicted)
+  yhat_test = chain.predict(x_test)
+  return nmse(y_test,yhat_test)
 
 # Neural network using Keras, 2 hidden layers with relu activations, output layer with linear activations 
 def fit_andpredict_fcnn(x_train,y_train,x_test,y_test):
@@ -85,8 +85,8 @@ def fit_andpredict_fcnn(x_train,y_train,x_test,y_test):
   # Fit model
   model.fit(x_train,y_train,batch_size=100, epochs=500, validation_split=0.1, verbose=0)
   # predict
-  predicted = model.predict(x_test)
-  return nmse(y_test,predicted)
+  yhat_test = model.predict(x_test)
+  return nmse(y_test,yhat_test)
 
 
 # multioutput linear regression
