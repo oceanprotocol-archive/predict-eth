@@ -204,7 +204,7 @@ file_name = ocean.assets.download_file(ETH_USDT_did, alice_wallet)
 allcex_uts, allcex_vals = load_from_ohlc_data(file_name)
 print_datetime_info("CEX data info", allcex_uts)
 
-start_dt = datetime.datetime(2022, 11, 7, 3, 59) #Nov 6, 2022 at 11:59pm Eastern (=03:59 UTC)
+start_dt = datetime.datetime(2022, 11, 7, 5, 00) #Nov 7, 2022 at 1.00am Eastern (=05:00 UTC)
 target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
 
