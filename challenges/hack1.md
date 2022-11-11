@@ -204,7 +204,7 @@ file_name = ocean.assets.download_file(ETH_USDT_did, alice_wallet)
 allcex_uts, allcex_vals = load_from_ohlc_data(file_name)
 print_datetime_info("CEX data info", allcex_uts)
 
-start_dt = datetime.datetime(2022, 11, 7, 03, 59) #Nov 6, 2022 at 11:59pm Eastern (=03:59 UTC)
+start_dt = datetime.datetime(2022, 11, 7, 5, 00) #Nov 7, 2022 at 1.00am Eastern (=05:00 UTC)
 target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
 
@@ -226,6 +226,7 @@ In the Python console, copy and paste everything below:
 ```python
 #imports
 import datetime
+from datetime import timezone
 import numpy as np
 from pathlib import Path
 import os
@@ -259,7 +260,11 @@ def create_alice_wallet(ocean: Ocean) -> Wallet:
 
 #helper functions: time
 def to_unixtime(dt: datetime.datetime):
-    return time.mktime(dt.timetuple())
+    #must account for timezone, otherwise it's off
+    ut = dt.replace(tzinfo=timezone.utc).timestamp()
+    dt2 = datetime.datetime.utcfromtimestamp(ut) #to_datetime() approach
+    assert dt2 == dt, f"dt: {dt}, dt2: {dt2}"
+    return ut
 
 
 def to_unixtimes(dts: list) -> list:
@@ -267,7 +272,10 @@ def to_unixtimes(dts: list) -> list:
 
 
 def to_datetime(ut) -> datetime.datetime:
-    return datetime.datetime.utcfromtimestamp(ut)
+    dt = datetime.datetime.utcfromtimestamp(ut)
+    ut2 = dt.replace(tzinfo=timezone.utc).timestamp() #to_unixtime() approach
+    assert ut2 == ut, f"ut: {ut}, ut2: {ut2}"
+    return dt
 
 
 def to_datetimes(uts: list) -> list:
