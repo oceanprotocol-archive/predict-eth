@@ -3,7 +3,7 @@ Copyright 2022 Ocean Protocol Foundation
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# Predict Future ETH Price
+# Predict ETH Price: Round Two 
 
 This readme describes a flow to predict future ETH price via a local AI model.
 
