@@ -9,10 +9,10 @@ Data science challenges to predict the future price of ETH, with prizes. Uses [o
 ### Example End-to-End Flows
 
 Predict ETH price 1-12 ahead with various approaches:
-- [Via raw data from Ocean and linear models](examples/end-to-end-via-raw-ocean-data-and-linear-models.md)
-- [Via raw data, moving average (MA), and exponential moving average (EMA)](examples/end-to-end-via-mas-and-emas.md)
+- [Gentle introduction](examples/end-to-end-gentle.md) - to make onboarding easy as possible. Uses ETH data from ccxt, stock data from Ocean, and linear models
+- [Simple](examples/end-to-end-via-raw-ocean-data-and-linear-models.md) - uses ETH data from Ocean, and linear models
+- [Medium level: MA & EMA](examples/end-to-end-via-mas-and-emas.md) - Uses raw data, moving average (MA), and exponential moving average (EMA) data
 - [Model comparison for direct prediction 1-12 hours](../examples/model_example_direct_prediction.md)
-
 ### Example Data Sources
 
 Get ETH price data - various approaches:
