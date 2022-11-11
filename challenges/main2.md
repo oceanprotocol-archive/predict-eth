@@ -3,9 +3,9 @@ Copyright 2022 Ocean Protocol Foundation
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# Quickstart: Predict Future ETH Price
+# Predict Future ETH Price
 
-This quickstart describes a flow to predict future ETH price via a local AI model.
+This readme describes a flow to predict future ETH price via a local AI model.
 
 It is used for the second ETH Prediction Challenge. (Not announced yet.)
 
