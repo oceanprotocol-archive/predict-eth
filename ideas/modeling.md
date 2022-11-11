@@ -28,7 +28,7 @@ Static models
 Dynamic models (directly for time series):
 
 - Predict ETH challenge 1 winning algorithm
-- Recurrent network
+- Neural Networks
 
 Other tricks:
 - (add to me)
