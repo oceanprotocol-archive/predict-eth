@@ -319,9 +319,9 @@ predictions = model.predict(X_test)
 # Helper function to compute nmse
 def calc_nmse(y, yhat) -> float:
     assert len(y) == len(yhat)
-    mse_xy = np.sum(np.square(np.asarray(y) - np.asarray(yhat)))
-    mse_x = np.sum(np.square(np.asarray(y)))
-    nmse = mse_xy / mse_x
+    y, yhat = np.asarray(y), np.asarray(yhat)
+    range_y = max(y) - min(y)    
+    nmse = np.sqrt(np.average(((yhat - y) / range_y) ** 2))
     return nmse
 
 r2 = r2_score(y_test, predictions) # result is 0.68

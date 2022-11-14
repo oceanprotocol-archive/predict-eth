@@ -52,7 +52,7 @@ model.fit(train_data)
 forecast = model.predict(pd.DataFrame({"ds":test_data.ds}))
 pred_vals = forecast.set_index('ds')['yhat'][-12:].to_numpy()
 
-# Calculate Normalized Mean Squared Error between predictions and true (test) values
+# Calculate Normalized Mean Squared Error between predictions and true (test) values    
 nmse = calc_nmse(test_data.y, pred_vals)
 print(f"NMSE = {nmse}")
 

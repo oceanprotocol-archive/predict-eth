@@ -62,9 +62,10 @@ from tensorflow.keras.layers import Input, Dense
 import numpy as np
 import matplotlib.pyplot as plt
 
-# normalized mean-squared-error
-def nmse(y,yhat):
-    return np.sum(np.square(y - yhat))/np.sum(np.square(y))
+# normalized mean-squared-error, consistent with elsewhere in predict-eth
+def nmse(y, yhat) -> float:
+    range_y = max(y) - min(y)    
+    return np.sqrt(np.average(((yhat - y) / range_y) ** 2))
 
 
 # regression using a base estimator and RegressionChain
