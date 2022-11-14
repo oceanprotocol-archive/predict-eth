@@ -174,8 +174,9 @@ Write down the `did` and `datatoken.address`. You'll be needing to share them in
 
 In the same Python console:
 ```python
+from web3.main import Web3
 to_address="0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E" #official judges address
-datatoken.mint(to_address, ocean.to_wei(10), {"from": alice_wallet})
+datatoken.mint(to_address, Web3.toWei(10, "ether"), {"from": alice_wallet})
 ```
 
 Finally, ensure you've filled in your Questbook entry.
