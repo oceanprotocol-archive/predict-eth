@@ -42,6 +42,9 @@ pip3 install wheel
 
 # Install libraries
 pip3 install ocean-lib matplotlib pybundlr ccxt
+
+# Install bundlr cli to be able to run pybundlr
+npm install -g @bundlr-network/client
 ```
 
 ### 1.2 Create Polygon Account (One-Time)
@@ -161,7 +164,8 @@ In the same Python console:
 ```python
 name = "ETH predictions " + str(time.time()) #time for unique name
 (data_nft, datatoken, asset) = ocean.assets.create_url_asset(name, url, alice_wallet, wait_for_aqua=False)
-data_nft.set_metadata_state(metadata_state=5, from_wallet=alice_wallet)
+metadata_state = 5
+data_nft.setMetaDataState(metadata_state, {"from":alice_wallet})
 print(f"New asset created, with did={asset.did}, and datatoken.address={datatoken.address}")
 ```
 
@@ -171,8 +175,9 @@ Write down the `did` and `datatoken.address`. You'll be needing to share them in
 
 In the same Python console:
 ```python
+from web3.main import Web3
 to_address="0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E" #official judges address
-datatoken.mint(to_address, ocean.to_wei(10), alice_wallet)
+datatoken.mint(to_address, Web3.toWei(10, "ether"), {"from": alice_wallet})
 ```
 
 Finally, ensure you've filled in your Questbook entry.
@@ -239,13 +244,15 @@ import matplotlib.pyplot as plt
     
 from ocean_lib.example_config import ExampleConfig
 from ocean_lib.ocean.ocean import Ocean
-from ocean_lib.web3_internal.wallet import Wallet
+from brownie.network import accounts
+from ocean_lib.web3_internal.utils import connect_to_network
 
 
 #helper functions: setup
 def create_ocean_instance() -> Ocean:
-    config = ExampleConfig.get_config("https://polygon-rpc.com") # points to Polygon mainnet
+    config = ExampleConfig.get_config("polygon")  # points to Polygon mainnet
     config["BLOCK_CONFIRMATIONS"] = 1 #faster
+    connect_to_network("polygon")
     ocean = Ocean(config)
     return ocean
 
@@ -253,8 +260,8 @@ def create_ocean_instance() -> Ocean:
 def create_alice_wallet(ocean: Ocean) -> Wallet:
     config = ocean.config_dict
     alice_private_key = os.getenv('REMOTE_TEST_PRIVATE_KEY1')
-    alice_wallet = Wallet(ocean.web3, alice_private_key, config["BLOCK_CONFIRMATIONS"], config["TRANSACTION_TIMEOUT"])
-    bal = ocean.from_wei(alice_wallet.web3.eth.get_balance(alice_wallet.address))
+    alice_wallet = accounts.add(alice_private_key)
+    bal = ocean.from_wei(accounts.at(alice_wallet.address).balance())
     print(f"alice_wallet.address={alice_wallet.address}. bal={bal}")
     assert bal > 0, f"Alice needs MATIC"
     return alice_wallet
