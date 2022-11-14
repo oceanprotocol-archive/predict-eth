@@ -13,7 +13,7 @@ It is used for the second ETH Prediction Challenge. (Not announced yet.)
 - Submission deadline: Dec 11, 2022 at 23:59 UTC
 - Prediction at times: Dec 12, 2022 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
 - Winners announced: within one week
-- To be considered for winning, prediction error must be lower than if the "prediction" was simply a constant.
+- To be considered for winning, and for 250 OCEAN reward, prediction error must be lower than (a) if the "prediction" was simply a constant (b) if the prediction was a copy of any of the end-to-end examples 
 
 Here are the steps:
 
