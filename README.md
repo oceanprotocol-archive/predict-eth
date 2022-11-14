@@ -22,7 +22,7 @@ Predict ETH price 1-12 ahead with various approaches:
 - [Gentle introduction](examples/end-to-end-gentle.md) - to make onboarding easy as possible. Uses ETH data from ccxt, stock data from Ocean, and linear models
 - [Simple](examples/end-to-end-via-raw-ocean-data-and-linear-models.md) - uses ETH data from Ocean, and linear models
 - [Medium level: MA & EMA](examples/end-to-end-via-mas-and-emas.md) - Uses raw data, moving average (MA), and exponential moving average (EMA) data
-- [Model comparison for direct prediction 1-12 hours](../examples/model_example_direct_prediction.md)
+- [Model comparison for direct prediction 1-12 hours](examples/model_example_direct_prediction.md)
 
 ### Example Data Sources
 
