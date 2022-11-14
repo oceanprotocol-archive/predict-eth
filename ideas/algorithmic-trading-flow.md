@@ -43,7 +43,7 @@ To fill out your configuration file for the first time, the following answers ar
 ? Please insert max_open_trades (Integer or -1 for unlimited open trades): 5
 ? Time Have the strategy define timeframe.
 ? Please insert your display Currency (for reporting): USD
-? Select exchange ftx
+? Select exchange kraken
 ? Do you want to enable Telegram? Yes
 ? Insert Telegram token **********************************************
 ? Insert Telegram chat id **********
