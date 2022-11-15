@@ -112,9 +112,7 @@ There are many sites with great data and, of course, you are welcome to use any 
 In this example we are using hourly stock price data of Tesla, Amazon, Google and Apple for the last three months.
 
 The data is available on Ocean market for free:
-
-TODO-------------------------ETH_USDT_did = "did:op:0dac5eb4965fb2b485181671adbf3a23b0133abf71d2775eda8043e8efc92d19"
-TODO-------------------------file_name = ocean.assets.download_file(ETH_USDT_did, alice_wallet)
+[https://market.oceanprotocol.com/asset/did:op:59e8ce4a599e7d3efc3f23ce68c6ae92b08e5764c0a8f801c47ae00c47db1522](https://market.oceanprotocol.com/asset/did:op:59e8ce4a599e7d3efc3f23ce68c6ae92b08e5764c0a8f801c47ae00c47db1522)
 
 For each stock we have 5 variables: open, close, high, low and volume -- all for every hour and for the last three months.
 
