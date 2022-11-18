@@ -60,7 +60,7 @@ export REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
 
 ### 1.4 Load helper functions
 
-Do the steps in "Appendix: Load helper functions".
+Load helper functions. See [helpers.md](../examples/helpers.md). 
 
 ### 1.5 Setup in Python, for Polygon
 
@@ -222,10 +222,5 @@ nmse = calc_nmse(cex_vals, pred_vals)
 print(f"NMSE = {nmse}")
 plot_prices(cex_vals, pred_vals)
 ```
-
-
-## Appendix: Load helper functions
-
-See [helpers.md](../examples/helpers.md) to load the helper functions. 
 
 

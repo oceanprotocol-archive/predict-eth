@@ -1,12 +1,6 @@
-<!--
-Copyright 2022 Ocean Protocol Foundation
-SPDX-License-Identifier: Apache-2.0
--->
 
-
-
-## Appendix: Load helper functions
-This apendix provides a series of helper functions that simplify the use of the examples.
+## Load helper functions
+This README provides a series of helper functions that simplify the use of the examples.
 
 If the Python console isn't already open: `python`
 In the Python console, copy and paste everything below:
