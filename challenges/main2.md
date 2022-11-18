@@ -94,7 +94,7 @@ This demo flow skips building a model because the next step will simply generate
 
 ### 3.2  Run the AI model to make future ETH price predictions
 
-Predictions must be one prediction every hour on the hour, for a 12h period: (TBD DATE) at 1am, 2am, 3am, 4am, 5am, 6am, 7am, 8am, 9am, 10am, 11am, 12pm (UTC). Therefore there are 12 predictions total. The output is a list with 12 items.
+Predictions must be one prediction every hour on the hour, for a 12h period. The specific times were given above. There are 12 predictions total. The output is a list with 12 items.
 
 Here's an example with random numbers. In the same Python console:
 ```python
