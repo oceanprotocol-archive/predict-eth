@@ -39,8 +39,11 @@ source venv/bin/activate
 # Avoid errors for the step that follows
 pip3 install wheel
 
-# Install libraries
-pip3 install ocean-lib matplotlib pybundlr ccxt
+# Install Ocean library. Allow pre-releases to get the latest version.
+pip3 install --pre ocean-lib
+
+# Install other libraries
+pip3 install matplotlib pybundlr ccxt
 ```
 
 You'll be using [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction) to share tamper-proof predictions. The `pybundlr` library (installed above) needs the Bundlr CLI installed. So, in the terminal:
