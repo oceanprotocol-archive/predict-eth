@@ -29,7 +29,6 @@ Here are the steps:
 Prerequisites:
 - Linux/MacOS
 - Python 3.8.5+
-- [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction): `npm install -g @bundlr-network/client` 
 
 Now, let's install Python libraries. Open a terminal and:
 ```console
@@ -42,8 +41,10 @@ pip3 install wheel
 
 # Install libraries
 pip3 install ocean-lib matplotlib pybundlr ccxt
+```
 
-# Install bundlr cli to be able to run pybundlr
+You'll be using [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction) to share tamper-proof predictions. The `pybundlr` library (installed above) needs the Bundlr CLI installed. So, in the terminal:
+```
 npm install -g @bundlr-network/client
 ```
 
