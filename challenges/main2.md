@@ -27,7 +27,7 @@ Here are the steps:
 ### 1.1 Prerequisites & installation
 
 Prerequisites:
-- Linux/MacOS
+- Linux or MacOS or Windows
 - Python 3.8.5+
 
 Now, let's install Python libraries. Open a terminal and:
