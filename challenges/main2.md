@@ -55,7 +55,7 @@ brew install autoconf automake libffi libtool pkg-config python
 Linux
 ```console
 # Initialize and activate virtual environment.
-python3 -m venv venv 
+python3 -m venv venv
 source venv/bin/activate
 
 # Install packages.
