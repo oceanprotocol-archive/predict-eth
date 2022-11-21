@@ -1,7 +1,7 @@
 
 ### 1. Testing different models for direct price prediction from 1- 12 Hours
 
-Given the task of predicting ETH for 12 hours in the future, there are several approaches that are possible. These appraoches involce either learning an independent model to predict the prices at ech hour or to learn a model that makes direct predictions.
+Given the task of predicting ETH for 12 hours in the future, there are several approaches that are possible. These appraoches involve either learning an independent model to predict the prices at ech hour or to learn a model that makes direct predictions.
 
 This readme describe the implementation of four different algorithms to predict the price of ether uisng the previous values of it as features. The models use 12 previous hours prices to predict the 12 hours future values. The implemented models are Linear Regression, Random Forest regression, Support vector machines and a two layer desily connected neuran nework.
 
