@@ -33,11 +33,15 @@ Prerequisites:
 Now, let's install Python libraries. Open a terminal and:
 ```console
 # Initialize virtual environment and activate it.
-python3 -m venv venv #in Windows: python -m venv venv
-source venv/bin/activate #in Windows: venv\Scripts\activate
+python3 -m venv venv (in Windows: python -m venv venv)
+source venv/bin/activate (in Windows: venv\Scripts\activate)
 
-# Avoid errors for the step that follows
-pip3 install wheel==0.37.1
+# If you have linux execute this command
+sudo apt-get install -y autoconf automake build-essential libffi-dev libtool pkg-config python3-dev
+
+# If you have apple execute this command
+xcode-select --install
+brew install autoconf automake libffi libtool pkg-config python
 
 # Install Ocean library. Allow pre-releases to get the latest version.
 pip3 install --pre ocean-lib
