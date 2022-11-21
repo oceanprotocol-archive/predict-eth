@@ -36,10 +36,10 @@ Now, let's install Python libraries. Open a terminal and:
 python3 -m venv venv (in Windows: python -m venv venv)
 source venv/bin/activate (in Windows: venv\Scripts\activate)
 
-# If you have linux execute this command
+# If you have linux execute this:
 sudo apt-get install -y autoconf automake build-essential libffi-dev libtool pkg-config python3-dev
 
-# If you have apple execute this command
+# If you have apple execute this:
 xcode-select --install
 brew install autoconf automake libffi libtool pkg-config python
 
