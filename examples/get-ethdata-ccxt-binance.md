@@ -7,13 +7,11 @@ Under the hood, ccxt queries the Binance API for Binance data.
 
 ### 0. Setup
 
+From [Challenge 2](../challenges/main2.md), do:
+- [x] Setup
+
 Install ccxt. Open a terminal and:
 ```
-# Initialize virtual environment and activate it.
-python3 -m venv venv
-source venv/bin/activate
-
-# Install libraries
 pip3 install ccxt
 ```
 

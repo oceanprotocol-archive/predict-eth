@@ -30,21 +30,47 @@ Prerequisites:
 - Linux or MacOS or Windows
 - Python 3.8.5+
 
-Now, let's install Python libraries. Open a terminal and:
+Now, let's install Python libraries.
+
+Open a terminal and execute this preparation for your operating system:
+
+Windows
 ```console
-# Initialize virtual environment and activate it.
+# Initialize and activate virtual environment.
+python -m venv venv
+venv\Scripts\activate
+```
+
+Mac
+```console
+# Initialize and activate virtual environment.
+python3 -m venv venv 
+source venv/bin/activate
+
+# Install packages.
+xcode-select --install
+brew install autoconf automake libffi libtool pkg-config python
+```
+
+Linux
+```console
+# Initialize and activate virtual environment.
 python3 -m venv venv
 source venv/bin/activate
 
-# Avoid errors for the step that follows
-pip3 install wheel
+# Install packages.
+sudo apt-get install -y autoconf automake build-essential libffi-dev libtool pkg-config python3-dev
+```
 
+For all operating systems: install Ocean library and other useful libraries
+```console
 # Install Ocean library. Allow pre-releases to get the latest version.
 pip3 install --pre ocean-lib
 
 # Install other libraries
 pip3 install matplotlib pybundlr ccxt
 ```
+
 
 You'll be using [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction) to share tamper-proof predictions. The `pybundlr` library (installed above) needs the Bundlr CLI installed. So, in the terminal:
 ```
@@ -57,10 +83,19 @@ You'll be using Polygon network. So, please ensure that you have a Polygon accou
 
 ### 1.3 Set envvars, for Polygon address
 
-In the terminal:
+Environment variables (envvars) are set differently in Windows and Mac/Linux:
+
+Windows
+```console
+set REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
+```
+
+Linux and Mac
 ```console
 export REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
 ```
+
+
 
 ### 1.4 Load helper functions
 

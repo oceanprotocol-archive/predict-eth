@@ -5,6 +5,18 @@ Given the task of predicting ETH for 12 hours in the future, there are several a
 
 This readme describe the implementation of four different algorithms to predict the price of ether uisng the previous values of it as features. The models use 12 previous hours prices to predict the 12 hours future values. The implemented models are Linear Regression, Random Forest regression, Support vector machines and a two layer desily connected neuran nework.
 
+## 1. Setup
+
+From [Challenge 2](../challenges/main2.md), do:
+- [x] Setup
+
+In the console:
+```console
+pip install pandas numpy requests
+```
+
+## 2. Create and open a python file
+
 ```python
 
 import pandas as pd
