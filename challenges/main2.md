@@ -5,15 +5,15 @@ SPDX-License-Identifier: Apache-2.0
 
 # Predict ETH Price: Round Two 
 
-This readme describes a flow to predict future ETH price via a local AI model.
-
-It is used for the second ETH Prediction Challenge. (Not announced yet.)
+This is the main readme for the [Ocean Data Challenge :: ETH Prediction Round 2](https://questbook.app/explore_grants/about_grant/?grantId=0x9f248741962aaf27bd10f2c50aeec2d13f343611&chainId=137). 
 
 - Kickoff: Nov 14, 2022
 - Submission deadline: Dec 11, 2022 at 23:59 UTC
 - Prediction at times: Dec 12, 2022 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
 - Winners announced: within one week
 - To be considered for winning, and for 250 OCEAN reward for a valid submission, prediction error must (a) lower than if the "prediction" was simply a constant (b) lower than any of the end-to-end examples' prediction errors
+
+This readme describes a basic flow to predict future ETH price, and submit your predictions to contest judges.
 
 Here are the steps:
 
