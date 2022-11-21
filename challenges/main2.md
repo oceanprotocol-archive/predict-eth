@@ -47,7 +47,7 @@ brew install autoconf automake libffi libtool pkg-config python
 pip3 install --pre ocean-lib
 
 # Install other libraries
-pip3 install matplotlib pybundlr ccxt
+pip3 install matplotlib pybundlr ccxt requests
 ```
 
 You'll be using [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction) to share tamper-proof predictions. The `pybundlr` library (installed above) needs the Bundlr CLI installed. So, in the terminal:
