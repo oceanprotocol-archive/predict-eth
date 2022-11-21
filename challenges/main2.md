@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 
 This readme describes a flow to predict future ETH price via a local AI model.
 
-It is used for the second ETH Prediction Challenge. (Not announced yet.)
+It is used for the second ETH Prediction Challenge.
 
 - Kickoff: Nov 14, 2022
 - Submission deadline: Dec 11, 2022 at 23:59 UTC
@@ -33,11 +33,11 @@ Prerequisites:
 Now, let's install Python libraries. Open a terminal and:
 ```console
 # Initialize virtual environment and activate it.
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv venv #in Windows: python -m venv venv
+source venv/bin/activate #in Windows: venv\Scripts\activate
 
 # Avoid errors for the step that follows
-pip3 install wheel
+pip3 install wheel==0.37.1
 
 # Install Ocean library. Allow pre-releases to get the latest version.
 pip3 install --pre ocean-lib
@@ -57,9 +57,14 @@ You'll be using Polygon network. So, please ensure that you have a Polygon accou
 
 ### 1.3 Set envvars, for Polygon address
 
-In the terminal:
+In the terminal for Linux and Mac:
 ```console
 export REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
+```
+
+In the terminal for Windows:
+```console
+set REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
 ```
 
 ### 1.4 Load helper functions
