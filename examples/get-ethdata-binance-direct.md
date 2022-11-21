@@ -4,6 +4,12 @@ Here, we directly query the Binance API "Kline/Candlestick Data". [Here's the do
 
 We use Python [requests](https://requests.readthedocs.io/en/latest/) library to make queries.
 
+### 0. Setup
+
+From [Challenge 2](../challenges/main2.md), do:
+- [x] Setup
+
+
 ### 1. Get Data
 
 If the Python console isn't already open: `python`
