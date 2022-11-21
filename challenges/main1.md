@@ -59,7 +59,7 @@ export REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
 
 ### 1.4 Load helper functions
 
-Load helper functions. See [helpers.md](../examples/helpers.md). 
+Go to [helpers.md](../support/helpers.md) and follow the instructions.
 
 ### 1.5 Setup in Python, for Polygon
 
