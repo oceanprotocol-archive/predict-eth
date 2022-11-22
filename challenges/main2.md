@@ -254,9 +254,9 @@ import ccxt
 cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h')
 allcex_uts = [xi[0]/1000 for xi in cex_x]
 allcex_vals = [xi[4] for xi in cex_x]
+print_datetime_info("all CEX data info", allcex_uts)
 
 cex_vals = filter_to_target_uts(target_uts, allcex_uts, allcex_vals)
-print_datetime_info("CEX data info", allcex_uts)
 print(f"cex ETH price is ${cex_vals[0]} at start_dt of {start_dt}")
 print(f"cex_vals: {cex_vals}")
 
