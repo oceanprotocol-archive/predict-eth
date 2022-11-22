@@ -231,32 +231,36 @@ In the terminal:
 export REMOTE_TEST_PRIVATE_KEY1=<judges' private key, having address 0xA54A..>
 ```
 
-Do the steps in "Appendix: Load helper functions".
+Load helper functions: Go to [helpers.md](../support/helpers.md) and follow the instructions.
 
 In the same Python console:
 ```python
-#setup
+# setup
 ocean = create_ocean_instance()
 alice_wallet = create_alice_wallet(ocean) #you're Alice
 
-#get predicted ETH values
-did = <value shared by you>
-file_name = ocean.assets.download_file(did, alice_wallet)
-pred_vals = load_list(file_name)
-
-#get actual ETH values (final)
-ETH_USDT_did = "did:op:0dac5eb4965fb2b485181671adbf3a23b0133abf71d2775eda8043e8efc92d19"
-file_name = ocean.assets.download_file(ETH_USDT_did, alice_wallet)
-allcex_uts, allcex_vals = load_from_ohlc_data(file_name)
-print_datetime_info("CEX data info", allcex_uts)
-
+# specify target times
 start_dt = datetime.datetime(2022, 12, 12, 1, 00) #Dec 12, 2022 at 1:00am UTC
 target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
 
-cex_vals = filter_to_target_uts(target_uts, allcex_uts, allcex_vals)
+# get predicted ETH values
+did = <value shared by you>
+file_name = ocean.assets.download_file(did, alice_wallet)
+pred_vals = load_list(file_name)
 
-#calc nmse, plot
+# get actual ETH values (final)
+import ccxt
+cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h')
+allcex_uts = [xi[0]/1000 for xi in cex_x]
+allcex_vals = [xi[4] for xi in cex_x]
+
+cex_vals = filter_to_target_uts(target_uts, allcex_uts, allcex_vals)
+print_datetime_info("CEX data info", allcex_uts)
+print(f"cex ETH price is ${cex_vals[0]} at start_dt of {start_dt}")
+print(f"cex_vals: {cex_vals}")
+
+# calc nmse, plot
 nmse = calc_nmse(cex_vals, pred_vals)
 print(f"NMSE = {nmse}")
 plot_prices(cex_vals, pred_vals)
