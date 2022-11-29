@@ -67,11 +67,12 @@ pred_vals = forecast.set_index('ds')['yhat'][-12:].to_numpy()
 
 ### 3.3 Calculate NMSE
 
+```python
 nmse = calc_nmse(test_data.y, pred_vals)
 print(f"NMSE = {nmse}")
+```
 
-# 3.4 Plot predicted and real values for ETH price
-plot_prices(test_data.y, pred_vals)
+Keep iterating in step 3 until you're satisfied with accuracy. Then...
 
 
 ## 4.  Publish predictions
