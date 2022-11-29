@@ -11,13 +11,13 @@ This example predicts ETH price via raw data published in Ocean, and linear mode
 
 The raw data is: 'Open', 'High', 'Low', 'Close' and 'Volume' values, at 1 hour intervals. Predictions are at 1-hour intervals into the future.
 
-## Setup
+## 1. Setup
 
 
 From [Challenge 2](../challenges/main2.md), do:
 - [x] Setup
 
-## Main Work
+## 2. Get data locally
 
 In Python:
 
@@ -37,7 +37,15 @@ dts = to_datetimes(allcex_uts)
 # create a Data Frame with two columns [date,eth-prices] with dates given in intervals of 1-hour
 import pandas as pd
 data = pd.DataFrame({"ds": dts, "y": allcex_vals})
+```
 
+## 3.  Make predictions
+
+### 3.1  Build an AI model
+
+In Python:
+
+```python
 # use the last 12 hours of testing set, all the previous data is used as training
 train_data = data.iloc[0:-12,:]
 test_data = data.iloc[-12:,:]
@@ -47,15 +55,25 @@ test_data = data.iloc[-12:,:]
 from prophet import Prophet
 model = Prophet()
 model.fit(train_data)
+```
 
+### 3.2  Run the AI model to make future ETH price predictions
+
+```python
 #Predict ETH values over the range of the test set
 forecast = model.predict(pd.DataFrame({"ds":test_data.ds}))
 pred_vals = forecast.set_index('ds')['yhat'][-12:].to_numpy()
+```
 
-# Calculate Normalized Mean Squared Error between predictions and true (test) values    
+### 3.3 Calculate NMSE
+
 nmse = calc_nmse(test_data.y, pred_vals)
 print(f"NMSE = {nmse}")
 
-# Plot predicted and real values for ETH price
+# 3.4 Plot predicted and real values for ETH price
 plot_prices(test_data.y, pred_vals)
 
+
+## 4.  Publish predictions
+From [Challenge 2](../challenges/main2.md), do:
+- [x] Publish predictions
