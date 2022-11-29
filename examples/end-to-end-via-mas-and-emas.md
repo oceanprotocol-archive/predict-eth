@@ -53,7 +53,6 @@ from sklearn.feature_selection import RFE
 from sklearn.svm import SVR
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import r2_score
 
 # add nmse helper function
 def calc_nmse(y, yhat) -> float:
@@ -131,13 +130,17 @@ model.fit(X_train, y_train)
 yhat_test = model.predict(X_test)
 
 # Evaluate the model
-r2 = r2_score(y_test, yhat_test)
 nmse = calc_nmse(y_test, yhat_test)
+print(f'NMSE = {nmse}')
 
-# Print results
-print(f'r2 is {r2}')
-print(f'nmse is {nmse}')
+pred_vals = yhat_test[:12] # these are the next 12 predictions to submit to the judges
+print(pred_vals)
 ```
+
+This is a valid submission, to participate in the competition:
+
+From [Challenge 2](../challenges/main2.md), do:
+- [x] Publish predictions
 
 
 ## 3. Scenario: make predictions with MA-21
