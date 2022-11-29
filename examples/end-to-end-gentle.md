@@ -47,16 +47,11 @@ Can we do it? Let's give it a try by first gathering the data for our model.
 
 ## 2. Setup
 
+From [Challenge 2](../challenges/main2.md), do:
+- [x] Setup
+
 In the console:
 ```console
-
-# Create an envirionment named "example" 
-python -m venv example
-
-# Activate the environment in Linux (1st line below) or Windows (2nd line):
-source ./example/bin/activate
-example\Scripts\activate
-
 # Install libraries using pip
 pip install pandas ccxt
 pip install -U scikit-learn
@@ -77,7 +72,6 @@ import datetime
 import time
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, r2_score
 ```
 
 ---
@@ -322,29 +316,32 @@ def calc_nmse(y, yhat) -> float:
     nmse = np.sqrt(np.average(((yhat - y) / range_y) ** 2))
     return nmse
 
-r2 = r2_score(y_test, predictions) # result is 0.68
 nmse = calc_nmse(y_test, predictions) # result is 0.0048
+print(f'NMSE = {nmse}')
+
+pred_vals = predictions[:12] # these are the next 12 predictions to submit to the judges
+print(pred_vals)
 ```
 
-ok! 68% and an nmse of 0.0048, these are acceptable initial results.
+As you can see, these numbers are quite acceptable for an initial submission! good job!
 
-However, wait a second, wait a second, what about if instead of using all the data we deploy or model for only one hour of the day, say 10am?
+This would be a valid submission, all that you would have to do now is:
+
+From [Challenge 2](../challenges/main2.md), do:
+- [x] Publish predictions
+
+However, wait a second, what about if instead of using all the data we deploy our model for only one hour of the day, say 10am?
 
 ```python
-
 # Add this line on top of the previous model
 base = base[base['Date'].dt.hour == 10]
-
-# repeat the previous model here
-
-# Re-evaluate the model
-r2 = r2_score(y_test, predictions) # result is -6.98
-nmse = calc_nmse(y_test, predictions) # result is 0.1311
 ```
 
-These results show that for, the 10am prediction, our promising model is worse than an horizontal line.
+As you can see, for the 10am prediction the results are not so good, in fact, our promising model is worse than an horizontal line.
 
-While examining this example, you probably noticed that this example can benefit from some improvements (number of datapoints, normalization, etc.)
+But there are good news:
+
+We are sure that you probably noticed that this example can benefit from some improvements (number of datapoints, normalization, etc.)
 
 That is what Ocean's ETH Predict challenge is about.
 
