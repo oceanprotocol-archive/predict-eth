@@ -9,7 +9,7 @@ Existing and potential future data sources to consider
 - binance API
 
 ### Other potential data
-- Pull data from Flipside and Covalent (large free data providers). Example: https://colab.research.google.com/drive/1zsxX28_vZMVLSSJYOLI5hv2zsdKH34T0?usp=sharing&authuser=1
+- Pull data from Flipside, Footprint, Dune, Luabase, Google and BigQuery (large free data providers). Example: https://colab.research.google.com/drive/1zsxX28_vZMVLSSJYOLI5hv2zsdKH34T0?usp=sharing&authuser=1
 - [TrueBlocks data](https://trueblocks.io/data-model/intro/). All on-chain data [here](https://trueblocks.io/data-model/chaindata/)
 - [Messari subgraphs](https://github.com/messari/subgraphs). Status of all subgraphs [here](https://subgraphs.messari.io/) 
 - Web3 Data SQL Companies-Transpose, Flipside Crypto, Dune Analytics - Transpose most open to integration, SQL for datasets->train model 
