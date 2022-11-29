@@ -15,10 +15,6 @@ Existing and potential future data sources to consider
 - Web3 Data SQL Companies-Transpose, Flipside Crypto, Dune Analytics - Transpose most open to integration, SQL for datasets->train model 
 - Ocean Missions-OceanDAO grantee-Data sets around Nike NFT collection-https://www.oceanmissions.com/data-packs/
 - Rome Blockchain Labs- Multi-chain DeFi data from GraphQL endpoint, activley want to list their data on Ocean Market
-- (add to me)
-
-### Candidate Sources: Low-latency
-
-- Mempool data sources: BloxRoute, more?
+- BloxRoute
 - (add to me)
 
