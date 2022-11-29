@@ -59,6 +59,8 @@ model.fit(train_data)
 
 ### 3.2  Run the AI model to make future ETH price predictions
 
+In Python:
+
 ```python
 #Predict ETH values over the range of the test set
 forecast = model.predict(pd.DataFrame({"ds":test_data.ds}))
@@ -66,6 +68,8 @@ pred_vals = forecast.set_index('ds')['yhat'][-12:].to_numpy()
 ```
 
 ### 3.3 Calculate NMSE
+
+In Python:
 
 ```python
 nmse = calc_nmse(test_data.y, pred_vals)
