@@ -59,7 +59,7 @@ model.fit(train_data)
 
 ### 3.2  Run the AI model to make future ETH price predictions
 
-In Python:
+In the same Python console:
 
 ```python
 #Predict ETH values over the range of the test set
@@ -69,11 +69,14 @@ pred_vals = forecast.set_index('ds')['yhat'][-12:].to_numpy()
 
 ### 3.3 Calculate NMSE
 
-In Python:
+In the same Python console:
 
 ```python
-nmse = calc_nmse(test_data.y, pred_vals)
+# now, we have predicted and actual values. Let's find error, and plot!
+cex_vals = test_data.y
+nmse = calc_nmse(cex_vals, pred_vals)
 print(f"NMSE = {nmse}")
+plot_prices(cex_vals, pred_vals)
 ```
 
 Keep iterating in step 3 until you're satisfied with accuracy. Then...
