@@ -308,14 +308,7 @@ model.fit(X_train, y_train)
 predictions = model.predict(X_test)
 
 # To evaluate the model we use the nmse
-# Helper function to compute nmse
-def calc_nmse(y, yhat) -> float:
-    assert len(y) == len(yhat)
-    y, yhat = np.asarray(y), np.asarray(yhat)
-    range_y = max(y) - min(y)    
-    nmse = np.sqrt(np.average(((yhat - y) / range_y) ** 2))
-    return nmse
-
+# Remember that the nmse function comes from the first step, the Setup
 nmse = calc_nmse(y_test, predictions) # result is 0.0048
 print(f'NMSE = {nmse}')
 
