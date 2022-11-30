@@ -72,7 +72,7 @@ x_test = np.concatenate((full_test_close[0:-max_lag,:],full_test_volume[0:-max_l
 
 
 
-### 3.1  rain model and calculate prediction error in the test set
+### 3.1 Build a simple AI model
 
 In the same Python console:
 
@@ -150,7 +150,9 @@ plt.title("Comparison of different methods for predicting ETH value 1-12 hours a
 plt.show()
 ```
 
-### 3.2 Select the best performant model and make final predictions
+### 3.2 Run the AI model to make future ETH price predictions"
+
+#### 3.2.1 Select the best performant model and make final predictions
 
 Looking at the averaged error on the test set, we observe that the Random Forest Regression provides the lowest NMSE.The ranking of the methods will change depending on the hyper parameters selected and in the case of Neural Networks, initialization is critical. With the RFR selected, we proceed to retrain the model using all the available data up to the current time.
 
@@ -171,12 +173,15 @@ input_data = np.concatenate((full_data_close[-1:,:],full_data_open[-1:,:]),axis=
 pred_vals = model.predict(input_data)
 ```
 
+### 3.3 Calculate NMSE
+
+  The NMSE was calculated directly in section 3.1, with the Random Forest regression method providing the lowest error.
+
+
 ## 4.  Publish predictions
 From [Challenge 2](../challenges/main2.md), do:
 - [x] Publish predictions
 
 ## 5. Discussion
 
-The algorithms presented are just shown as introductory approaches but are not production ready. For instance, we use the close value as the real eth value and an extra feature including the open price is added, however many other (more informative) variables could be incorporated. Some of the methods proposed need tuning of hyper parameters, such as the regularization parameter C in the SVR, number of estimators in the Random forest method, etc.
-
-Furthermore, these methods base their prediction in the previous 12 hours and do not take into consideration trends nor other possible variables such as holidays, seasons etc. all this motivates using models that model time and allow for latten variable modeling such as Hidden Markov Models or Recurrent Neural networks (including LSTMS)
+There are many ways to reduce error further, including: more data, tuning hyperparameters, better feature vectors, better modeling algorithms including time-aware ones (e.g. recurrent neural networks).
