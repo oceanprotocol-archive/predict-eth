@@ -307,7 +307,7 @@ model.fit(X_train, y_train)
 # Predict the next values
 predictions = model.predict(X_test)
 
-# To evaluate the model we use r2 and nmse
+# To evaluate the model we use the nmse
 # Helper function to compute nmse
 def calc_nmse(y, yhat) -> float:
     assert len(y) == len(yhat)
