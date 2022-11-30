@@ -4,7 +4,7 @@ This is an example full submission to the challenge. You can use it as starting 
 
 Remember:
 -  You do not have to win, just make a full submission (like this one)
--  This competition has several rounds, you can always improve your submission in the next edition.
+-  This competition has several rounds, you can always make improvements for the next edition.
 
 A few remarks:
 - The code presented here is repetitive and does not benefit from neither Python's nor Pandas methods.
@@ -23,7 +23,7 @@ Ready?, let's start! :rocket: :rocket: :rocket:
 
 ---
 
-## 1. Understanding the Challenge
+## 0. Understanding the Challenge
 
 In this example we plan to predict the daily Binance ETH price.
 
