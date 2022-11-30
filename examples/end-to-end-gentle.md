@@ -45,7 +45,7 @@ Can we do it? Let's give it a try by first gathering the data for our model.
 
 ---
 
-## 2. Setup
+## 1. Setup
 
 From [Challenge 2](../challenges/main2.md), do:
 - [x] Setup
@@ -76,9 +76,9 @@ from sklearn.model_selection import train_test_split
 
 ---
 
-## 3. Data Gathering:
+## 2. Getting the Data:
 
-### 3.1 Introduction
+### 2.1 Introduction
 
 We need the ETH Price data and the Predictor variables data.
 
@@ -99,7 +99,7 @@ Each DataFrame will have a column named "Date".
 We will make sure that every "Date" column has the type 'datetime', so we can compare them when we merge all the DataFrames.
 
 
-### 3.1 Getting data from Ocean - hourly stock prices
+### 2.2 Getting data from Ocean - hourly stock prices
 
 There are many sites with great data and, of course, you are welcome to use any of them.
 
@@ -137,7 +137,7 @@ df_tech_amazon['Date'] = pd.to_datetime(df_tech_amazon['Date'], format="%m/%d/%Y
 ```
 
 
-### 3.3 Getting ETH price data
+### 2.3 Getting ETH price data
 
 For this data, we use the [ccxt](https://github.com/ccxt/ccxt) package.
 
@@ -229,7 +229,7 @@ ETH_Price = ETH_Price.sort_values(by="Date", ascending=False)
 ETH_Price.reset_index(drop=True, inplace=True)
 ```
 
-### 3.4 Put it all together in a 'base' DataFrame
+### 2.4 Put it all together in a 'base' DataFrame
 
 Good job! We now have the ETH_Price and four major technology stocks prices. All per hour and for the last three months.
 
@@ -275,7 +275,7 @@ We can also explore the relationship between variables with a correlation table
 base.corr(method='pearson', numeric_only=True)
 ```
 
-## 4. Data Selection
+### 3.1 Data Selection
 
 Examples in case we want to select a specific time in the day
 
@@ -284,7 +284,7 @@ data_at_19h = base[base['Date'].dt.hour == 13] # All 13h in the afternoon
 data_every_12h = base[(base['Date'].dt.hour == 10) | (base['Date'].dt.hour == 12)] # All 10am and 12pm
 ```
 
-## 5. Model
+### 3.2 Model
 
 Let's try first with a model that includes all data
 
@@ -325,11 +325,6 @@ print(pred_vals)
 
 As you can see, these numbers are quite acceptable for an initial submission! good job!
 
-This would be a valid submission, all that you would have to do now is:
-
-From [Challenge 2](../challenges/main2.md), do:
-- [x] Publish predictions
-
 However, wait a second, what about if instead of using all the data we deploy our model for only one hour of the day, say 10am?
 
 ```python
@@ -346,3 +341,12 @@ We are sure that you probably noticed that this example can benefit from some im
 That is what Ocean's ETH Predict challenge is about.
 
 Can you help us improve this?
+
+---
+
+## 4. Publish Predictions
+
+Once you have your predictions you can publish them following these easy steps:
+
+From [Challenge 2](../challenges/main2.md), do:
+- [x] Publish predictions
