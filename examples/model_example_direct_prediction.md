@@ -17,7 +17,7 @@ pip install pandas numpy requests
 
 ## 2. Get data locally
 
-In Python:
+In the same Python console:
 
 ```python
 
@@ -84,11 +84,6 @@ from tensorflow.keras import Sequential, Model
 from tensorflow.keras.layers import Input, Dense
 import numpy as np
 import matplotlib.pyplot as plt
-
-# normalized mean-squared-error, consistent with elsewhere in predict-eth
-def nmse(y, yhat) -> float:
-    range_y = max(y) - min(y)    
-    return np.sqrt(np.average(((yhat - y) / range_y) ** 2))
 
 
 # regression using a base estimator and RegressionChain
