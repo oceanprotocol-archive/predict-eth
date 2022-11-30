@@ -15,7 +15,9 @@ In the console:
 pip install pandas numpy requests
 ```
 
-## 2. Create and open a python file
+## 2. Get data locally
+
+In the same Python console:
 
 ```python
 
@@ -58,14 +60,23 @@ y_train = full_train_close[max_lag:,:]
 x_train = np.concatenate((full_train_close[0:-max_lag,:],full_train_volume[0:-max_lag,:]),axis=1)
 
 
-
 # Repeat the feature vector creation as above for the test set
 full_test_close = pd.concat([test_data['close'].shift(i) for i in range(0,max_lag)],axis=1).dropna().values
 full_test_volume = pd.concat([test_data['open'].shift(i) for i in range(0,max_lag)],axis=1).dropna().values
 y_test = full_test_close[max_lag:,:]
 x_test = np.concatenate((full_test_close[0:-max_lag,:],full_test_volume[0:-max_lag,:]),axis=1)
 
+```
 
+## 3.  Make predictions
+
+
+
+### 3.1 Build a simple AI model
+
+In the same Python console:
+
+```python
 # Create models
 from sklearn.multioutput import RegressorChain
 from tensorflow import keras
@@ -73,11 +84,6 @@ from tensorflow.keras import Sequential, Model
 from tensorflow.keras.layers import Input, Dense
 import numpy as np
 import matplotlib.pyplot as plt
-
-# normalized mean-squared-error, consistent with elsewhere in predict-eth
-def nmse(y, yhat) -> float:
-    range_y = max(y) - min(y)    
-    return np.sqrt(np.average(((yhat - y) / range_y) ** 2))
 
 
 # regression using a base estimator and RegressionChain
@@ -111,7 +117,7 @@ linreg_error = fit_and_predict_reg(linreg,x_train,y_train,x_test,y_test)
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.datasets import make_regression
 rfr = RandomForestRegressor(max_depth=10)
-rfr_error = fit_and_predict_reg(linreg,x_train,y_train,x_test,y_test)
+rfr_error = fit_and_predict_reg(rfr,x_train,y_train,x_test,y_test)
 
 # multiputput suport vector machines
 from sklearn.svm import SVR
@@ -139,12 +145,38 @@ plt.title("Comparison of different methods for predicting ETH value 1-12 hours a
 plt.show()
 ```
 
+### 3.2 Run the AI model to make future ETH price predictions"
+
+#### 3.2.1 Select the best performant model and make final predictions
+
+Looking at the averaged error on the test set, we observe that the Random Forest Regression provides the lowest NMSE.The ranking of the methods will change depending on the hyper parameters selected and in the case of Neural Networks, initialization is critical. With the RFR selected, we proceed to retrain the model using all the available data up to the current time.
+
+In the same Python Console:
+
+```python
+full_data_close = pd.concat([data['close'].shift(i) for i in range(0,max_lag)],axis=1).dropna().values
+full_data_open = pd.concat([data['open'].shift(i) for i in range(0,max_lag)],axis=1).dropna().values
+Y = full_data_close[max_lag:,:]
+X = np.concatenate((full_data_close[0:-max_lag,:],full_data_open[0:-max_lag,:]),axis=1)
+model = RegressorChain(base_estimator=rfr).fit(X, Y)  
+```
+Then we create the prediction for the future values 1h, 2h, ... 12h. For this example, the input is the feature vector corresponding to the latest observed data point:
+
+```python
+# predict future 12 hours prices using latest 12 values observed
+input_data = np.concatenate((full_data_close[-1:,:],full_data_open[-1:,:]),axis=1)
+pred_vals = model.predict(input_data)
+```
+
+### 3.3 Calculate NMSE
+
+  The NMSE was calculated directly in section 3.1, with the Random Forest regression method providing the lowest error.
 
 
+## 4.  Publish predictions
+From [Challenge 2](../challenges/main2.md), do:
+- [x] Publish predictions
 
-### 2. Discussion
+## 5. Discussion
 
-The algorithms presented are just shown as introductory approaches but are not production ready. For instance we use the close value as the real eth value and an extra feature including the open price is added, however many other (more informative) variables could be incorporated. The some of the methods proposed need tunning of hyperparameters such and the regularization parameter C in the SVR, number of stimators in the Random forest method, etc.
-
-Furthermore, these methods base their prediction in the previous 12 hours and do not take into consideration trends nor other possible variables such as holidays, seasons etc. all this motivates using models that model time and allow for latten variable modeling such as Hidden Markov Models or Recurrent Neural networks (including LSTMS)
-
+There are many ways to reduce error further, including: more data, tuning hyperparameters, better feature vectors, better modeling algorithms including time-aware ones (e.g. recurrent neural networks).

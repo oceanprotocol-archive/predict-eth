@@ -19,7 +19,7 @@ From [Challenge 2](../challenges/main2.md), do:
 
 ## 2. Get data locally
 
-In Python:
+In the Python console:
 
 ```python
 
@@ -43,7 +43,7 @@ data = pd.DataFrame({"ds": dts, "y": allcex_vals})
 
 ### 3.1  Build an AI model
 
-In Python:
+In the same Python console:
 
 ```python
 # use the last 12 hours of testing set, all the previous data is used as training
