@@ -23,12 +23,12 @@ In Python:
 
 ```python
 
-# Download file from Ocean market (free)
-ETH_USDT_did = "did:op:0dac5eb4965fb2b485181671adbf3a23b0133abf71d2775eda8043e8efc92d19"
-file_name = ocean.assets.download_file(ETH_USDT_did, alice_wallet)
+import ccxt
+cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h')
+allcex_uts = [xi[0]/1000 for xi in cex_x]
+allcex_vals = [xi[4] for xi in cex_x]
 
-# Extracts dates and ether price values
-allcex_uts, allcex_vals = load_from_ohlc_data(file_name)
+# # Extracts dates and ether price values
 print_datetime_info("CEX data info", allcex_uts)
 
 # Transform timestamps to dates
