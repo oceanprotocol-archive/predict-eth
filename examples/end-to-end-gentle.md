@@ -71,7 +71,6 @@ import ccxt
 import datetime
 import time
 from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
 ```
 
 ---
@@ -298,8 +297,16 @@ X = base[['AAPL_Open', 'AAPL_High', 'AAPL_Low', 'AAPL_Close', 'AAPL_Vol', 'GOOG_
 # Add the target
 y = base['ETH_Price']
 
-# Create the training and testing datasets
-X_train, X_test, y_train, y_test = train_test_split(X, y, shuffle=True, train_size=0.3)
+
+# We use the last 12 hours for testing, all the rest of data is for training
+
+# Target y_test and y_train
+y_test = y.iloc[0:12]
+y_train = y.iloc[12:]
+
+# # Predictors X_test and X_train
+X_test = X.iloc[0:12]
+X_train = X.iloc[12:]
 
 # Create the fitted model
 model.fit(X_train, y_train)
