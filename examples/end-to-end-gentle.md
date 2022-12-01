@@ -316,11 +316,11 @@ predictions = model.predict(X_test)
 
 # To evaluate the model we use the nmse
 # Remember that the nmse function comes from the first step, the Setup
-nmse = calc_nmse(y_test, predictions) # result is 0.0048
+nmse = calc_nmse(y_test, predictions) # result is 0.0427
 print(f'NMSE = {nmse}')
 
 pred_vals = predictions[:12] # these are the next 12 predictions to submit to the judges
-print(pred_vals)
+print(pred_vals) # [1305.27447798, 1304.7120102, 1304.9693135, ... , 1339.98662918, 1281.38973626]
 ```
 
 As you can see, these numbers are quite acceptable for an initial submission! good job!
