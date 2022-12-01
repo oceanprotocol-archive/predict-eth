@@ -274,18 +274,9 @@ We can also explore the relationship between variables with a correlation table
 base.corr(method='pearson', numeric_only=True)
 ```
 
-### 3.1 Data Selection
+### 3.1 Model
 
-Examples in case we want to select a specific time in the day
-
-```python
-data_at_19h = base[base['Date'].dt.hour == 13] # All 13h in the afternoon
-data_every_12h = base[(base['Date'].dt.hour == 10) | (base['Date'].dt.hour == 12)] # All 10am and 12pm
-```
-
-### 3.2 Model
-
-Let's try first with a model that includes all data
+Let's give it a try by using a model that includes all the data
 
 ```python
 # Instantiate a model object
@@ -314,33 +305,64 @@ model.fit(X_train, y_train)
 # Predict the next values
 predictions = model.predict(X_test)
 
-# To evaluate the model we use the nmse
-# Remember that the nmse function comes from the first step, the Setup
-nmse = calc_nmse(y_test, predictions) # result is 0.0427
-print(f'NMSE = {nmse}')
-
-pred_vals = predictions[:12] # these are the next 12 predictions to submit to the judges
+# These are the next 12 predictions to submit to the judges
+pred_vals = predictions[:12]
 print(pred_vals) # [1305.27447798, 1304.7120102, 1304.9693135, ... , 1339.98662918, 1281.38973626]
 ```
 
-As you can see, these numbers are quite acceptable for an initial submission! good job!
+### 3.2 Improving our model using normalized mean-squared error (NMSE)
 
-However, wait a second, what about if instead of using all the data we deploy our model for only one hour of the day, say 10am?
+Now that we have our predictions, let's get the real numbers so we can compare them.
+
+The nmse is a frequently used accuracy measurement for these sort of comparisons.
+
+We are using the nmse for comparing our pred_vals with the next 12 real prices of the target (in our case ETH)
+
+Same as we did before, with ccxt we can get the next 12 real prices of ETH
+
+Don't forget to import the nmse function. [It's in the Setup in 'helpers'](https://github.com/oceanprotocol/predict-eth/blob/main/support/helpers.md)
 
 ```python
-# Add this line on top of the previous model
-base = base[base['Date'].dt.hour == 10]
+# To start we get the most recent date from our base dataset
+most_recent_date_base = base.at[0,'Date'] # 2022-11-04 20:00:00
+
+# Same as before we create a datetime function
+most_recent_date_base_datetime = most_recent_date_base.to_pydatetime()
+
+# The initial datetime will be the next rounded hour
+initial_time = most_recent_date_base_datetime + timedelta(hours=1) # 2022-11-04 21:00:00
+
+# Same as before we transform the initial datetime to a timestamp
+initial_time_timestamp = time.mktime(initial_time.timetuple())
+
+# as ccxt requires, we remove the decimals and add miliseconds
+initial_time_timestamp = int(initial_time_timestamp) * 1000
+
+# With ccxt we get the next 12 real values of the target ETH price
+cex_vals_array = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h', since=initial_time_timestamp, limit=12)
+
+# We know that in the array that is returned from ccxt
+# the fourth value is the 'close'
+# We can get all the closes with a list comprehension
+cex_vals = [close[4] for close in cex_vals_array]
+
+# The nmse compares our predictions with the real values for the next 12 hours
+nmse = calc_nmse(cex_vals, predictions)
+print(f'NMSE = {nmse}') # result is 0.0481
 ```
 
-As you can see, for the 10am prediction the results are not so good, in fact, our promising model is worse than an horizontal line.
 
-But there are good news:
+As you can see, these numbers are quite acceptable for an initial submission! good job!
 
-We are sure that you probably noticed that this example can benefit from some improvements (number of datapoints, normalization, etc.)
+But we have one question: while going through this example, didn't you notice things that could be improved to get a better prediction and an lower nmse?
 
-That is what Ocean's ETH Predict challenge is about.
+This full example show not only how to create the model but also how to evaluate it before even making a submission.
 
-Can you help us improve this?
+This example has plenty of opportunities to improve (number of datapoints, normalization, etc.)
+
+And that is what Ocean's ETH Predict challenge is all about.
+
+So, can you help us improve this?
 
 ---
 
