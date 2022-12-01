@@ -318,10 +318,6 @@ The nmse is a frequently used accuracy measurement for these sort of comparisons
 
 We are using the nmse for comparing our pred_vals with the next 12 real prices of the target (in our case ETH)
 
-Same as we did before, with ccxt we can get the next 12 real prices of ETH
-
-Don't forget to import the nmse function. [It's in the Setup in the 'helpers' section](https://github.com/oceanprotocol/predict-eth/blob/main/support/helpers.md)
-
 ```python
 # To start we get the most recent date from our base dataset
 most_recent_date_base = base.at[0,'Date'] # 2022-11-04 20:00:00
