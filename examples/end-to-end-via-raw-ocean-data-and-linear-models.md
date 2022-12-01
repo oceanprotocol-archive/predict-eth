@@ -64,22 +64,36 @@ In the same Python console:
 ```python
 #Predict ETH values over the range of the test set
 forecast = model.predict(pd.DataFrame({"ds":test_data.ds}))
-pred_vals = forecast.set_index('ds')['yhat'][-12:].to_numpy()
+pred_vals_test = forecast.set_index('ds')['yhat'][-12:].to_numpy()
 ```
 
-### 3.3 Calculate NMSE
+### 3.3 Calculate NMSE and make final predictions
 
 In the same Python console:
 
 ```python
 # now, we have predicted and actual values. Let's find error, and plot!
 cex_vals = test_data.y
-nmse = calc_nmse(cex_vals, pred_vals)
+nmse = calc_nmse(cex_vals, pred_vals_test)
 print(f"NMSE = {nmse}")
-plot_prices(cex_vals, pred_vals)
+plot_prices(cex_vals, pred_vals_test)
 ```
 
 Keep iterating in step 3 until you're satisfied with accuracy. Then...
+
+```python
+# fit model with all the available data
+model = Prophet()
+model.fit(data)
+
+# generate dates for prediction (12 hours ahead of the latest datapoint in the data time)
+future_dates = model.make_future_dataframe(periods=12, freq="h", include_history=False)
+
+# predcit eth values on future_dates
+forecast = model.predict(future_dates)
+pred_vals = forecast.set_index('ds')['yhat'].to_numpy()
+
+```
 
 
 ## 4.  Publish predictions
