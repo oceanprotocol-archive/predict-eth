@@ -25,16 +25,20 @@ import pandas as pd
 import numpy as np
 import requests
 
-# get ETH/USD prices for the latest 500 hours.
-# the datasurce returns timestamp, open, max, min, close and volume
-resp = requests.get(
-    "https://cexa.oceanprotocol.io/ohlc?exchange=binance&pair=ETH/USDT")
+import ccxt
+cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h')
+allcex_uts = [xi[0]/1000 for xi in cex_x]
+allcex_vals = [xi[4] for xi in cex_x]
 
+# # Extracts dates and ether price values
+print_datetime_info("CEX data info", allcex_uts)
 
-# create a dataframe with the received data
-data = pd.DataFrame(resp.json(), columns=['date', 'open', 'max', 'min', 'close', 'volume'])
-print(data.shape)
-data['date'] = pd.to_datetime(data['date'],unit='ms')
+# Transform timestamps to dates
+dts = to_datetimes(allcex_uts)
+
+# create a Data Frame with two columns [date,eth-prices] with dates given in intervals of 1-hour
+import pandas as pd
+data = pd.DataFrame({"ds": dts, "y": allcex_vals})
 
 # Divide the data in training and tetsing set. Because the data has temporal structure, for the sake of this example we split the data # in two blocks rather than selecting sample points randomly to be part of the training and testing sets.
 # 90% of the data is used for training and 10 is used for testing
