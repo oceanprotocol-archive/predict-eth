@@ -68,8 +68,8 @@ Open the file. Add the following content to the file:
 import pandas as pd
 import numpy as np
 import ccxt
-import datetime
 import time
+from datetime import datetime, timedelta
 from sklearn.linear_model import LinearRegression
 ```
 
@@ -149,7 +149,7 @@ After that we will concatenate the queries to get the ETH_Price DataFrame.
 Here is how to get the first 500 results:
 ```python
 # Introduce the initial date (August 9th, 2022) in a datetime function
-first_500 = datetime.datetime(2022, 8, 9)
+first_500 = datetime(2022, 8, 9)
 
 # Transform the datetime to a timestamp (for this function ccxt only takes timestamps)
 first_500_timestamp_2022 = time.mktime(first_500.timetuple())
@@ -175,7 +175,7 @@ df_first_500 = df_first_500.rename(columns={'TimeStamp': 'Date'})
 
 The code to get the other four DataFrames:
 ```python
-second_500 = datetime.datetime(2022, 8, 29)
+second_500 = datetime(2022, 8, 29)
 second_500_timestamp_2022 = time.mktime(second_500.timetuple())
 second_500_timestamp_2022 = int(second_500_timestamp_2022) * 1000
 data_second_500 = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h', since=second_500_timestamp_2022, limit=500)
@@ -184,7 +184,7 @@ df_second_500 = df_second_500.rename(columns={0: 'TimeStamp', 1: 'Open', 2: 'Hig
 df_second_500['TimeStamp'] = pd.to_datetime(df_second_500['TimeStamp'], unit='ms')
 df_second_500 = df_second_500.rename(columns={'TimeStamp': 'Date'})
 
-third_500 = datetime.datetime(2022, 9, 18)
+third_500 = datetime(2022, 9, 18)
 third_500_timestamp_2022 = time.mktime(third_500.timetuple())
 third_500_timestamp_2022 = int(third_500_timestamp_2022) * 1000
 data_third_500 = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h', since=third_500_timestamp_2022, limit=500)
@@ -193,7 +193,7 @@ df_third_500 = df_third_500.rename(columns={0: 'TimeStamp', 1: 'Open', 2: 'Highe
 df_third_500['TimeStamp'] = pd.to_datetime(df_third_500['TimeStamp'], unit='ms')
 df_third_500 = df_third_500.rename(columns={'TimeStamp': 'Date'})
 
-fourth_500 = datetime.datetime(2022, 10, 8)
+fourth_500 = datetime(2022, 10, 8)
 fourth_500_timestamp_2022 = time.mktime(fourth_500.timetuple())
 fourth_500_timestamp_2022 = int(fourth_500_timestamp_2022) * 1000
 data_fourth_500 = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h', since=fourth_500_timestamp_2022, limit=500)
@@ -202,7 +202,7 @@ df_fourth_500 = df_fourth_500.rename(columns={0: 'TimeStamp', 1: 'Open', 2: 'Hig
 df_fourth_500['TimeStamp'] = pd.to_datetime(df_fourth_500['TimeStamp'], unit='ms')
 df_fourth_500 = df_fourth_500.rename(columns={'TimeStamp': 'Date'})
 
-fifth_500 = datetime.datetime(2022, 10, 28)
+fifth_500 = datetime(2022, 10, 28)
 fifth_500_timestamp_2022 = time.mktime(fifth_500.timetuple())
 fifth_500_timestamp_2022 = int(fifth_500_timestamp_2022) * 1000
 data_fifth_500 = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h', since=fifth_500_timestamp_2022, limit=200)
