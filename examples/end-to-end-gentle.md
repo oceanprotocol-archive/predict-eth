@@ -320,7 +320,7 @@ We are using the nmse for comparing our pred_vals with the next 12 real prices o
 
 Same as we did before, with ccxt we can get the next 12 real prices of ETH
 
-Don't forget to import the nmse function. [It's in the Setup in 'helpers'](https://github.com/oceanprotocol/predict-eth/blob/main/support/helpers.md)
+Don't forget to import the nmse function. [It's in the Setup in the 'helpers' section](https://github.com/oceanprotocol/predict-eth/blob/main/support/helpers.md)
 
 ```python
 # To start we get the most recent date from our base dataset
@@ -352,13 +352,15 @@ print(f'NMSE = {nmse}') # result is 0.0481
 ```
 
 
-As you can see, these numbers are quite acceptable for an initial submission! good job!
+These numbers are quite acceptable for an initial submission! good job!
 
-But we have one question: while going through this example, didn't you notice things that could be improved to get a better prediction and an lower nmse?
+But we have one question:
 
-This full example show not only how to create the model but also how to evaluate it before even making a submission.
+While going through this example; didn't you notice things that could be improved to get a better prediction and a lower nmse?
 
-This example has plenty of opportunities to improve (number of datapoints, normalization, etc.)
+This full example shows how to create the model and evaluate it before even making a submission.
+
+But, as you have probably figured by now, there are plenty of opportunities to make it more accurate (number of datapoints, normalization, etc.)
 
 And that is what Ocean's ETH Predict challenge is all about.
 
