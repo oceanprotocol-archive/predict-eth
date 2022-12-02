@@ -304,7 +304,7 @@ model.fit(X_train, y_train)
 
 # These are the next 12 predictions to submit to the judges
 pred_vals = model.predict(X_test)
-print() # [1305.27447798, 1304.7120102, 1304.9693135, ... , 1339.98662918, 1281.38973626]
+print(pred_vals) # [1305.27447798, 1304.7120102, 1304.9693135, ... , 1339.98662918, 1281.38973626]
 ```
 
 ### 3.2 Improving our model using normalized mean-squared error (NMSE)
@@ -313,35 +313,12 @@ Now that we have our predictions, let's get the real numbers so we can compare t
 
 The nmse is a frequently used accuracy measurement for these sort of comparisons.
 
-We are using the nmse for comparing our pred_vals with the next 12 real prices of the target (in our case ETH)
+We are using the nmse for comparing our pred_vals with the 12 real prices of the target
 
 ```python
-# To start we get the most recent date from our base dataset
-most_recent_date_base = base.at[0,'Date'] # 2022-11-04 20:00:00
-
-# Same as before we create a datetime function
-most_recent_date_base_datetime = most_recent_date_base.to_pydatetime()
-
-# The initial datetime will be the next rounded hour
-initial_time = most_recent_date_base_datetime + timedelta(hours=1) # 2022-11-04 21:00:00
-
-# Same as before we transform the initial datetime to a timestamp
-initial_time_timestamp = time.mktime(initial_time.timetuple())
-
-# as ccxt requires, we remove the decimals and add miliseconds
-initial_time_timestamp = int(initial_time_timestamp) * 1000
-
-# With ccxt we get the next 12 real values of the target ETH price
-cex_vals_array = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h', since=initial_time_timestamp, limit=12)
-
-# We know that in the array that is returned from ccxt
-# the fourth value is the 'close'
-# We can get all the closes with a list comprehension
-cex_vals = [close[4] for close in cex_vals_array]
-
 # The nmse compares our predictions with the real values for the next 12 hours
-nmse = calc_nmse(cex_vals, predictions)
-print(f'NMSE = {nmse}') # result is 0.0481
+nmse = calc_nmse(y_test, pred_vals)
+print(f'NMSE = {nmse}') # result is 0.0427
 ```
 
 
