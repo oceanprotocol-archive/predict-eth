@@ -302,12 +302,9 @@ X_train = X.iloc[12:]
 # Create the fitted model
 model.fit(X_train, y_train)
 
-# Predict the next values
-predictions = model.predict(X_test)
-
 # These are the next 12 predictions to submit to the judges
-pred_vals = predictions[:12]
-print(pred_vals) # [1305.27447798, 1304.7120102, 1304.9693135, ... , 1339.98662918, 1281.38973626]
+pred_vals = model.predict(X_test)
+print() # [1305.27447798, 1304.7120102, 1304.9693135, ... , 1339.98662918, 1281.38973626]
 ```
 
 ### 3.2 Improving our model using normalized mean-squared error (NMSE)
