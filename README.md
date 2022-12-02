@@ -19,8 +19,8 @@ Then the challenge is: how accurately can _you_ predict the price of ETH?
 These are example full submissions to the challenge. You can use any of these as a starting point, for your own work.
 
 Predict ETH price 1-12 ahead with various approaches:
-- [Simple](examples/end-to-end-via-raw-ocean-data-and-linear-models.md): To-the-point example, with simple input data (just ETH price) and simple model (linear dynamical model)
-- [Compare models, direct prediction](examples/model_example_direct_prediction.md): Build models that predict 1-12 hours ahead in one shot. Compare linear, SVM, RF, and NN models.
+- [Simple](examples/end-to-end_simple.md): To-the-point example, with simple input data (just ETH price) and simple model (linear dynamical model)
+- [Compare models, direct prediction](examples/end-to-end_compare-models.md): Build models that predict 1-12 hours ahead in one shot. Compare linear, SVM, RF, and NN models.
 
 These flows are WIP, and not quite modeling end-to-end yet. Stay tuned:)
 - [Gentle introduction, lots of data](examples/end-to-end-gentle.md):  Gentle intro for smooth onboarding. Uses stock data and ETH price for inputs. Builds a linear model.
