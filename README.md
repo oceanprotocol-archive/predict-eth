@@ -47,6 +47,11 @@ Here are ideas to get even more accurate results.
 - [Modeling approaches](ideas/modeling.md)
 - [Articles](ideas/articles.md) on predicting ETH, etc
 
+### Bonus: algorithmic trading 
+
+Getting into the head of a trader might inspire you in your work on predicting ETH.
+
+To help with that, check out [algorithmic trading flow README](ideas/algorithmic-trading-flow.md) does a walk-through of using the "[Freqtrade](https://github.com/freqtrade/freqtrade)" open-source trading tool with a custom trading strategy. 
 
 ### Appendix: Past challenges
 
