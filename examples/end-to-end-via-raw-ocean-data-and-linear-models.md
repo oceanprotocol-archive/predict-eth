@@ -3,13 +3,13 @@ Copyright 2022 Ocean Protocol Foundation
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# End-to-end example: Raw Ocean data and linear models
+# End-to-end example: Simple & to-the-Point
 
 ## Introduction
 
-This example predicts ETH price via raw data published in Ocean, and linear models.
+This example predicts future ETH price, using simple input data (just historical ETH price) and simple model (linear dynamical model)
 
-The raw data is: 'Open', 'High', 'Low', 'Close' and 'Volume' values, at 1 hour intervals. Predictions are at 1-hour intervals into the future.
+The raw data is: 'Open', 'High', 'Low', 'Close' and 'Volume' values, at 1 hour intervals. Predictions are 1h, 2h, ..., 12h into the future.
 
 ## 1. Setup
 
