@@ -9,18 +9,19 @@ In the Python console, copy and paste everything below:
 # imports
 import datetime
 from datetime import timezone
-import numpy as np
-from pathlib import Path
 import os
+from pathlib import Path
 import time
 
-import matplotlib
-import matplotlib.pyplot as plt
-from web3.main import Web3
-from ocean_lib.example_config import ExampleConfig
-from ocean_lib.ocean.ocean import Ocean
 from brownie.network import accounts
 from brownie.network.account import LocalAccount
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+from web3.main import Web3
+
+from ocean_lib.example_config import ExampleConfig
+from ocean_lib.ocean.ocean import Ocean
 from ocean_lib.web3_internal.utils import connect_to_network
 
 
