@@ -39,7 +39,7 @@ Get ETH price data:
 Get BTC price data:
 - [Via Ocean + Binance](examples/get-btcdata-ocean-binance.md)
 
-### Data & Modeling Ideas
+### Inspiration: ideas for data & modeling
 
 Here are ideas to get even more accurate results.
 
@@ -47,7 +47,7 @@ Here are ideas to get even more accurate results.
 - [Modeling approaches](ideas/modeling.md)
 - [Articles](ideas/articles.md) on predicting ETH, etc
 
-### Bonus: algorithmic trading 
+### Inspiration from algorithmic trading 
 
 Getting into the head of a trader might inspire you in your work on predicting ETH.
 
