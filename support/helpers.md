@@ -6,7 +6,6 @@ If the Python console isn't already open: `python`
 In the Python console, copy and paste everything below:
 
 ```python
-#imports
 # imports
 import datetime
 from datetime import timezone
