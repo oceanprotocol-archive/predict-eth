@@ -5,7 +5,7 @@ SPDX-License-Identifier: Apache-2.0
 
 # Simple End-to-end Example
 
-## Introduction
+## 0. Introduction
 
 This example predicts future ETH price, using simple input data (just historical ETH price) and simple model (linear dynamical model)
 
