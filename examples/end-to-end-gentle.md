@@ -48,21 +48,19 @@ Can we do it? Let's give it a try by first gathering the data for our model.
 ## 1. Setup
 
 From [Challenge 2](../challenges/main2.md), do:
-- [x] Setup
+- [x] Setup 1.1, 1.2 and 1.3
 
-In the console:
+In the terminal:
 ```console
 # Install libraries using pip
-pip install pandas ccxt
+pip install pandas
 pip install -U scikit-learn
 ```
 
-Now, create a python file. You can use any filename. In the console:
-```console
-touch predict_eth.py
-```
+From [Challenge 2](../challenges/main2.md), do:
+- [x] Setup 1.4 and 1.5
 
-Open the file. Add the following content to the file:
+Copy and paste everything below:
 ```python
 #import libraries
 import pandas as pd
