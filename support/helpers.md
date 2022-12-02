@@ -143,10 +143,8 @@ def calc_nmse(y, yhat) -> float:
 
 def plot_prices(cex_vals, pred_vals):
     matplotlib.rcParams.update({'font.size': 22})
-
     x = [h for h in range(0, 12)]
     assert len(x) == len(cex_vals) == len(pred_vals)
-
     fig, ax = plt.subplots()
     ax.plot(x, cex_vals, '--', label="CEX values")
     ax.plot(x, pred_vals, '-', label="Pred. values")
