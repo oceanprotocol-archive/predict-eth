@@ -2,7 +2,7 @@
 
 This quickstart supports those in the DeFi community that are interested in algorithmically trading cryptocurrencies.
 
-A custom trading strategy hosted on Ocean Protocol's Polygon Main Net collaborates with the open-source project, [Freqtrade](https://github.com/freqtrade/freqtrade), to demonstrate an algorithmic crypto trading use case.
+It's a custom trading strategy published as an Ocean asset on Polygon. It leverages the open-source project [Freqtrade](https://github.com/freqtrade/freqtrade) to demonstrate an algorithmic crypto trading use case.
 
 # 1\. Setup
 
