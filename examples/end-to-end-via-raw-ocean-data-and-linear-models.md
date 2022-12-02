@@ -7,9 +7,9 @@ SPDX-License-Identifier: Apache-2.0
 
 ## 0. Introduction
 
-This example predicts future ETH price, using simple input data (just historical ETH price) and simple model (linear dynamical model)
+This example predicts future ETH price, using simple input data (just historical ETH price) and a simple model (linear dynamical model).
 
-The raw data is: 'Open', 'High', 'Low', 'Close' and 'Volume' values, at 1 hour intervals. Predictions are 1h, 2h, ..., 12h into the future.
+Predictions are 1h, 2h, ..., 12h into the future.
 
 ## 1. Setup
 
@@ -25,8 +25,8 @@ In the Python console:
 
 import ccxt
 cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h')
-allcex_uts = [xi[0]/1000 for xi in cex_x]
-allcex_vals = [xi[4] for xi in cex_x]
+allcex_uts = [xi[0]/1000 for xi in cex_x] # timestamps
+allcex_vals = [xi[4] for xi in cex_x] # ETH prices
 
 # # Extracts dates and ether price values
 print_datetime_info("CEX data info", allcex_uts)
