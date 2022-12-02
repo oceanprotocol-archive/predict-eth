@@ -19,12 +19,12 @@ Then the challenge is: how accurately can _you_ predict the price of ETH?
 These are example full submissions to the challenge. You can use any of these as a starting point, for your own work.
 
 Predict ETH price 1-12 ahead with various approaches:
-- [Simple](examples/end-to-end-via-raw-ocean-data-and-linear-models.md) - to-the-point example, with simple input data (just ETH price) and simple model (linear)
-- [Model comparison for direct prediction 1-12 hours](examples/model_example_direct_prediction.md)
+- [Simple](examples/end-to-end-via-raw-ocean-data-and-linear-models.md): To-the-point example, with simple input data (just ETH price) and simple model (linear dynamical model)
+- [Compare models, direct prediction](examples/model_example_direct_prediction.md): Build models that predict 1-12 hours ahead in one shot. Compare linear, SVM, RF, and NN models.
 
 These flows are WIP, and not quite modeling end-to-end yet. Stay tuned:)
-- [Gentle introduction, lots of data](examples/end-to-end-gentle.md) - gentle intro for smooth onboarding. Uses stock data and ETH price for inputs. Builds a linear model.
-- [Medium level: MA & EMA](examples/end-to-end-via-mas-and-emas.md) - Uses raw data, moving average (MA), and exponential moving average (EMA) data
+- [Gentle introduction, lots of data](examples/end-to-end-gentle.md):  Gentle intro for smooth onboarding. Uses stock data and ETH price for inputs. Builds a linear model.
+- [Medium level: MA & EMA](examples/end-to-end-via-mas-and-emas.md): Use raw data, moving average (MA), and exponential moving average (EMA) data.
 
 ### Example Data Sources
 
