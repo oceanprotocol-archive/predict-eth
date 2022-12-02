@@ -1,11 +1,10 @@
-
-### 1. Testing different models for direct price prediction from 1- 12 Hours
+# End-to-end example: Compare models, direct prediction
 
 Given the task of predicting ETH for 12 hours in the future, several approaches  are possible. They either learn an independent model to predict the prices at each hour, or learn a model that makes direct predictions.
 
 In this README, each model uses the previous 12 hours' of prices to predict the next 12 hours' worth.  
 
-Four model approaches are used: Linear Regression, Random Forests, Support Vector Machine, and a two-layer densely-connected neural nework.
+Four modeling approaches are used: Linear Regression, Random Forests, Support Vector Machine, and a two-layer densely-connected neural nework.
 
 ## 1. Setup
 
