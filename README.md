@@ -20,9 +20,11 @@ These are example full submissions to the challenge. You can use any of these as
 
 Predict ETH price 1-12 ahead with various approaches:
 - [Simple](examples/end-to-end-via-raw-ocean-data-and-linear-models.md) - to-the-point example, with simple input data (just ETH price) and simple model (linear)
-- [Gentle introduction, lots of data](examples/end-to-end-gentle.md) - gentle intro for smooth onboarding easy as possible. Lots of data: ETH data from ccxt, stock data from Ocean, and linear models
-- [Medium level: MA & EMA](examples/end-to-end-via-mas-and-emas.md) - Uses raw data, moving average (MA), and exponential moving average (EMA) data
 - [Model comparison for direct prediction 1-12 hours](examples/model_example_direct_prediction.md)
+
+These flows are WIP, and not quite modeling end-to-end yet. Stay tuned:)
+- [Gentle introduction, lots of data](examples/end-to-end-gentle.md) - gentle intro for smooth onboarding. Uses stock data and ETH price for inputs. Builds a linear model.
+- [Medium level: MA & EMA](examples/end-to-end-via-mas-and-emas.md) - Uses raw data, moving average (MA), and exponential moving average (EMA) data
 
 ### Example Data Sources
 
