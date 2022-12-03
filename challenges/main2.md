@@ -71,11 +71,12 @@ pip3 install --pre ocean-lib
 pip3 install matplotlib pybundlr ccxt
 ```
 
-
-You'll be using [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction) to share tamper-proof predictions. The `pybundlr` library (installed above) needs the Bundlr CLI installed. So, in the terminal:
+You'll be using [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction) to share tamper-proof predictions. The `pybundlr` library (installed above) needs the Bundlr CLI installed. So, in the terminal do the following. (If you encounter issues, please see the Appendix.) 
 ```
 npm install -g @bundlr-network/client
 ```
+
+
 
 ### 1.2 Create Polygon Account (One-Time)
 
@@ -94,8 +95,6 @@ Linux and Mac
 ```console
 export REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
 ```
-
-
 
 ### 1.4 Load helper functions
 
@@ -186,7 +185,7 @@ The csv will look something like:
 
 ### 4.2 Put the csv online
 
-You'll upload to Arweave permanent decentralized file storage, via Bundlr. This makes the predictions tamper-proof. Bundlr enables you to pay via MATIC from your Polygon account.
+You'll upload to Arweave permanent decentralized file storage, via Bundlr. This makes the predictions tamper-proof. Bundlr enables you to pay via MATIC from your Polygon account. (If you encounter issues, please see the Appendix.)
 
 In the same Python console:
 ```python
@@ -265,5 +264,11 @@ nmse = calc_nmse(cex_vals, pred_vals)
 print(f"NMSE = {nmse}")
 plot_prices(cex_vals, pred_vals)
 ```
+
+### Appendix: If you have Arweave / Bundlr issues
+
+This README has you upload to Arweave permanent decentralized file storage, so that predictions are tamper-proof. Above, it provided instructions to install Bundlr, which wraps Arweave. 
+
+If you encountered issues installing it, then you need to upload to Arweave in a different way. At the end of the process, you need a shareable url. The Arweave ecosystem has several webapps that you might consider. One of the leading apps is ArDrive. [Here's an ArDrive tutorial](https://docs.rawrshak.io/tutorials/developer/rawrshak-dapp/upload-data-to-arweave) to get going. 
 
 
