@@ -49,9 +49,9 @@ Here are ideas to get even more accurate results.
 
 ### Inspiration from algorithmic trading 
 
-Getting into the head of a trader might inspire you in your work on predicting ETH.
+Getting into the head of a trader might inspire you in predicting ETH.
 
-To help with that, check out [algorithmic trading flow README](ideas/algorithmic-trading-flow.md) does a walk-through of using the "[Freqtrade](https://github.com/freqtrade/freqtrade)" open-source trading tool with a custom trading strategy. 
+To help with that, the [algorithmic trading flow README](ideas/algorithmic-trading-flow.md) does a walk-through of the "[Freqtrade](https://github.com/freqtrade/freqtrade)" open-source trading tool with a custom trading strategy. 
 
 ### Appendix: Past challenges
 
