@@ -102,8 +102,15 @@ There are many sites with great data and, of course, you are welcome to use any 
 
 In this example we are using hourly stock price data of Tesla, Amazon, Google and Apple for the last three months.
 
-The data is available on Ocean market for free:
+There are two ways to obtain the data for this example (data for this example is free):
+
+1. Download the data from Ocean market:
 [https://market.oceanprotocol.com/asset/did:op:59e8ce4a599e7d3efc3f23ce68c6ae92b08e5764c0a8f801c47ae00c47db1522](https://market.oceanprotocol.com/asset/did:op:59e8ce4a599e7d3efc3f23ce68c6ae92b08e5764c0a8f801c47ae00c47db1522)
+
+2. From [Get Binance ETH/USDT price feed via Ocean](https://github.com/oceanprotocol/predict-eth/blob/main/examples/get-ethdata-ocean-binance.md), do:
+- [x] Step 1
+
+Once you have downloaded the data, you need to unzip the file to proceed.
 
 For each stock we have 5 variables: open, close, high, low and volume -- all for every hour and for the last three months.
 
