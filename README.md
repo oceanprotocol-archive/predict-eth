@@ -21,10 +21,6 @@ These are example full submissions to the challenge. You can use any of them as 
 - [Simple](examples/end-to-end_simple.md): To-the-point example, with simple input data (just ETH price) and simple model (linear dynamical model)
 - [Compare models, direct prediction](examples/end-to-end_compare-models.md): Build models that predict 1-12 hours ahead in one shot. Compare linear, SVM, RF, and NN models.
 
-These flows are WIP, and not quite modeling end-to-end yet. Stay tuned:)
-- [Gentle introduction, lots of data](examples/end-to-end-gentle.md):  Gentle intro for smooth onboarding. Uses stock data and ETH price for inputs. Builds a linear model.
-- [Medium level: MA & EMA](examples/end-to-end-via-mas-and-emas.md): Use raw data, moving average (MA), and exponential moving average (EMA) data.
-
 ### Example Data Sources
 
 These are examples of how to get data from various places. Each place has its own benefits.
@@ -34,7 +30,6 @@ Get ETH price data:
 - [Via ccxt + Binance](examples/get-ethdata-ccxt-binance.md) - unified API across 40 exchanges
 - [Via Ocean + Binance](examples/get-ethdata-ocean-binance.md) - unified API across 500+ data & compute services
 - [Via Ocean + TheGraph](examples/get-ethdata-ocean-thegraph.md) - like previous, but uses a GraphQL-shaped query
-
 
 Get BTC price data:
 - [Via Ocean + Binance](examples/get-btcdata-ocean-binance.md)
