@@ -1,14 +1,10 @@
-# Predict ETH challenges
+# Predict ETH
 
-Data science challenges to predict the future price of ETH, with prizes. Uses [ocean.py](https://github.com/oceanprotocol/ocean.py) library.
+This is a challenge to predict the price of ETH. With prize $$. It uses [ocean.py](https://github.com/oceanprotocol/ocean.py) library.
 
-This competition is run by the Ocean core team (Ocean Protocol Foundation).
+If you can predict ETH price accurately, it guides you in buying / selling ETH, DeFi trading, yield farming or DeFi protocol development. And, via Ocean you can sell your predictions as a datafeed, for others to do the same. 
 
-Our aim is to help people understand "data value creation flows", that is, how data can be used to create value. In this competition, it's about starting with raw data and creating feature vectors, creating models, and ultimately making predictions of the future price of ETH.
-
-If you can predict the price of ETH accurately, you can immediately create value from it, by buying or selling ETH. More advanced use cases are in quantitative DeFi trading, yield farming or DeFi protocol development.
-
-Then the challenge is: how accurately can _you_ predict the price of ETH? 
+Then the challenge is: how accurately can _you_ predict ETH? 
 
 ### Current / future challenges
 
