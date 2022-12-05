@@ -1,6 +1,11 @@
 # End-to-end example: Gentle introduction
 
-This is an example full submission to the challenge. You can use it as starting point, for your own work.
+
+## 0. About the Challenge:
+
+### 0.1 Introduction
+
+This is an example of a full submission to the challenge. You can use it as starting point, for your own work.
 
 Remember:
 -  You do not have to win, just make a full submission (like this one)
@@ -21,9 +26,7 @@ Our recommendations:
 
 Ready?, let's start! :rocket: :rocket: :rocket:
 
----
-
-## 0. Understanding the Challenge
+### 0.2 Understanding the Challenge
 
 In this example we plan to predict the daily Binance ETH price.
 
