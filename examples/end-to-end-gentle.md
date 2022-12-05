@@ -112,7 +112,7 @@ There are two ways to obtain the data for this example (data for this example is
 
 Once you have downloaded the data, you need to unzip the file to proceed.
 
-For each stock we have 5 variables: open, close, high, low and volume -- all for every hour and for the last three months.
+There are 5 variables for each one of the stocks: open, close, high, low and volume -- all for every hour and for the last three months.
 
 To build a DataFrame for each stock we will import the csv, rename the columns, and type the date to datetime (so we can compare dates later).
 
@@ -229,7 +229,7 @@ ETH_Price.drop(['Open', 'Highest', 'Lowest', 'Volume'], axis=1, inplace=True)
 ETH_Price = ETH_Price.rename(columns={'Close': 'ETH_Price'})
 
 # Sort the values by date and reset the indexes of the DataFrame:
-ETH_Price = ETH_Price.sort_values(by="Date", ascending=False)
+ETH_Price = ETH_Price.sort_values(by="Date", ascending=True)
 ETH_Price.reset_index(drop=True, inplace=True)
 ```
 
