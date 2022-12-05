@@ -63,7 +63,7 @@ pip install -U scikit-learn
 From [Challenge 2](../challenges/main2.md), do:
 - [x] Setup 1.4 and 1.5
 
-Copy and paste everything below:
+In the Python console:
 ```python
 #import libraries
 import pandas as pd
