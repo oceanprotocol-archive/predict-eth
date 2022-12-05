@@ -297,12 +297,12 @@ y = base['ETH_Price']
 # We use the last 12 hours for testing, all the rest of data is for training
 
 # Target y_test and y_train
-y_test = y.iloc[0:12]
-y_train = y.iloc[12:]
+y_test = y.iloc[-12:]
+y_train = y.iloc[:-12]
 
 # # Predictors X_test and X_train
-X_test = X.iloc[0:12]
-X_train = X.iloc[12:]
+X_test = X.iloc[-12:]
+X_train = X.iloc[:-12]
 
 # Create the fitted model
 model.fit(X_train, y_train)
