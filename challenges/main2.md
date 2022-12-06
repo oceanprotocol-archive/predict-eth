@@ -26,47 +26,11 @@ Here are the steps:
 
 ### 1.1 Prerequisites & installation
 
-Prerequisites:
-- Linux or MacOS or Windows
-- Python 3.8.5+
+Follow [Ocean.py installation guide](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/install.md)
 
 Now, let's install Python libraries.
 
-Open a terminal and execute this preparation for your operating system:
-
-Windows
-```console
-# Initialize and activate virtual environment.
-python -m venv venv
-venv\Scripts\activate
-```
-
-Mac
-```console
-# Initialize and activate virtual environment.
-python3 -m venv venv 
-source venv/bin/activate
-
-# Install packages.
-xcode-select --install
-brew install autoconf automake libffi libtool pkg-config python
-```
-
-Linux
-```console
-# Initialize and activate virtual environment.
-python3 -m venv venv
-source venv/bin/activate
-
-# Install packages.
-sudo apt-get install -y autoconf automake build-essential libffi-dev libtool pkg-config python3-dev
-```
-
-For all operating systems: install Ocean library and other useful libraries
-```console
-# Install Ocean library. Allow pre-releases to get the latest version.
-pip3 install --pre ocean-lib
-
+```python
 # Install other libraries
 pip3 install matplotlib pybundlr ccxt
 ```
@@ -75,7 +39,6 @@ You'll be using [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduc
 ```
 npm install -g @bundlr-network/client
 ```
-
 
 
 ### 1.2 Create Polygon Account (One-Time)
