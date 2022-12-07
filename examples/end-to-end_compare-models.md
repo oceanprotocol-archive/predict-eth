@@ -27,18 +27,11 @@ import numpy as np
 import requests
 
 cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h')
-allcex_uts = [xi[0]/1000 for xi in cex_x]
-allcex_vals = [xi[4] for xi in cex_x]
-
-# # Extract dates and ETH prices
-print_datetime_info("CEX data info", allcex_uts)
-
-# Transform timestamps to dates
-dts = to_datetimes(allcex_uts)
 
 # create a Data Frame with two columns [date,eth-prices] with dates given in intervals of 1-hour
 import pandas as pd
-data = pd.DataFrame({"ds": dts, "y": allcex_vals})
+data = pd.DataFrame(cex_x, columns=['date', 'open', 'max', 'min', 'close', 'volume'])
+data['date'] = pd.to_datetime(data['date'],unit='ms')
 
 # Divide the data in training and testing set. Because the data has temporal structure, we split the data in two blocks, vs. selecting randomly.
 # 90% of the data is used for training and 10 is used for testing
