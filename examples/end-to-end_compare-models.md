@@ -49,17 +49,17 @@ max_lag = 12
 # Create feature vectors with 12 columns, each representing a time-lag from the current time point
 # - That is: x(t-1), x(t-2)...x(t-12) for close and open values (different features could be grouped using the same logic)
 full_train_close = pd.concat([train_data['close'].shift(i) for i in range(0,max_lag)],axis=1).dropna().values
-full_train_volume = pd.concat([train_data['open'].shift(i) for i in range(0,max_lag)],axis=1).dropna().values
+full_train_open = pd.concat([train_data['open'].shift(i) for i in range(0,max_lag)],axis=1).dropna().values
 # targets are multivariate, with the values of eth from 1 - 12 hours ahead of the curent time
 y_train = full_train_close[max_lag:,:]
 # train set is lagged with respect to the targets
-x_train = np.concatenate((full_train_close[0:-max_lag,:],full_train_volume[0:-max_lag,:]),axis=1)
+x_train = np.concatenate((full_train_close[0:-max_lag,:],full_train_open[0:-max_lag,:]),axis=1)
 
 # Repeat the feature vector creation as above for the test set
 full_test_close = pd.concat([test_data['close'].shift(i) for i in range(0,max_lag)],axis=1).dropna().values
-full_test_volume = pd.concat([test_data['open'].shift(i) for i in range(0,max_lag)],axis=1).dropna().values
+full_test_open = pd.concat([test_data['open'].shift(i) for i in range(0,max_lag)],axis=1).dropna().values
 y_test = full_test_close[max_lag:,:]
-x_test = np.concatenate((full_test_close[0:-max_lag,:],full_test_volume[0:-max_lag,:]),axis=1)
+x_test = np.concatenate((full_test_close[0:-max_lag,:],full_test_open[0:-max_lag,:]),axis=1)
 ```
 
 ## 3.  Make predictions
