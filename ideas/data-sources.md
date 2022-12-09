@@ -9,6 +9,7 @@ Existing and potential future data sources to consider
 - binance API
 
 ### Other potential data
+- Request data from Ethereum and Polygon from Transpose(https://docs.transpose.io/sql/getting-started/)
 - Pull data from Flipside, Footprint, Dune, Luabase, Google and BigQuery (large free data providers). Example: https://colab.research.google.com/drive/1zsxX28_vZMVLSSJYOLI5hv2zsdKH34T0?usp=sharing&authuser=1
 - [TrueBlocks data](https://trueblocks.io/data-model/intro/). All on-chain data [here](https://trueblocks.io/data-model/chaindata/)
 - [Messari subgraphs](https://github.com/messari/subgraphs). Status of all subgraphs [here](https://subgraphs.messari.io/) 
