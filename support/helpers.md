@@ -27,9 +27,9 @@ from ocean_lib.web3_internal.utils import connect_to_network
 
 # helper functions: setup
 def create_ocean_instance() -> Ocean:
-    config = ExampleConfig.get_config("polygon")  # points to Polygon mainnet
+    config = ExampleConfig.get_config("polygon-main")  # points to Polygon mainnet
     config["BLOCK_CONFIRMATIONS"] = 1  # faster
-    connect_to_network("polygon")
+    connect_to_network("polygon-main")
     ocean = Ocean(config)
     return ocean
 
