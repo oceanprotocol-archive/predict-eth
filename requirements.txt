@@ -1,0 +1,5 @@
+enforce-typing==1.0.0.post1
+pytest
+requests>=2.21.0
+web3==5.28.0
+

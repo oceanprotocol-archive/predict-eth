@@ -1,0 +1,29 @@
+[build-system]
+requires = [
+  "hatchling",
+  "hatch-requirements-txt",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "pybundlr"
+version = "0.1.10" 
+authors = [
+  { name="Trent McConaghy", email="gtrent@gmail.com" },
+]
+description = "Simple py driver for bundlr"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Unix",
+]
+dynamic = ["dependencies"]
+
+[tool.hatch.metadata.hooks.requirements_txt]
+files = ["requirements.txt"]
+
+[project.urls]
+"Homepage" = "https://github.com/oceanprotocol/pybundlr"
+"Bug Tracker" = "https://github.com/oceanprotocol/pybundlr/issues"
