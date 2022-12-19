@@ -208,7 +208,8 @@ print_datetime_info("target times", target_uts)
 
 # get predicted ETH values
 did = <value shared by you>
-file_name = ocean.assets.download_file(did, alice_wallet)
+order_tx_id = ocean.assets.pay_for_access_service(ddo, alice_wallet)
+file_name = ocean.assets.download_asset(ddo, alice_wallet, './', order_tx_id)
 pred_vals = load_list(file_name)
 
 # get actual ETH values (final)
