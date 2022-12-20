@@ -35,16 +35,18 @@ Now, let's install Python libraries.
 
 ```python
 # Install other libraries
-pip3 install matplotlib ccxt
+pip3 install matplotlib ccxt eth_account
 ```
 
-### 1.3 Create Polygon Account (One-Time)
+### 1.3 Create Mumbai Account (One-Time)
 
-You'll be using Polygon network. So, please ensure that you have a Polygon account that holds some MATIC (at least a few $ worth).
+You'll be using Mumbai network (Polygon testnet).
 
-[Where to get MATIC](https://polygon.technology/matic-token/).
+In ocean.py's [get-test-MATIC.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/get-test-MATIC.md), follow all directions.
 
-### 1.4 Prepare for using Arweave
+In the end, you will have a Mumbai account with private key `REMOTE_TEST_PRIVATE_KEY1` that holds (fake) MATIC tokens.
+
+### 1.4 Arweave preparation
 
 To share tamper-proof predictions, you'll use Arweave. You have two options, A and B. Please pick one and do the "prepare by" step. 
 
@@ -54,11 +56,12 @@ To share tamper-proof predictions, you'll use Arweave. You have two options, A a
   - Prepare by: get AR via [a faucet](https://faucet.arweave.net/) or [buying some](https://www.google.com/search?q=buy+arweave+tokens)
   
 **Option B: In code, using pybundlr library**
-  - Pros: pay for storage with MATIC, ETH, AR, or other
+  - Pros: pay for storage with MATIC, ETH, AR, or [other](https://docs.bundlr.network/docs/currencies). (But not fake MATIC)
   - Cons: bundlr CLI installation is finicky, since it needs "`npm install`" globally on your system (`-g` flag)
   - Prepare by: 
     - in console, install pybundlr: `pip install pybundlr`
     - in console, install [Bundlr CLI](https://docs.bundlr.network/docs/about/introduction): `npm install -g @bundlr-network/client`
+    - get one of: [MATIC](https://polygon.technology/matic-token/), [ETH](https://ethereum.org/en/get-eth/), or AR (see "get AR via" above)
 
 If you're not sure which option to pick, we recommend Option A because once you get AR, the rest is less error-prone.
 
@@ -151,7 +154,7 @@ The csv will look something like:
 
 You'll upload your csv to Arweave permanent decentralized file storage. This makes the predictions tamper-proof.
 
-Recall "Prepare for using Arweave" from section 1. Proceed the option (A or B) that you had prepared for.
+Recall "Arweave preparation" from section 1. Proceed the option (A or B) that you had prepared for.
 
 **Option A: Webapp, using ardrive.io**
 
@@ -168,7 +171,10 @@ In the same Python console:
 ```python
 from pybundlr import pybundlr
 file_name = "/tmp/pred_vals.csv"
+
+# this step assumes "matic" currency. You could also use "eth", "ar", etc.
 url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet.private_key)
+
 #e.g. url = "https://arweave.net/qctEbPb3CjvU8LmV3G_mynX74eCxo1domFQIlOBH1xU"
 print(f"Your csv url: {url}")
 ```
