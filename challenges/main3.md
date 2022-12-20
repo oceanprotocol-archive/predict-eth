@@ -3,15 +3,27 @@ Copyright 2022 Ocean Protocol Foundation
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# Predict ETH Price: Round Two 
+# Predict ETH Price: Round Two
 
-This is the main readme for the [Ocean Data Challenge :: ETH Prediction Round 2](https://questbook.app/explore_grants/about_grant/?grantId=0x9f248741962aaf27bd10f2c50aeec2d13f343611&chainId=137). 
+## 0. Introduction
 
-- Kickoff: Jan __TBD__, 2023
-- Submission deadline: Sunday Feb __TBD__, 2023 at 23:59 UTC
-- Prediction at times: Monday Feb __TBD+1__, 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
+This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 3.
+
+### 0.1 Key dates
+
+- Kickoff: Jan (TBD), 2023
+- Submission deadline: Sunday Feb (TBD), 2023 at 23:59 UTC
+- Prediction at times: Monday Feb (TBD+1), 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
 - Winners announced: within one week
-- To be considered for winning, and for 250 OCEAN reward for a valid submission, prediction error must (a) lower than if the "prediction" was simply a constant (b) lower than any of the end-to-end examples' prediction errors
+
+### 0.2 Criteria to win
+- Weighting:
+  - 50% - lowest prediction error
+  - 25% - presentation of approach, and feedback
+  - 25% - proper flow was used to submit. This includes: the predictions were stored to arweave, and a datatoken was shared to judges. (This README covers how to do both.)
+- To be considered for winning, prediction error must (a) lower than if the "prediction" was simply a constant (b) lower than any of the end-to-end examples' prediction errors
+
+### 0.3 Outline of this README
 
 This readme describes a basic flow to predict future ETH price, and submit your predictions to contest judges.
 
