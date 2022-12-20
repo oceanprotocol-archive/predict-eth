@@ -27,9 +27,6 @@ Get ETH price data:
 - [Via Ocean + Binance](examples/get-ethdata-ocean-binance.md) - unified API across 500+ data & compute services
 - [Via Ocean + TheGraph](examples/get-ethdata-ocean-thegraph.md) - like previous, but uses a GraphQL-shaped query
 
-Get BTC price data:
-- [Via Ocean + Binance](examples/get-btcdata-ocean-binance.md)
-
 ### Inspiration: ideas for data & modeling
 
 Here are ideas to get even more accurate results.
