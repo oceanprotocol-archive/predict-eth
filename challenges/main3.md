@@ -24,54 +24,55 @@ Here are the steps:
 
 ## 1. Setup
 
-### 1.1 Prerequisites & installation
+### 1.1 Install Ocean
 
-Follow [Ocean.py installation guide](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/install.md)
+In ocean.py's [install.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/install.md), follow all directions.
+
+
+### 1.2 Install other Python libraries
 
 Now, let's install Python libraries.
 
 ```python
 # Install other libraries
-pip3 install matplotlib pybundlr ccxt
+pip3 install matplotlib ccxt
 ```
 
-You'll be using [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction) to share tamper-proof predictions. The `pybundlr` library (installed above) needs the Bundlr CLI installed. So, in the terminal do the following. (If you encounter issues, please see the Appendix.) 
-```
-npm install -g @bundlr-network/client
-```
+### 1.3 Create Polygon Account (One-Time)
+
+You'll be using Polygon network. So, please ensure that you have a Polygon account that holds some MATIC (at least a few $ worth).
+
+[Where to get MATIC](https://polygon.technology/matic-token/).
+
+### 1.4 Prepare for using Arweave
+
+To share tamper-proof predictions, you'll use Arweave. You have two options, A and B. Please pick one and do the "prepare by" step. 
+
+**Option A: Webapp, using [ardrive.io](https://www.ardrive.io)**
+  - Pros: simple webapp
+  - Cons: need AR to pay for storage.
+  - Prepare by: get AR via [a faucet](https://faucet.arweave.net/) or [buying some](https://www.google.com/search?q=buy+arweave+tokens)
+  
+**Option B: In code, using pybundlr library**
+  - Pros: pay for storage with MATIC, ETH, AR, or other
+  - Cons: bundlr CLI installation is finicky, since it needs "`npm install`" globally on your system (`-g` flag)
+  - Prepare by: 
+    - in console, install pybundlr: `pip install pybundlr`
+    - in console, install [Bundlr CLI](https://docs.bundlr.network/docs/about/introduction): `npm install -g @bundlr-network/client`
+
+If you're not sure which option to pick, we recommend Option A because once you get AR, the rest is less error-prone.
+
+### 1.5 Set up ocean.py for remotely
+
+In ocean.py's [simple-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/simple-remote.md), follow the first step "1. Setup". You can ignore the lines with "Bob".
+
+By the end, you will be in the Python console, with an Ocean instance, and with a wallet for Alice (you). 
 
 
-### 1.2 Create Polygon Account (One-Time)
+### 1.6 Load helper functions
 
-You'll be using Polygon network. So, please ensure that you have a Polygon account that holds some MATIC (at least a few $ worth). [More info](https://polygon.technology/matic-token/). 
+Go to predict-eth's [helpers.md](../support/helpers.md) and follow the instructions.
 
-### 1.3 Set envvars, for Polygon address
-
-Environment variables (envvars) are set differently in Windows and Mac/Linux:
-
-Windows
-```console
-set REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
-```
-
-Linux and Mac
-```console
-export REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
-```
-
-### 1.4 Load helper functions
-
-Go to [helpers.md](../support/helpers.md) and follow the instructions.
-
-### 1.5 Setup in Python, for Polygon
-
-In the terminal, run Python: `python`
-
-In the Python console:
-```python
-ocean = create_ocean_instance()
-alice_wallet = create_alice_wallet(ocean) #you're Alice
-```
 
 ## 2. Get data locally
 
@@ -148,7 +149,20 @@ The csv will look something like:
 
 ### 4.2 Put the csv online
 
-You'll upload to Arweave permanent decentralized file storage, via Bundlr. This makes the predictions tamper-proof. Bundlr enables you to pay via MATIC from your Polygon account. (If you encounter issues, please see the Appendix.)
+You'll upload your csv to Arweave permanent decentralized file storage. This makes the predictions tamper-proof.
+
+Recall "Prepare for using Arweave" from section 1. Proceed the option (A or B) that you had prepared for.
+
+**Option A: Webapp, using ardrive.io**
+
+Go to [ardrive.io](https://www.ardrive.io) webapp and follow the GUI to upload. Copy the url of the uploaded file.
+
+Then, in the same Python console:
+```python
+url = <url of uploaded file>
+```
+  
+**Option B: In code, using pybundlr library**
 
 In the same Python console:
 ```python
