@@ -3,7 +3,7 @@ Copyright 2022 Ocean Protocol Foundation
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# Predict ETH Price: Round Two
+# Predict ETH Price: Round Three
 
 ## 0. Introduction
 
@@ -11,9 +11,9 @@ This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 3.
 
 ### 0.1 Key dates
 
-- Kickoff: Jan (TBD), 2023
-- Submission deadline: Sunday Feb (TBD), 2023 at 23:59 UTC
-- Prediction at times: Monday Feb (TBD+1), 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
+- Kickoff: Jan 16th, 2023
+- Submission deadline: Sunday Feb 19th, 2023 at 23:59 UTC
+- Prediction at times: Monday Feb 20th, 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
 - Winners announced: within one week
 
 ### 0.2 Criteria to win
