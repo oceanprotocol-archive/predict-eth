@@ -54,7 +54,7 @@ pip3 install matplotlib ccxt eth_account
 
 You'll be using Mumbai network (Polygon testnet).
 
-In ocean.py's [get-test-MATIC.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/get-test-MATIC.md), follow all directions.
+In ocean.py's [get-test-MATIC.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md#3-get-fake-matic-on-mumbai), follow all directions.
 
 In the end, you will have a Mumbai account with private key `REMOTE_TEST_PRIVATE_KEY1` that holds (fake) MATIC tokens.
 
