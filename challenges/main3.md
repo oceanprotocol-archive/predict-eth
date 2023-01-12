@@ -79,7 +79,7 @@ If you're not sure which option to pick, we recommend Option A because once you 
 
 ### 1.5 Set up ocean.py for remotely
 
-In ocean.py's [simple-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/simple-remote.md), follow the first step "1. Setup". You can ignore the lines with "Bob".
+In ocean.py's follow the instructions in [simple-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md). You can ignore the lines with "Bob".
 
 By the end, you will be in the Python console, with an Ocean instance, and with a wallet for Alice (you). 
 
@@ -196,9 +196,9 @@ print(f"Your csv url: {url}")
 In the same Python console:
 ```python
 name = "ETH predictions " + str(time.time()) #time for unique name
-(data_nft, datatoken, asset) = ocean.assets.create_url_asset(name, url, alice_wallet, wait_for_aqua=False)
+(data_nft, datatoken, asset) = ocean.assets.create_url_asset(name, url, {"from":alice}, wait_for_aqua=False)
 metadata_state = 5
-data_nft.setMetaDataState(metadata_state, {"from":alice_wallet})
+data_nft.setMetaDataState(metadata_state, {"from":alice})
 print(f"New asset created, with did={asset.did}, and datatoken.address={datatoken.address}")
 ```
 
@@ -210,7 +210,7 @@ In the same Python console:
 ```python
 from web3.main import Web3
 to_address="0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E" #official judges address
-datatoken.mint(to_address, Web3.toWei(10, "ether"), {"from": alice_wallet})
+datatoken.mint(to_address, Web3.toWei(10, "ether"), {"from": alice})
 ```
 
 Finally, ensure you've filled in your Questbook entry.
@@ -230,8 +230,8 @@ Load helper functions: Go to [helpers.md](../support/helpers.md) and follow the 
 In the same Python console:
 ```python
 # setup
-ocean = create_ocean_instance()
-alice_wallet = create_alice_wallet(ocean) #you're Alice
+ocean = create_ocean_instance("poligon-main") # change the network name if needed
+alice = create_alice_wallet(ocean) #you're Alice
 
 # specify target times
 start_dt = datetime.datetime(2022, 12, 12, 1, 00) #Dec 12, 2022 at 1:00am UTC
@@ -240,8 +240,8 @@ print_datetime_info("target times", target_uts)
 
 # get predicted ETH values
 did = <value shared by you>
-order_tx_id = ocean.assets.pay_for_access_service(ddo, alice_wallet)
-file_name = ocean.assets.download_asset(ddo, alice_wallet, './', order_tx_id)
+order_tx_id = ocean.assets.pay_for_access_service(ddo, {"from":alice})
+file_name = ocean.assets.download_asset(ddo, alice, './', order_tx_id)
 pred_vals = load_list(file_name)
 
 # get actual ETH values (final)
