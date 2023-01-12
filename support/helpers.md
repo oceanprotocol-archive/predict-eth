@@ -20,25 +20,24 @@ import matplotlib.pyplot as plt
 import numpy as np
 from web3.main import Web3
 
-from ocean_lib.example_config import ExampleConfig
+from ocean_lib.example_config import get_config_dict
 from ocean_lib.ocean.ocean import Ocean
 from ocean_lib.web3_internal.utils import connect_to_network
 
-
 # helper functions: setup
-def create_ocean_instance() -> Ocean:
-    config = ExampleConfig.get_config("polygon-main")  # points to Polygon mainnet
+def create_ocean_instance(network_name: str) -> Ocean:
+    config = get_config_dict(network_name)
     config["BLOCK_CONFIRMATIONS"] = 1  # faster
-    connect_to_network("polygon-main")
+    connect_to_network(network_name)
     ocean = Ocean(config)
     return ocean
 
 
 def create_alice_wallet(ocean: Ocean) -> LocalAccount:
     config = ocean.config_dict
-    alice_private_key = os.getenv('REMOTE_TEST_PRIVATE_KEY1')
+    alice_private_key = os.getenv("REMOTE_TEST_PRIVATE_KEY1")
     alice_wallet = accounts.add(alice_private_key)
-    bal = Web3.fromWei(accounts.at(alice_wallet.address).balance(), 'ether')
+    bal = Web3.fromWei(accounts.at(alice_wallet.address).balance(), "ether")
     print(f"alice_wallet.address={alice_wallet.address}. bal={bal}")
     assert bal > 0, f"Alice needs MATIC"
     return alice_wallet
@@ -69,12 +68,13 @@ def to_datetimes(uts: list) -> list:
 
 
 def round_to_nearest_hour(dt: datetime.datetime) -> datetime.datetime:
-    return (dt.replace(second=0, microsecond=0, minute=0, hour=dt.hour)
-            + datetime.timedelta(hours=dt.minute//30))
+    return dt.replace(
+        second=0, microsecond=0, minute=0, hour=dt.hour
+    ) + datetime.timedelta(hours=dt.minute // 30)
 
 
 def pretty_time(dt: datetime.datetime) -> str:
-    return dt.strftime('%Y/%m/%d, %H:%M:%S')
+    return dt.strftime("%Y/%m/%d, %H:%M:%S")
 
 
 def print_datetime_info(descr: str, uts: list):
@@ -96,22 +96,25 @@ def target_12h_unixtimes(start_dt: datetime.datetime) -> list:
 def load_from_ohlc_data(file_name: str) -> tuple:
     """Returns (list_of_unixtimes, list_of_close_prices)"""
     with open(file_name, "r") as file:
-        data_str = file.read().rstrip().replace('"', '')
+        data_str = file.read().rstrip().replace('"', "")
     x = eval(data_str)  # list of lists
-    uts = [xi[0]/1000 for xi in x]
+    uts = [xi[0] / 1000 for xi in x]
     vals = [xi[4] for xi in x]
     return (uts, vals)
 
 
-def filter_to_target_uts(target_uts: list, unfiltered_uts: list, unfiltered_vals: list) -> list:
+def filter_to_target_uts(
+    target_uts: list, unfiltered_uts: list, unfiltered_vals: list
+) -> list:
     """Return filtered_vals -- values at at the target timestamps"""
     filtered_vals = [None] * len(target_uts)
     for i, target_ut in enumerate(target_uts):
         time_diffs = np.abs(np.asarray(unfiltered_uts) - target_ut)
         tol_s = 1  # should always align within e.g. 1 second
         target_ut_s = pretty_time(to_datetime(target_ut))
-        assert min(time_diffs) <= tol_s, \
-            f"Unfiltered times is missing target time: {target_ut_s}"
+        assert (
+            min(time_diffs) <= tol_s
+        ), f"Unfiltered times is missing target time: {target_ut_s}"
         j = np.argmin(time_diffs)
         filtered_vals[i] = unfiltered_vals[j]
     return filtered_vals
@@ -142,15 +145,16 @@ def calc_nmse(y, yhat) -> float:
 
 
 def plot_prices(cex_vals, pred_vals):
-    matplotlib.rcParams.update({'font.size': 22})
+    matplotlib.rcParams.update({"font.size": 22})
     x = [h for h in range(0, 12)]
     assert len(x) == len(cex_vals) == len(pred_vals)
     fig, ax = plt.subplots()
-    ax.plot(x, cex_vals, '--', label="CEX values")
-    ax.plot(x, pred_vals, '-', label="Pred. values")
-    ax.legend(loc='lower right')
+    ax.plot(x, cex_vals, "--", label="CEX values")
+    ax.plot(x, pred_vals, "-", label="Pred. values")
+    ax.legend(loc="lower right")
     plt.ylabel("ETH price")
     plt.xlabel("Hour")
     fig.set_size_inches(18, 18)
     plt.xticks(x)
     plt.show()
+```
