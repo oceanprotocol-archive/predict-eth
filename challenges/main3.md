@@ -230,7 +230,7 @@ Load helper functions: Go to [helpers.md](../support/helpers.md) and follow the 
 In the same Python console:
 ```python
 # setup
-ocean = create_ocean_instance("poligon-main") # change the network name if needed
+ocean = create_ocean_instance("polygon-main") # change the network name if needed
 alice = create_alice_wallet(ocean) #you're Alice
 
 # specify target times
