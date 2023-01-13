@@ -21,7 +21,7 @@ This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 3.
   - 50% - lowest prediction error
   - 25% - presentation of approach, and feedback
   - 25% - proper flow was used to submit. This includes: the predictions were stored to arweave, and a datatoken was shared to judges. (This README covers how to do both.)
-- To be considered for winning, prediction error must (a) lower than if the "prediction" was simply a constant (b) lower than any of the end-to-end examples' prediction errors
+- To be considered for winning, prediction error must lower than if the "prediction" was simply a constant.
 
 ### 0.3 Outline of this README
 
