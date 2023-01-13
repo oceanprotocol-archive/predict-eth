@@ -68,7 +68,7 @@ To share tamper-proof predictions, you'll use Arweave. You have two options, A a
   - Prepare by: get AR via [a faucet](https://faucet.arweave.net/) or [buying some](https://www.google.com/search?q=buy+arweave+tokens)
   
 **Option B: In code, using pybundlr library**
-  - Pros: pay for storage with MATIC, ETH, AR, or [other](https://docs.bundlr.network/docs/currencies). (But not fake MATIC)
+  - Pros: pay for storage with MATIC, ETH, AR, or [other](https://docs.bundlr.network/sdk/using-other-currencies). (But not fake MATIC)
   - Cons: bundlr CLI installation is finicky, since it needs "`npm install`" globally on your system (`-g` flag)
   - Prepare by: 
     - in console, install pybundlr: `pip install pybundlr`
