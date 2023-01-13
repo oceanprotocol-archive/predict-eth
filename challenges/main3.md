@@ -214,7 +214,7 @@ to_address="0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E" #official judges address
 datatoken.mint(to_address, Web3.toWei(10, "ether"), {"from": alice})
 ```
 
-Finally, ensure you've filled in your Questbook entry.
+Finally, ensure you've register on [Desights](https://alpha.desights.xyz/g/challenge/1)
 
 Now, you're complete! Thanks for being part of this competition.
 
