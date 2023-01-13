@@ -7,7 +7,7 @@ Under the hood, ccxt queries the Binance API for Binance data.
 
 ### 0. Setup
 
-From [Challenge 2](../challenges/main2.md), do:
+From [Challenge 3](../challenges/main3.md), do:
 - [x] Setup
 
 Install ccxt. Open a terminal and:
