@@ -72,7 +72,7 @@ To share tamper-proof predictions, you'll use Arweave. You have two options, A a
   - Cons: bundlr CLI installation is finicky, since it needs "`npm install`" globally on your system (`-g` flag)
   - Prepare by: 
     - in console, install pybundlr: `pip install pybundlr`
-    - in console, install [Bundlr CLI](https://docs.bundlr.network/docs/about/introduction): `npm install -g @bundlr-network/client`
+    - in console, install [Bundlr CLI](https://docs.bundlr.network/about/introduction): `npm install -g @bundlr-network/client`
     - get one of: [MATIC](https://polygon.technology/matic-token/), [ETH](https://ethereum.org/en/get-eth/), or AR (see "get AR via" above)
 
 If you're not sure which option to pick, we recommend Option A because once you get AR, the rest is less error-prone.
