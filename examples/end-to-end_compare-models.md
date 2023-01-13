@@ -8,7 +8,7 @@ Four modeling approaches are used: Linear Regression, Random Forests, Support Ve
 
 ## 1. Setup
 
-From [Challenge 2](../challenges/main2.md), do:
+From [Challenge 3](../challenges/main3.md), do:
 - [x] Setup
 
 In the console:
@@ -163,7 +163,7 @@ pred_vals = model.predict(input_data)
 The NMSE was already calculated in section 3.1. The Random Forest had the lowest error.
 
 ## 4.  Publish predictions
-From [Challenge 2](../challenges/main2.md), do:
+From [Challenge 3](../challenges/main3.md), do:
 - [x] Publish predictions
 
 ## 5. Discussion
