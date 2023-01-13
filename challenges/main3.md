@@ -79,7 +79,7 @@ If you're not sure which option to pick, we recommend Option A because once you 
 
 ### 1.5 Set up ocean.py for remotely
 
-In ocean.py's follow the instructions in [simple-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md). You can ignore the lines with "Bob".
+In ocean.py's follow the instructions in [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md). You can ignore the lines with "Bob".
 
 By the end, you will be in the Python console, with an Ocean instance, and with a wallet for Alice (you). 
 
