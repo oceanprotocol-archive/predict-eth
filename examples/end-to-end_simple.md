@@ -14,7 +14,7 @@ Predictions are 1h, 2h, ..., 12h into the future.
 ## 1. Setup
 
 
-From [Challenge 2](../challenges/main2.md), do:
+From [Challenge 3](../challenges/main3.md), do:
 - [x] Setup
 
 ## 2. Get data locally
@@ -97,5 +97,5 @@ pred_vals = forecast.set_index('ds')['yhat'].to_numpy()
 
 
 ## 4.  Publish predictions
-From [Challenge 2](../challenges/main2.md), do:
+From [Challenge 3](../challenges/main3.md), do:
 - [x] Publish predictions
