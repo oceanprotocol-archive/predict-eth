@@ -6,7 +6,7 @@ You can see it on Ocean Market [here](https://market.oceanprotocol.com/asset/did
 
 ### 0. Setup
 
-From [Challenge 2](../challenges/main2.md), do:
+From [Challenge 3](../challenges/main3.md), do:
 - [x] Setup
 
 ### 1. Download data
@@ -47,7 +47,7 @@ close_prices = [xi[4] for xi in cex_x]
 ### 3. Approach: Open data via Pandas dataframe
 
 In the same Python console:
-```
+```python
 import pandas as pd
 
 # cex_x is a list of 1000 items, one for every hour, on the hour.

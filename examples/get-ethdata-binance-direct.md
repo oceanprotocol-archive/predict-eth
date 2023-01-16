@@ -6,7 +6,7 @@ We use Python [requests](https://requests.readthedocs.io/en/latest/) library to 
 
 ### 0. Setup
 
-From [Challenge 2](../challenges/main2.md), do:
+From [Challenge 3](../challenges/main3.md), do:
 - [x] Setup
 
 
