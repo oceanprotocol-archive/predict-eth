@@ -8,7 +8,7 @@ Then the challenge is: how accurately can _you_ predict ETH?
 
 ### Current / future challenges
 
-- [Challenge 3](challenges/main3.md) - predictions due Feb, 2023 (exact date TBD)
+- [Challenge 3](challenges/main3.md) - predictions due Feb 20, 2023
 
 ### Example End-to-End Flows
 
