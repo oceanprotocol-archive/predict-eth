@@ -15,7 +15,7 @@ Then the challenge is: how accurately can _you_ predict ETH?
 These are example full submissions to the challenge. You can use any of them as a starting point.
 
 - [Simple](examples/end-to-end_simple.md): To-the-point example, with simple input data (just ETH price) and simple model (linear dynamical model)
-- [Model optimization](examples/end-to-end_optimized.md): Same as simple with added optimization using cross-validation to select best hyperparameters.
+- [Model optimization](examples/end-to-end_optimized.md): Same as [Simple](examples/end-to-end_simple.md) with added optimization using cross-validation to select best hyperparameters.
 - [Compare models, direct prediction](examples/end-to-end_compare-models.md): Build models that predict 1-12 hours ahead in one shot. Compare linear, SVM, RF, and NN models.
 
 ### Example Data Sources
