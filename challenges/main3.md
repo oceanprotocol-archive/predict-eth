@@ -101,7 +101,7 @@ Predictions must be one prediction every hour on the hour, for a 12h period. The
 Here's an example with random numbers. In the same Python console:
 ```python
 #get predicted ETH values
-mean, stddev = 1500, 25.0
+mean, stddev = 1300, 25.0
 pred_vals = list(np.random.normal(loc=mean, scale=stddev, size=(12,)))
 ```
 
