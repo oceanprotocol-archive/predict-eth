@@ -14,7 +14,6 @@ From [Challenge 3](../challenges/main3.md), do:
 In the console:
 
 ```console
-# Install other libraries
 pip3 install tensorflow
 ```
 
