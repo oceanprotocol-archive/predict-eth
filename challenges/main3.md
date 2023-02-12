@@ -266,10 +266,4 @@ print(f"NMSE = {nmse}")
 plot_prices(cex_vals, pred_vals)
 ```
 
-### Appendix: If you have Arweave / Bundlr issues
-
-This README has you upload to Arweave permanent decentralized file storage, so that predictions are tamper-proof. Above, it provided instructions to install Bundlr, which wraps Arweave. 
-
-If you encountered issues installing it, then you need to upload to Arweave in a different way. At the end of the process, you need a shareable url. The Arweave ecosystem has several webapps that you might consider. One of the leading apps is ArDrive. [Here's an ArDrive tutorial](https://docs.rawrshak.io/tutorials/developer/rawrshak-dapp/upload-data-to-arweave) to get going. 
-
 
