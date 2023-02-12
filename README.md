@@ -8,13 +8,14 @@ Then the challenge is: how accurately can _you_ predict ETH?
 
 ### Current / future challenges
 
-- [Challenge 2](challenges/main2.md) - predictions due Dec 11, 2022
+- [Challenge 3](challenges/main3.md) - predictions due Feb 20, 2023
 
 ### Example End-to-End Flows
 
 These are example full submissions to the challenge. You can use any of them as a starting point.
 
 - [Simple](examples/end-to-end_simple.md): To-the-point example, with simple input data (just ETH price) and simple model (linear dynamical model)
+- [Model optimization](examples/end-to-end_optimized.md): Same as [Simple](examples/end-to-end_simple.md) with added optimization using cross-validation to select best hyperparameters.
 - [Compare models, direct prediction](examples/end-to-end_compare-models.md): Build models that predict 1-12 hours ahead in one shot. Compare linear, SVM, RF, and NN models.
 
 ### Example Data Sources
@@ -26,9 +27,6 @@ Get ETH price data:
 - [Via ccxt + Binance](examples/get-ethdata-ccxt-binance.md) - unified API across 40 exchanges
 - [Via Ocean + Binance](examples/get-ethdata-ocean-binance.md) - unified API across 500+ data & compute services
 - [Via Ocean + TheGraph](examples/get-ethdata-ocean-thegraph.md) - like previous, but uses a GraphQL-shaped query
-
-Get BTC price data:
-- [Via Ocean + Binance](examples/get-btcdata-ocean-binance.md)
 
 ### Inspiration: ideas for data & modeling
 
@@ -48,3 +46,5 @@ To help with that, the [algorithmic trading flow README](ideas/algorithmic-tradi
 
 - [Challenge 1](challenges/main1.md) - predictions due Oct 16, 2022
 - [Challenge: web3 ATL hackathon](challenges/hack1.md) - predictions due Nov 6, 2022
+- [Challenge 2](challenges/main2.md) - predictions due Dec 11, 2022
+

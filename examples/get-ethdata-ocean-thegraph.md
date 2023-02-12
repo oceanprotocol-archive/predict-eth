@@ -6,7 +6,7 @@ You can see it on Ocean Market [here](https://market.oceanprotocol.com/asset/did
 
 ### 0. Setup
 
-From [Challenge 2](../challenges/main2.md), do:
+From [Challenge 3](../challenges/main3.md), do:
 - [x] Setup
 
 ### 1. Get Data
@@ -15,7 +15,13 @@ In Python console:
 
 ```python
 ETH_USDT_did = "did:op:deb138bcabdc21f126bc064489cd58d16792f782d2e145f0227e4d9778650243"
-file_name = ocean.assets.download_file(ETH_USDT_did, alice_wallet)
+ETH_USDT_ddo = ocean.assets.resolve(ETH_USDT_did)
+ETH_USDT_datatoken = ocean.get_datatoken(ETH_USDT_ddo.datatokens[0]["address"])
+
+from ocean_lib.ocean.util import to_wei
+ETH_USDT_datatoken.dispense(to_wei(1), {"from":alice_wallet})
+order_tx_id = ocean.assets.pay_for_access_service(ETH_USDT_ddo, {"from": alice_wallet})
+file_name = ocean.assets.download_asset(ETH_USDT_ddo, alice_wallet,"./", order_tx_id)
 
 # Each item in the json file has 8 entries:
 # (0) periodStartUnix (1) priceUSD (2) open (3) high (4) low (5) close (6) volume (7) VolumeUSD

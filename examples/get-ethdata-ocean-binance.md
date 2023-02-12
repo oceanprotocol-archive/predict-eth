@@ -6,7 +6,7 @@ You can see it on Ocean Market [here](https://market.oceanprotocol.com/asset/did
 
 ### 0. Setup
 
-From [Challenge 2](../challenges/main2.md), do:
+From [Challenge 3](../challenges/main3.md), do:
 - [x] Setup
 
 ### 1. Download data
@@ -15,8 +15,13 @@ In Python console:
 
 ```python
 ETH_USDT_did = "did:op:0dac5eb4965fb2b485181671adbf3a23b0133abf71d2775eda8043e8efc92d19"
+ETH_USDT_ddo = ocean.assets.resolve(ETH_USDT_did)
+ETH_USDT_datatoken = ocean.get_datatoken(ETH_USDT_ddo.datatokens[0]["address"])
 
-file_name = ocean.assets.download_file(ETH_USDT_did, alice_wallet)
+from ocean_lib.ocean.util import to_wei
+ETH_USDT_datatoken.dispense(to_wei(1), {"from":alice_wallet})
+order_tx_id = ocean.assets.pay_for_access_service(ETH_USDT_ddo, {"from": alice_wallet})
+file_name = ocean.assets.download_asset(ETH_USDT_ddo, alice_wallet,"./", order_tx_id)
 ```
 
 The next two steps show two different approaches to open the file: Python native support, and Pandas Dataframes.
@@ -47,7 +52,7 @@ close_prices = [xi[4] for xi in cex_x]
 ### 3. Approach: Open data via Pandas dataframe
 
 In the same Python console:
-```
+```python
 import pandas as pd
 
 # cex_x is a list of 1000 items, one for every hour, on the hour.

@@ -3,15 +3,27 @@ Copyright 2022 Ocean Protocol Foundation
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# Predict ETH Price: Round Two 
+# Predict ETH Price: Round Three
 
-This is the main readme for the [Ocean Data Challenge :: ETH Prediction Round 2](https://questbook.app/explore_grants/about_grant/?grantId=0x9f248741962aaf27bd10f2c50aeec2d13f343611&chainId=137). 
+## 0. Introduction
 
-- Kickoff: Nov 14, 2022
-- Submission deadline: Dec 11, 2022 at 23:59 UTC
-- Prediction at times: Dec 12, 2022 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
-- Winners announced: within one week
-- To be considered for winning, and for 250 OCEAN reward for a valid submission, prediction error must (a) lower than if the "prediction" was simply a constant (b) lower than any of the end-to-end examples' prediction errors
+This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 3.
+
+### 0.1 Key dates
+
+- Kickoff: Jan 16th, 2023
+- Submission deadline: Sunday Feb 19th, 2023 at 23:59 UTC
+- Prediction at times: Monday Feb 20th, 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
+- Winners announced: within one week. See previous challenge results [here]( https://blog.oceanprotocol.com/introducing-the-winners-of-the-eth-price-prediction-data-challenge-edition-2-6acdccb9271)
+
+### 0.2 Criteria to win
+- Weighting:
+  - 50% - lowest prediction error
+  - 25% - presentation of approach, and feedback
+  - 25% - proper flow was used to submit. This includes: the predictions were stored to arweave, and a datatoken was shared to judges. (This README covers how to do both.)
+- To be considered for winning, prediction error must lower than if the "prediction" was simply a constant.
+
+### 0.3 Outline of this README
 
 This readme describes a basic flow to predict future ETH price, and submit your predictions to contest judges.
 
@@ -24,54 +36,59 @@ Here are the steps:
 
 ## 1. Setup
 
-### 1.1 Prerequisites & installation
+### 1.1 Install Ocean
 
-Follow [Ocean.py installation guide](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/install.md)
+In ocean.py's [install.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/install.md), follow all directions.
+
+
+### 1.2 Install other Python libraries
 
 Now, let's install Python libraries.
 
 ```python
 # Install other libraries
-pip3 install matplotlib pybundlr ccxt
+pip3 install matplotlib ccxt eth_account
 ```
 
-You'll be using [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction) to share tamper-proof predictions. The `pybundlr` library (installed above) needs the Bundlr CLI installed. So, in the terminal do the following. (If you encounter issues, please see the Appendix.) 
-```
-npm install -g @bundlr-network/client
-```
+### 1.3 Create Mumbai Account (One-Time)
+
+You'll be using Mumbai network (Polygon testnet).
+
+In ocean.py's [get-test-MATIC.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md#3-get-fake-matic-on-mumbai), follow all directions.
+
+In the end, you will have a Mumbai account with private key `REMOTE_TEST_PRIVATE_KEY1` that holds (fake) MATIC tokens.
+
+### 1.4 Arweave preparation
+
+To share tamper-proof predictions, you'll use Arweave. You have two options, A and B. Please pick one and do the "prepare by" step. 
+
+**Option A: Webapp, using [ardrive.io](https://www.ardrive.io)**
+  - Pros: simple webapp
+  - Cons: need AR to pay for storage.
+  - Prepare by: get AR via [a faucet](https://faucet.arweave.net/) or [buying some](https://www.google.com/search?q=buy+arweave+tokens) for more details follow [this](https://docs.oceanprotocol.com/using-ocean-market/asset-hosting#arweave
+) tutorial.
+  
+**Option B: In code, using pybundlr library**
+  - Pros: pay for storage with MATIC, ETH, AR, or [other](https://docs.bundlr.network/sdk/using-other-currencies). (But not fake MATIC)
+  - Cons: bundlr CLI installation is finicky, since it needs "`npm install`" globally on your system (`-g` flag)
+  - Prepare by: 
+    - in console, install pybundlr: `pip install pybundlr`
+    - in console, install [Bundlr CLI](https://docs.bundlr.network/about/introduction): `npm install -g @bundlr-network/client`
+    - get one of: [MATIC](https://polygon.technology/matic-token/), [ETH](https://ethereum.org/en/get-eth/), or AR (see "get AR via" above)
+
+If you're not sure which option to pick, we recommend Option A because once you get AR, the rest is less error-prone.
+
+### 1.5 Set up ocean.py for remotely
+
+In ocean.py's follow the instructions in [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md). You can ignore the lines with "Bob".
+
+By the end, you will be in the Python console, with an Ocean instance, and with a wallet for Alice (you). 
 
 
-### 1.2 Create Polygon Account (One-Time)
+### 1.6 Load helper functions
 
-You'll be using Polygon network. So, please ensure that you have a Polygon account that holds some MATIC (at least a few $ worth). [More info](https://polygon.technology/matic-token/). 
+Go to predict-eth's [helpers.md](../support/helpers.md) and follow the instructions.
 
-### 1.3 Set envvars, for Polygon address
-
-Environment variables (envvars) are set differently in Windows and Mac/Linux:
-
-Windows
-```console
-set REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
-```
-
-Linux and Mac
-```console
-export REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
-```
-
-### 1.4 Load helper functions
-
-Go to [helpers.md](../support/helpers.md) and follow the instructions.
-
-### 1.5 Setup in Python, for Polygon
-
-In the terminal, run Python: `python`
-
-In the Python console:
-```python
-ocean = create_ocean_instance()
-alice_wallet = create_alice_wallet(ocean) #you're Alice
-```
 
 ## 2. Get data locally
 
@@ -148,13 +165,29 @@ The csv will look something like:
 
 ### 4.2 Put the csv online
 
-You'll upload to Arweave permanent decentralized file storage, via Bundlr. This makes the predictions tamper-proof. Bundlr enables you to pay via MATIC from your Polygon account. (If you encounter issues, please see the Appendix.)
+You'll upload your csv to Arweave permanent decentralized file storage. This makes the predictions tamper-proof.
+
+Recall "Arweave preparation" from section 1. Proceed the option (A or B) that you had prepared for.
+
+**Option A: Webapp, using ardrive.io**
+
+Go to [ardrive.io](https://www.ardrive.io) webapp and follow the GUI to upload. Copy the url of the uploaded file.
+
+Then, in the same Python console:
+```python
+url = <url of uploaded file>
+```
+  
+**Option B: In code, using pybundlr library**
 
 In the same Python console:
 ```python
 from pybundlr import pybundlr
 file_name = "/tmp/pred_vals.csv"
+
+# this step assumes "matic" currency. You could also use "eth", "ar", etc.
 url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet.private_key)
+
 #e.g. url = "https://arweave.net/qctEbPb3CjvU8LmV3G_mynX74eCxo1domFQIlOBH1xU"
 print(f"Your csv url: {url}")
 ```
@@ -164,9 +197,9 @@ print(f"Your csv url: {url}")
 In the same Python console:
 ```python
 name = "ETH predictions " + str(time.time()) #time for unique name
-(data_nft, datatoken, asset) = ocean.assets.create_url_asset(name, url, alice_wallet, wait_for_aqua=False)
+(data_nft, datatoken, asset) = ocean.assets.create_url_asset(name, url, {"from":alice}, wait_for_aqua=False)
 metadata_state = 5
-data_nft.setMetaDataState(metadata_state, {"from":alice_wallet})
+data_nft.setMetaDataState(metadata_state, {"from":alice})
 print(f"New asset created, with did={asset.did}, and datatoken.address={datatoken.address}")
 ```
 
@@ -178,10 +211,10 @@ In the same Python console:
 ```python
 from web3.main import Web3
 to_address="0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E" #official judges address
-datatoken.mint(to_address, Web3.toWei(10, "ether"), {"from": alice_wallet})
+datatoken.mint(to_address, Web3.toWei(10, "ether"), {"from": alice})
 ```
 
-Finally, ensure you've filled in your Questbook entry.
+Finally, ensure you've register on [Desights](https://alpha.desights.xyz/g/challenge/1)
 
 Now, you're complete! Thanks for being part of this competition.
 
@@ -198,8 +231,8 @@ Load helper functions: Go to [helpers.md](../support/helpers.md) and follow the 
 In the same Python console:
 ```python
 # setup
-ocean = create_ocean_instance()
-alice_wallet = create_alice_wallet(ocean) #you're Alice
+ocean = create_ocean_instance("polygon-test") # change the network name if needed
+alice = create_alice_wallet(ocean) #you're Alice
 
 # specify target times
 start_dt = datetime.datetime(2022, 12, 12, 1, 00) #Dec 12, 2022 at 1:00am UTC
@@ -208,8 +241,8 @@ print_datetime_info("target times", target_uts)
 
 # get predicted ETH values
 did = <value shared by you>
-order_tx_id = ocean.assets.pay_for_access_service(ddo, alice_wallet)
-file_name = ocean.assets.download_asset(ddo, alice_wallet, './', order_tx_id)
+order_tx_id = ocean.assets.pay_for_access_service(ddo, {"from":alice})
+file_name = ocean.assets.download_asset(ddo, alice, './', order_tx_id)
 pred_vals = load_list(file_name)
 
 # get actual ETH values (final)
