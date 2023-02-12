@@ -1,5 +1,7 @@
-enforce-typing==1.0.0.post1
+eth-brownie>=1.19.3
+matplotlib
+numpy
+ocean-lib
 pytest
-requests>=2.21.0
-web3==5.28.0
+web3>=5.28.0
 

@@ -1,7 +1,7 @@
 
-## Developing pybundlr
+## Developing predict-eth
 
-This README is for those further improving the pybundlr library.
+This README is for those further improving the predict-eth library.
 
 ### Installation from source
 
@@ -9,8 +9,8 @@ In a new terminal:
 
 ```console
 #clone the repo and enter into it
-git clone https://github.com/oceanprotocol/pybundlr
-cd pybundlr
+git clone https://github.com/oceanprotocol/predict-eth
+cd predict-eth
 
 #Create & activate venv
 python -m venv venv
@@ -20,14 +20,6 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-### Set envvars
-
-Some tests need an Ethereum account holding >0 ETH. If you need, go create one and get some ETH.
-
-Then, from the terminal:
-```console
-export REMOTE_TEST_PRIVATE_KEY1=<your account private key>
-```
 
 ### Testing
 

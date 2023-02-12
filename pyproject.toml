@@ -6,14 +6,14 @@ requires = [
 build-backend = "hatchling.build"
 
 [project]
-name = "pybundlr"
+name = "predict-eth"
 version = "0.1.10" 
 authors = [
   { name="Trent McConaghy", email="gtrent@gmail.com" },
 ]
-description = "Simple py driver for bundlr"
+description = "Predict ETH challenges from Ocean Protocol"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -25,5 +25,5 @@ dynamic = ["dependencies"]
 files = ["requirements.txt"]
 
 [project.urls]
-"Homepage" = "https://github.com/oceanprotocol/pybundlr"
-"Bug Tracker" = "https://github.com/oceanprotocol/pybundlr/issues"
+"Homepage" = "https://github.com/oceanprotocol/predict-eth"
+"Bug Tracker" = "https://github.com/oceanprotocol/predict-eth/issues"
