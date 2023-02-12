@@ -1,0 +1,7 @@
+eth-brownie>=1.19.3
+matplotlib
+numpy
+ocean-lib
+pytest
+web3>=5.28.0
+

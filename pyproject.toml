@@ -1,0 +1,29 @@
+[build-system]
+requires = [
+  "hatchling",
+  "hatch-requirements-txt",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "predict-eth"
+version = "0.1.0" 
+authors = [
+  { name="Trent McConaghy", email="gtrent@gmail.com" },
+]
+description = "Predict ETH challenges"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Unix",
+]
+dynamic = ["dependencies"]
+
+[tool.hatch.metadata.hooks.requirements_txt]
+files = ["requirements.txt"]
+
+[project.urls]
+"Homepage" = "https://github.com/oceanprotocol/predict-eth"
+"Bug Tracker" = "https://github.com/oceanprotocol/predict-eth/issues"
