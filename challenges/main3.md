@@ -79,12 +79,13 @@ In ocean.py's [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/m
 
 Go to predict-eth's [helpers.md](../support/helpers.md) and follow the instructions.
 
-
 ## 2. Get data locally
 
-Here, use whatever data you wish. It can be static data or streams, free or priced, raw data or feature vectors or otherwise. It can be published via Ocean, or not. The [main README](../README.md) links to some options.
+Here, use whatever data you wish.
 
-This demo flow skips getting data because it will generate random predictions (no data needed).
+It can be static data or streams, free or priced, raw data or feature vectors or otherwise. It can be published via Ocean, or not.
+
+The [main README](../README.md) links to some options. 
 
 ## 3.  Make predictions
 
@@ -92,7 +93,7 @@ This demo flow skips getting data because it will generate random predictions (n
 
 Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options. 
 
-This demo flow skips building a model because it will generate random predictions (no model needed).
+This demo flow skips building a model because the next step will simply generate random predictions.
 
 ### 3.2  Run the AI model to make future ETH price predictions
 
