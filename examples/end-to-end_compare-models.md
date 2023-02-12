@@ -11,6 +11,15 @@ Four modeling approaches are used: Linear Regression, Random Forests, Support Ve
 From [Challenge 3](../challenges/main3.md), do:
 - [x] Setup
 
+In the console:
+
+```console
+# Install other libraries
+pip3 install tensorflow
+```
+
+(We install TensorFlow here, and not earlier, because it's 500MB.)
+
 ## 2. Get data locally
 
 In the Python console:
