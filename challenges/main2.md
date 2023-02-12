@@ -61,7 +61,9 @@ export REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
 
 ### 1.4 Load helper functions
 
-Go to [helpers.md](../support/helpers.md) and follow the instructions.
+```python
+from predict_eth.helpers import *
+```
 
 ### 1.5 Setup in Python, for Polygon
 
@@ -193,10 +195,10 @@ In the terminal:
 export REMOTE_TEST_PRIVATE_KEY1=<judges' private key, having address 0xA54A..>
 ```
 
-Load helper functions: Go to [helpers.md](../support/helpers.md) and follow the instructions.
-
 In the same Python console:
 ```python
+from predict_eth.helpers import *
+
 # setup
 ocean = create_ocean_instance()
 alice_wallet = create_alice_wallet(ocean) #you're Alice
