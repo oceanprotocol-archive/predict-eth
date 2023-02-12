@@ -125,7 +125,7 @@ In the same Python console:
 
 ```python
 # get the time range we want to test for
-start_dt = datetime.datetime.now() - datetime.timedelta(hours=24) #must be >= 12h ago
+start_dt = datetime.datetime.now() - datetime.timedelta(hours=24) #must be >= 12h ago; we use 24
 start_dt = round_to_nearest_hour(start_dt) # so that times line up
 target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
