@@ -81,11 +81,9 @@ Go to predict-eth's [helpers.md](../support/helpers.md) and follow the instructi
 
 ## 2. Get data locally
 
-Here, use whatever data you wish.
+Here, use whatever data you wish. It can be static data or streams, free or priced, raw data or feature vectors or otherwise. It can be published via Ocean, or not. The [main README](../README.md) links to some options.
 
-It can be static data or streams, free or priced, raw data or feature vectors or otherwise. It can be published via Ocean, or not.
-
-The [main README](../README.md) links to some options. 
+This demo flow skips getting data because it will generate random predictions (no data needed).
 
 ## 3.  Make predictions
 
@@ -93,7 +91,7 @@ The [main README](../README.md) links to some options.
 
 Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options. 
 
-This demo flow skips building a model because the next step will simply generate random predictions.
+This demo flow skips building a model because it will generate random predictions (no model needed).
 
 ### 3.2  Run the AI model to make future ETH price predictions
 
@@ -102,7 +100,7 @@ Predictions must be one prediction every hour on the hour, for a 12h period. The
 Here's an example with random numbers. In the same Python console:
 ```python
 #get predicted ETH values
-mean, stddev = 1300, 25.0
+mean, stddev = 1500, 25.0
 pred_vals = list(np.random.normal(loc=mean, scale=stddev, size=(12,)))
 ```
 
@@ -114,7 +112,7 @@ In the same Python console:
 
 ```python
 # get the time range we want to test for
-start_dt = datetime.datetime.now() - datetime.timedelta(hours=24) #must be >= 12h ago
+start_dt = datetime.datetime.now() - datetime.timedelta(hours=24) #must be >= 12h ago; we use 24
 start_dt = round_to_nearest_hour(start_dt) # so that times line up
 target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
@@ -174,7 +172,8 @@ In the same Python console:
 from pybundlr import pybundlr
 file_name = "/tmp/pred_vals.csv"
 
-# this step assumes "matic" currency. You could also use "eth", "ar", etc.
+# This step assumes "matic" currency. You could also use "eth", "ar", etc.
+# Whatever network you choose, alice's wallet needs the corresponding funds.
 url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet.private_key)
 
 #e.g. url = "https://arweave.net/qctEbPb3CjvU8LmV3G_mynX74eCxo1domFQIlOBH1xU"
