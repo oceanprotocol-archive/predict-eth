@@ -46,8 +46,10 @@ In the console:
 
 ```console
 # Install other libraries
-pip3 install ccxt eth_account matplotlib numpy pandas requests
+pip3 install ccxt eth_account matplotlib numpy pandas requests prophet
 ```
+
+Note: while _this_ README doesn't use all of these modules, several follow-on READMEs do. So we install them all here, for convenience.
 
 ### 1.3 Arweave preparation
 
