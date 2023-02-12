@@ -7,8 +7,11 @@ Under the hood, ccxt queries the Binance API for Binance data.
 
 ### 0. Setup
 
-From [Challenge 3](../challenges/main3.md), do:
-- [x] Setup
+We assume you've already done [main3.md](../challenges/main3.md#1-setup) "Setup".
+
+If needed, re-setup in Python:
+- Do ocean.py [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md#6-setup-in-python) "Setup in Python"
+- Do this repo's [helpers.md](../support/helpers.md)
 
 ### 1. Get Data
  
