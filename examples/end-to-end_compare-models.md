@@ -1,4 +1,4 @@
-# End-to-end example: Compare models, direct prediction
+# End-to-end example: Compare models
 
 Given the task of predicting ETH for 12 hours in the future, several approaches  are possible. They either learn an independent model to predict the prices at each hour, or learn a model that makes direct predictions.
 
@@ -8,17 +8,22 @@ Four modeling approaches are used: Linear Regression, Random Forests, Support Ve
 
 ## 1. Setup
 
-From [Challenge 3](../challenges/main3.md), do:
-- [x] Setup
+We assume you've already done [main3.md](../challenges/main3.md#1-setup) "Setup".
 
-In the console:
+Let's install TensorFlow. We do it here, and not earlier, because it's 500MB. In the console:
+
 ```console
-pip install pandas numpy requests
+pip3 install tensorflow
 ```
+
+Finally, re-setup in Python:
+- Do ocean.py [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md#6-setup-in-python) "Setup in Python"
+- Do this repo's [helpers.md](../support/helpers.md)
+
 
 ## 2. Get data locally
 
-In the same Python console:
+In the Python console:
 
 ```python
 import ccxt

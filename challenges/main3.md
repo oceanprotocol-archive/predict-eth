@@ -11,9 +11,9 @@ This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 3.
 
 ### 0.1 Key dates
 
-- Kickoff: Jan 16th, 2023
-- Submission deadline: Sunday Feb 19th, 2023 at 23:59 UTC
-- Prediction at times: Monday Feb 20th, 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
+- Kickoff: Jan 16, 2023
+- Submission deadline: Sun Feb 19, 2023 at 23:59 UTC
+- Prediction at times: Mon Feb 20, 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
 - Winners announced: within one week. See previous challenge results [here]( https://blog.oceanprotocol.com/introducing-the-winners-of-the-eth-price-prediction-data-challenge-edition-2-6acdccb9271)
 
 ### 0.2 Criteria to win
@@ -25,11 +25,11 @@ This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 3.
 
 ### 0.3 Outline of this README
 
-This readme describes a basic flow to predict future ETH price, and submit your predictions to contest judges.
+This readme describes a basic flow to predict future ETH price, and submit your predictions to contest judges. We'll be using Mumbai, which is Polygon's testnet.
 
 Here are the steps:
 
-1. Basic Setup
+1. Setup
 2. Get data locally
 3. Make predictions
 4. Publish & share predictions
@@ -38,34 +38,27 @@ Here are the steps:
 
 ### 1.1 Install Ocean
 
-In ocean.py's [install.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/install.md), follow all directions.
-
+In ocean.py's [install.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/install.md), follow all steps.
 
 ### 1.2 Install other Python libraries
 
-Now, let's install Python libraries.
+In the console:
 
-```python
+```console
 # Install other libraries
-pip3 install matplotlib ccxt eth_account
+pip3 install ccxt eth_account matplotlib numpy pandas prophet requests sklearn
 ```
 
-### 1.3 Create Mumbai Account (One-Time)
+Note: while _this_ README doesn't use all of these modules, several follow-on READMEs do. So we install them all here, for convenience.
 
-You'll be using Mumbai network (Polygon testnet).
-
-In ocean.py's [get-test-MATIC.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md#3-get-fake-matic-on-mumbai), follow all directions.
-
-In the end, you will have a Mumbai account with private key `REMOTE_TEST_PRIVATE_KEY1` that holds (fake) MATIC tokens.
-
-### 1.4 Arweave preparation
+### 1.3 Arweave preparation
 
 To share tamper-proof predictions, you'll use Arweave. You have two options, A and B. Please pick one and do the "prepare by" step. 
 
 **Option A: Webapp, using [ardrive.io](https://www.ardrive.io)**
   - Pros: simple webapp
   - Cons: need AR to pay for storage.
-  - Prepare by: get AR via [a faucet](https://faucet.arweave.net/) or [buying some](https://www.google.com/search?q=buy+arweave+tokens) for more details follow [this](https://docs.oceanprotocol.com/using-ocean-market/asset-hosting#arweave
+  - Prepare by: get AR via [a faucet](https://faucet.arweave.net/) or [buying some](https://www.google.com/search?q=buy+arweave+tokens). For more details follow [this](https://docs.oceanprotocol.com/using-ocean-market/asset-hosting#arweave
 ) tutorial.
   
 **Option B: In code, using pybundlr library**
@@ -78,25 +71,21 @@ To share tamper-proof predictions, you'll use Arweave. You have two options, A a
 
 If you're not sure which option to pick, we recommend Option A because once you get AR, the rest is less error-prone.
 
-### 1.5 Set up ocean.py for remotely
 
-In ocean.py's follow the instructions in [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md). You can ignore the lines with "Bob".
+### 1.4 Do Ocean remote setup
 
-By the end, you will be in the Python console, with an Ocean instance, and with a wallet for Alice (you). 
+In ocean.py's [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md), follow all steps.
 
 
-### 1.6 Load helper functions
+### 1.5 Load helper functions
 
-Go to predict-eth's [helpers.md](../support/helpers.md) and follow the instructions.
-
+In this repo's [helpers.md](../support/helpers.md), follow all steps.
 
 ## 2. Get data locally
 
-Here, use whatever data you wish.
+Here, use whatever data you wish. It can be static data or streams, free or priced, raw data or feature vectors or otherwise. It can be published via Ocean, or not. The [main README](../README.md) links to some options.
 
-It can be static data or streams, free or priced, raw data or feature vectors or otherwise. It can be published via Ocean, or not.
-
-The [main README](../README.md) links to some options. 
+This demo flow skips getting data because it will generate random predictions (no data needed).
 
 ## 3.  Make predictions
 
@@ -104,7 +93,7 @@ The [main README](../README.md) links to some options.
 
 Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options. 
 
-This demo flow skips building a model because the next step will simply generate random predictions.
+This demo flow skips building a model because it will generate random predictions (no model needed).
 
 ### 3.2  Run the AI model to make future ETH price predictions
 
@@ -113,7 +102,7 @@ Predictions must be one prediction every hour on the hour, for a 12h period. The
 Here's an example with random numbers. In the same Python console:
 ```python
 #get predicted ETH values
-mean, stddev = 1300, 25.0
+mean, stddev = 1500, 25.0
 pred_vals = list(np.random.normal(loc=mean, scale=stddev, size=(12,)))
 ```
 
@@ -125,7 +114,7 @@ In the same Python console:
 
 ```python
 # get the time range we want to test for
-start_dt = datetime.datetime.now() - datetime.timedelta(hours=24) #must be >= 12h ago
+start_dt = datetime.datetime.now() - datetime.timedelta(hours=24) #must be >= 12h ago; we use 24
 start_dt = round_to_nearest_hour(start_dt) # so that times line up
 target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
@@ -185,7 +174,8 @@ In the same Python console:
 from pybundlr import pybundlr
 file_name = "/tmp/pred_vals.csv"
 
-# this step assumes "matic" currency. You could also use "eth", "ar", etc.
+# This step assumes "matic" currency. You could also use "eth", "ar", etc.
+# Whatever network you choose, alice's wallet needs the corresponding funds.
 url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet.private_key)
 
 #e.g. url = "https://arweave.net/qctEbPb3CjvU8LmV3G_mynX74eCxo1domFQIlOBH1xU"
@@ -197,13 +187,13 @@ print(f"Your csv url: {url}")
 In the same Python console:
 ```python
 name = "ETH predictions " + str(time.time()) #time for unique name
-(data_nft, datatoken, asset) = ocean.assets.create_url_asset(name, url, {"from":alice}, wait_for_aqua=False)
+(data_nft, datatoken, ddo) = ocean.assets.create_url_asset(name, url, {"from":alice}, wait_for_aqua=False)
 metadata_state = 5
 data_nft.setMetaDataState(metadata_state, {"from":alice})
-print(f"New asset created, with did={asset.did}, and datatoken.address={datatoken.address}")
+print(f"New asset created, with did={ddo.did}, and datatoken.address={datatoken.address}")
 ```
 
-Write down the `did` and `datatoken.address`. You'll be needing to share them in the Questbook entry.
+Write down the `did` and `datatoken.address`. You'll be needing to share them in the Desights entry (see below).
 
 ### 4.4 Share predictions to judges
 
@@ -214,7 +204,11 @@ to_address="0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E" #official judges address
 datatoken.mint(to_address, Web3.toWei(10, "ether"), {"from": alice})
 ```
 
-Finally, ensure you've register on [Desights](https://alpha.desights.xyz/g/challenge/1)
+### 4.5 Enter via Desights
+
+[Desights](https://desights.ai) is a decentralized platform for data science competitions. It's hosting Ocean's predict-eth challenges.
+
+Please ensure that you've entered in this competition on Desights.
 
 Now, you're complete! Thanks for being part of this competition.
 
@@ -261,11 +255,5 @@ nmse = calc_nmse(cex_vals, pred_vals)
 print(f"NMSE = {nmse}")
 plot_prices(cex_vals, pred_vals)
 ```
-
-### Appendix: If you have Arweave / Bundlr issues
-
-This README has you upload to Arweave permanent decentralized file storage, so that predictions are tamper-proof. Above, it provided instructions to install Bundlr, which wraps Arweave. 
-
-If you encountered issues installing it, then you need to upload to Arweave in a different way. At the end of the process, you need a shareable url. The Arweave ecosystem has several webapps that you might consider. One of the leading apps is ArDrive. [Here's an ArDrive tutorial](https://docs.rawrshak.io/tutorials/developer/rawrshak-dapp/upload-data-to-arweave) to get going. 
 
 
