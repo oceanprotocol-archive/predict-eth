@@ -79,7 +79,7 @@ In ocean.py's [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/m
 
 ### 1.5 Load helper functions
 
-Go to predict-eth's [helpers.md](../support/helpers.md) and follow the instructions.
+In this repo's [helpers.md](../support/helpers.md), follow all steps.
 
 ## 2. Get data locally
 
