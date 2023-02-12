@@ -191,7 +191,7 @@ data_nft.setMetaDataState(metadata_state, {"from":alice})
 print(f"New asset created, with did={ddo.did}, and datatoken.address={datatoken.address}")
 ```
 
-Write down the `did` and `datatoken.address`. You'll be needing to share them in the Questbook entry.
+Write down the `did` and `datatoken.address`. You'll be needing to share them in the Desights entry (see below).
 
 ### 4.4 Share predictions to judges
 
