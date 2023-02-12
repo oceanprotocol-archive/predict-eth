@@ -13,7 +13,7 @@ This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 3.
 
 - Kickoff: Jan 16, 2023
 - Submission deadline: Sun Feb 19, 2023 at 23:59 UTC
-- Prediction at times: Mon Feb 20th, 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
+- Prediction at times: Mon Feb 20, 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
 - Winners announced: within one week. See previous challenge results [here]( https://blog.oceanprotocol.com/introducing-the-winners-of-the-eth-price-prediction-data-challenge-edition-2-6acdccb9271)
 
 ### 0.2 Criteria to win
