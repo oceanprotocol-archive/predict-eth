@@ -25,11 +25,11 @@ This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 3.
 
 ### 0.3 Outline of this README
 
-This readme describes a basic flow to predict future ETH price, and submit your predictions to contest judges.
+This readme describes a basic flow to predict future ETH price, and submit your predictions to contest judges. We'll be using Mumbai, which is Polygon's testnet.
 
 Here are the steps:
 
-1. Basic Setup
+1. Setup
 2. Get data locally
 3. Make predictions
 4. Publish & share predictions
@@ -38,27 +38,18 @@ Here are the steps:
 
 ### 1.1 Install Ocean
 
-In ocean.py's [install.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/install.md), follow all directions.
-
+In ocean.py's [install.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/install.md), follow all steps.
 
 ### 1.2 Install other Python libraries
 
-Now, let's install Python libraries.
+In the console:
 
-```python
+```console
 # Install other libraries
 pip3 install matplotlib ccxt eth_account
 ```
 
-### 1.3 Create Mumbai Account (One-Time)
-
-You'll be using Mumbai network (Polygon testnet).
-
-In ocean.py's [get-test-MATIC.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md#3-get-fake-matic-on-mumbai), follow all directions.
-
-In the end, you will have a Mumbai account with private key `REMOTE_TEST_PRIVATE_KEY1` that holds (fake) MATIC tokens.
-
-### 1.4 Arweave preparation
+### 1.3 Arweave preparation
 
 To share tamper-proof predictions, you'll use Arweave. You have two options, A and B. Please pick one and do the "prepare by" step. 
 
@@ -78,14 +69,13 @@ To share tamper-proof predictions, you'll use Arweave. You have two options, A a
 
 If you're not sure which option to pick, we recommend Option A because once you get AR, the rest is less error-prone.
 
-### 1.5 Set up ocean.py for remotely
 
-In ocean.py's follow the instructions in [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md). You can ignore the lines with "Bob".
+### 1.4 Do Ocean remote setup
 
-By the end, you will be in the Python console, with an Ocean instance, and with a wallet for Alice (you). 
+In ocean.py's [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md), follow all steps.
 
 
-### 1.6 Load helper functions
+### 1.5 Load helper functions
 
 Go to predict-eth's [helpers.md](../support/helpers.md) and follow the instructions.
 
