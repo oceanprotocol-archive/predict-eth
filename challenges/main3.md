@@ -65,7 +65,7 @@ To share tamper-proof predictions, you'll use Arweave. You have two options, A a
 **Option A: Webapp, using [ardrive.io](https://www.ardrive.io)**
   - Pros: simple webapp
   - Cons: need AR to pay for storage.
-  - Prepare by: get AR via [a faucet](https://faucet.arweave.net/) or [buying some](https://www.google.com/search?q=buy+arweave+tokens) for more details follow [this](https://docs.oceanprotocol.com/using-ocean-market/asset-hosting#arweave
+  - Prepare by: get AR via [a faucet](https://faucet.arweave.net/) or [buying some](https://www.google.com/search?q=buy+arweave+tokens). For more details follow [this](https://docs.oceanprotocol.com/using-ocean-market/asset-hosting#arweave
 ) tutorial.
   
 **Option B: In code, using pybundlr library**
