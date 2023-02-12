@@ -197,10 +197,10 @@ print(f"Your csv url: {url}")
 In the same Python console:
 ```python
 name = "ETH predictions " + str(time.time()) #time for unique name
-(data_nft, datatoken, asset) = ocean.assets.create_url_asset(name, url, {"from":alice}, wait_for_aqua=False)
+(data_nft, datatoken, ddo) = ocean.assets.create_url_asset(name, url, {"from":alice}, wait_for_aqua=False)
 metadata_state = 5
 data_nft.setMetaDataState(metadata_state, {"from":alice})
-print(f"New asset created, with did={asset.did}, and datatoken.address={datatoken.address}")
+print(f"New asset created, with did={ddo.did}, and datatoken.address={datatoken.address}")
 ```
 
 Write down the `did` and `datatoken.address`. You'll be needing to share them in the Questbook entry.
