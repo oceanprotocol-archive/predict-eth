@@ -214,7 +214,11 @@ to_address="0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E" #official judges address
 datatoken.mint(to_address, Web3.toWei(10, "ether"), {"from": alice})
 ```
 
-Finally, ensure you've register on [Desights](https://alpha.desights.xyz/g/challenge/1)
+### 4.5 Enter via Desights
+
+[Desights](https://desights.ai) is a decentralized platform for data science competitions. It's hosting Ocean's predict-eth challenges.
+
+Please ensure that you've entered in this competition on Desights.
 
 Now, you're complete! Thanks for being part of this competition.
 
