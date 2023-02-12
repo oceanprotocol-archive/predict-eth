@@ -11,7 +11,7 @@ From [Challenge 3](../challenges/main3.md), do:
 
 ### 1. Download data
 
-In Python console:
+In the Python console:
 
 ```python
 ETH_USDT_did = "did:op:0dac5eb4965fb2b485181671adbf3a23b0133abf71d2775eda8043e8efc92d19"

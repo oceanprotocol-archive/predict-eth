@@ -1,4 +1,4 @@
-# End-to-end example: Compare models, direct prediction
+# End-to-end example: Compare models
 
 Given the task of predicting ETH for 12 hours in the future, several approaches  are possible. They either learn an independent model to predict the prices at each hour, or learn a model that makes direct predictions.
 
@@ -11,14 +11,9 @@ Four modeling approaches are used: Linear Regression, Random Forests, Support Ve
 From [Challenge 3](../challenges/main3.md), do:
 - [x] Setup
 
-In the console:
-```console
-pip install pandas numpy requests
-```
-
 ## 2. Get data locally
 
-In the same Python console:
+In the Python console:
 
 ```python
 import ccxt

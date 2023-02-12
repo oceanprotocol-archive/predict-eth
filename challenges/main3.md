@@ -46,7 +46,7 @@ In the console:
 
 ```console
 # Install other libraries
-pip3 install matplotlib ccxt eth_account
+pip3 install ccxt eth_account matplotlib numpy pandas requests
 ```
 
 ### 1.3 Arweave preparation

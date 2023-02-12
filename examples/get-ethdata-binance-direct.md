@@ -9,15 +9,7 @@ We use Python [requests](https://requests.readthedocs.io/en/latest/) library to 
 From [Challenge 3](../challenges/main3.md), do:
 - [x] Setup
 
-
-Install requests. Open a terminal and:
-```
-pip3 install requests
-```
-
 ### 1. Get Data
-
-If the Python console isn't already open: `python`
 
 In the Python console:
 ```python
