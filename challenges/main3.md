@@ -227,11 +227,11 @@ In the terminal:
 export REMOTE_TEST_PRIVATE_KEY1=<judges' private key, having address 0xA54A..>
 ```
 
-Load helper functions: Go to [helpers.md](../support/helpers.md) and follow the instructions.
-
 In the same Python console:
 ```python
 # setup
+from predict_eth.helpers import *
+
 ocean = create_ocean_instance("polygon-test") # change the network name if needed
 alice = create_alice_wallet(ocean) #you're Alice
 
