@@ -40,20 +40,24 @@ Here are the steps:
 
 In ocean.py's [install.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/install.md), follow all steps.
 
-### 1.2 Install other Python libraries
+### 1.2 Install predict-eth
 
-In the console:
+The [predict-eth library](https://pypi.org/project/predict-eth) has a specific error calculation function, and [other functions](https://github.com/oceanprotocol/predict-eth/blob/main/predict_eth/helpers.py) specific to this competition. In the console:
 
 ```console
-# Install other libraries
+pip3 install predict-eth
+```
+
+### 1.3 Install other Python libraries
+
+The READMEs use several numerical & ML libraries. In the console:
+```
 pip3 install ccxt eth_account matplotlib numpy pandas prophet requests sklearn
 ```
 
-Note: while _this_ README doesn't use all of these modules, several follow-on READMEs do. So we install them all here, for convenience.
+### 1.4 Arweave preparation
 
-### 1.3 Arweave preparation
-
-To share tamper-proof predictions, you'll use Arweave. You have two options, A and B. Please pick one and do the "prepare by" step. 
+To share tamper-proof predictions, the READMEs use Arweave. You have two options, A and B. Please pick one and do the "prepare by" step. 
 
 **Option A: Webapp, using [ardrive.io](https://www.ardrive.io)**
   - Pros: simple webapp
@@ -72,14 +76,17 @@ To share tamper-proof predictions, you'll use Arweave. You have two options, A a
 If you're not sure which option to pick, we recommend Option A because once you get AR, the rest is less error-prone.
 
 
-### 1.4 Do Ocean remote setup
+### 1.5 Do Ocean remote setup
 
 In ocean.py's [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md), follow all steps.
 
+### 1.6 Load helper functions
 
-### 1.5 Load helper functions
+In the Python console:
 
-In this repo's [helpers.md](../support/helpers.md), follow all steps.
+```python
+from predict_eth.helpers import *
+```
 
 ## 2. Get data locally
 
@@ -220,11 +227,11 @@ In the terminal:
 export REMOTE_TEST_PRIVATE_KEY1=<judges' private key, having address 0xA54A..>
 ```
 
-Load helper functions: Go to [helpers.md](../support/helpers.md) and follow the instructions.
-
 In the same Python console:
 ```python
 # setup
+from predict_eth.helpers import *
+
 ocean = create_ocean_instance("polygon-test") # change the network name if needed
 alice = create_alice_wallet(ocean) #you're Alice
 

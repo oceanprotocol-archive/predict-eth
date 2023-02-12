@@ -59,7 +59,9 @@ export REMOTE_TEST_PRIVATE_KEY1=<your Polygon private key>
 
 ### 1.4 Load helper functions
 
-Go to [helpers.md](../support/helpers.md) and follow the instructions.
+```python
+from predict_eth.helpers import *
+```
 
 ### 1.5 Setup in Python, for Polygon
 

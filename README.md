@@ -48,7 +48,12 @@ To help with that, the [algorithmic trading flow README](ideas/algorithmic-tradi
 - [Challenge: web3 ATL hackathon](challenges/hack1.md) - predictions due Nov 6, 2022
 - [Challenge 2](challenges/main2.md) - predictions due Dec 11, 2022
 
-### Development (WIP)
+### Appendix: Predict-eth library
 
-- [Developers flow](developers.md) - to further develop predict-eth
-- [Release process](release-process.md) - to do a new release of predict-eth
+Predict-eth is a [library on pypi](https://pypi.org/project/predict-eth/).
+
+To install: `pip3 install predict-eth`
+
+To further develop it:
+- [Developers flow](developers.md)
+- [Release process](release-process.md)
