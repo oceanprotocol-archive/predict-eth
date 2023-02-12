@@ -11,9 +11,9 @@ This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 3.
 
 ### 0.1 Key dates
 
-- Kickoff: Jan 16th, 2023
-- Submission deadline: Sunday Feb 19th, 2023 at 23:59 UTC
-- Prediction at times: Monday Feb 20th, 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
+- Kickoff: Jan 16, 2023
+- Submission deadline: Sun Feb 19, 2023 at 23:59 UTC
+- Prediction at times: Mon Feb 20, 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
 - Winners announced: within one week. See previous challenge results [here]( https://blog.oceanprotocol.com/introducing-the-winners-of-the-eth-price-prediction-data-challenge-edition-2-6acdccb9271)
 
 ### 0.2 Criteria to win
@@ -46,8 +46,10 @@ In the console:
 
 ```console
 # Install other libraries
-pip3 install ccxt eth_account matplotlib numpy pandas requests sklearn
+pip3 install ccxt eth_account matplotlib numpy pandas prophet requests sklearn
 ```
+
+Note: while _this_ README doesn't use all of these modules, several follow-on READMEs do. So we install them all here, for convenience.
 
 ### 1.3 Arweave preparation
 
