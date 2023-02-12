@@ -186,10 +186,10 @@ print(f"Your csv url: {url}")
 In the same Python console:
 ```python
 name = "ETH predictions " + str(time.time()) #time for unique name
-(data_nft, datatoken, asset) = ocean.assets.create_url_asset(name, url, {"from":alice}, wait_for_aqua=False)
+(data_nft, datatoken, ddo) = ocean.assets.create_url_asset(name, url, {"from":alice}, wait_for_aqua=False)
 metadata_state = 5
 data_nft.setMetaDataState(metadata_state, {"from":alice})
-print(f"New asset created, with did={asset.did}, and datatoken.address={datatoken.address}")
+print(f"New asset created, with did={ddo.did}, and datatoken.address={datatoken.address}")
 ```
 
 Write down the `did` and `datatoken.address`. You'll be needing to share them in the Questbook entry.
@@ -203,7 +203,11 @@ to_address="0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E" #official judges address
 datatoken.mint(to_address, Web3.toWei(10, "ether"), {"from": alice})
 ```
 
-Finally, ensure you've register on [Desights](https://alpha.desights.xyz/g/challenge/1)
+### 4.5 Enter via Desights
+
+[Desights](https://desights.ai) is a decentralized platform for data science competitions. It's hosting Ocean's predict-eth challenges.
+
+Please ensure that you've entered in this competition on Desights.
 
 Now, you're complete! Thanks for being part of this competition.
 
@@ -250,11 +254,5 @@ nmse = calc_nmse(cex_vals, pred_vals)
 print(f"NMSE = {nmse}")
 plot_prices(cex_vals, pred_vals)
 ```
-
-### Appendix: If you have Arweave / Bundlr issues
-
-This README has you upload to Arweave permanent decentralized file storage, so that predictions are tamper-proof. Above, it provided instructions to install Bundlr, which wraps Arweave. 
-
-If you encountered issues installing it, then you need to upload to Arweave in a different way. At the end of the process, you need a shareable url. The Arweave ecosystem has several webapps that you might consider. One of the leading apps is ArDrive. [Here's an ArDrive tutorial](https://docs.rawrshak.io/tutorials/developer/rawrshak-dapp/upload-data-to-arweave) to get going. 
 
 
