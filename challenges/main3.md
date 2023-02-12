@@ -182,7 +182,8 @@ In the same Python console:
 from pybundlr import pybundlr
 file_name = "/tmp/pred_vals.csv"
 
-# this step assumes "matic" currency. You could also use "eth", "ar", etc.
+# This step assumes "matic" currency. You could also use "eth", "ar", etc.
+# Whatever network you choose, alice's wallet needs the corresponding funds.
 url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet.private_key)
 
 #e.g. url = "https://arweave.net/qctEbPb3CjvU8LmV3G_mynX74eCxo1domFQIlOBH1xU"
