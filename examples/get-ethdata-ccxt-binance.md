@@ -10,16 +10,9 @@ Under the hood, ccxt queries the Binance API for Binance data.
 From [Challenge 3](../challenges/main3.md), do:
 - [x] Setup
 
-Install ccxt. Open a terminal and:
-```
-pip3 install ccxt
-```
-
 ### 1. Get Data
-
-If the Python console isn't already open: `python`
  
-In Python console:
+In the Python console:
 
 ```python
 import ccxt

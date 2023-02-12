@@ -16,7 +16,7 @@ These are example full submissions to the challenge. You can use any of them as 
 
 - [Simple](examples/end-to-end_simple.md): To-the-point example, with simple input data (just ETH price) and simple model (linear dynamical model)
 - [Model optimization](examples/end-to-end_optimized.md): Same as [Simple](examples/end-to-end_simple.md) with added optimization using cross-validation to select best hyperparameters.
-- [Compare models, direct prediction](examples/end-to-end_compare-models.md): Build models that predict 1-12 hours ahead in one shot. Compare linear, SVM, RF, and NN models.
+- [Compare models](examples/end-to-end_compare-models.md): Build models that predict 1-12 hours ahead in one shot. Compare linear, SVM, RF, and NN models.
 
 ### Example Data Sources
 
