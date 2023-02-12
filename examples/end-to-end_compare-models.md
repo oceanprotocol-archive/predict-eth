@@ -18,7 +18,7 @@ pip3 install tensorflow
 
 Finally, re-setup in Python:
 - Do ocean.py [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md#6-setup-in-python) "Setup in Python"
-- Do this repo's [helpers.md](../support/helpers.md)
+- And do: `from predict_eth.helpers import *`
 
 
 ## 2. Get data locally
