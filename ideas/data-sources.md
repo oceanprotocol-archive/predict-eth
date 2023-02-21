@@ -5,10 +5,11 @@ Existing and potential future data sources to consider
 ### Already in one or more READMEs
 
 - data in Ocean Market
-- ccxt library - data from > 40 exchanges
+- ccxt library: Binance, ETH, close data
 - binance API
 
 ### Other potential data
+- ccxt library: other exchanges (40 supported), other coins (BTC, etc), more than close data (eg open, high, low, volume)
 - Request data from Ethereum and Polygon from Transpose(https://docs.transpose.io/sql/getting-started/)
 - Pull data from Flipside, Footprint, Dune, Luabase, Google and BigQuery (large free data providers). Example: https://colab.research.google.com/drive/1zsxX28_vZMVLSSJYOLI5hv2zsdKH34T0?usp=sharing&authuser=1
 - [TrueBlocks data](https://trueblocks.io/data-model/intro/). All on-chain data [here](https://trueblocks.io/data-model/chaindata/)
