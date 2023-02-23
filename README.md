@@ -6,9 +6,21 @@ Predicting ETH accurately helps to make $ in buying / selling ETH, DeFi trading,
 
 Then the challenge is: how accurately can _you_ predict ETH? 
 
-### Current / future challenges
+### Current challenge
 
-- [Challenge 3](challenges/main3.md) - predictions due Feb 20, 2023
+- [Challenge 3](challenges/main3.md) - predictions due Mon Feb 20, 2023
+
+### Future challenges
+
+Competitions are monthly. Predictions are due the first Wednesday of the month. 
+
+- [Challenge 4](challenges/main4.md) - predictions due Wed Apr 5, 2023
+- Challenge 5 - predictions due Wed May 3, 2023 
+- Challenge 6 - predictions due Wed Jun 7, 2023
+- Challenge 7 - predictions due Wed Jul 5, 2023
+- ...
+
+(We reserve the right to alter competitions that have not launched yet.)
 
 ### Example End-to-End Flows
 
