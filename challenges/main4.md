@@ -11,7 +11,7 @@ This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 4.
 
 ### 0.1 Key dates
 
-- Kickoff: Mar (TBD), 2023. (Criteria may change before kickoff.)
+- Kickoff: Tue Mar 7, 2023. (Criteria may change before kickoff.)
 - Submission deadline: Wed Apr 5, 2023 at 23:59 UTC
 - Prediction at times: Thu Apr 6, 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
 - Winners announced: within one week. See previous challenge results [here]( https://blog.oceanprotocol.com/introducing-the-winners-of-the-eth-price-prediction-data-challenge-edition-2-6acdccb9271)
