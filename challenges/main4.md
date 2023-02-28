@@ -14,14 +14,24 @@ This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 4.
 - Kickoff: Tue Mar 7, 2023. (Criteria may change before kickoff.)
 - Submission deadline: Wed Apr 5, 2023 at 23:59 UTC
 - Prediction at times: Thu Apr 6, 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
-- Winners announced: within one week. See previous challenge results [here]( https://blog.oceanprotocol.com/introducing-the-winners-of-the-eth-price-prediction-data-challenge-edition-2-6acdccb9271)
 
 ### 0.2 Criteria to win
-- Weighting:
-  - 50% - lowest prediction error
-  - 25% - presentation of approach, and feedback
-  - 25% - proper flow was used to submit. This includes: the predictions were stored to arweave, and a datatoken was shared to judges. (This README covers how to do both.)
-- To be considered for winning, prediction error must lower than if the "prediction" was simply a constant.
+
+The winner = whoever has lowest prediction error. That's all. :chart_with_upwards_trend:
+
+To be eligible, competitors must produce the outcomes that this README guides. This includes:
+- :white_check_mark: Creating an Ocean data NFT
+- :white_check_mark: On the data NFT, setting a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
+- :white_check_mark: Data NFT transfered to Ocean judges before the deadline
+- :white_check_mark: On Mumbai network, not another network
+
+The following are _not_ criteria:
+- Presentation. There is no presentation needed.
+- How well the flow was followed. Rather, you either followed it or you didn't. You are only eligible if you followed it.
+- Feedback. You can give us feedback and we appreciate it! However, it does not count towards winning.
+
+Competitors do _not_ use Desights platform to submit. Rather, just follow the steps within this README. Desights will only be used to announce winners.
+
 
 ### 0.3 Outline of this README
 
@@ -34,6 +44,8 @@ Here are the steps:
 3. Make predictions
 4. Publish & share predictions
 
+If you encounter issues, feel free to reach out :raised_hand: in Ocean's [#dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412).
+
 ## 1. Setup
 
 ### 1.1 Install Ocean
@@ -45,40 +57,22 @@ In ocean.py's [install.md](https://github.com/oceanprotocol/ocean.py/blob/main/R
 The [predict-eth library](https://pypi.org/project/predict-eth) has a specific error calculation function, and [other functions](https://github.com/oceanprotocol/predict-eth/blob/main/predict_eth/helpers.py) specific to this competition. In the console:
 
 ```console
-pip3 install predict-eth
+pip install predict-eth
 ```
 
 ### 1.3 Install other Python libraries
 
 The READMEs use several numerical & ML libraries. In the console:
 ```
-pip3 install ccxt eth_account matplotlib numpy pandas prophet requests sklearn
+pip install ccxt eth_account matplotlib numpy pandas prophet requests sklearn
 ```
-
-### 1.4 Arweave preparation
-
-To share tamper-proof predictions, the READMEs use Arweave. You have two options, A and B. Please pick one and do the "prepare by" step. 
-
-**Option A: Webapp, using [ardrive.io](https://www.ardrive.io)**
-  - Pros: simple webapp
-  - Cons: need AR to pay for storage.
-  - Prepare by: get AR via [a faucet](https://faucet.arweave.net/) or [buying some](https://www.google.com/search?q=buy+arweave+tokens). For more details follow [this](https://docs.oceanprotocol.com/using-ocean-market/asset-hosting#arweave
-) tutorial.
-  
-**Option B: In code, using pybundlr library**
-  - Pros: pay for storage with MATIC, ETH, AR, or [other](https://docs.bundlr.network/sdk/using-other-currencies). (But not fake MATIC)
-  - Cons: bundlr CLI installation is finicky, since it needs "`npm install`" globally on your system (`-g` flag)
-  - Prepare by: 
-    - in console, install pybundlr: `pip install pybundlr`
-    - in console, install [Bundlr CLI](https://docs.bundlr.network/about/introduction): `npm install -g @bundlr-network/client`
-    - get one of: [MATIC](https://polygon.technology/matic-token/), [ETH](https://ethereum.org/en/get-eth/), or AR (see "get AR via" above)
-
-If you're not sure which option to pick, we recommend Option A because once you get AR, the rest is less error-prone.
 
 
 ### 1.5 Do Ocean remote setup
 
 In ocean.py's [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md), follow all steps.
+
+Make sure you're in running in Mumbai!
 
 ### 1.6 Load helper functions
 
@@ -109,7 +103,7 @@ Predictions must be one prediction every hour on the hour, for a 12h period. The
 Here's an example with random numbers. In the same Python console:
 ```python
 #get predicted ETH values
-mean, stddev = 1500, 25.0
+mean, stddev = 1650, 25.0
 pred_vals = list(np.random.normal(loc=mean, scale=stddev, size=(12,)))
 ```
 
@@ -143,84 +137,40 @@ plot_prices(cex_vals, pred_vals)
 
 Keep iterating in step 3 until you're satisfied with accuracy. Then...
 
-## 4.  Publish predictions
-
-### 4.1 Save the predictions as a csv file
+## 4.  Publish & share predictions
 
 In the same Python console:
+
 ```python
-file_name = "/tmp/pred_vals.csv"
-save_list(pred_vals, file_name)
-```
+# Imports
+from ocean_lib.ocean import crypto
 
-The csv will look something like:
+# Create data NFT
+data_nft = ocean.data_nft_factory.create({"from": alice}, 'Data NFT 1', 'DN1')
+print(f"Created data NFT with address={data_nft.address}")
 
-```text
-[1503.134,1512.490,1498.982,...,1590.673]
-```
+# Encrypt predictions with judges' public key, so competitors can't see
+judges_pubkey = '0x3d87bf8bde8c093a16ca5441b5a1053d34a28aca75dc4afffb7a2a513f2a16d2ac41bac68d8fc53058ed4846de25064098bbfaf0e1a5979aeb98028ce69fab6a'
+pred_vals_str = str(pred_vals)
+pred_vals_str_enc = crypto.asym_encrypt(pred_vals_str, judges_pubkey)
 
-### 4.2 Put the csv online
+# Store predictions to data NFT, on-chain
+data_nft.set_data("predictions", pred_vals_str_enc, {"from": alice})
 
-You'll upload your csv to Arweave permanent decentralized file storage. This makes the predictions tamper-proof.
+# Transfer the data NFT to judges, for prediction tamper-resistance
+judges_address = '0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E'
+token_id = 1
+tx = data_nft.safeTransferFrom(alice.address, judges_address, token_id, {"from": alice})
 
-Recall "Arweave preparation" from section 1. Proceed the option (A or B) that you had prepared for.
+# Ensure the transfer was successful
+assert tx.events['Transfer']['to'].lower() == judges_address.lower()
+````
 
-**Option A: Webapp, using ardrive.io**
-
-Go to [ardrive.io](https://www.ardrive.io) webapp and follow the GUI to upload. Copy the url of the uploaded file.
-
-Then, in the same Python console:
-```python
-url = <url of uploaded file>
-```
-  
-**Option B: In code, using pybundlr library**
-
-In the same Python console:
-```python
-from pybundlr import pybundlr
-file_name = "/tmp/pred_vals.csv"
-
-# This step assumes "matic" currency. You could also use "eth", "ar", etc.
-# Whatever network you choose, alice's wallet needs the corresponding funds.
-url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet.private_key)
-
-#e.g. url = "https://arweave.net/qctEbPb3CjvU8LmV3G_mynX74eCxo1domFQIlOBH1xU"
-print(f"Your csv url: {url}")
-```
-
-### 4.3 Publish Ocean asset
-
-In the same Python console:
-```python
-name = "ETH predictions " + str(time.time()) #time for unique name
-(data_nft, datatoken, ddo) = ocean.assets.create_url_asset(name, url, {"from":alice}, wait_for_aqua=False)
-metadata_state = 5
-data_nft.setMetaDataState(metadata_state, {"from":alice})
-print(f"New asset created, with did={ddo.did}, and datatoken.address={datatoken.address}")
-```
-
-Write down the `did` and `datatoken.address`. You'll be needing to share them in the Desights entry (see below).
-
-### 4.4 Share predictions to judges
-
-In the same Python console:
-```python
-from web3.main import Web3
-to_address="0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E" #official judges address
-datatoken.mint(to_address, Web3.toWei(10, "ether"), {"from": alice})
-```
-
-### 4.5 Enter via Desights
-
-[Desights](https://desights.ai) is a decentralized platform for data science competitions. It's hosting Ocean's predict-eth challenges.
-
-Please ensure that you've entered in this competition on Desights.
-
-Now, you're complete! Thanks for being part of this competition.
-
+Congratulations! You've now made your submission to the challenge! :tada:
 
 ## Appendix: What judges will do
+
+(You can go through this too, in order to see how it looks.)
 
 In the terminal:
 ```console
@@ -230,21 +180,25 @@ export REMOTE_TEST_PRIVATE_KEY1=<judges' private key, having address 0xA54A..>
 In the same Python console:
 ```python
 # setup
+from ocean_lib.models.data_nft import DataNFT
+from ocean_lib.ocean import crypto
 from predict_eth.helpers import *
 
-ocean = create_ocean_instance("polygon-test") # change the network name if needed
-alice = create_alice_wallet(ocean) #you're Alice
+ocean = create_ocean_instance("polygon-test")
+alice = create_alice_wallet(ocean) # the judge is Alice
 
 # specify target times
-start_dt = datetime.datetime(2022, 12, 12, 1, 00) #Dec 12, 2022 at 1:00am UTC
+# start_dt = round_to_nearest_hour(datetime.datetime.now() - datetime.timedelta(hours=24)) # use this if you're following up from above
+start_dt = datetime.datetime(2023, 4, 6, 1, 00) #Apr 6, 2023 at 1:00am UTC # judges use this
 target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
 
 # get predicted ETH values
-did = <value shared by you>
-order_tx_id = ocean.assets.pay_for_access_service(ddo, {"from":alice})
-file_name = ocean.assets.download_asset(ddo, alice, './', order_tx_id)
-pred_vals = load_list(file_name)
+data_nft_addr = <addr of your data NFT. Judges will find this from the chain>
+data_nft = DataNFT(ocean.config_dict, data_nft_addr)
+pred_vals_str_enc = data_nft.get_data("predictions")
+pred_vals_str = crypto.asym_decrypt(pred_vals_str_enc, alice.private_key)
+pred_vals = [float(s) for s in pred_vals_str[1:-1].split(',')]
 
 # get actual ETH values (final)
 import ccxt
