@@ -18,14 +18,14 @@ This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 4.
 
 ### 0.2 Criteria to win
 
-
 The winner = whoever has lowest prediction error. That's all.
 
 To be eligible, competitors must produce the outcomes that this README guides. This includes:
 - Creating an Ocean data NFT
 - On the data NFT, setting a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
+- On the data NFT, setting email address (your email, or the given default)
 - Data NFT transfered to Ocean judges before the deadline
-- All on Mumbai network, not another network
+- On Mumbai network, not another network
 
 The following are _not_ criteria:
 - Feedback. You can give feedback here (FIXME) and we appreciate it! However, it does not count towards winning.
@@ -151,12 +151,17 @@ pred_vals_str_enc = crypto.asym_encrypt(pred_vals_str, judges_pubkey)
 # Store predictions to data NFT, on-chain
 data_nft.set_data("predictions", pred_vals_str_enc, {"from": alice})
 
+# Set the email address, so judges can contact you if you won. If you wish not
+# to be contacted, just leave the default. But you must set *some* value.
+your_email_address = "default@foobar.com" 
+data_nft.set_data("email_address", your_email_address, {"from": alice})
+
 # Transfer the data NFT to judges, for prediction tamper-resistance
 judges_address = '0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E'
 token_id = 0 #is this correct??
 tx = data_nft.safeTransferFrom(alice.address, judges_address, token_id)
 
-#print to ensure transfer was successful
+#print to ensure transfer was successful. (FIXME: make more rigorous)
 print(tx)
 ````
 
@@ -171,6 +176,7 @@ In the same Python console:
 ```python
 # setup
 from predict_eth.helpers import *
+from ocean_lib.ocean import crypto
 
 ocean = create_ocean_instance("polygon-test") # change the network name if needed
 alice = create_alice_wallet(ocean) # the judge is Alice
