@@ -71,6 +71,8 @@ pip install ccxt eth_account matplotlib numpy pandas prophet requests sklearn
 
 In ocean.py's [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md), follow all steps.
 
+Make sure you're in running in Mumbai!
+
 ### 1.6 Load helper functions
 
 In the Python console:
