@@ -23,7 +23,6 @@ The winner = whoever has lowest prediction error. That's all.
 To be eligible, competitors must produce the outcomes that this README guides. This includes:
 - Creating an Ocean data NFT
 - On the data NFT, setting a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
-- On the data NFT, setting email address (your email, or the given default)
 - Data NFT transfered to Ocean judges before the deadline
 - On Mumbai network, not another network
 
@@ -150,11 +149,6 @@ pred_vals_str_enc = crypto.asym_encrypt(pred_vals_str, judges_pubkey)
 
 # Store predictions to data NFT, on-chain
 data_nft.set_data("predictions", pred_vals_str_enc, {"from": alice})
-
-# Set the email address, so judges can contact you if you won. If you wish not
-# to be contacted, just leave the default. But you must set *some* value.
-your_email_address = "default@foobar.com" 
-data_nft.set_data("email_address", your_email_address, {"from": alice})
 
 # Transfer the data NFT to judges, for prediction tamper-resistance
 judges_address = '0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E'
