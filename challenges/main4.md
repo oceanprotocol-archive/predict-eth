@@ -26,9 +26,9 @@ To be eligible, competitors must produce the outcomes that this README guides. T
 - :white_check_mark: On Mumbai network, not another network
 
 The following are _not_ criteria:
-- Feedback. You can give feedback here (FIXME) and we appreciate it! However, it does not count towards winning.
 - Presentation. There is no presentation needed.
 - How well the flow was followed. Rather, you either followed it or you didn't. You are only eligible if you followed it.
+- Feedback. You can give us feedback and we appreciate it! However, it does not count towards winning.
 
 Competitors do _not_ use Desights platform to submit. Rather, just follow the steps within this README. Desights will only be used to announce winners.
 
