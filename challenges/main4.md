@@ -14,17 +14,16 @@ This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 4.
 - Kickoff: Tue Mar 7, 2023. (Criteria may change before kickoff.)
 - Submission deadline: Wed Apr 5, 2023 at 23:59 UTC
 - Prediction at times: Thu Apr 6, 2023 at 1:00 UTC, 2:00, ..., 12:00 (12 predictions total).
-- Winners announced: within one week. See previous challenge results [here]( https://blog.oceanprotocol.com/introducing-the-winners-of-the-eth-price-prediction-data-challenge-edition-2-6acdccb9271)
 
 ### 0.2 Criteria to win
 
-The winner = whoever has lowest prediction error. That's all.
+The winner = whoever has lowest prediction error. That's all. :chart_with_upwards_trend:
 
 To be eligible, competitors must produce the outcomes that this README guides. This includes:
-- Creating an Ocean data NFT
-- On the data NFT, setting a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
-- Data NFT transfered to Ocean judges before the deadline
-- On Mumbai network, not another network
+- :white_check_mark: Creating an Ocean data NFT
+- :white_check_mark: On the data NFT, setting a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
+- :white_check_mark: Data NFT transfered to Ocean judges before the deadline
+- :white_check_mark: On Mumbai network, not another network
 
 The following are _not_ criteria:
 - Feedback. You can give feedback here (FIXME) and we appreciate it! However, it does not count towards winning.
@@ -44,6 +43,8 @@ Here are the steps:
 2. Get data locally
 3. Make predictions
 4. Publish & share predictions
+
+If you encounter issues, feel free to reach out :raised_hand: in Ocean's [#dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412).
 
 ## 1. Setup
 
@@ -164,6 +165,8 @@ tx = data_nft.safeTransferFrom(alice.address, judges_address, token_id, {"from":
 # Ensure the transfer was successful
 assert tx.events['Transfer']['to'].lower() == judges_address.lower()
 ````
+
+Congratulations! You've now made your submission to the challenge! :tada:
 
 ## Appendix: What judges will do
 
