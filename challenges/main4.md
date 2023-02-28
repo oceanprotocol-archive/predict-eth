@@ -102,7 +102,7 @@ Predictions must be one prediction every hour on the hour, for a 12h period. The
 Here's an example with random numbers. In the same Python console:
 ```python
 #get predicted ETH values
-mean, stddev = 1500, 25.0
+mean, stddev = 1650, 25.0
 pred_vals = list(np.random.normal(loc=mean, scale=stddev, size=(12,)))
 ```
 
@@ -138,11 +138,15 @@ Keep iterating in step 3 until you're satisfied with accuracy. Then...
 
 ## 4.  Publish & share predictions
 
+In the same Python console:
+
 ```python
+# Imports
 from ocean_lib.ocean import crypto
 
 # Create data NFT
-data_nft = ocean.data_nft_factory.create({"from": alice}, 'NFT1', 'NFT1')
+data_nft = ocean.data_nft_factory.create({"from": alice}, 'Data NFT 1', 'DN1')
+print(f"Created data NFT with address={data_nft.address}")
 
 # Encrypt predictions with judges' public key, so competitors can't see
 judges_pubkey = '0x3d87bf8bde8c093a16ca5441b5a1053d34a28aca75dc4afffb7a2a513f2a16d2ac41bac68d8fc53058ed4846de25064098bbfaf0e1a5979aeb98028ce69fab6a'
@@ -154,14 +158,16 @@ data_nft.set_data("predictions", pred_vals_str_enc, {"from": alice})
 
 # Transfer the data NFT to judges, for prediction tamper-resistance
 judges_address = '0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E'
-token_id = 0 #is this correct??
-tx = data_nft.safeTransferFrom(alice.address, judges_address, token_id)
+token_id = 1
+tx = data_nft.safeTransferFrom(alice.address, judges_address, token_id, {"from": alice})
 
-#print to ensure transfer was successful. (FIXME: make more rigorous)
-print(tx)
+# Ensure the transfer was successful
+assert tx.events['Transfer']['to'].lower() == judges_address.lower()
 ````
 
 ## Appendix: What judges will do
+
+(You can go through this too, in order to see how it looks.)
 
 In the terminal:
 ```console
@@ -171,23 +177,24 @@ export REMOTE_TEST_PRIVATE_KEY1=<judges' private key, having address 0xA54A..>
 In the same Python console:
 ```python
 # setup
-from predict_eth.helpers import *
+from ocean_lib.models.data_nft import DataNFT
 from ocean_lib.ocean import crypto
+from predict_eth.helpers import *
 
-ocean = create_ocean_instance("polygon-test") # change the network name if needed
+ocean = create_ocean_instance("polygon-test")
 alice = create_alice_wallet(ocean) # the judge is Alice
 
 # specify target times
-start_dt = datetime.datetime(2022, 12, 12, 1, 00) #Dec 12, 2022 at 1:00am UTC
+# start_dt = round_to_nearest_hour(datetime.datetime.now() - datetime.timedelta(hours=24)) # use this if you're following up from above
+start_dt = datetime.datetime(2023, 4, 6, 1, 00) #Apr 6, 2023 at 1:00am UTC # judges use this
 target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
 
 # get predicted ETH values
-from ocean_lib.models.data_nft import DataNFT
-data_nft_addr = <addr of data NFT that you'd shared, found via polygonscan>
+data_nft_addr = <addr of your data NFT. Judges will find this from the chain>
 data_nft = DataNFT(ocean.config_dict, data_nft_addr)
-pred_vals_str_enc2 = data_nft.get_data("predictions")
-pred_vals_str = crypto.asym_decrypt(pred_vals_asymenc2, alice.private_key)
+pred_vals_str_enc = data_nft.get_data("predictions")
+pred_vals_str = crypto.asym_decrypt(pred_vals_str_enc, alice.private_key)
 pred_vals = [float(s) for s in pred_vals_str[1:-1].split(',')]
 
 # get actual ETH values (final)
