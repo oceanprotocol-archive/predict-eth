@@ -67,26 +67,6 @@ The READMEs use several numerical & ML libraries. In the console:
 pip3 install ccxt eth_account matplotlib numpy pandas prophet requests sklearn
 ```
 
-### 1.4 Arweave preparation
-
-To share tamper-proof predictions, the READMEs use Arweave. You have two options, A and B. Please pick one and do the "prepare by" step. 
-
-**Option A: Webapp, using [ardrive.io](https://www.ardrive.io)**
-  - Pros: simple webapp
-  - Cons: need AR to pay for storage.
-  - Prepare by: get AR via [a faucet](https://faucet.arweave.net/) or [buying some](https://www.google.com/search?q=buy+arweave+tokens). For more details follow [this](https://docs.oceanprotocol.com/using-ocean-market/asset-hosting#arweave
-) tutorial.
-  
-**Option B: In code, using pybundlr library**
-  - Pros: pay for storage with MATIC, ETH, AR, or [other](https://docs.bundlr.network/sdk/using-other-currencies). (But not fake MATIC)
-  - Cons: bundlr CLI installation is finicky, since it needs "`npm install`" globally on your system (`-g` flag)
-  - Prepare by: 
-    - in console, install pybundlr: `pip install pybundlr`
-    - in console, install [Bundlr CLI](https://docs.bundlr.network/about/introduction): `npm install -g @bundlr-network/client`
-    - get one of: [MATIC](https://polygon.technology/matic-token/), [ETH](https://ethereum.org/en/get-eth/), or AR (see "get AR via" above)
-
-If you're not sure which option to pick, we recommend Option A because once you get AR, the rest is less error-prone.
-
 
 ### 1.5 Do Ocean remote setup
 
@@ -155,84 +135,33 @@ plot_prices(cex_vals, pred_vals)
 
 Keep iterating in step 3 until you're satisfied with accuracy. Then...
 
-## 4.  Publish predictions
+## 4.  Publish & share predictions
 
-### 4.1 Save the predictions as a csv file
+### 4.1 Encrypt predictions with judges' public key
 
-In the same Python console:
-```python
-file_name = "/tmp/pred_vals.csv"
-save_list(pred_vals, file_name)
-```
+We encrypt, so that your competitors can't see your predictions.
 
-The csv will look something like:
+FIXME
 
-```text
-[1503.134,1512.490,1498.982,...,1590.673]
-```
+### 4.2 Create data NFT
 
-### 4.2 Put the csv online
+FIXME
 
-You'll upload your csv to Arweave permanent decentralized file storage. This makes the predictions tamper-proof.
+### 4.3 Store encrypted predictions on data NFT
 
-Recall "Arweave preparation" from section 1. Proceed the option (A or B) that you had prepared for.
+Set ERC725 key label ="predictions", value = encrypted predictions
 
-**Option A: Webapp, using ardrive.io**
+FIXME
 
-Go to [ardrive.io](https://www.ardrive.io) webapp and follow the GUI to upload. Copy the url of the uploaded file.
+### 4.4 Send data nft to judges
 
-Then, in the same Python console:
-```python
-url = <url of uploaded file>
-```
-  
-**Option B: In code, using pybundlr library**
+Why: for prediction tamper-resistance after the deadline.
 
-In the same Python console:
-```python
-from pybundlr import pybundlr
-file_name = "/tmp/pred_vals.csv"
-
-# This step assumes "matic" currency. You could also use "eth", "ar", etc.
-# Whatever network you choose, alice's wallet needs the corresponding funds.
-url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet.private_key)
-
-#e.g. url = "https://arweave.net/qctEbPb3CjvU8LmV3G_mynX74eCxo1domFQIlOBH1xU"
-print(f"Your csv url: {url}")
-```
-
-### 4.3 Publish Ocean asset
-
-In the same Python console:
-```python
-name = "ETH predictions " + str(time.time()) #time for unique name
-(data_nft, datatoken, ddo) = ocean.assets.create_url_asset(name, url, {"from":alice}, wait_for_aqua=False)
-metadata_state = 5
-data_nft.setMetaDataState(metadata_state, {"from":alice})
-print(f"New asset created, with did={ddo.did}, and datatoken.address={datatoken.address}")
-```
-
-Write down the `did` and `datatoken.address`. You'll be needing to share them in the Desights entry (see below).
-
-### 4.4 Share predictions to judges
-
-In the same Python console:
-```python
-from web3.main import Web3
-to_address="0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E" #official judges address
-datatoken.mint(to_address, Web3.toWei(10, "ether"), {"from": alice})
-```
-
-### 4.5 Enter via Desights
-
-[Desights](https://desights.ai) is a decentralized platform for data science competitions. It's hosting Ocean's predict-eth challenges.
-
-Please ensure that you've entered in this competition on Desights.
-
-Now, you're complete! Thanks for being part of this competition.
-
+FIXME
 
 ## Appendix: What judges will do
+
+FIXME
 
 In the terminal:
 ```console
