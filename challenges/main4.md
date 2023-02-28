@@ -137,31 +137,30 @@ Keep iterating in step 3 until you're satisfied with accuracy. Then...
 
 ## 4.  Publish & share predictions
 
-### 4.1 Encrypt predictions with judges' public key
+```python
+from ocean_lib.ocean import crypto
 
-We encrypt, so that your competitors can't see your predictions.
+# Create data NFT
+data_nft = ocean.data_nft_factory.create({"from": alice}, 'NFT1', 'NFT1')
 
-FIXME
+# Encrypt predictions with judges' public key, so competitors can't see
+judges_pubkey = '0x3d87bf8bde8c093a16ca5441b5a1053d34a28aca75dc4afffb7a2a513f2a16d2ac41bac68d8fc53058ed4846de25064098bbfaf0e1a5979aeb98028ce69fab6a'
+pred_vals_str = str(pred_vals)
+pred_vals_str_enc = crypto.asym_encrypt(pred_vals_str, judges_pubkey)
 
-### 4.2 Create data NFT
+# Store predictions to data NFT, on-chain
+data_nft.set_data("predictions", pred_vals_str_enc, {"from": alice})
 
-FIXME
+# Transfer the data NFT to judges, for prediction tamper-resistance
+judges_address = '0xA54ABd42b11B7C97538CAD7C6A2820419ddF703E'
+token_id = 0 #is this correct??
+tx = data_nft.safeTransferFrom(alice.address, judges_address, token_id)
 
-### 4.3 Store encrypted predictions on data NFT
-
-Set ERC725 key label ="predictions", value = encrypted predictions
-
-FIXME
-
-### 4.4 Send data nft to judges
-
-Why: for prediction tamper-resistance after the deadline.
-
-FIXME
+#print to ensure transfer was successful
+print(tx)
+````
 
 ## Appendix: What judges will do
-
-FIXME
 
 In the terminal:
 ```console
@@ -174,7 +173,7 @@ In the same Python console:
 from predict_eth.helpers import *
 
 ocean = create_ocean_instance("polygon-test") # change the network name if needed
-alice = create_alice_wallet(ocean) #you're Alice
+alice = create_alice_wallet(ocean) # the judge is Alice
 
 # specify target times
 start_dt = datetime.datetime(2022, 12, 12, 1, 00) #Dec 12, 2022 at 1:00am UTC
@@ -182,10 +181,12 @@ target_uts = target_12h_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
 
 # get predicted ETH values
-did = <value shared by you>
-order_tx_id = ocean.assets.pay_for_access_service(ddo, {"from":alice})
-file_name = ocean.assets.download_asset(ddo, alice, './', order_tx_id)
-pred_vals = load_list(file_name)
+from ocean_lib.models.data_nft import DataNFT
+data_nft_addr = <addr of data NFT that you'd shared, found via polygonscan>
+data_nft = DataNFT(ocean.config_dict, data_nft_addr)
+pred_vals_str_enc2 = data_nft.get_data("predictions")
+pred_vals_str = crypto.asym_decrypt(pred_vals_asymenc2, alice.private_key)
+pred_vals = [float(s) for s in pred_vals_str[1:-1].split(',')]
 
 # get actual ETH values (final)
 import ccxt
