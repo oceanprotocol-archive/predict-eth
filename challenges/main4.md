@@ -56,14 +56,14 @@ In ocean.py's [install.md](https://github.com/oceanprotocol/ocean.py/blob/main/R
 The [predict-eth library](https://pypi.org/project/predict-eth) has a specific error calculation function, and [other functions](https://github.com/oceanprotocol/predict-eth/blob/main/predict_eth/helpers.py) specific to this competition. In the console:
 
 ```console
-pip3 install predict-eth
+pip install predict-eth
 ```
 
 ### 1.3 Install other Python libraries
 
 The READMEs use several numerical & ML libraries. In the console:
 ```
-pip3 install ccxt eth_account matplotlib numpy pandas prophet requests sklearn
+pip install ccxt eth_account matplotlib numpy pandas prophet requests sklearn
 ```
 
 
