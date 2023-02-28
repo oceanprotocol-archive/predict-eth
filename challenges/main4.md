@@ -17,11 +17,23 @@ This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 4.
 - Winners announced: within one week. See previous challenge results [here]( https://blog.oceanprotocol.com/introducing-the-winners-of-the-eth-price-prediction-data-challenge-edition-2-6acdccb9271)
 
 ### 0.2 Criteria to win
-- Weighting:
-  - 50% - lowest prediction error
-  - 25% - presentation of approach, and feedback
-  - 25% - proper flow was used to submit. This includes: the predictions were stored to arweave, and a datatoken was shared to judges. (This README covers how to do both.)
-- To be considered for winning, prediction error must lower than if the "prediction" was simply a constant.
+
+
+The winner = whoever has lowest prediction error. That's all.
+
+To be eligible, competitors must produce the outcomes that this README guides. This includes:
+- Creating an Ocean data NFT
+- On the data NFT, setting a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
+- Data NFT transfered to Ocean judges before the deadline
+- All on Mumbai network, not another network
+
+The following are _not_ criteria:
+- Feedback. You can give feedback here (FIXME) and we appreciate it! However, it does not count towards winning.
+- Presentation. There is no presentation needed.
+- How well the flow was followed. Rather, you either followed it or you didn't. You are only eligible if you followed it.
+
+Competitors do _not_ use Desights platform to submit. Rather, just follow the steps within this README. Desights will only be used to announce winners.
+
 
 ### 0.3 Outline of this README
 
