@@ -29,7 +29,7 @@ To be eligible, competitors must produce the outcomes that this README guides. T
 
 The following are _not_ criteria:
 - Presentation. There is no presentation needed.
-- How well the flow was followed. Rather, you either followed it or you didn't. You are only eligible if you followed it.
+- How well the flow was followed. Rather, you either followed it or you didn't. You are only eligible if you followed it (as measured by the outcomes listed above).
 - Feedback. You can give us feedback [using this form](https://forms.gle/wXXAfJdyepD9ZsA99) and we appreciate it! However, it does not count towards winning.
 
 
