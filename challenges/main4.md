@@ -46,7 +46,7 @@ Here are the steps:
 
 If you encounter issues, feel free to reach out :raised_hand: 
 - in Desights' [#dev-support Discord](https://discord.com/channels/1032236056516509706/1069484636167749662)
-- in Ocean's [#dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412).
+- in Ocean's [#dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
 
 ## 1. Setup
 
