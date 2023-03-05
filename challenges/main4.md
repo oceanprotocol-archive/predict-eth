@@ -20,17 +20,17 @@ This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 4.
 The winner = whoever has lowest prediction error. That's all. :chart_with_upwards_trend:
 
 To be eligible, competitors must produce the outcomes that this README guides. This includes:
-- :white_check_mark: Creating an Ocean data NFT
-- :white_check_mark: On the data NFT, setting a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
-- :white_check_mark: Data NFT transfered to Ocean judges before the deadline
-- :white_check_mark: On Mumbai network, not another network
+- :white_check_mark: Signed up to Desights platform, and registered for this competition
+- :white_check_mark: Created an Ocean data NFT
+- :white_check_mark: On the data NFT, set a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
+- :white_check_mark: Transferred data NFT to Ocean judges before the submission deadline
+- :white_check_mark: Submitted txid of this transfer to the Desights platform 
+- :white_check_mark: All on _Mumbai_ network, not another network
 
 The following are _not_ criteria:
 - Presentation. There is no presentation needed.
 - How well the flow was followed. Rather, you either followed it or you didn't. You are only eligible if you followed it.
 - Feedback. You can give us feedback and we appreciate it! However, it does not count towards winning.
-
-Competitors do _not_ use Desights platform to submit. Rather, just follow the steps within this README. Desights will only be used to announce winners.
 
 
 ### 0.3 Outline of this README
@@ -48,11 +48,20 @@ If you encounter issues, feel free to reach out :raised_hand: in Ocean's [#dev-s
 
 ## 1. Setup
 
-### 1.1 Install Ocean
+### 1.1 In Desights, register for this challenge
+
+Desights is a decentralized platform for data science competitions. It hosts predict-eth challenges.
+
+To do:
+- Sign up for Desights: https://desights.ai/
+- The previous step will have you join Desights' Discord. Please ensure you've done this.
+- Register for _this_ challenge (predict-eth round 4) in Desights
+
+### 1.2 Install Ocean
 
 In ocean.py's [install.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/install.md), follow all steps.
 
-### 1.2 Install predict-eth
+### 1.3 Install predict-eth
 
 The [predict-eth library](https://pypi.org/project/predict-eth) has a specific error calculation function, and [other functions](https://github.com/oceanprotocol/predict-eth/blob/main/predict_eth/helpers.py) specific to this competition. In the console:
 
@@ -60,13 +69,12 @@ The [predict-eth library](https://pypi.org/project/predict-eth) has a specific e
 pip install predict-eth
 ```
 
-### 1.3 Install other Python libraries
+### 1.4 Install other Python libraries
 
 The READMEs use several numerical & ML libraries. In the console:
 ```
 pip install ccxt eth_account matplotlib numpy pandas prophet requests sklearn
 ```
-
 
 ### 1.5 Do Ocean remote setup
 
@@ -139,6 +147,8 @@ Keep iterating in step 3 until you're satisfied with accuracy. Then...
 
 ## 4.  Publish & share predictions
 
+## 4.1  Publish & share via Python
+
 In the same Python console:
 
 ```python
@@ -164,7 +174,22 @@ tx = data_nft.safeTransferFrom(alice.address, judges_address, token_id, {"from":
 
 # Ensure the transfer was successful
 assert tx.events['Transfer']['to'].lower() == judges_address.lower()
+
+# Print txid, as we'll use it in the next step
+print(f"txid from transferring the nft: {tx}")
 ````
+
+## 4.2  Submit your result in Desights platform
+
+Go to Desights (https://desights.ai), sign in, and go to the page for this competition.
+
+In the previous step, you got the txid from transferring the nft. Copy and paste it into the appropriate field in Desights, and submit it. You should get a message confirming your submission.
+
+## 4.3 Double-check that you submitted everything
+
+Section 0.2 "Criteria to win" has a checklist of things you need to have done. Ensure that you've done these. If you missed any, you will _not_ be eligible.
+
+And if that's good, then...
 
 Congratulations! You've now made your submission to the challenge! :tada:
 
