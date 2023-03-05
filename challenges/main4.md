@@ -56,7 +56,7 @@ Desights is a decentralized platform for data science competitions. It hosts pre
 
 To do:
 1. Sign up to Desights _Discord_, if needed
-  - Go to [Desights Discord]([https://discord.com](https://discord.com/channels/1032236056516509706)
+  - Go to [Desights Discord](https://discord.com/channels/1032236056516509706)
   - Enter your usual Discord info: email, password, etc.  
   - And you're in!
 2. Sign up for Desights _Platform_, if needed
