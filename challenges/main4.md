@@ -44,7 +44,9 @@ Here are the steps:
 3. Make predictions
 4. Publish & share predictions
 
-If you encounter issues, feel free to reach out :raised_hand: in Ocean's [#dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412).
+If you encounter issues, feel free to reach out :raised_hand: 
+- in Desights' [#dev-support Discord](https://discord.com/channels/1032236056516509706/1069484636167749662)
+- in Ocean's [#dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412).
 
 ## 1. Setup
 
@@ -53,9 +55,12 @@ If you encounter issues, feel free to reach out :raised_hand: in Ocean's [#dev-s
 Desights is a decentralized platform for data science competitions. It hosts predict-eth challenges.
 
 To do:
-- Sign up for Desights: https://desights.ai/
-- The previous step will have you join Desights' Discord. Please ensure you've done this.
-- Register for _this_ challenge (predict-eth round 4) in Desights
+- Sign up for Desights: 
+  - Go https://desights.ai/
+  - Connect your web3 wallet. Switch to Polygon if needed.
+  - Click "Create my account" button
+  - Click "Join Desights Discord" button
+- Back in desights.ai, register for _this_ challenge (predict-eth round 4)
 
 ### 1.2 Install Ocean
 
