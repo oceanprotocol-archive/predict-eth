@@ -197,7 +197,7 @@ tx = data_nft.safeTransferFrom(alice.address, judges_address, token_id, {"from":
 assert tx.events['Transfer']['to'].lower() == judges_address.lower()
 
 # Print txid, as we'll use it in the next step
-print(f"txid from transferring the nft: {tx}")
+print(f"txid from transferring the nft: {tx.txid}")
 ````
 
 ## 4.2  Submit your result in Desights platform
