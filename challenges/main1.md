@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 
 This quickstart describes a flow to predict future ETH price via a local AI model.
 
-It is used for the first [ETH Prediction Challenge](https://blog.oceanprotocol.com/ocean-protocol-announces-the-launch-of-the-eth-prediction-challenge-7b1f04cc820e)
+It is used for [Predict-ETH Round 1 Data Challenge](https://blog.oceanprotocol.com/ocean-protocol-announces-the-launch-of-the-eth-prediction-challenge-7b1f04cc820e)
 
 - Kickoff: Oct 2, 2022
 - Submission deadline: Oct 16, 2022 at 23:59 UTC
