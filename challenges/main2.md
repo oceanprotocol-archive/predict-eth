@@ -3,7 +3,7 @@ Copyright 2023 Ocean Protocol Foundation
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# Predict ETH Price: Round Two 
+# Predict-ETH Round 2
 
 This is the main readme for the [Ocean Data Challenge :: ETH Prediction Round 2](https://questbook.app/explore_grants/about_grant/?grantId=0x9f248741962aaf27bd10f2c50aeec2d13f343611&chainId=137). 
 
