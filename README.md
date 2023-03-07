@@ -8,13 +8,12 @@ Then the challenge is: how accurately can _you_ predict ETH?
 
 ### Current challenge
 
-- [Challenge 3](challenges/main3.md) - predictions due Mon Feb 20, 2023
+- [Challenge 4](challenges/main4.md) - predictions due Wed Apr 5, 2023
 
 ### Future challenges
 
 Competitions are monthly. Predictions are due the first Wednesday of the month. 
 
-- [Challenge 4](challenges/main4.md) - predictions due Wed Apr 5, 2023
 - Challenge 5 - predictions due Wed May 3, 2023 
 - Challenge 6 - predictions due Wed Jun 7, 2023
 - Challenge 7 - predictions due Wed Jul 5, 2023
@@ -59,6 +58,7 @@ To help with that, the [algorithmic trading flow README](ideas/algorithmic-tradi
 - [Challenge 1](challenges/main1.md) - predictions due Oct 16, 2022
 - [Challenge: web3 ATL hackathon](challenges/hack1.md) - predictions due Nov 6, 2022
 - [Challenge 2](challenges/main2.md) - predictions due Dec 11, 2022
+- [Challenge 3](challenges/main3.md) - predictions due Mon Feb 20, 2023
 
 ### Appendix: Predict-eth library
 
