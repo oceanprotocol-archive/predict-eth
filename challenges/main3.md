@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 
 ## 0. Introduction
 
-This is the main readme for the Ocean Data Challenge :: ETH Prediction Round 3.
+This is the main readme for Predict-ETH Round 3 Data Challenge.
 
 ### 0.1 Key dates
 
