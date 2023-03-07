@@ -1,4 +1,4 @@
-# Predict ETH
+# Predict-ETH
 
 This is a challenge to predict the price of ETH. With prize $$. It uses [ocean.py](https://github.com/oceanprotocol/ocean.py) library.
 
