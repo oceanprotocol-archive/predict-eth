@@ -54,25 +54,25 @@ If you encounter issues, feel free to reach out :raised_hand:
 
 Desights is a decentralized platform for data science competitions. It hosts predict-eth challenges.
 
-First, sign up to Desights _Discord_, if needed
+First, sign up to Desights _Discord_, if needed:
 - Go to [Desights Discord](https://discord.com/channels/1032236056516509706)
 - Enter your usual Discord info: email, password, etc.  
 - And you're in!
 
-Then, sign up for Desights _Platform_, if needed
+Then, sign up for Desights _Platform_, if needed:
 - Go to [Desights Discord #invitees channel](https://discord.com/channels/1032236056516509706/1076727165372084244)
 - Post a public message tagging admins, asking for access. 
   - Example: "Hello @admin could you please send me an invite, to join the Desights AI platform please? Here is my ETH address: 0x(your address here)".
   - If you prefer, don't post your Eth address, and the admin will ask you for it in a private DM
 - The admin will respond with something like: "Your wallet is now invited to join the Desights AI platform  🤩🤗. Go ahead and create your Profile 🎊 at https://desights.ai/. Good luck with challenge"
 
-Now, try out Desights platform
+Now, create your Desights account:
 - Go https://desights.ai/
--Connect your web3 wallet. Switch to Polygon if needed.
-- If it says "Create my account" or "Join Desights Discord", you haven't completed steps 1 & 2 yet. Please do it.
+- Connect your web3 wallet. Switch to Polygon if needed.
+- Click "Create my account"
 - Update your profile as you like
 
-Finally, register for _this_ challenge via Desights platform
+Finally, register for _this_ challenge via Desights:
 - Go https://desights.ai/
 - Register for this challenge
 
