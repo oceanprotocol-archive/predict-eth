@@ -5,7 +5,7 @@ SPDX-License-Identifier: Apache-2.0
 
 # Predict-ETH Round 2
 
-This is the main readme for the [Ocean Data Challenge :: ETH Prediction Round 2](https://questbook.app/explore_grants/about_grant/?grantId=0x9f248741962aaf27bd10f2c50aeec2d13f343611&chainId=137). 
+This is the main readme for the [Predict-ETH Round 2 Data Challenge](https://questbook.app/explore_grants/about_grant/?grantId=0x9f248741962aaf27bd10f2c50aeec2d13f343611&chainId=137). 
 
 - Kickoff: Nov 14, 2022
 - Submission deadline: Dec 11, 2022 at 23:59 UTC
