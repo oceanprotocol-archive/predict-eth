@@ -3,7 +3,7 @@ Copyright 2023 Ocean Protocol Foundation
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# Predict ETH Price: Round Four
+# Predict-ETH Round 4
 
 ## 0. Introduction
 
