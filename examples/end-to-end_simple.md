@@ -13,11 +13,7 @@ Predictions are 1h, 2h, ..., 12h into the future.
 
 ## 1. Setup
 
-We assume you've already done [main3.md](../challenges/main3.md#1-setup) "Setup".
-
-If needed, re-setup in Python:
-- Do ocean.py [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md#6-setup-in-python) "Setup in Python"
-- And do: `from predict_eth.helpers import *`
+We assume you've already done [main4.md](../challenges/main4.md#1-setup) "Setup".
 
 
 ## 2. Get data locally
@@ -99,6 +95,6 @@ pred_vals = forecast.set_index('ds')['yhat'].to_numpy()
 ```
 
 
-## 4.  Publish predictions
-From [Challenge 3](../challenges/main3.md), do:
-- [x] Publish predictions
+## 4.  Publish & share predictions
+From [Challenge 4](../challenges/main4.md), do:
+- [x] Publish & share predictions

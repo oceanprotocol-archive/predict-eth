@@ -8,7 +8,7 @@ Four modeling approaches are used: Linear Regression, Random Forests, Support Ve
 
 ## 1. Setup
 
-We assume you've already done [main3.md](../challenges/main3.md#1-setup) "Setup".
+We assume you've already done [main4.md](../challenges/main3.md#1-setup) "Setup".
 
 Let's install TensorFlow. We do it here, and not earlier, because it's 500MB. In the console:
 
@@ -167,9 +167,9 @@ pred_vals = model.predict(input_data)
 
 The NMSE was already calculated in section 3.1. The Random Forest had the lowest error.
 
-## 4.  Publish predictions
-From [Challenge 3](../challenges/main3.md), do:
-- [x] Publish predictions
+## 4.  Publish & share predictions
+From [Challenge 4](../challenges/main4.md), do:
+- [x] Publish & share predictions
 
 ## 5. Discussion
 
