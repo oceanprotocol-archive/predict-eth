@@ -2,7 +2,7 @@
 
 This is a challenge to predict the price of ETH. With prize $$. It uses [ocean.py](https://github.com/oceanprotocol/ocean.py) library.
 
-Predicting ETH accurately helps to make $ in buying / selling ETH, DeFi trading, yield farming or DeFi protocol development. And, you can sell your predictions as a datafeed, for others to do the same. 
+Predicting ETH accurately helps to make $ in trading ETH, yield farming or DeFi protocol development. And, you can sell your predictions as a datafeed, for others to do the same. 
 
 Then the challenge is: how accurately can _you_ predict ETH? 
 
