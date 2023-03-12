@@ -83,11 +83,7 @@ Now, create your Desights account:
 - Click "Create my account"
 - Update your profile as you like
 
-Finally, register for _this_ challenge via Desights:
-- Go https://desights.ai/
-- Register for this challenge
-
-This step is done when you've successfully registered for this challenge on Desights.
+This step is done when you've created your Desights account.
 
 ### 1.2 Install Ocean
 
