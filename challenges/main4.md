@@ -32,8 +32,22 @@ The following are _not_ criteria:
 - How well the flow was followed. Rather, you either followed it or you didn't. You are only eligible if you followed it (as measured by the outcomes listed above).
 - Feedback. You can give us feedback [using this form](https://forms.gle/wXXAfJdyepD9ZsA99) and we appreciate it! However, it does not count towards winning.
 
+### 0.3 Developer Support, Workshops, Chat
 
-### 0.3 Outline of this README
+**Support.** If you encounter issues, feel free to reach out :raised_hand: 
+- in Desights' [#dev-support Discord](https://discord.com/channels/1032236056516509706/1069484636167749662)
+- in Ocean's [#dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
+
+**Workshops.** We host Predict-ETH workshops to walk through the README, a unique submission example, and hold Q&A with our core team. The dates are:
+- Mar 14 at 3PM UTC
+- Mar 28 at 3PM UTC
+
+See Ocean's [#events-overview Discord](https://discord.com/channels/612953348487905282/1012636243915444224) for further details.
+
+**Chat** with us in Ocean's [data-challenges Discord](https://discord.com/channels/612953348487905282/993828971408003152).
+
+
+### 0.4 Outline of this README
 
 This readme describes a basic flow to predict future ETH price, and submit your predictions to contest judges. We'll be using Mumbai, which is Polygon's testnet.
 
@@ -44,9 +58,6 @@ Here are the steps:
 3. Make predictions
 4. Publish & share predictions
 
-If you encounter issues, feel free to reach out :raised_hand: 
-- in Desights' [#dev-support Discord](https://discord.com/channels/1032236056516509706/1069484636167749662)
-- in Ocean's [#dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
 
 ## 1. Setup
 
