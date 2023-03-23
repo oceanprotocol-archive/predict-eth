@@ -140,7 +140,7 @@ plt.title("Comparison of different methods for predicting ETH value 1-12 hours a
 plt.show()
 ```
 
-### 3.2 Run the AI model to make future ETH price predictions"
+### 3.2 Run the AI model to make future ETH price predictions
 
 #### 3.2.1 Select the best performant model and make final predictions
 
