@@ -57,7 +57,7 @@ To help with that, the [algorithmic trading flow README](ideas/algorithmic-tradi
 
 - [Predict-ETH Round 1](challenges/main1.md) - predictions due Oct 16, 2022. [Announcement](https://blog.oceanprotocol.com/ocean-protocol-announces-the-launch-of-the-eth-prediction-challenge-7b1f04cc820e)
 - [Predict-ETH special: web3 ATL hackathon](challenges/hack1.md) - predictions due Nov 6, 2022
-- [Predict-ETH Round 2](challenges/main2.md) - predictions due Dec 11, 2022. [Winners](https://blog.oceanprotocol.com/introducing-the-winners-of-the-eth-price-prediction-data-challenge-edition-2-6acdccb9271)
+- [Predict-ETH Round 2](challenges/main2.md) - predictions due Dec 11, 2022. [Announcement](https://blog.oceanprotocol.com/ocean-protocol-challenge-predict-eth-price-2nd-edition-9400212a30db), [Winners](https://blog.oceanprotocol.com/introducing-the-winners-of-the-eth-price-prediction-data-challenge-edition-2-6acdccb9271)
 - [Predict-ETH Round 3](challenges/main3.md) - predictions due Mon Feb 20, 2023. [Announcement](https://blog.oceanprotocol.com/ocean-protocol-launches-the-3rd-edition-of-predict-eth-ccb7e6a62bf7), [Winners](https://blog.oceanprotocol.com/introducing-the-winners-of-the-predict-eth-3-data-challenge-f4ed7fb8e467)
 
 ### Appendix: Predict-eth library
