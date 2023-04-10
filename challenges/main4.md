@@ -187,7 +187,8 @@ from ocean_lib.ocean import crypto
 data_nft = ocean.data_nft_factory.create({"from": alice}, 'Data NFT 1', 'DN1')
 print(f"Created data NFT with address={data_nft.address}")
 
-# Encrypt predictions with judges' public key, so competitors can't see
+# Encrypt predictions with judges' public key, so competitors can't see. 
+# NOTE: public key is *not* the same thing as address. Using address will not work.
 judges_pubkey = '0x3d87bf8bde8c093a16ca5441b5a1053d34a28aca75dc4afffb7a2a513f2a16d2ac41bac68d8fc53058ed4846de25064098bbfaf0e1a5979aeb98028ce69fab6a'
 pred_vals_str = str(pred_vals)
 pred_vals_str_enc = crypto.asym_encrypt(pred_vals_str, judges_pubkey)
