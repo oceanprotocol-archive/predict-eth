@@ -14,7 +14,6 @@ Then the challenge is: how accurately can _you_ predict ETH?
 
 Competitions are monthly. Predictions are due the first Wednesday of the month. 
 
-- Predict-ETH Round 5 - predictions due Wed May 3, 2023 
 - Predict-ETH Round 6 - predictions due Wed Jun 7, 2023
 - Predict-ETH Round 7 - predictions due Wed Jul 5, 2023
 - ...
