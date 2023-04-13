@@ -8,7 +8,7 @@ Then the challenge is: how accurately can _you_ predict ETH?
 
 ### Current challenge
 
-- [Predict-ETH Round 4](challenges/main4.md) - predictions due Wed Apr 5, 2023. [Announcement](https://blog.oceanprotocol.com/predict-eth-4-dive-into-decentralized-data-355f2281509e)
+- [Predict-ETH Round 5](challenges/main5.md) - predictions due Wed May 3, 2023. [Announcement](https://blog.oceanprotocol.com/predict-eth-4-dive-into-decentralized-data-355f2281509e)
 
 ### Future challenges
 
