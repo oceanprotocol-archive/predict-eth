@@ -7,7 +7,7 @@ Under the hood, ccxt queries the Binance API for Binance data.
 
 ### 0. Setup
 
-We assume you've already done [main3.md](../challenges/main3.md#1-setup) "Setup".
+We assume you've already done [main5.md](../challenges/main3.md#1-setup) "Setup".
 
 If needed, re-setup in Python:
 - Do ocean.py [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md#6-setup-in-python) "Setup in Python"
@@ -19,7 +19,7 @@ In the Python console:
 
 ```python
 import ccxt
-cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h')
+cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '5m')
 
 # cex_x is a list of 500 items, one for every hour, on the hour.
 #

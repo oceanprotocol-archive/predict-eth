@@ -9,11 +9,11 @@ SPDX-License-Identifier: Apache-2.0
 
 This example predicts future ETH price, using simple input data (just historical ETH price) and a simple model (linear dynamical model).
 
-Predictions are 1h, 2h, ..., 12h into the future.
+Predictions are 5m, 10m, ..., 60m into the future.
 
 ## 1. Setup
 
-We assume you've already done [main4.md](../challenges/main4.md#1-setup) "Setup".
+We assume you've already done [main5.md](../challenges/main4.md#1-setup) "Setup".
 
 ## 2. Get data locally
 
@@ -21,7 +21,7 @@ In the Python console:
 
 ```python
 import ccxt
-cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h')
+cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '5m')
 allcex_uts = [xi[0]/1000 for xi in cex_x] # timestamps
 allcex_vals = [xi[4] for xi in cex_x] # ETH prices
 
@@ -43,7 +43,7 @@ data = pd.DataFrame({"ds": dts, "y": allcex_vals})
 In the same Python console:
 
 ```python continuation
-# use the last 12 hours of testing set, all the previous data is used as training
+# use the last 12 time periods of 5mins each of testing set, all the previous data is used as training
 train_data = data.iloc[0:-12,:]
 test_data = data.iloc[-12:,:]
 
@@ -103,9 +103,9 @@ logger.setLevel(logging.CRITICAL)
 If you are wondering what these parameters are and/or what cross-validation mean, [here](https://blog.oceanprotocol.com/capitalize-with-ocean-protocol-a-predict-eth-tutorial-b2da136633f0) you can find a brief introduction to what Prophet does under the hood.
 ```python continuation
 # Set parameters for doing cross-validation
-horizon = "12 hours"
-initial = "15 days"
-period = "12 hours"
+horizon = "1 hours"
+initial = "1 days"
+period = "1 hours"
 ```
 
 #### 3.4.3 Generate hyperparameters combination
@@ -168,8 +168,8 @@ In the same Python console:
 model = Prophet(**best_params) # Change to Prophet() if 3.4 skipped
 model.fit(data)
 
-# generate dates for prediction (12 hours ahead of the latest datapoint in the data time)
-future_dates = model.make_future_dataframe(periods=12, freq="h", include_history=False)
+# generate dates for prediction (12 time periods ahead of the latest datapoint in the data time)
+future_dates = model.make_future_dataframe(periods=12, freq="5min", include_history=False)
 
 # predcit eth values on future_dates
 forecast = model.predict(future_dates)
@@ -179,5 +179,5 @@ pred_vals = forecast.set_index('ds')['yhat'].to_numpy()
 
 
 ## 4.  Publish & share predictions
-From [Challenge 4](../challenges/main4.md), do:
+From [Challenge 5](../challenges/main5.md), do:
 - [x] Publish & share predictions

@@ -8,7 +8,7 @@ Four modeling approaches are used: Linear Regression, Random Forests, Support Ve
 
 ## 1. Setup
 
-We assume you've already done [main4.md](../challenges/main3.md#1-setup) "Setup".
+We assume you've already done [main5.md](../challenges/main5.md#1-setup) "Setup".
 
 Let's install TensorFlow. We do it here, and not earlier, because it's 500MB. In the console:
 
@@ -31,7 +31,7 @@ import pandas as pd
 import numpy as np
 import requests
 
-cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h')
+cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '5m')
 
 # create a Data Frame with two columns [date,eth-prices] with dates given in intervals of 1-hour
 import pandas as pd
@@ -136,7 +136,7 @@ plt.bar(methods, values, color ='maroon', width = 0.4)
  
 plt.xlabel("Methods")
 plt.ylabel("NMSE")
-plt.title("Comparison of different methods for predicting ETH value 1-12 hours ahead")
+plt.title("Comparison of different methods for predicting ETH value 1-12 time periods ahead")
 plt.show()
 ```
 
@@ -158,7 +158,7 @@ model = RegressorChain(base_estimator=rfr).fit(X, Y)
 Then we create the prediction for the future values 1h, 2h, ... 12h. For this example, the input is the feature vector corresponding to the latest observed data point:
 
 ```python
-# predict future 12 hours prices using latest 12 values observed
+# predict future 12 time periods prices using latest 12 values observed
 input_data = np.concatenate((full_data_close[-1:,:],full_data_open[-1:,:]),axis=1)
 pred_vals = model.predict(input_data)
 ```
@@ -168,7 +168,7 @@ pred_vals = model.predict(input_data)
 The NMSE was already calculated in section 3.1. The Random Forest had the lowest error.
 
 ## 4.  Publish & share predictions
-From [Challenge 4](../challenges/main4.md), do:
+From [Challenge 5](../challenges/main5.md), do:
 - [x] Publish & share predictions
 
 ## 5. Discussion
