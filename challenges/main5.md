@@ -11,7 +11,7 @@ This is the main readme for Predict-ETH Round 5.
 
 ### 0.1 Key dates
 
-- Kickoff: Tue Apr x, 2023. (Criteria may change before kickoff.)
+- Kickoff: Tue Apr 19, 2023. (Criteria may change before kickoff.)
 - Submission deadline: Wed May 3, 2023, 2023 at 23:59 UTC
 - Prediction at times: Thu May 4, 2023 at 00:05 UTC, 00:10, ..., 1:00 (12 predictions total).
 
@@ -134,7 +134,7 @@ This demo flow skips building a model because it will generate random prediction
 
 ### 3.2  Run the AI model to make future ETH price predictions
 
-Predictions must be one prediction every hour on the hour, for a 12h period. The specific times were given above. There are 12 predictions total. The output is a list with 12 items.
+Predictions must be one prediction every 5mins, for a 60min period. The specific times were given above. There are 12 predictions total. The output is a list with 12 items.
 
 Here's an example with random numbers. In the same Python console:
 ```python
@@ -151,7 +151,7 @@ In the same Python console:
 
 ```python
 # get the time range we want to test for
-start_dt = datetime.datetime.utcnow() - datetime.timedelta(minutes=120) #must be >= 12h ago; we use 24
+start_dt = datetime.datetime.utcnow() - datetime.timedelta(minutes=120) #must be >= 60min ago; we use 120
 start_dt = round_to_nearest_timeframe(start_dt) # so that times line up
 target_uts = target_12_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
@@ -256,7 +256,7 @@ pred_vals = [float(s) for s in pred_vals_str[1:-1].split(',')]
 
 # get actual ETH values (final)
 import ccxt
-cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h')
+cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '5m')
 allcex_uts = [xi[0]/1000 for xi in cex_x]
 allcex_vals = [xi[4] for xi in cex_x]
 print_datetime_info("all CEX data info", allcex_uts)

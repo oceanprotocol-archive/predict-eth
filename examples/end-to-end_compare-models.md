@@ -155,7 +155,7 @@ Y = full_data_close[max_lag:,:]
 X = np.concatenate((full_data_close[0:-max_lag,:],full_data_open[0:-max_lag,:]),axis=1)
 model = RegressorChain(base_estimator=rfr).fit(X, Y)  
 ```
-Then we create the prediction for the future values 1h, 2h, ... 12h. For this example, the input is the feature vector corresponding to the latest observed data point:
+Then we create the prediction for the future values 5min, 10min, ... 60min. For this example, the input is the feature vector corresponding to the latest observed data point:
 
 ```python
 # predict future 12 time periods prices using latest 12 values observed
