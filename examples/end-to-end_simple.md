@@ -9,11 +9,11 @@ SPDX-License-Identifier: Apache-2.0
 
 This example predicts future ETH price, using simple input data (just historical ETH price) and a simple model (linear dynamical model).
 
-Predictions are 1h, 2h, ..., 12h into the future.
+Predictions are 5mins, 10mins, ..., 60mins into the future.
 
 ## 1. Setup
 
-We assume you've already done [main4.md](../challenges/main4.md#1-setup) "Setup".
+We assume you've already done [main5.md](../challenges/main5.md#1-setup) "Setup".
 
 
 ## 2. Get data locally
@@ -23,7 +23,7 @@ In the Python console:
 ```python
 
 import ccxt
-cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '1h')
+cex_x = ccxt.binance().fetch_ohlcv('ETH/USDT', '5m')
 allcex_uts = [xi[0]/1000 for xi in cex_x] # timestamps
 allcex_vals = [xi[4] for xi in cex_x] # ETH prices
 
@@ -33,7 +33,7 @@ print_datetime_info("CEX data info", allcex_uts)
 # Transform timestamps to dates
 dts = to_datetimes(allcex_uts)
 
-# create a Data Frame with two columns [date,eth-prices] with dates given in intervals of 1-hour
+# create a Data Frame with two columns [date,eth-prices] with dates given in intervals of 5-minutes
 import pandas as pd
 data = pd.DataFrame({"ds": dts, "y": allcex_vals})
 ```
@@ -45,7 +45,7 @@ data = pd.DataFrame({"ds": dts, "y": allcex_vals})
 In the same Python console:
 
 ```python
-# use the last 12 hours of testing set, all the previous data is used as training
+# use the last 12 intervals of 5mins each of testing set, all the previous data is used as training
 train_data = data.iloc[0:-12,:]
 test_data = data.iloc[-12:,:]
 
@@ -85,8 +85,8 @@ Keep iterating in step 3 until you're satisfied with accuracy. Then...
 model = Prophet()
 model.fit(data)
 
-# generate dates for prediction (12 hours ahead of the latest datapoint in the data time)
-future_dates = model.make_future_dataframe(periods=12, freq="h", include_history=False)
+# generate dates for prediction (12 time perods ahead of the latest datapoint in the data time)
+future_dates = model.make_future_dataframe(periods=12, freq="5min", include_history=False)
 
 # predcit eth values on future_dates
 forecast = model.predict(future_dates)
@@ -96,5 +96,5 @@ pred_vals = forecast.set_index('ds')['yhat'].to_numpy()
 
 
 ## 4.  Publish & share predictions
-From [Challenge 4](../challenges/main4.md), do:
+From [Challenge 5](../challenges/main5.md), do:
 - [x] Publish & share predictions

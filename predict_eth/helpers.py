@@ -9,6 +9,7 @@ from brownie.network.account import LocalAccount
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
+
 from web3.main import Web3
 
 from ocean_lib.example_config import get_config_dict
@@ -64,6 +65,12 @@ def round_to_nearest_hour(dt: datetime.datetime) -> datetime.datetime:
     ) + datetime.timedelta(hours=dt.minute // 30)
 
 
+def round_to_nearest_timeframe(dt: datetime.datetime) -> datetime.datetime:
+    return dt.replace(
+        second=0, microsecond=0, minute=(dt.minute // 5) * 5, hour=dt.hour
+    )
+
+
 def pretty_time(dt: datetime.datetime) -> str:
     return dt.strftime("%Y/%m/%d, %H:%M:%S")
 
@@ -79,6 +86,12 @@ def print_datetime_info(descr: str, uts: list):
 
 def target_12h_unixtimes(start_dt: datetime.datetime) -> list:
     target_dts = [start_dt + datetime.timedelta(hours=h) for h in range(12)]
+    target_uts = to_unixtimes(target_dts)
+    return target_uts
+
+
+def target_12_unixtimes(start_dt: datetime.datetime) -> list:
+    target_dts = [start_dt + datetime.timedelta(minutes=(m + 1) * 5) for m in range(12)]
     target_uts = to_unixtimes(target_dts)
     return target_uts
 

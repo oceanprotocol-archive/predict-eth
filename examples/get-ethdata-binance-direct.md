@@ -6,7 +6,7 @@ We use Python [requests](https://requests.readthedocs.io/en/latest/) library to 
 
 ### 0. Setup
 
-We assume you've already done [main3.md](../challenges/main3.md#1-setup) "Setup".
+We assume you've already done [main5.md](../challenges/main3.md#1-setup) "Setup".
 
 If needed, re-setup in Python:
 - Do ocean.py [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md#6-setup-in-python) "Setup in Python"
@@ -17,7 +17,7 @@ If needed, re-setup in Python:
 In the Python console:
 ```python
 import requests
-url = f"https://api.binance.com/api/v3/klines?symbol=ETHUSDT&interval=1h"
+url = f"https://api.binance.com/api/v3/klines?symbol=ETHUSDT&interval=5m"
 r = requests.get(url)
 cex_x = r.json()
 
