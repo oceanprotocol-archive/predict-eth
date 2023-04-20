@@ -20,7 +20,7 @@ This is the main readme for Predict-ETH Round 5.
 The winner = whoever has lowest prediction error. That's all. :chart_with_upwards_trend:
 
 To be eligible, competitors must produce the outcomes that this README guides. This includes:
-- :white_check_mark: Signed up to Desights platform, and registered for this competition
+- :white_check_mark: Signed up to Desights platform, and registered for [this competition](https://desights.ai/challenge/7)
 - :white_check_mark: Created an Ocean data NFT
 - :white_check_mark: On the data NFT, set a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
 - :white_check_mark: Transferred data NFT to Ocean judges before the submission deadline
