@@ -11,7 +11,6 @@ This is the main readme for Predict-ETH Round 5.
 
 ### 0.1 Key dates
 
-- Kickoff: Tue Apr 19, 2023. (Criteria may change before kickoff.)
 - Submission deadline: Wed May 3, 2023, 2023 at 23:59 UTC
 - Prediction at times: Thu May 4, 2023 at 00:05 UTC, 00:10, ..., 1:00 (12 predictions total).
 
