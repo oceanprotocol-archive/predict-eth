@@ -24,28 +24,27 @@ To be eligible, competitors must produce the outcomes that this README guides. T
 - :white_check_mark: Transferred data NFT to Ocean judges before the submission deadline
 - :white_check_mark: All on _Mumbai_ network, not another network
 
-The following are _not_ criteria:
-- Presentation. There is no presentation needed.
-- How well the flow was followed. Rather, you either followed it or you didn't. You are only eligible if you followed it (as measured by the outcomes listed above).
-- Feedback. You can give us feedback [using this form](https://forms.gle/wXXAfJdyepD9ZsA99) and we appreciate it! However, it does not count towards winning.
-- Used Desights for this Predict-ETH challenge. (We are moving away from that for Predict-ETH, but keeping it for other Ocean challenges.)
+(This is different than Rounds 1–3 which required submitting a presentation. And Round 4 which required Desights. Those are no longer requirements).
 
-### 0.3 Developer Support, Workshops, Chat
+### 0.3 Developer Support
 
 **Support.** If you encounter issues, feel free to reach out :raised_hand: 
-- in Ocean's [#dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
-- and Ocean's [data-challenges Discord](https://discord.com/channels/612953348487905282/993828971408003152).
+- [Ocean #dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
+- [Ocean #data-challenges Discord](https://discord.com/channels/612953348487905282/993828971408003152).
 
-**Workshops.** We host Predict-ETH workshops to walk through the README, a unique submission example, and hold Q&A with our core team. 
+### 0.4 Workshops
 
-The dates are:
-- April 25 at 3PM UTC
-- May 2 at 3PM UTC
+We host workshops to walk through READMEs, and hold Q&A with our core team. 
 
-For further details on workshops, see Ocean's [#events-overview Discord](https://discord.com/channels/612953348487905282/1012636243915444224).
+Dates:
+- Apr 25 at 3PM UTC (8 days before deadline of Wed May 3)
+- May 2 at 3PM UTC  (1 day before deadline)
+
+Location:
+- [Special event on Ocean Discord](https://discord.com/invite/5VWDytWG?event=1097944942564876409)
 
 
-### 0.4 Outline of this README
+### 0.5 Outline of this README
 
 This readme describes a basic flow to predict future ETH price, and submit your predictions to contest judges. We'll be using Mumbai, which is Polygon's testnet.
 
@@ -59,35 +58,11 @@ Here are the steps:
 
 ## 1. Setup
 
-### 1.1 Register via Desights
-
-Desights is a decentralized platform for data science competitions. It hosts predict-eth challenges.
-
-First, sign up to Desights _Discord_, if needed:
-- Go to [Desights Discord](https://discord.com/channels/1032236056516509706)
-- Enter your usual Discord info: email, password, etc.  
-- And you're in!
-
-Then, sign up for Desights _Platform_, if needed:
-- Go to [Desights Discord #invitees channel](https://discord.com/channels/1032236056516509706/1076727165372084244)
-- Post a public message tagging admins, asking for access. 
-  - Example: "Hello @admin could you please send me an invite, to join the Desights AI platform please? Here is my ETH address: 0x(your address here)".
-  - If you prefer, don't post your Eth address, and the admin will ask you for it in a private DM
-- The admin will respond with something like: "Your wallet is now invited to join the Desights AI platform  🤩🤗. Go ahead and create your Profile 🎊 at https://desights.ai/. Good luck with challenge"
-
-Now, create your Desights account:
-- Go https://desights.ai/
-- Connect your web3 wallet. Switch to Polygon if needed.
-- Click "Create my account"
-- Update your profile as you like
-
-This step is done when you've created your Desights account.
-
-### 1.2 Install Ocean
+### 1.1 Install Ocean
 
 In ocean.py's [install.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/install.md), follow all steps.
 
-### 1.3 Install predict-eth
+### 1.2 Install predict-eth
 
 The [predict-eth library](https://pypi.org/project/predict-eth) has a specific error calculation function, and [other functions](https://github.com/oceanprotocol/predict-eth/blob/main/predict_eth/helpers.py) specific to this competition. In the console:
 
@@ -95,20 +70,20 @@ The [predict-eth library](https://pypi.org/project/predict-eth) has a specific e
 pip install predict-eth
 ```
 
-### 1.4 Install other Python libraries
+### 1.3 Install other Python libraries
 
 The READMEs use several numerical & ML libraries. In the console:
 ```
 pip install ccxt eth_account matplotlib numpy pandas prophet requests sklearn
 ```
 
-### 1.5 Do Ocean remote setup
+### 1.4 Do Ocean remote setup
 
 In ocean.py's [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md), follow all steps.
 
 Make sure you're in running in Mumbai!
 
-### 1.6 Load helper functions
+### 1.5 Load helper functions
 
 In the Python console:
 
