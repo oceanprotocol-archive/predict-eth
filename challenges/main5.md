@@ -9,12 +9,21 @@ SPDX-License-Identifier: Apache-2.0
 
 This is the main readme for Predict-ETH Round 5.
 
-### 0.1 Key dates
+### 0.1 Prizes
+Prize Pool: $5,000 USD worth of OCEAN
+
+- 1st place: $2,500
+- 2nd place: $1,500
+- 3rd place: $1,000
+
+We will identify winners by the blockchain account they use in the competition (on Mumbai), and send the OCEAN to that account on Ethereum mainnet. We will not be sending notifications by email or DMing (we aren’t tracking that!)
+
+### 0.2 Key dates
 
 - Submission deadline: Wed May 3, 2023, 2023 at 23:59 UTC
 - Prediction at times: Thu May 4, 2023 at 00:05 UTC, 00:10, ..., 1:00 (12 predictions total).
 
-### 0.2 Criteria to win
+### 0.3 Criteria to win
 
 The winner = whoever has lowest prediction error. That's all. :chart_with_upwards_trend:
 
@@ -26,13 +35,13 @@ To be eligible, competitors must produce the outcomes that this README guides. T
 
 (This is different than Rounds 1–3 which required submitting a presentation. And Round 4 which required Desights. Those are no longer requirements).
 
-### 0.3 Developer Support
+### 0.4 Developer Support
 
 **Support.** If you encounter issues, feel free to reach out :raised_hand: 
 - [Ocean #dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
 - [Ocean #data-challenges Discord](https://discord.com/channels/612953348487905282/993828971408003152).
 
-### 0.4 Workshops
+### 0.5 Workshops
 
 We host workshops to walk through READMEs, and hold Q&A with our core team. 
 
@@ -44,7 +53,7 @@ Location:
 - [Special event on Ocean Discord](https://discord.com/invite/5VWDytWG?event=1097944942564876409)
 
 
-### 0.5 Outline of this README
+### 0.6 Outline of this README
 
 This readme describes a basic flow to predict future ETH price, and submit your predictions to contest judges. We'll be using Mumbai, which is Polygon's testnet.
 
