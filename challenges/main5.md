@@ -20,31 +20,30 @@ This is the main readme for Predict-ETH Round 5.
 The winner = whoever has lowest prediction error. That's all. :chart_with_upwards_trend:
 
 To be eligible, competitors must produce the outcomes that this README guides. This includes:
-- :white_check_mark: Signed up to Desights platform, and registered for [this competition](https://desights.ai/challenge/7)
 - :white_check_mark: Created an Ocean data NFT
 - :white_check_mark: On the data NFT, set a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
 - :white_check_mark: Transferred data NFT to Ocean judges before the submission deadline
-- :white_check_mark: Submitted txid of this transfer to the Desights platform 
 - :white_check_mark: All on _Mumbai_ network, not another network
 
 The following are _not_ criteria:
 - Presentation. There is no presentation needed.
 - How well the flow was followed. Rather, you either followed it or you didn't. You are only eligible if you followed it (as measured by the outcomes listed above).
 - Feedback. You can give us feedback [using this form](https://forms.gle/wXXAfJdyepD9ZsA99) and we appreciate it! However, it does not count towards winning.
+- Used Desights for this Predict-ETH challenge. (We are moving away from that for Predict-ETH, but keeping it for other Ocean challenges.)
 
 ### 0.3 Developer Support, Workshops, Chat
 
 **Support.** If you encounter issues, feel free to reach out :raised_hand: 
-- in Desights' [#dev-support Discord](https://discord.com/channels/1032236056516509706/1069484636167749662)
 - in Ocean's [#dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
+- and Ocean's [data-challenges Discord](https://discord.com/channels/612953348487905282/993828971408003152).
 
-**Workshops.** We host Predict-ETH workshops to walk through the README, a unique submission example, and hold Q&A with our core team. The dates are:
+**Workshops.** We host Predict-ETH workshops to walk through the README, a unique submission example, and hold Q&A with our core team. 
+
+The dates are:
 - April 25 at 3PM UTC
 - May 2 at 3PM UTC
 
-See Ocean's [#events-overview Discord](https://discord.com/channels/612953348487905282/1012636243915444224) for further details.
-
-**Chat** with us in Ocean's [data-challenges Discord](https://discord.com/channels/612953348487905282/993828971408003152).
+For further details on workshops, see Ocean's [#events-overview Discord](https://discord.com/channels/612953348487905282/1012636243915444224).
 
 
 ### 0.4 Outline of this README
@@ -207,12 +206,6 @@ assert tx.events['Transfer']['to'].lower() == judges_address.lower()
 # Print txid, as we'll use it in the next step
 print(f"txid from transferring the nft: {tx.txid}")
 ````
-
-## 4.2  Submit your result in Desights platform
-
-Go to Desights (https://desights.ai), sign in, and go to the page for this competition.
-
-In the previous step, you got the txid from transferring the nft. Copy and paste it into the appropriate field in Desights, and submit it. You should get a message confirming your submission.
 
 ## 4.3 Double-check that you submitted everything
 
