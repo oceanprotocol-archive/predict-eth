@@ -47,7 +47,6 @@ We host workshops to walk through READMEs, and hold Q&A with our core team.
 
 Dates:
 - Apr 25 at 3PM UTC (8 days before deadline of Wed May 3)
-- May 2 at 3PM UTC  (1 day before deadline)
 
 Location:
 - [Special event on Ocean Discord](https://discord.com/invite/5VWDytWG?event=1097944942564876409)
