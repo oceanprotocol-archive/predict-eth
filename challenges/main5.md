@@ -9,45 +9,50 @@ SPDX-License-Identifier: Apache-2.0
 
 This is the main readme for Predict-ETH Round 5.
 
-### 0.1 Key dates
+### 0.1 Prizes
+Prize Pool: $5,000 USD worth of OCEAN
 
-- Kickoff: Tue Apr 19, 2023. (Criteria may change before kickoff.)
+- 1st place: $2,500
+- 2nd place: $1,500
+- 3rd place: $1,000
+
+We will identify winners by the blockchain account they use in the competition (on Mumbai), and send the OCEAN to that account on Ethereum mainnet. We will not be sending notifications by email or DMing (we aren’t tracking that!)
+
+### 0.2 Key dates
+
 - Submission deadline: Wed May 3, 2023, 2023 at 23:59 UTC
 - Prediction at times: Thu May 4, 2023 at 00:05 UTC, 00:10, ..., 1:00 (12 predictions total).
 
-### 0.2 Criteria to win
+### 0.3 Criteria to win
 
 The winner = whoever has lowest prediction error. That's all. :chart_with_upwards_trend:
 
 To be eligible, competitors must produce the outcomes that this README guides. This includes:
-- :white_check_mark: Signed up to Desights platform, and registered for this competition
 - :white_check_mark: Created an Ocean data NFT
 - :white_check_mark: On the data NFT, set a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
 - :white_check_mark: Transferred data NFT to Ocean judges before the submission deadline
-- :white_check_mark: Submitted txid of this transfer to the Desights platform 
 - :white_check_mark: All on _Mumbai_ network, not another network
 
-The following are _not_ criteria:
-- Presentation. There is no presentation needed.
-- How well the flow was followed. Rather, you either followed it or you didn't. You are only eligible if you followed it (as measured by the outcomes listed above).
-- Feedback. You can give us feedback [using this form](https://forms.gle/wXXAfJdyepD9ZsA99) and we appreciate it! However, it does not count towards winning.
+(This is different than Rounds 1–3 which required submitting a presentation. And Round 4 which required Desights. Those are no longer requirements).
 
-### 0.3 Developer Support, Workshops, Chat
+### 0.4 Developer Support
 
 **Support.** If you encounter issues, feel free to reach out :raised_hand: 
-- in Desights' [#dev-support Discord](https://discord.com/channels/1032236056516509706/1069484636167749662)
-- in Ocean's [#dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
+- [Ocean #dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
+- [Ocean #data-challenges Discord](https://discord.com/channels/612953348487905282/993828971408003152).
 
-**Workshops.** We host Predict-ETH workshops to walk through the README, a unique submission example, and hold Q&A with our core team. The dates are:
-- April 25 at 3PM UTC
-- May 2 at 3PM UTC
+### 0.5 Workshops
 
-See Ocean's [#events-overview Discord](https://discord.com/channels/612953348487905282/1012636243915444224) for further details.
+We host workshops to walk through READMEs, and hold Q&A with our core team. 
 
-**Chat** with us in Ocean's [data-challenges Discord](https://discord.com/channels/612953348487905282/993828971408003152).
+Dates:
+- Apr 25 at 3PM UTC (8 days before deadline of Wed May 3)
+
+Location:
+- [Special event on Ocean Discord](https://discord.com/invite/5VWDytWG?event=1097944942564876409)
 
 
-### 0.4 Outline of this README
+### 0.6 Outline of this README
 
 This readme describes a basic flow to predict future ETH price, and submit your predictions to contest judges. We'll be using Mumbai, which is Polygon's testnet.
 
@@ -61,35 +66,11 @@ Here are the steps:
 
 ## 1. Setup
 
-### 1.1 Register via Desights
-
-Desights is a decentralized platform for data science competitions. It hosts predict-eth challenges.
-
-First, sign up to Desights _Discord_, if needed:
-- Go to [Desights Discord](https://discord.com/channels/1032236056516509706)
-- Enter your usual Discord info: email, password, etc.  
-- And you're in!
-
-Then, sign up for Desights _Platform_, if needed:
-- Go to [Desights Discord #invitees channel](https://discord.com/channels/1032236056516509706/1076727165372084244)
-- Post a public message tagging admins, asking for access. 
-  - Example: "Hello @admin could you please send me an invite, to join the Desights AI platform please? Here is my ETH address: 0x(your address here)".
-  - If you prefer, don't post your Eth address, and the admin will ask you for it in a private DM
-- The admin will respond with something like: "Your wallet is now invited to join the Desights AI platform  🤩🤗. Go ahead and create your Profile 🎊 at https://desights.ai/. Good luck with challenge"
-
-Now, create your Desights account:
-- Go https://desights.ai/
-- Connect your web3 wallet. Switch to Polygon if needed.
-- Click "Create my account"
-- Update your profile as you like
-
-This step is done when you've created your Desights account.
-
-### 1.2 Install Ocean
+### 1.1 Install Ocean
 
 In ocean.py's [install.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/install.md), follow all steps.
 
-### 1.3 Install predict-eth
+### 1.2 Install predict-eth
 
 The [predict-eth library](https://pypi.org/project/predict-eth) has a specific error calculation function, and [other functions](https://github.com/oceanprotocol/predict-eth/blob/main/predict_eth/helpers.py) specific to this competition. In the console:
 
@@ -97,20 +78,20 @@ The [predict-eth library](https://pypi.org/project/predict-eth) has a specific e
 pip install predict-eth
 ```
 
-### 1.4 Install other Python libraries
+### 1.3 Install other Python libraries
 
 The READMEs use several numerical & ML libraries. In the console:
 ```
 pip install ccxt eth_account matplotlib numpy pandas prophet requests sklearn
 ```
 
-### 1.5 Do Ocean remote setup
+### 1.4 Do Ocean remote setup
 
 In ocean.py's [setup-remote.md](https://github.com/oceanprotocol/ocean.py/blob/main/READMEs/setup-remote.md), follow all steps.
 
 Make sure you're in running in Mumbai!
 
-### 1.6 Load helper functions
+### 1.5 Load helper functions
 
 In the Python console:
 
@@ -207,12 +188,6 @@ assert tx.events['Transfer']['to'].lower() == judges_address.lower()
 # Print txid, as we'll use it in the next step
 print(f"txid from transferring the nft: {tx.txid}")
 ````
-
-## 4.2  Submit your result in Desights platform
-
-Go to Desights (https://desights.ai), sign in, and go to the page for this competition.
-
-In the previous step, you got the txid from transferring the nft. Copy and paste it into the appropriate field in Desights, and submit it. You should get a message confirming your submission.
 
 ## 4.3 Double-check that you submitted everything
 
