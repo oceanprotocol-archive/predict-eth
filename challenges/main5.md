@@ -243,8 +243,8 @@ alice = create_alice_wallet(ocean) # the judge is Alice
 
 # specify target times
 # start_dt = round_to_nearest_hour(datetime.datetime.now() - datetime.timedelta(hours=24)) # use this if you're following up from above
-start_dt = datetime.datetime(2023, 5, 4, 0, 00) #Apr 6, 2023 at 1:00am UTC # judges use this
-target_uts = target_12h_unixtimes(start_dt)
+start_dt = datetime.datetime(2023, 5, 3, 23, 59) #May 3, 2023 at 23.59 UTC # judges use this
+target_uts = target_12_unixtimes(start_dt)
 print_datetime_info("target times", target_uts)
 
 # get predicted ETH values
