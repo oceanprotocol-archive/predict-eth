@@ -8,13 +8,13 @@ Then the challenge is: how accurately can _you_ predict ETH?
 
 ### Current challenge
 
-- Predict-ETH Round 6 - predictions due Wed Jun 7, 2023. 
+- [Predict-ETH Round 6](challenges/main6.md) - predictions due Wed Jun 7, 2023 at 23.59 UTC
 
 ### Future challenges
 
 Competitions are monthly. Predictions are due the first Wednesday of the month. 
 
-- Predict-ETH Round 7 - predictions due Wed Jul 5, 2023
+- Predict-ETH Round 7 - predictions due Wed Jul 5, 2023 at 23.59 UTC
 - ...
 
 (We reserve the right to alter competitions that have not launched yet.)
@@ -53,12 +53,12 @@ To help with that, the [algorithmic trading flow README](ideas/algorithmic-tradi
 
 ### Appendix: Past challenges
 
-- [Predict-ETH Round 1](challenges/main1.md) - predictions due Oct 16, 2022. [Announcement](https://blog.oceanprotocol.com/ocean-protocol-announces-the-launch-of-the-eth-prediction-challenge-7b1f04cc820e)
+- [Predict-ETH Round 1](challenges/main1.md) - predictions due Oct 16, 2022 at 23.59 UTC. [Announcement](https://blog.oceanprotocol.com/ocean-protocol-announces-the-launch-of-the-eth-prediction-challenge-7b1f04cc820e)
 - [Predict-ETH special: web3 ATL hackathon](challenges/hack1.md) - predictions due Nov 6, 2022
-- [Predict-ETH Round 2](challenges/main2.md) - predictions due Dec 11, 2022. [Announcement](https://blog.oceanprotocol.com/ocean-protocol-challenge-predict-eth-price-2nd-edition-9400212a30db), [Winners](https://blog.oceanprotocol.com/introducing-the-winners-of-the-eth-price-prediction-data-challenge-edition-2-6acdccb9271)
-- [Predict-ETH Round 3](challenges/main3.md) - predictions due Mon Feb 20, 2023. [Announcement](https://blog.oceanprotocol.com/ocean-protocol-launches-the-3rd-edition-of-predict-eth-ccb7e6a62bf7), [Winners](https://blog.oceanprotocol.com/introducing-the-winners-of-the-predict-eth-3-data-challenge-f4ed7fb8e467)
-- [Predict-ETH Round 4](challenges/main4.md) - predictions due Wed Apr 5, 2023. [Announcement](https://blog.oceanprotocol.com/predict-eth-4-dive-into-decentralized-data-355f2281509e), [Winners](https://blog.oceanprotocol.com/here-are-the-winners-of-the-predict-eth-round-4-data-challenge-1672b36c0af9)
-- [Predict-ETH Round 5](challenges/main5.md) - predictions due Wed May 3, 2023. [Announcement](https://blog.oceanprotocol.com/predict-eth-4-dive-into-decentralized-data-355f2281509e), [Winners](https://medium.com/@TeamOcean/here-are-the-winners-of-the-predict-eth-round-5-data-challenge-95f71bcade95)
+- [Predict-ETH Round 2](challenges/main2.md) - predictions due Dec 11, 2022 at 23.59 UTC. [Announcement](https://blog.oceanprotocol.com/ocean-protocol-challenge-predict-eth-price-2nd-edition-9400212a30db), [Winners](https://blog.oceanprotocol.com/introducing-the-winners-of-the-eth-price-prediction-data-challenge-edition-2-6acdccb9271)
+- [Predict-ETH Round 3](challenges/main3.md) - predictions due Mon Feb 20, 2023 at 23.59 UTC. [Announcement](https://blog.oceanprotocol.com/ocean-protocol-launches-the-3rd-edition-of-predict-eth-ccb7e6a62bf7), [Winners](https://blog.oceanprotocol.com/introducing-the-winners-of-the-predict-eth-3-data-challenge-f4ed7fb8e467)
+- [Predict-ETH Round 4](challenges/main4.md) - predictions due Wed Apr 5, 2023 at 23.59 UTC.. [Announcement](https://blog.oceanprotocol.com/predict-eth-4-dive-into-decentralized-data-355f2281509e), [Winners](https://blog.oceanprotocol.com/here-are-the-winners-of-the-predict-eth-round-4-data-challenge-1672b36c0af9)
+- [Predict-ETH Round 5](challenges/main5.md) - predictions due Wed May 3, 2023  at 23.59 UTC. [Announcement](https://blog.oceanprotocol.com/predict-eth-4-dive-into-decentralized-data-355f2281509e), [Winners](https://medium.com/@TeamOcean/here-are-the-winners-of-the-predict-eth-round-5-data-challenge-95f71bcade95)
 
 ### Appendix: Predict-eth library
 
