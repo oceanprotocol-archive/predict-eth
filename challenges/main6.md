@@ -33,6 +33,8 @@ To be eligible, competitors must produce the outcomes that this README guides. T
 - :white_check_mark: Transferred data NFT to Ocean judges before the submission deadline
 - :white_check_mark: All on _Mumbai_ network, not another network
 
+If there is >1 submission by the same address, then the most recent one (that still meets the deadline) is used.
+
 ### 0.4 Developer Support
 
 **Support.** If you encounter issues, feel free to reach out :raised_hand: 
@@ -41,14 +43,9 @@ To be eligible, competitors must produce the outcomes that this README guides. T
 
 ### 0.5 Workshops
 
-We host workshops to walk through READMEs, and hold Q&A with our core team. 
-
-Dates:
-- May 27 at 3PM UTC (8 days before deadline of Wed Jun 7)
-
-Location:
-- [Special event on Ocean Discord](https://discord.com/invite/5VWDytWG?event=1097944942564876409)
-
+We host a workshop to walk through READMEs, and hold Q&A with our core team.
+- When: May 27 at 3PM UTC (8 days before deadline of Wed Jun 7) 
+- Where: [Special event on Ocean Discord](https://discord.com/invite/5VWDytWG?event=1097944942564876409)
 
 ### 0.6 Outline of this README
 
@@ -60,7 +57,6 @@ Here are the steps:
 2. Get data locally
 3. Make predictions
 4. Publish & share predictions
-
 
 ## 1. Setup
 
