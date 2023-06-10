@@ -108,7 +108,7 @@ Predictions must be one prediction every 5mins, for a 60min period. The specific
 Here's an example with random numbers. In the same Python console:
 ```python
 #get predicted ETH values
-mean, stddev = 1650, 25.0
+mean, stddev = 1800, 25.0
 pred_vals = list(np.random.normal(loc=mean, scale=stddev, size=(12,)))
 ```
 
