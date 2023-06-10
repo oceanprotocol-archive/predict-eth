@@ -70,7 +70,7 @@ pip install predict-eth
 
 The READMEs use several numerical & ML libraries. In the console:
 ```
-pip install python-dateutil=2.8.1 ccxt eth_account matplotlib numpy pandas==1.5.3 prophet requests sklearn
+pip install python-dateutil==2.8.1 ccxt eth_account matplotlib numpy pandas==1.5.3 prophet requests sklearn
 ```
 
 ### 1.4 Do Ocean remote setup
