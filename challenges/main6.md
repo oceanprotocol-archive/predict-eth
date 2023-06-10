@@ -185,7 +185,7 @@ print(f"txid from transferring the nft: {tx.txid}")
 
 ## 4.3 Double-check that you submitted everything
 
-Section 0.2 "Criteria to win" has a checklist of things you need to have done. Ensure that you've done these. If you missed any, you will _not_ be eligible.
+Section 0.3 "Criteria to win" has a checklist of things you need to have done. Ensure that you've done these. If you missed any, you will _not_ be eligible.
 
 And if that's good, then...
 
