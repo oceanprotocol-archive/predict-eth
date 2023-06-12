@@ -41,7 +41,6 @@ Get ETH price data:
 Here are ideas to get even more accurate results.
 
 - [More data sources](ideas/data-sources.md)
-- [Modeling approaches](ideas/modeling.md)
 - [Articles](ideas/articles.md) on predicting ETH, etc
 
 ### Inspiration from algorithmic trading 
