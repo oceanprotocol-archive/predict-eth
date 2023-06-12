@@ -10,6 +10,7 @@ Existing and potential future data sources to consider
 
 ### Other potential data
 - ccxt library: other exchanges (40 supported), other coins (BTC, etc), more than close data (eg open, high, low, volume)
+- ta library: technical analysis library in Python. [pypi](https://technical-analysis-library-in-python.readthedocs.io/en/latest/), [blog](https://towardsdatascience.com/technical-analysis-library-to-financial-datasets-with-pandas-python-4b2b390d3543)
 - [Transpose](https://docs.transpose.io/sql/getting-started/) for data from Ethereum and Polygon 
 - [Dune Analytics](https://dune.com/browse/dashboards)
 - [Defi Lllama](https://defillama.com)
