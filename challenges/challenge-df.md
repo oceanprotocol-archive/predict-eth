@@ -7,41 +7,54 @@ SPDX-License-Identifier: Apache-2.0
 
 ## 0. Introduction
 
-This is the main readme for Predict-ETH Data Farming.
+This is the main readme for Challenge-DF.
+
+Challenge-DF is a continuation of Predict-ETH challenges and now part of [Data Farming Active Rewards](https://df.oceandao.org/rewards). This means each Data Farming round will contain one challenge.
 
 ### 0.1 Prizes
-Prize Pool: $5,000 USD worth of OCEAN
 
-- 1st place: $2,500
-- 2nd place: $1,500
-- 3rd place: $1,000
+Prize Pool: 5,000 OCEAN
 
-We will identify winners by the blockchain account they use in the competition (on Mumbai), and send the OCEAN to that account on Ethereum mainnet. We will not be sending notifications by email or DMing (we aren’t tracking that!)
+- 1st place: 2,500 OCEAN
+- 2nd place: 1,500 OCEAN
+- 3rd place: 1,000 OCEAN
+
+We will identify winners by the blockchain account they use in the competition (on Mumbai), and allocate the OCEAN to that account on Ethereum mainnet as part of Active Rewards contract. We will not be sending notifications by email or DMing (we aren’t tracking that!)
 
 ### 0.2 Key dates
 
-- Submission deadline: Wed Jul 5, 2023 at 23:59 UTC.
-- Prediction at times: Thu Jul 6, 2023 at 00:05 UTC, 00:10, ..., 1:00 (12 predictions total).
+Challenge-DF it's a recurent weekly challenge.
+
+- Submission deadline: Every Thursday at 23:59 UTC when the Data Farming round finnishes.
+- Prediction at times: Every Friday at 00:05 UTC, 00:10, ..., 1:00 (12 predictions total).
 
 ### 0.3 Criteria to win
 
 The winner = whoever has lowest prediction error. That's all. :chart_with_upwards_trend:
 
 To be eligible, competitors must produce the outcomes that this README guides. This includes:
+
 - :white_check_mark: Created an Ocean data NFT
 - :white_check_mark: On the data NFT, set a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
 - :white_check_mark: Transferred data NFT to Ocean judges before the submission deadline
-- :white_check_mark: All on _Mumbai_ network, not another network
+- :white*check_mark: All on \_Mumbai* network, not another network
 
 If there is >1 submission by the same address, then the most recent one (that still meets the deadline) is used.
 
-### 0.4 Developer Support
+### 0.4 Claim rewards
 
-**Support.** If you encounter issues, feel free to reach out :raised_hand: 
+Rewards are going to be visible inside the [Data Farming Active rewards](https://df.oceandao.org/rewards#activerewards) section, starting from the next round after the round when the submission was made.
+
+To claim the rewards click on the **CLAIM REWARDS** from Active Rewards section which allows to claim all the active rewards in a single transaction.
+
+### 0.5 Developer Support
+
+**Support.** If you encounter issues, feel free to reach out :raised_hand:
+
 - [Ocean #dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
 - [Ocean #data-challenges Discord](https://discord.com/channels/612953348487905282/993828971408003152).
 
-### 0.5 Outline of this README
+### 0.6 Outline of this README
 
 This readme describes a basic flow to predict future ETH price, and submit your predictions to contest judges. We'll be using Mumbai, which is Polygon's testnet.
 
@@ -69,6 +82,7 @@ pip install predict-eth
 ### 1.3 Install other Python libraries
 
 The READMEs use several numerical & ML libraries. In the console:
+
 ```
 pip install python-dateutil==2.8.1 ccxt eth_account matplotlib numpy pandas==1.5.3 prophet requests scikit-learn
 ```
@@ -93,19 +107,20 @@ Here, use whatever data you wish. It can be static data or streams, free or pric
 
 This demo flow skips getting data because it will generate random predictions (no data needed).
 
-## 3.  Make predictions
+## 3. Make predictions
 
-### 3.1  Build a simple AI model
+### 3.1 Build a simple AI model
 
-Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options. 
+Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options.
 
 This demo flow skips building a model because it will generate random predictions (no model needed).
 
-### 3.2  Run the AI model to make future ETH price predictions
+### 3.2 Run the AI model to make future ETH price predictions
 
 Predictions must be one prediction every 5mins, for a 60min period. The specific times were given above. There are 12 predictions total. The output is a list with 12 items.
 
 Here's an example with random numbers. In the same Python console:
+
 ```python
 #get predicted ETH values
 mean, stddev = 1800, 25.0
@@ -142,9 +157,9 @@ plot_prices(cex_vals, pred_vals)
 
 Keep iterating in step 3 until you're satisfied with accuracy. Then...
 
-## 4.  Publish & share predictions
+## 4. Publish & share predictions
 
-## 4.1  Publish & share via Python
+## 4.1 Publish & share via Python
 
 In the same Python console:
 
@@ -156,7 +171,7 @@ from ocean_lib.ocean import crypto
 data_nft = ocean.data_nft_factory.create({"from": alice}, 'Data NFT 1', 'DN1')
 print(f"Created data NFT with address={data_nft.address}")
 
-# Encrypt predictions with judges' public key, so competitors can't see. 
+# Encrypt predictions with judges' public key, so competitors can't see.
 # NOTE: public key is *not* the same thing as address. Using address will not work.
 judges_pubkey = '0x3d87bf8bde8c093a16ca5441b5a1053d34a28aca75dc4afffb7a2a513f2a16d2ac41bac68d8fc53058ed4846de25064098bbfaf0e1a5979aeb98028ce69fab6a'
 pred_vals_str = str(pred_vals)
@@ -175,7 +190,7 @@ assert tx.events['Transfer']['to'].lower() == judges_address.lower()
 
 # Print txid, as we'll use it in the next step
 print(f"txid from transferring the nft: {tx.txid}")
-````
+```
 
 ## 4.3 Double-check that you submitted everything
 
@@ -190,11 +205,13 @@ Congratulations! You've now made your submission to the challenge! :tada:
 (You can go through this too, in order to see how it looks.)
 
 In the terminal:
+
 ```console
 export REMOTE_TEST_PRIVATE_KEY1=<judges' private key, having address 0xA54A..>
 ```
 
 In the same Python console:
+
 ```python
 # setup
 from ocean_lib.models.data_nft import DataNFT
@@ -233,4 +250,3 @@ nmse = calc_nmse(cex_vals, pred_vals)
 print(f"NMSE = {nmse}")
 plot_prices(cex_vals, pred_vals)
 ```
-
