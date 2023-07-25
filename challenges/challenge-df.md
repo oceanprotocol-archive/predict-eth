@@ -3,13 +3,11 @@ Copyright 2023 Ocean Protocol Foundation
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# Challenge-DF - Data Farming Challenge
+# Challenge Data Farming (DF) Instructions
 
 ## 0. Introduction
 
-This is the main readme for Challenge-DF.
-
-Challenge-DF is a continuation of Predict-ETH challenges and now part of [Data Farming Active Rewards](https://df.oceandao.org/rewards). This means each Data Farming round will contain one challenge.
+This README provides instructions to participate in Challenge DF. 
 
 ### 0.1 Prizes
 
@@ -19,14 +17,14 @@ Prize Pool: 5,000 OCEAN
 - 2nd place: 1,500 OCEAN
 - 3rd place: 1,000 OCEAN
 
-We will identify winners by the blockchain account they use in the competition (on Mumbai), and allocate the OCEAN to that account on Ethereum mainnet as part of Active Rewards contract. We will not be sending notifications by email or DMing (we aren’t tracking that!)
+We will identify winners by the blockchain account they use in the competition (on Mumbai). Rewards get distributed as part of DF rewards: we allocate OCEAN to winners' accounts on Ethereum mainnet as part of Active Rewards contract.
 
 ### 0.2 Key dates
 
-Challenge-DF it's a recurent weekly challenge.
+Challenge DF is a recurent weekly challenge, as part of DF.
 
-- Submission deadline: Every Thursday at 23:59 UTC when the Data Farming round finnishes.
-- Prediction at times: Every Friday at 00:05 UTC, 00:10, ..., 1:00 (12 predictions total).
+- Submission deadline: Every Wednesday at 23:59 UTC when the Data Farming round finishes.
+- Prediction at times: Every Thursday at 00:05 UTC, 00:10, ..., 1:00 (12 predictions total).
 
 ### 0.3 Criteria to win
 
@@ -37,19 +35,21 @@ To be eligible, competitors must produce the outcomes that this README guides. T
 - :white_check_mark: Created an Ocean data NFT
 - :white_check_mark: On the data NFT, set a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
 - :white_check_mark: Transferred data NFT to Ocean judges before the submission deadline
-- :white*check_mark: All on \_Mumbai* network, not another network
+- :white_check_mark: All on Mumbai network, not another network
 
 If there is >1 submission by the same address, then the most recent one (that still meets the deadline) is used.
 
 ### 0.4 Claim rewards
 
-Rewards are going to be visible inside the [Data Farming Active rewards](https://df.oceandao.org/rewards#activerewards) section, starting from the next round after the round when the submission was made.
 
-To claim the rewards click on the **CLAIM REWARDS** from Active Rewards section which allows to claim all the active rewards in a single transaction.
+- Go to DF Webapp's [Active Rewards](https://df.oceandao.org/rewards#activerewards) section.
+- You can see rewards listed there. (Your Challenge DF rewards appear starting from the next DF round after the DF round when you submitted.)
+- To claim rewards, click the "CLAIM REWARDS" button. This will claim _all_ your Active DF rewards -- from Challenge DF and otherwise.
 
-### 0.5 Developer Support
 
-**Support.** If you encounter issues, feel free to reach out :raised_hand:
+### 0.5 Developer support
+
+If you encounter issues, feel free to reach out :raised_hand:
 
 - [Ocean #dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
 - [Ocean #data-challenges Discord](https://discord.com/channels/612953348487905282/993828971408003152).
@@ -200,9 +200,14 @@ And if that's good, then...
 
 Congratulations! You've now made your submission to the challenge! :tada:
 
-## Appendix: What judges will do
+## Appendix: How judging will look
 
-(You can go through this too, in order to see how it looks.)
+This section is optional for you, to get a flavor of how judging looks.
+
+Judging happens automatically as part of weekly DF operations. Your nmse will be auto-computed and compared with nsme of others.
+
+The actual judging code is at df-py repo in ['challenge' sub-directory](https://github.com/oceanprotocol/df-py/tree/main/df_py/challenge). What follows is simply a guideline.
+
 
 In the terminal:
 
