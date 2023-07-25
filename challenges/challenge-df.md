@@ -21,7 +21,7 @@ We will identify winners by the blockchain account they use in the competition (
 
 ### 0.2 Key dates
 
-Challenge DF is a recurent weekly challenge, as part of DF.
+Challenge DF is a recurrent weekly challenge, as part of DF.
 
 - Submission deadline: Every Wednesday at 23:59 UTC when the Data Farming round finishes.
 - Prediction at times: Every Thursday at 00:05 UTC, 00:10, ..., 1:00 (12 predictions total).
