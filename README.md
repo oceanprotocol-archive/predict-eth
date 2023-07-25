@@ -1,16 +1,16 @@
-# Predict-ETH
+# Challenge Data Farming (DF)
 
-This is a challenge to predict the price of ETH. With prize $$. It uses [ocean.py](https://github.com/oceanprotocol/ocean.py) library.
+This is a challenge to predict the price of ETH. With 5,000 OCEAN prizes per week. It uses [ocean.py](https://github.com/oceanprotocol/ocean.py) library.
 
 Predicting ETH accurately helps to make $ in trading ETH, yield farming or DeFi protocol development. And, you can sell your predictions as a datafeed, for others to do the same. 
 
 Then the challenge is: how accurately can _you_ predict ETH? 
 
-### Future challenges
+To participate, follow:
 
-Stay tuned, we're moving to _weekly_ Predict-ETH competitions...
+**[Challenge DF Instructions](challenges/challenge-df.md)**
 
-We reserve the right to alter competitions that have not launched yet.
+We reserve the right to alter competition parameters on a week-by-week basis.
 
 ### Example End-to-End Flows
 
@@ -44,6 +44,8 @@ Getting into the head of a trader might inspire you in predicting ETH.
 To help with that, the [algorithmic trading flow README](ideas/algorithmic-trading-flow.md) does a walk-through of the "[Freqtrade](https://github.com/freqtrade/freqtrade)" open-source trading tool with a custom trading strategy. 
 
 ### Appendix: Past challenges
+
+Before Challenge DF, we held monthly "Predict-ETH" Challenges from Oct 2022 to Jul 2023 (7 total). Here they are:
 
 - [Predict-ETH Round 1](challenges/main1.md) - predictions due Oct 16, 2022 at 23.59 UTC. [Announcement](https://blog.oceanprotocol.com/ocean-protocol-announces-the-launch-of-the-eth-prediction-challenge-7b1f04cc820e)
 - [Predict-ETH special: web3 ATL hackathon](challenges/hack1.md) - predictions due Nov 6, 2022
