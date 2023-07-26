@@ -1,10 +1,6 @@
-# Challenge Data Farming (DF)
+# Challenge DF
 
-This is a challenge to predict the price of ETH. With 5,000 OCEAN prizes per week. It uses [ocean.py](https://github.com/oceanprotocol/ocean.py) library.
-
-Predicting ETH accurately helps to make $ in trading ETH, yield farming or DeFi protocol development. And, you can sell your predictions as a datafeed, for others to do the same. 
-
-Then the challenge is: how accurately can _you_ predict ETH? 
+Challenge DF is a data science competition, run as part of Ocean Data Farming (DF). Each week, there is 5,000 OCEAN available, going to those who predict the price of ETH with the lowest error.
 
 To participate, follow:
 
