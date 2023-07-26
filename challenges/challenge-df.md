@@ -20,8 +20,8 @@ We will identify winners by the blockchain account they use in the competition (
 
 ### 0.2 Key dates
 
-- Submission deadline: Every Wed at 23:59 UTC
-- Challenge Restarts: Every Thurs at 00:00 UTC
+- Challenge begin: Every Thurs at 00:00 UTC
+- Submission deadline: The following Wed at 23:59 UTC
 
 ### 0.3 Submission Requirements
 
