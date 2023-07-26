@@ -20,10 +20,40 @@ We will identify winners by the blockchain account they use in the competition (
 
 ### 0.2 Key dates
 
-- Submission deadline: Wed Jul 5, 2023 at 23:59 UTC.
-- Prediction at times: Thu Jul 6, 2023 at 00:05 UTC, 00:10, ..., 1:00 (12 predictions total).
+- Submission deadline: Every Wed at 23:59 UTC
+- Challenge Restarts: Every Thurs at 00:00 UTC
 
-### 0.3 Criteria to win
+### 0.3 Submission Requirements
+
+Competitors must submit 12 price predictions in a very specific format (read [Criteria to Win](#04-criteria-to-win)) in order to qualify.
+
+Below, we have provided an example competiton, so you can understand how the key dates, and submission requirements work.
+
+#### Example Competition
+
+This competition:
+- Starts on July 6th 2023 @ 00:00 UTC
+- Ends on July 12th 2023 @ 23:59 UTC
+
+The predictions submitted into the DataNFT contract will be predicting the price of 'ETH/USDT' inside Binance by using the library ccxt for the following `5m` time intervals after the competition ends.
+
+Your price predictions should guess the price at these intervals:
+1. July 13th 2023 @ 00:05 UTC
+1. July 13th 2023 @ 00:10 UTC
+1. July 13th 2023 @ 00:15 UTC
+1. July 13th 2023 @ 00:20 UTC
+1. July 13th 2023 @ 00:25 UTC
+1. July 13th 2023 @ 00:30 UTC
+1. July 13th 2023 @ 00:35 UTC
+1. July 13th 2023 @ 00:40 UTC
+1. July 13th 2023 @ 00:45 UTC
+1. July 13th 2023 @ 00:50 UTC
+1. July 13th 2023 @ 00:55 UTC
+1. July 13th 2023 @ 01:00 UTC
+
+For a total of 12 price predictions.
+
+### 0.4 Criteria to win
 
 The winner = whoever has lowest prediction error. That's all. :chart_with_upwards_trend:
 
@@ -35,13 +65,13 @@ To be eligible, competitors must produce the outcomes that this README guides. T
 
 If there is >1 submission by the same address, then the most recent one (that still meets the deadline) is used.
 
-### 0.4 Developer Support
+### 0.5 Developer Support
 
 **Support.** If you encounter issues, feel free to reach out :raised_hand: 
 - [Ocean #dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
 - [Ocean #data-challenges Discord](https://discord.com/channels/612953348487905282/993828971408003152).
 
-### 0.5 Outline of this README
+### 0.6 Outline of this README
 
 This readme describes a basic flow to predict future ETH price, and submit your predictions to contest judges. We'll be using Mumbai, which is Polygon's testnet.
 
