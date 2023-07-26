@@ -41,11 +41,8 @@ If there is >1 submission by the same address, then the most recent one (that st
 
 ### 0.4 Claim rewards
 
-
-- Go to DF Webapp's [Active Rewards](https://df.oceandao.org/rewards#activerewards) section.
-- You can see rewards listed there. (Your Challenge DF rewards appear starting from the next DF round after the DF round when you submitted.)
-- To claim rewards, click the "CLAIM REWARDS" button. This will claim _all_ your Active DF rewards -- from Challenge DF and otherwise.
-
+- Go to the DF Webapp's [Active Rewards](https://df.oceandao.org/rewards#activerewards) section.
+- Click the "CLAIM REWARDS" button. This will claim _all_ your Active DF rewards -- from Challenge DF and otherwise.
 
 ### 0.5 Developer support
 
