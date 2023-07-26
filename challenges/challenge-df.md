@@ -3,11 +3,11 @@ Copyright 2023 Ocean Protocol Foundation
 SPDX-License-Identifier: Apache-2.0
 -->
 
-# Challenge Data Farming (DF) Instructions
+# Challenge DF Instructions
 
 ## 0. Introduction
 
-This README provides instructions to participate in Challenge DF. 
+This README provides instructions to participate in Challenge Data Farming (DF). 
 
 ### 0.1 Prizes
 
