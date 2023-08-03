@@ -2,11 +2,9 @@
 
 Challenge DF is a data science competition, run as part of Ocean Data Farming (DF). Each week, there is 5,000 OCEAN available, going to those who predict the price of ETH with the lowest error.
 
-To participate, follow:
+**To participate, follow: [Challenge DF Instructions](challenges/challenge-df.md)**
 
-**[Challenge DF Instructions](challenges/challenge-df.md)**
-
-More info: ["Introducing Challenge DF"](https://blog.oceanprotocol.com/introducing-challenge-data-farming-378bba28fc97). We reserve the right to alter competition parameters on a week-by-week basis.
+More info: ["Introducing Challenge DF"](https://blog.oceanprotocol.com/introducing-challenge-data-farming-378bba28fc97).
 
 ### Example End-to-End Flows
 
