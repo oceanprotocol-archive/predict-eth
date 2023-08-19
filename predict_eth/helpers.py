@@ -142,9 +142,22 @@ def load_list(file_name: str) -> list:
 # helpers: prediction performance
 def calc_nmse(y, yhat) -> float:
     assert len(y) == len(yhat)
-    mse_xy = np.sum(np.square(np.asarray(y) - np.asarray(yhat)))
-    mse_x = np.sum(np.square(np.asarray(y)))
+
+    y, yhat = np.asarray(y), np.asarray(yhat)
+
+    ymin, ymax = min(y), max(y)
+    yrange = ymax - ymin
+
+    # First, scale true values and predicted values such that:
+    # - true values are in range [0.0, 1.0]
+    # - predicted values follow the same scaling factors
+    y01 = (y - ymin) / yrange
+    yhat01 = (yhat - ymin) / yrange
+
+    mse_xy = np.sum(np.square(y01 - yhat01))
+    mse_x = np.sum(np.square(y01))
     nmse = mse_xy / mse_x
+
     return nmse
 
 
