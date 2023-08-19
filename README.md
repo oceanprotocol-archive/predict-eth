@@ -56,6 +56,6 @@ Predict-eth is a [library on pypi](https://pypi.org/project/predict-eth/).
 
 To install: `pip3 install predict-eth`
 
-To further develop it:
+To further develop it :
 - [Developers flow](developers.md)
 - [Release process](release-process.md)
