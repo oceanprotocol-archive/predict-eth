@@ -156,7 +156,7 @@ Keep iterating in step 3 until you're satisfied with accuracy. Then...
 
 ## 4. Publish & share predictions
 
-We'll now publish the asset on Mumbai. As a result of [completing the remote setup](#14-do-ocean-remote-setup), you should be ready to go.
+We'll now publish the asset on Mumbai. As a result of completing the remote setup [in Step 1.4](#14-do-ocean-remote-setup), you should be ready to go.
 
 ## 4.1  Publish & share via Python
 
@@ -165,9 +165,6 @@ In the same Python console:
 ```python
 # Imports
 from ocean_lib.ocean import crypto
-
-# Connect to mumbai network
-ocean = create_ocean_instance("polygon-test")
 
 # Create data NFT
 data_nft = ocean.data_nft_factory.create({"from": alice}, 'Data NFT 1', 'DN1')
