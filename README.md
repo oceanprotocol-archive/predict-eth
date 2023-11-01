@@ -1,8 +1,14 @@
 # Challenge DF
 
-Challenge DF is a data science competition, run as part of Ocean Data Farming (DF). Each week, there is 5,000 OCEAN available, going to those who predict the price of ETH with the lowest error.
+Challenge DF is a data science competition, run as part of Ocean Data Farming (DF). There's up to 5,000 OCEAN weekly available in rewards, to those who predict the price of ETH with the lowest error.
 
 **To participate, follow: [Challenge DF Instructions](challenges/challenge-df.md)**
+
+OCEAN rewards available:
+- DF48 (starts Jul 27) - DF61 (starts Oct 26): 5,000 OCEAN weekly
+- DF62 (starts Nov 2) - DF65 (starts Nov 30): 1,000 OCEAN weekly
+- DF66 (starts Nov 30) onwards. Challenge DF is wound down. Data scientists who want to compete in predicting ETH & more can [run predictoor bots](https://github.com/oceanprotocol/pdr-backend/blob/main/READMEs/predictoor.md).
+- (all dates are 2023)
 
 More info: ["Introducing Challenge DF"](https://blog.oceanprotocol.com/introducing-challenge-data-farming-378bba28fc97).
 
