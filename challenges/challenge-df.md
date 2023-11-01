@@ -11,11 +11,10 @@ This README provides instructions to participate in Challenge Data Farming (DF).
 
 ### 0.1 Prizes
 
-Prize Pool: 5,000 OCEAN
-
-- 1st place: 2,500 OCEAN
-- 2nd place: 1,500 OCEAN
-- 3rd place: 1,000 OCEAN
+Prize Pool: 
+- For DF48 (starts Jul 27) - DF61 (starts Oct 26): 5000 OCEAN, with 2500 / 1500 / 1000 OCEAN distributed to 1st / 2nd / 3rd place respectively.
+- For DF62 (starts Nov 2) - DF65 (starts Nov 30): 1000 OCEAN, with 500 / 300 / 200 OCEAN distributed to 1st / 2nd / 3rd place respectively.
+- Beyond: we recoommend to [run predictoor bots](https://github.com/oceanprotocol/pdr-backend/blob/main/READMEs/predictoor.md) to earn
 
 We will identify winners by the blockchain account they use in the competition (on Mumbai). Rewards get distributed as part of DF rewards: we allocate OCEAN to winners' accounts on Ethereum mainnet as part of Active Rewards contract.
 
