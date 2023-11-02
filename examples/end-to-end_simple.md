@@ -7,6 +7,8 @@ SPDX-License-Identifier: Apache-2.0
 
 ## 0. Introduction
 
+NOTE: this README may be out of date from changes in ocean.py or otherwise. Adapt accordingly.
+
 This example predicts future ETH price, using simple input data (just historical ETH price) and a simple model (linear dynamical model).
 
 Predictions are 5mins, 10mins, ..., 60mins into the future.

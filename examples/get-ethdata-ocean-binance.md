@@ -1,5 +1,7 @@
 ## Get Binance ETH/USDT price feed via Ocean
 
+NOTE: this README may be out of date from changes in ocean.py or otherwise. Adapt accordingly.
+
 This is published as a free asset in Ocean. Under the hood, it queries the Binance API.
 
 You can see it on Ocean Market [here](https://market.oceanprotocol.com/asset/did:op:0dac5eb4965fb2b485181671adbf3a23b0133abf71d2775eda8043e8efc92d19).

@@ -1,5 +1,7 @@
 ## Get Binance ETH/USDT price feed via Binance API direct
 
+NOTE: this README may be out of date from changes in ocean.py or otherwise. Adapt accordingly.
+
 Here, we directly query the Binance API "Kline/Candlestick Data". [Here's the docs](https://binance-docs.github.io/apidocs/spot/en/#kline-candlestick-data). 
 
 We use Python [requests](https://requests.readthedocs.io/en/latest/) library to make queries.

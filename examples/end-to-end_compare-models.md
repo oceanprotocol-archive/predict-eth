@@ -1,5 +1,7 @@
 # End-to-end example: Compare models
 
+NOTE: this README may be out of date from changes in ocean.py or otherwise. Adapt accordingly.
+
 Given the task of predicting ETH for 12 hours in the future, several approaches  are possible. They either learn an independent model to predict the prices at each hour, or learn a model that makes direct predictions.
 
 In this README, each model uses the previous 12 hours' of prices to predict the next 12 hours' worth.  
