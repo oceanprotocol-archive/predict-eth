@@ -5,7 +5,7 @@ SPDX-License-Identifier: Apache-2.0
 
 # Predict-ETH Round 2
 
-This is the main readme for the [Predict-ETH Round 2 Data Challenge](https://questbook.app/explore_grants/about_grant/?grantId=0x9f248741962aaf27bd10f2c50aeec2d13f343611&chainId=137). 
+This is the main readme for the [Predict-ETH Round 2 Data Challenge](https://questbook.app/explore_grants/about_grant/?grantId=0x9f248741962aaf27bd10f2c50aeec2d13f343611&chainId=137).
 
 - Kickoff: Nov 14, 2022
 - Submission deadline: Dec 11, 2022 at 23:59 UTC
@@ -35,7 +35,7 @@ Now, let's install Python libraries.
 pip3 install matplotlib pybundlr ccxt
 ```
 
-You'll be using [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction) to share tamper-proof predictions. The `pybundlr` library (installed above) needs the Bundlr CLI installed. So, in the terminal do the following. (If you encounter issues, please see the Appendix.) 
+You'll be using [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction) to share tamper-proof predictions. The `pybundlr` library (installed above) needs the Bundlr CLI installed. So, in the terminal do the following. (If you encounter issues, please see the Appendix.)
 ```
 npm install -g @bundlr-network/client
 ```
@@ -43,7 +43,7 @@ npm install -g @bundlr-network/client
 
 ### 1.2 Create Polygon Account (One-Time)
 
-You'll be using Polygon network. So, please ensure that you have a Polygon account that holds some MATIC (at least a few $ worth). [More info](https://polygon.technology/matic-token/). 
+You'll be using Polygon network. So, please ensure that you have a Polygon account that holds some MATIC (at least a few $ worth). [More info](https://polygon.technology/matic-token/).
 
 ### 1.3 Set envvars, for Polygon address
 
@@ -81,13 +81,13 @@ Here, use whatever data you wish.
 
 It can be static data or streams, free or priced, raw data or feature vectors or otherwise. It can be published via Ocean, or not.
 
-The [main README](../README.md) links to some options. 
+The [main README](../README.md) links to some options.
 
 ## 3.  Make predictions
 
 ### 3.1  Build a simple AI model
 
-Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options. 
+Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options.
 
 This demo flow skips building a model because the next step will simply generate random predictions.
 
@@ -156,7 +156,7 @@ In the same Python console:
 ```python
 from pybundlr import pybundlr
 file_name = "/tmp/pred_vals.csv"
-url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet.private_key)
+url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet.privateKey.hex())
 #e.g. url = "https://arweave.net/qctEbPb3CjvU8LmV3G_mynX74eCxo1domFQIlOBH1xU"
 print(f"Your csv url: {url}")
 ```
@@ -210,7 +210,7 @@ print_datetime_info("target times", target_uts)
 
 # get predicted ETH values
 did = <value shared by you>
-order_tx_id = ocean.assets.pay_for_access_service(ddo, alice_wallet)
+order_tx_id = ocean.assets.pay_for_access_service(ddo, alice_wallet).hex()
 file_name = ocean.assets.download_asset(ddo, alice_wallet, './', order_tx_id)
 pred_vals = load_list(file_name)
 
@@ -233,8 +233,8 @@ plot_prices(cex_vals, pred_vals)
 
 ### Appendix: If you have Arweave / Bundlr issues
 
-This README has you upload to Arweave permanent decentralized file storage, so that predictions are tamper-proof. Above, it provided instructions to install Bundlr, which wraps Arweave. 
+This README has you upload to Arweave permanent decentralized file storage, so that predictions are tamper-proof. Above, it provided instructions to install Bundlr, which wraps Arweave.
 
-If you encountered issues installing it, then you need to upload to Arweave in a different way. At the end of the process, you need a shareable url. The Arweave ecosystem has several webapps that you might consider. One of the leading apps is ArDrive. [Here's an ArDrive tutorial](https://docs.rawrshak.io/tutorials/developer/rawrshak-dapp/upload-data-to-arweave) to get going. 
+If you encountered issues installing it, then you need to upload to Arweave in a different way. At the end of the process, you need a shareable url. The Arweave ecosystem has several webapps that you might consider. One of the leading apps is ArDrive. [Here's an ArDrive tutorial](https://docs.rawrshak.io/tutorials/developer/rawrshak-dapp/upload-data-to-arweave) to get going.
 
 

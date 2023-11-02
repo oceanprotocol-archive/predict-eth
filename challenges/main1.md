@@ -11,7 +11,7 @@ It is used for [Predict-ETH Round 1 Data Challenge](https://blog.oceanprotocol.c
 
 - Kickoff: Oct 2, 2022
 - Submission deadline: Oct 16, 2022 at 23:59 UTC
-- Prediction at times: Oct 17, 2022 at 1:00 UTC, 2:00 UTC, ..., 23:00, 24:00. (24 predictions total). 
+- Prediction at times: Oct 17, 2022 at 1:00 UTC, 2:00 UTC, ..., 23:00, 24:00. (24 predictions total).
 - Winners announced: within one week
 
 Here are the steps:
@@ -28,7 +28,7 @@ Here are the steps:
 Prerequisites:
 - Linux/MacOS
 - Python 3.8.5+
-- [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction): `npm install -g @bundlr-network/client` 
+- [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction): `npm install -g @bundlr-network/client`
 
 Now, let's install Python libraries. Open a terminal and:
 ```console
@@ -48,7 +48,7 @@ pip3 install matplotlib pybundlr
 
 ### 1.2 Create Polygon Account (One-Time)
 
-You'll be using Polygon network. So, please ensure that you have a Polygon account that holds some MATIC (at least a few $ worth). [More info](https://polygon.technology/matic-token/). 
+You'll be using Polygon network. So, please ensure that you have a Polygon account that holds some MATIC (at least a few $ worth). [More info](https://polygon.technology/matic-token/).
 
 ### 1.3 Set envvars, for Polygon address
 
@@ -156,7 +156,7 @@ In the same Python console:
 ```python
 from pybundlr import pybundlr
 file_name = "/tmp/pred_vals.csv"
-url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet.private_key)
+url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet.privateKey.hex())
 #e.g. url = "https://arweave.net/qctEbPb3CjvU8LmV3G_mynX74eCxo1domFQIlOBH1xU"
 print(f"Your csv url: {url}")
 ```

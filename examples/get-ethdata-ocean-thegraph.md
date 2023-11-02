@@ -23,7 +23,7 @@ ETH_USDT_datatoken = ocean.get_datatoken(ETH_USDT_ddo.datatokens[0]["address"])
 
 from ocean_lib.ocean.util import to_wei
 ETH_USDT_datatoken.dispense(to_wei(1), {"from":alice_wallet})
-order_tx_id = ocean.assets.pay_for_access_service(ETH_USDT_ddo, {"from": alice_wallet})
+order_tx_id = ocean.assets.pay_for_access_service(ETH_USDT_ddo, {"from": alice_wallet}).hex()
 file_name = ocean.assets.download_asset(ETH_USDT_ddo, alice_wallet,"./", order_tx_id)
 
 # Each item in the json file has 8 entries:
