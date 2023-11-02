@@ -11,11 +11,11 @@ This README provides instructions to participate in Challenge Data Farming (DF).
 
 ### 0.1 Prizes
 
-Prize Pool: 5,000 OCEAN
+Prize Pool: 1,000 OCEAN (as of Nov 2, 2022)
 
-- 1st place: 2,500 OCEAN
-- 2nd place: 1,500 OCEAN
-- 3rd place: 1,000 OCEAN
+- 1st place: 500 OCEAN
+- 2nd place: 300 OCEAN
+- 3rd place: 200 OCEAN
 
 We will identify winners by the blockchain account they use in the competition (on Mumbai). Rewards get distributed as part of DF rewards: we allocate OCEAN to winners' accounts on Ethereum mainnet as part of Active Rewards contract.
 
@@ -156,7 +156,9 @@ Keep iterating in step 3 until you're satisfied with accuracy. Then...
 
 ## 4. Publish & share predictions
 
-## 4.1 Publish & share via Python
+We'll now publish the asset on Mumbai. As a result of completing the remote setup [in Step 1.4](#14-do-ocean-remote-setup), you should be ready to go.
+
+## 4.1  Publish & share via Python
 
 In the same Python console:
 
@@ -204,7 +206,6 @@ This section is optional for you, to get a flavor of how judging looks.
 Judging happens automatically as part of weekly DF operations. Your nmse will be auto-computed and compared with nsme of others.
 
 The actual judging code is at df-py repo in ['challenge' sub-directory](https://github.com/oceanprotocol/df-py/tree/main/df_py/challenge). What follows is simply a guideline.
-
 
 In the terminal:
 
