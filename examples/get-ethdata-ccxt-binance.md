@@ -1,5 +1,7 @@
 ## Get Binance ETH/USDT price feed via CCXT
 
+NOTE: this README may be out of date from changes in ocean.py or otherwise. Adapt accordingly.
+
 Here, we use the the ccxt library, "a collection of available crypto exchanges or exchange classes. Each class implements the public and private API for a particular crypto exchange." [Here are ccxt docs](https://docs.ccxt.com/en/latest/manual.html). [Here's ccxt on github](https://github.com/ccxt/ccxt).
 
 Under the hood, ccxt queries the Binance API for Binance data.

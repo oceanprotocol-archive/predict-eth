@@ -1,5 +1,7 @@
 ## Get Binance ETH/USDT price feed via Ocean
 
+NOTE: this README may be out of date from changes in ocean.py or otherwise. Adapt accordingly.
+
 This is published as a free asset in Ocean. Under the hood, it queries the uniswap-v3-subgraph.
 
 You can see it on Ocean Market [here](https://market.oceanprotocol.com/asset/did:op:deb138bcabdc21f126bc064489cd58d16792f782d2e145f0227e4d9778650243).
