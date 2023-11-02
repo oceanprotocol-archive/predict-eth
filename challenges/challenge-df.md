@@ -7,11 +7,11 @@ SPDX-License-Identifier: Apache-2.0
 
 ## 0. Introduction
 
-This README provides instructions to participate in Challenge Data Farming (DF). 
+This README provides instructions to participate in Challenge Data Farming (DF).
 
 ### 0.1 Prizes
 
-Prize Pool: 
+Prize Pool:
 - For DF48 (starts Jul 27) - DF61 (starts Oct 26): 5000 OCEAN, with 2500 / 1500 / 1000 OCEAN distributed to 1st / 2nd / 3rd place respectively.
 - For DF62 (starts Nov 2) - DF65 (starts Nov 30): 1000 OCEAN, with 500 / 300 / 200 OCEAN distributed to 1st / 2nd / 3rd place respectively.
 - Beyond: we recoommend to [run predictoor bots](https://github.com/oceanprotocol/pdr-backend/blob/main/READMEs/predictoor.md) to earn
@@ -182,10 +182,10 @@ token_id = 1
 tx = data_nft.safeTransferFrom(alice.address, judges_address, token_id, {"from": alice})
 
 # Ensure the transfer was successful
-assert tx.events['Transfer']['to'].lower() == judges_address.lower()
+assert get_transfer_event(ocean, data_nft, tx).args.to.lower() == judges_address.lower()
 
 # Print txid, as we'll use it in the next step
-print(f"txid from transferring the nft: {tx.txid}")
+print(f"txid from transferring the nft: {tx.transactionHash.hex()}")
 ```
 
 ## 4.3 Double-check that you submitted everything
@@ -209,6 +209,7 @@ In the terminal:
 
 ```console
 export REMOTE_TEST_PRIVATE_KEY1=<judges' private key, having address 0xA54A..>
+export RPC_URL=https://polygon.llamarpc.com  # or the RPC of your choice
 ```
 
 In the same Python console:
@@ -218,8 +219,9 @@ In the same Python console:
 from ocean_lib.models.data_nft import DataNFT
 from ocean_lib.ocean import crypto
 from predict_eth.helpers import *
+import os
 
-ocean = create_ocean_instance("polygon-test")
+ocean = create_ocean_instance(os.getenv("RPC_URL"))
 alice = create_alice_wallet(ocean) # the judge is Alice
 
 # specify target times

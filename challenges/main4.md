@@ -24,7 +24,7 @@ To be eligible, competitors must produce the outcomes that this README guides. T
 - :white_check_mark: Created an Ocean data NFT
 - :white_check_mark: On the data NFT, set a value correctly: correct field label, correct # predictions, prediction values following correct formatting, predictions encrypted with proper encoding on judges' public key
 - :white_check_mark: Transferred data NFT to Ocean judges before the submission deadline
-- :white_check_mark: Submitted txid of this transfer to the Desights platform 
+- :white_check_mark: Submitted txid of this transfer to the Desights platform
 - :white_check_mark: All on _Mumbai_ network, not another network
 
 The following are _not_ criteria:
@@ -34,7 +34,7 @@ The following are _not_ criteria:
 
 ### 0.3 Developer Support, Workshops, Chat
 
-**Support.** If you encounter issues, feel free to reach out :raised_hand: 
+**Support.** If you encounter issues, feel free to reach out :raised_hand:
 - in Desights' [#dev-support Discord](https://discord.com/channels/1032236056516509706/1069484636167749662)
 - in Ocean's [#dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
 
@@ -67,12 +67,12 @@ Desights is a decentralized platform for data science competitions. It hosts pre
 
 First, sign up to Desights _Discord_, if needed:
 - Go to [Desights Discord](https://discord.com/channels/1032236056516509706)
-- Enter your usual Discord info: email, password, etc.  
+- Enter your usual Discord info: email, password, etc.
 - And you're in!
 
 Then, sign up for Desights _Platform_, if needed:
 - Go to [Desights Discord #invitees channel](https://discord.com/channels/1032236056516509706/1076727165372084244)
-- Post a public message tagging admins, asking for access. 
+- Post a public message tagging admins, asking for access.
   - Example: "Hello @admin could you please send me an invite, to join the Desights AI platform please? Here is my ETH address: 0x(your address here)".
   - If you prefer, don't post your Eth address, and the admin will ask you for it in a private DM
 - The admin will respond with something like: "Your wallet is now invited to join the Desights AI platform  🤩🤗. Go ahead and create your Profile 🎊 at https://desights.ai/. Good luck with challenge"
@@ -128,7 +128,7 @@ This demo flow skips getting data because it will generate random predictions (n
 
 ### 3.1  Build a simple AI model
 
-Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options. 
+Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options.
 
 This demo flow skips building a model because it will generate random predictions (no model needed).
 
@@ -187,7 +187,7 @@ from ocean_lib.ocean import crypto
 data_nft = ocean.data_nft_factory.create({"from": alice}, 'Data NFT 1', 'DN1')
 print(f"Created data NFT with address={data_nft.address}")
 
-# Encrypt predictions with judges' public key, so competitors can't see. 
+# Encrypt predictions with judges' public key, so competitors can't see.
 # NOTE: public key is *not* the same thing as address. Using address will not work.
 judges_pubkey = '0x3d87bf8bde8c093a16ca5441b5a1053d34a28aca75dc4afffb7a2a513f2a16d2ac41bac68d8fc53058ed4846de25064098bbfaf0e1a5979aeb98028ce69fab6a'
 pred_vals_str = str(pred_vals)
@@ -202,10 +202,10 @@ token_id = 1
 tx = data_nft.safeTransferFrom(alice.address, judges_address, token_id, {"from": alice})
 
 # Ensure the transfer was successful
-assert tx.events['Transfer']['to'].lower() == judges_address.lower()
+assert get_transfer_event(ocean, data_nft, tx).args.to.lower() == judges_address.lower()
 
 # Print txid, as we'll use it in the next step
-print(f"txid from transferring the nft: {tx.txid}")
+print(f"txid from transferring the nft: {tx.transactionHash.hex()}")
 ````
 
 ## 4.2  Submit your result in Desights platform
@@ -229,6 +229,7 @@ Congratulations! You've now made your submission to the challenge! :tada:
 In the terminal:
 ```console
 export REMOTE_TEST_PRIVATE_KEY1=<judges' private key, having address 0xA54A..>
+export RPC_URL=https://polygon.llamarpc.com  # or the RPC of your choice
 ```
 
 In the same Python console:
@@ -237,8 +238,9 @@ In the same Python console:
 from ocean_lib.models.data_nft import DataNFT
 from ocean_lib.ocean import crypto
 from predict_eth.helpers import *
+import os
 
-ocean = create_ocean_instance("polygon-test")
+ocean = create_ocean_instance(os.getenv("RPC_URL"))
 alice = create_alice_wallet(ocean) # the judge is Alice
 
 # specify target times

@@ -56,18 +56,18 @@ pip3 install ccxt eth_account matplotlib numpy pandas prophet requests sklearn
 
 ### 1.4 Arweave preparation
 
-To share tamper-proof predictions, the READMEs use Arweave. You have two options, A and B. Please pick one and do the "prepare by" step. 
+To share tamper-proof predictions, the READMEs use Arweave. You have two options, A and B. Please pick one and do the "prepare by" step.
 
 **Option A: Webapp, using [ardrive.io](https://www.ardrive.io)**
   - Pros: simple webapp
   - Cons: need AR to pay for storage.
   - Prepare by: get AR via [a faucet](https://faucet.arweave.net/) or [buying some](https://www.google.com/search?q=buy+arweave+tokens). For more details follow [this](https://docs.oceanprotocol.com/using-ocean-market/asset-hosting#arweave
 ) tutorial.
-  
+
 **Option B: In code, using pybundlr library**
   - Pros: pay for storage with MATIC, ETH, AR, or [other](https://docs.bundlr.network/sdk/using-other-currencies). (But not fake MATIC)
   - Cons: bundlr CLI installation is finicky, since it needs "`npm install`" globally on your system (`-g` flag)
-  - Prepare by: 
+  - Prepare by:
     - in console, install pybundlr: `pip install pybundlr`
     - in console, install [Bundlr CLI](https://docs.bundlr.network/about/introduction): `npm install -g @bundlr-network/client`
     - get one of: [MATIC](https://polygon.technology/matic-token/), [ETH](https://ethereum.org/en/get-eth/), or AR (see "get AR via" above)
@@ -97,7 +97,7 @@ This demo flow skips getting data because it will generate random predictions (n
 
 ### 3.1  Build a simple AI model
 
-Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options. 
+Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options.
 
 This demo flow skips building a model because it will generate random predictions (no model needed).
 
@@ -172,7 +172,7 @@ Then, in the same Python console:
 ```python
 url = <url of uploaded file>
 ```
-  
+
 **Option B: In code, using pybundlr library**
 
 In the same Python console:
@@ -224,14 +224,16 @@ Now, you're complete! Thanks for being part of this competition.
 In the terminal:
 ```console
 export REMOTE_TEST_PRIVATE_KEY1=<judges' private key, having address 0xA54A..>
+export RPC_URL=https://polygon.llamarpc.com  # or the RPC of your choice
 ```
 
 In the same Python console:
 ```python
 # setup
 from predict_eth.helpers import *
+import os
 
-ocean = create_ocean_instance("polygon-test") # change the network name if needed
+ocean = create_ocean_instance(os.getenv("RPC_URL")) # change the network name if needed
 alice = create_alice_wallet(ocean) #you're Alice
 
 # specify target times
