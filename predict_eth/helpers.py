@@ -4,35 +4,39 @@ import os
 from pathlib import Path
 import time
 
-from brownie.network import accounts
-from brownie.network.account import LocalAccount
+from eth_account import Account
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
 from web3.main import Web3
+from web3.logs import DISCARD
 
 from ocean_lib.example_config import get_config_dict
 from ocean_lib.ocean.ocean import Ocean
-from ocean_lib.web3_internal.utils import connect_to_network
 
 # helper functions: setup
-def create_ocean_instance(network_name: str) -> Ocean:
-    config = get_config_dict(network_name)
+def create_ocean_instance(rpc_url: str) -> Ocean:
+    config = get_config_dict(rpc_url)
     config["BLOCK_CONFIRMATIONS"] = 1  # faster
-    connect_to_network(network_name)
     ocean = Ocean(config)
     return ocean
 
 
-def create_alice_wallet(ocean: Ocean) -> LocalAccount:
+def create_alice_wallet(ocean: Ocean) -> Account:
     config = ocean.config_dict
     alice_private_key = os.getenv("REMOTE_TEST_PRIVATE_KEY1")
-    alice_wallet = accounts.add(alice_private_key)
-    bal = Web3.fromWei(accounts.at(alice_wallet.address).balance(), "ether")
+    alice_wallet = Account.from_key(private_key=alice_private_key)
+    bal = Web3.from_wei(config["web3_instance"].eth.get_balance(alice_wallet.address), "ether")
     print(f"alice_wallet.address={alice_wallet.address}. bal={bal}")
     assert bal > 0, f"Alice needs MATIC"
     return alice_wallet
+
+
+def get_transfer_event(ocean: Ocean, data_nft, tx):
+    tx_receipt = ocean.config["web3_instance"].eth.wait_for_transaction_receipt(tx.transactionHash)
+    events = data_nft.contract.events.Transfer().process_receipt(tx_receipt, errors=DISCARD)
+    return events[0]
 
 
 # helper functions: time

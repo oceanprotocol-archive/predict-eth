@@ -28,7 +28,7 @@ Here are the steps:
 Prerequisites:
 - Linux/MacOS
 - Python 3.8.5+
-- [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction): `npm install -g @bundlr-network/client` 
+- [Arweave Bundlr](https://docs.bundlr.network/docs/about/introduction): `npm install -g @bundlr-network/client`
 
 Now, let's install Python libraries. Open a terminal and:
 ```console
@@ -45,7 +45,7 @@ pip3 install ocean-lib matplotlib pybundlr ccxt
 
 ### 1.2 Create Polygon Account (One-Time)
 
-You'll be using Polygon network. So, please ensure that you have a Polygon account that holds some MATIC (at least a few $ worth). [More info](https://polygon.technology/matic-token/). 
+You'll be using Polygon network. So, please ensure that you have a Polygon account that holds some MATIC (at least a few $ worth). [More info](https://polygon.technology/matic-token/).
 
 ### 1.3 Set envvars, for Polygon address
 
@@ -74,7 +74,7 @@ Here, use whatever data you wish.
 
 It can be static data or streams, free or priced, raw data or feature vectors or otherwise. It can be published via Ocean, or not.
 
-The [main README](../README.md) links to some options. 
+The [main README](../README.md) links to some options.
 
 ## 3.  Make predictions
 
@@ -149,7 +149,7 @@ In the same Python console:
 ```python
 from pybundlr import pybundlr
 file_name = "/tmp/pred_vals.csv"
-url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet.private_key)
+url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet._private_key.hex())
 #e.g. url = "https://arweave.net/qctEbPb3CjvU8LmV3G_mynX74eCxo1domFQIlOBH1xU"
 print(f"Your csv url: {url}")
 ```
@@ -234,7 +234,7 @@ import time
 
 import matplotlib
 import matplotlib.pyplot as plt
-    
+
 from ocean_lib.example_config import ExampleConfig
 from ocean_lib.ocean.ocean import Ocean
 from ocean_lib.web3_internal.wallet import Wallet
@@ -350,17 +350,17 @@ def load_list(file_name: str) -> list:
 def calc_nmse(y, yhat) -> float:
     assert len(y) == len(yhat)
     y, yhat = np.asarray(y), np.asarray(yhat)
-    range_y = max(y) - min(y)    
+    range_y = max(y) - min(y)
     nmse = np.sqrt(np.average(((yhat - y) / range_y) ** 2))
     return nmse
 
 
 def plot_prices(cex_vals, pred_vals):
     matplotlib.rcParams.update({'font.size': 22})
-    
+
     x = [h for h in range(0,12)]
     assert len(x) == len(cex_vals) == len(pred_vals)
-    
+
     fig, ax = plt.subplots()
     ax.plot(x, cex_vals, '--', label="CEX values")
     ax.plot(x, pred_vals, '-', label="Pred. values")

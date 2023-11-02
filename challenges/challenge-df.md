@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 
 ## 0. Introduction
 
-This README provides instructions to participate in Challenge Data Farming (DF). 
+This README provides instructions to participate in Challenge Data Farming (DF).
 
 ### 0.1 Prizes
 
@@ -185,10 +185,10 @@ token_id = 1
 tx = data_nft.safeTransferFrom(alice.address, judges_address, token_id, {"from": alice})
 
 # Ensure the transfer was successful
-assert tx.events['Transfer']['to'].lower() == judges_address.lower()
+assert get_transfer_event(ocean, data_nft, tx).args.to.lower() == judges_address.lower()
 
 # Print txid, as we'll use it in the next step
-print(f"txid from transferring the nft: {tx.txid}")
+print(f"txid from transferring the nft: {tx.transactionHash.hex()}")
 ```
 
 ## 4.3 Double-check that you submitted everything
@@ -211,6 +211,7 @@ In the terminal:
 
 ```console
 export REMOTE_TEST_PRIVATE_KEY1=<judges' private key, having address 0xA54A..>
+export RPC_URL=https://polygon.llamarpc.com  # or the RPC of your choice
 ```
 
 In the same Python console:
@@ -220,8 +221,9 @@ In the same Python console:
 from ocean_lib.models.data_nft import DataNFT
 from ocean_lib.ocean import crypto
 from predict_eth.helpers import *
+import os
 
-ocean = create_ocean_instance("polygon-test")
+ocean = create_ocean_instance(os.getenv("RPC_URL"))
 alice = create_alice_wallet(ocean) # the judge is Alice
 
 # specify target times
@@ -234,7 +236,7 @@ print_datetime_info("target times", target_uts)
 data_nft_addr = <addr of your data NFT. Judges will find this from the chain>
 data_nft = DataNFT(ocean.config_dict, data_nft_addr)
 pred_vals_str_enc = data_nft.get_data("predictions")
-pred_vals_str = crypto.asym_decrypt(pred_vals_str_enc, alice.private_key)
+pred_vals_str = crypto.asym_decrypt(pred_vals_str_enc, alice._private_key.hex())
 pred_vals = [float(s) for s in pred_vals_str[1:-1].split(',')]
 
 # get actual ETH values (final)

@@ -37,13 +37,13 @@ To be eligible, competitors must produce the outcomes that this README guides. T
 
 ### 0.4 Developer Support
 
-**Support.** If you encounter issues, feel free to reach out :raised_hand: 
+**Support.** If you encounter issues, feel free to reach out :raised_hand:
 - [Ocean #dev-support Discord](https://discord.com/channels/612953348487905282/720631837122363412)
 - [Ocean #data-challenges Discord](https://discord.com/channels/612953348487905282/993828971408003152).
 
 ### 0.5 Workshops
 
-We host workshops to walk through READMEs, and hold Q&A with our core team. 
+We host workshops to walk through READMEs, and hold Q&A with our core team.
 
 Dates:
 - Apr 25 at 3PM UTC (8 days before deadline of Wed May 3)
@@ -109,7 +109,7 @@ This demo flow skips getting data because it will generate random predictions (n
 
 ### 3.1  Build a simple AI model
 
-Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options. 
+Here, build whatever AI/ML model you want, leveraging the data from the previous step. The [main README](../README.md) links to some options.
 
 This demo flow skips building a model because it will generate random predictions (no model needed).
 
@@ -168,7 +168,7 @@ from ocean_lib.ocean import crypto
 data_nft = ocean.data_nft_factory.create({"from": alice}, 'Data NFT 1', 'DN1')
 print(f"Created data NFT with address={data_nft.address}")
 
-# Encrypt predictions with judges' public key, so competitors can't see. 
+# Encrypt predictions with judges' public key, so competitors can't see.
 # NOTE: public key is *not* the same thing as address. Using address will not work.
 judges_pubkey = '0x3d87bf8bde8c093a16ca5441b5a1053d34a28aca75dc4afffb7a2a513f2a16d2ac41bac68d8fc53058ed4846de25064098bbfaf0e1a5979aeb98028ce69fab6a'
 pred_vals_str = str(pred_vals)
@@ -183,10 +183,10 @@ token_id = 1
 tx = data_nft.safeTransferFrom(alice.address, judges_address, token_id, {"from": alice})
 
 # Ensure the transfer was successful
-assert tx.events['Transfer']['to'].lower() == judges_address.lower()
+assert get_transfer_event(ocean, data_nft, tx).args.to.lower() == judges_address.lower()
 
 # Print txid, as we'll use it in the next step
-print(f"txid from transferring the nft: {tx.txid}")
+print(f"txid from transferring the nft: {tx.transactionHash.hex()}")
 ````
 
 ## 4.3 Double-check that you submitted everything
@@ -204,6 +204,7 @@ Congratulations! You've now made your submission to the challenge! :tada:
 In the terminal:
 ```console
 export REMOTE_TEST_PRIVATE_KEY1=<judges' private key, having address 0xA54A..>
+export RPC_URL=https://polygon.llamarpc.com  # or the RPC of your choice
 ```
 
 In the same Python console:
@@ -212,8 +213,9 @@ In the same Python console:
 from ocean_lib.models.data_nft import DataNFT
 from ocean_lib.ocean import crypto
 from predict_eth.helpers import *
+import os
 
-ocean = create_ocean_instance("polygon-test")
+ocean = create_ocean_instance(os.getenv("RPC_URL"))
 alice = create_alice_wallet(ocean) # the judge is Alice
 
 # specify target times
@@ -226,7 +228,7 @@ print_datetime_info("target times", target_uts)
 data_nft_addr = <addr of your data NFT. Judges will find this from the chain>
 data_nft = DataNFT(ocean.config_dict, data_nft_addr)
 pred_vals_str_enc = data_nft.get_data("predictions")
-pred_vals_str = crypto.asym_decrypt(pred_vals_str_enc, alice.private_key)
+pred_vals_str = crypto.asym_decrypt(pred_vals_str_enc, alice._private_key.hex())
 pred_vals = [float(s) for s in pred_vals_str[1:-1].split(',')]
 
 # get actual ETH values (final)
