@@ -4,7 +4,7 @@ Challenge DF is a data science competition, run as part of Ocean Data Farming (D
 
 **To participate, follow: [Challenge DF Instructions](challenges/challenge-df.md)**
 
-Challenge DF's final round is DF65, where predictions due Nov 29, 2023.
+Challenge DF's final round is DF65, where predictions are due Nov 29, 2023.
 
 Data scientists who want to compete in predicting ETH & more can [run predictoor bots](https://github.com/oceanprotocol/pdr-backend/blob/main/READMEs/predictoor.md).
 
