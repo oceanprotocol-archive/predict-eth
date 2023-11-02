@@ -156,7 +156,9 @@ Keep iterating in step 3 until you're satisfied with accuracy. Then...
 
 ## 4. Publish & share predictions
 
-## 4.1 Publish & share via Python
+We'll now publish the asset on Mumbai. As a result of completing the remote setup [in Step 1.4](#14-do-ocean-remote-setup), you should be ready to go.
+
+## 4.1  Publish & share via Python
 
 In the same Python console:
 
@@ -204,7 +206,6 @@ This section is optional for you, to get a flavor of how judging looks.
 Judging happens automatically as part of weekly DF operations. Your nmse will be auto-computed and compared with nsme of others.
 
 The actual judging code is at df-py repo in ['challenge' sub-directory](https://github.com/oceanprotocol/df-py/tree/main/df_py/challenge). What follows is simply a guideline.
-
 
 In the terminal:
 
