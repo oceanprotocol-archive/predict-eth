@@ -236,7 +236,7 @@ print_datetime_info("target times", target_uts)
 data_nft_addr = <addr of your data NFT. Judges will find this from the chain>
 data_nft = DataNFT(ocean.config_dict, data_nft_addr)
 pred_vals_str_enc = data_nft.get_data("predictions")
-pred_vals_str = crypto.asym_decrypt(pred_vals_str_enc, alice.privateKey.hex())
+pred_vals_str = crypto.asym_decrypt(pred_vals_str_enc, alice._private_key.hex())
 pred_vals = [float(s) for s in pred_vals_str[1:-1].split(',')]
 
 # get actual ETH values (final)

@@ -149,7 +149,7 @@ In the same Python console:
 ```python
 from pybundlr import pybundlr
 file_name = "/tmp/pred_vals.csv"
-url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet.privateKey.hex())
+url = pybundlr.fund_and_upload(file_name, "matic", alice_wallet._private_key.hex())
 #e.g. url = "https://arweave.net/qctEbPb3CjvU8LmV3G_mynX74eCxo1domFQIlOBH1xU"
 print(f"Your csv url: {url}")
 ```
