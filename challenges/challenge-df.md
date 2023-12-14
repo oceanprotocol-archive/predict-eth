@@ -5,6 +5,12 @@ SPDX-License-Identifier: Apache-2.0
 
 # Challenge DF Instructions
 
+> ⚠️ **Challenge DF is now retired**. [Details](https://blog.oceanprotocol.com/introducing-predictoor-data-farming-ad4c95f4a9aa#d8d5). From now on, data scientists can compete in predicting ETH by [running Ocean Predictoor bots](https://github.com/oceanprotocol/pdr-backend/blob/main/READMEs/predictoor.md).
+
+This repo should be used for archival / reference purposes only.
+
+----
+
 ## 0. Introduction
 
 This README provides instructions to participate in Challenge Data Farming (DF).
